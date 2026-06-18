@@ -1,0 +1,334 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>認識牛樟芝 — 台灣特有真菌的科學解析 | 耀德植研生醫</title>
+  <meta name="description" content="深入認識台灣特有種牛樟芝（Antrodia cinnamomea），了解其三萜類、多醣體等活性物成分，科學研究成果，正確食用方式，以及好轉反應（暝眩反應）的完整說明。">
+  <meta name="keywords" content="牛樟芝,Antrodia cinnamomea,三萜類,多醣體,牛樟芝功效,牛樟芝食用方式,暝眩反應,台灣特有種">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .ingredient-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .ing-card { padding: 32px 24px; border: 1px solid var(--border); transition: all var(--t); }
+    .ing-card:hover { border-color: var(--gold); background: var(--gold-pale); transform: translateY(-4px); }
+    .ing-icon { width: 52px; height: 52px; margin-bottom: 16px; color: var(--gold); }
+    .ing-card h3 { font-family: 'Noto Serif TC', serif; font-size: 17px; color: var(--g700); margin-bottom: 8px; }
+    .ing-per { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); margin-bottom: 8px; }
+    .ing-card p { font-size: 13px; color: var(--muted); line-height: 1.8; }
+    .compare-table { width: 100%; border-collapse: collapse; }
+    .compare-table th { background: var(--g700); color: #fff; padding: 14px 16px; font-size: 13px; letter-spacing: 1px; font-weight: 500; text-align: left; }
+    .compare-table th:first-child { font-family: 'Noto Serif TC', serif; }
+    .compare-table td { padding: 14px 16px; font-size: 13px; border-bottom: 1px solid var(--border); }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table td:first-child { color: var(--g700); font-weight: 500; background: var(--cream); }
+    .compare-table tr:hover td { background: rgba(200,151,62,.04); }
+    .check-g { color: var(--g500); font-size: 16px; }
+    .check-r { color: #e74c3c; font-size: 16px; }
+    .usage-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .usage-card { border: 1px solid var(--border); padding: 24px; text-align: center; }
+    .usage-card h4 { font-family: 'Noto Serif TC', serif; font-size: 15px; color: var(--g700); margin: 12px 0 8px; }
+    .usage-card p { font-size: 12px; color: var(--muted); line-height: 1.75; }
+    .reaction-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .react-card { padding: 28px; border-left: 4px solid transparent; }
+    .react-card.normal { border-left-color: var(--g500); background: rgba(45,106,79,.04); }
+    .react-card.warning { border-left-color: #e67e22; background: rgba(230,126,34,.04); }
+    .react-card h3 { font-family: 'Noto Serif TC', serif; font-size: 17px; margin-bottom: 12px; }
+    .react-card.normal h3 { color: var(--g600); }
+    .react-card.warning h3 { color: #e67e22; }
+    .react-list { display: flex; flex-direction: column; gap: 8px; }
+    .react-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--muted); line-height: 1.7; }
+    @media(max-width:1024px){ .ingredient-grid{grid-template-columns:1fr 1fr} .usage-grid{grid-template-columns:1fr 1fr} .reaction-grid{grid-template-columns:1fr} }
+    @media(max-width:768px){ .ingredient-grid{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="nav" class="solid">
+  <a href="index.html" class="logo"><img src="images/logo/LOGO_4.png" alt="" class="logo-icon-img"><img src="images/logo/LOGO_5.png" alt="耀德植研生醫 YAODER BIOMEDICAL" class="logo-wordmark-img"></a>
+  <nav class="nav-menu">
+    <div class="nav-item"><a href="index.html" class="nav-link">首頁</a></div>
+    <div class="nav-item"><a href="about.html" class="nav-link">關於耀德 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="about.html#philosophy">品牌理念與願景</a><a href="about.html#rd">核心研發策略</a><a href="about.html#history">公司沿革</a><a href="about.html#certs">認證資質</a></div></div>
+    <div class="nav-item"><a href="antrodia.html" class="nav-link active">認識牛樟芝 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="#intro">牛樟芝簡介</a><a href="#ingredients">活性物成分</a><a href="#research">科學研究</a><a href="#usage">食用方式</a><a href="#reaction">暝眩反應說明</a></div></div>
+    <div class="nav-item"><a href="products.html" class="nav-link">產品介紹 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="product-bigbull.html">能量補給</a><a href="product-premium.html">頂級系列</a><a href="product-daily.html">日常保健</a><a href="product-extract.html">萃取精華</a><a href="shop.html">購物商城</a></div></div>
+    <div class="nav-item"><a href="wellness.html" class="nav-link">健康方案</a></div>
+    <div class="nav-item"><a href="sustainability.html" class="nav-link">大地永續</a>
+    </div>
+    <div class="nav-item"><a href="news.html" class="nav-link">新聞中心</a></div>
+    <div class="nav-item"><a href="contact.html" class="nav-link">聯絡我們</a></div>
+    <div class="nav-item"><a href="flagship.html" class="nav-link nav-flagship"><span class="flagship-dot"></span>健康生活館</a></div>
+    <div class="nav-divider"></div>
+    <div class="nav-item"><a href="member.html" class="nav-link nav-member">加入會員</a></div>
+    <div class="nav-item"><a href="login.html" class="nav-link nav-login">登入</a></div>
+  </nav>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</header>
+<div class="mobile-menu" id="mobMenu">
+  <span class="close-btn" onclick="toggleMenu()">×</span>
+  <a href="index.html" onclick="toggleMenu()">首頁</a><a href="about.html" onclick="toggleMenu()">關於耀德</a><a href="antrodia.html" onclick="toggleMenu()">認識牛樟芝</a><a href="products.html" onclick="toggleMenu()">產品介紹</a><a href="sustainability.html" onclick="toggleMenu()">大地永續</a><a href="news.html" onclick="toggleMenu()">新聞中心</a><a href="contact.html" onclick="toggleMenu()">聯絡我們</a><a href="flagship.html" onclick="toggleMenu()" style="color:var(--cyber) !important;">健康生活館</a>
+  <div class="mob-btns"><a href="member.html">加入會員</a><a href="login.html" class="gold-btn">登入</a></div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="ph-inner">
+    <div class="ph-left">
+      <div class="breadcrumb"><a href="index.html">首頁</a><span class="sep">›</span><span>認識牛樟芝</span></div>
+      <h1>認識牛樟芝<br><em>台灣最珍貴的真菌瑰寶</em></h1>
+      <p>牛樟芝（Antrodia cinnamomea）是台灣特有種，只生長在台灣原生珍貴牛樟木上，富含三萜類、多醣體等稀有活性物，擁有數十年科學研究的健康佐證。</p>
+    </div>
+    <div class="ph-right">
+      <div class="ph-watermark">ANTRODIA</div>
+      <div class="ph-line-deco"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 牛樟芝簡介 -->
+<section id="intro" style="padding:var(--pad) 64px;background:#fff;">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+      <div class="reveal">
+        <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=900&q=85" alt="牛樟芝" style="width:100%;height:500px;object-fit:cover;">
+      </div>
+      <div class="reveal d2">
+        <div class="tag-row"><div class="tag-line"></div><span class="tag-text">Introduction · 牛樟芝簡介</span></div>
+        <h2 class="section-title">台灣獨有<br>世界珍稀的真菌</h2>
+        <p style="font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:20px;">牛樟芝（學名：Antrodia cinnamomea），俗稱「樟芝」、「台灣牛樟芝」，是台灣特有的藥用真菌，全球僅生長於台灣原生種牛樟木（Cinnamomum kanehirae）的中空腐朽部位。</p>
+        <p style="font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:28px;">由於牛樟木本身已極為稀有且受法律嚴格保護，加上牛樟芝的生長條件極其苛刻（特定溫度、濕度、宿主），自然採集幾乎不可能，每公斤天然子實體市值可達數十萬元以上。</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="padding:20px;background:var(--cream);border-left:3px solid var(--gold);">
+            <div style="font-family:'Playfair Display',serif;font-size:24px;color:var(--gold);margin-bottom:4px;">200+</div>
+            <div style="font-size:12px;color:var(--muted);letter-spacing:1px;">種已鑑定活性化合物</div>
+          </div>
+          <div style="padding:20px;background:var(--cream);border-left:3px solid var(--gold);">
+            <div style="font-family:'Playfair Display',serif;font-size:24px;color:var(--gold);margin-bottom:4px;">20+</div>
+            <div style="font-size:12px;color:var(--muted);letter-spacing:1px;">年台灣科學研究積累</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 活性物成分 -->
+<section id="ingredients" style="padding:var(--pad) 64px;background:var(--cream);">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:56px;" class="reveal">
+      <div class="tag-row" style="justify-content:center;"><div class="tag-line"></div><span class="tag-text">Active Compounds · 活性物成分</span><div class="tag-line"></div></div>
+      <h2 class="section-title">六大核心活性成分</h2>
+      <p class="section-desc" style="max-width:600px;margin:0 auto;">牛樟芝含有多種稀有的生物活性化合物，其中以總三萜類為最重要的指標成分，含量的高低直接決定了產品的品質等級。</p>
+    </div>
+    <div class="ingredient-grid">
+      <div class="ing-card reveal">
+        <svg class="ing-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M26 6L30 16L41 17.5L33 25.5L35.5 37L26 31.5L16.5 37L19 25.5L11 17.5L22 16Z"/></svg>
+        <h3>總三萜類</h3>
+        <div class="ing-per">≥ 15%</div>
+        <p>牛樟芝最重要的特有成分，具有抗腫瘤、抗發炎、保肝等多種生物活性。段木栽培五年以上方能積累足量三萜類。耀德頂級系列三萜含量達業界最高規格。</p>
+      </div>
+      <div class="ing-card reveal d1">
+        <svg class="ing-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="26" cy="26" r="20"/><path d="M18 26l5.5 5.5L34 19"/></svg>
+        <h3>β-葡聚醣（多醣體）</h3>
+        <div class="ing-per">高含量</div>
+        <p>強化免疫系統，促進自然殺手細胞（NK Cell）活性，具有顯著的免疫調節功能。固態培養產品多醣體含量相對豐富，但缺乏三萜類。</p>
+      </div>
+      <div class="ing-card reveal d2">
+        <svg class="ing-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M10 42L20 12L26 28L32 18L38 28L44 14"/><circle cx="26" cy="28" r="4" fill="currentColor" stroke="none" opacity=".3"/></svg>
+        <h3>超氧化物歧化酶（SOD）</h3>
+        <div class="ing-per">高活性</div>
+        <p>天然抗氧化酵素，清除體內自由基，延緩細胞老化，保護人體免受氧化壓力損傷。是牛樟芝抗衰老功效的重要來源。</p>
+      </div>
+      <div class="ing-card reveal d3">
+        <svg class="ing-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 40C12 28 22 14 26 8C30 14 40 28 40 40C40 46.627 33.627 52 26 52C18.373 52 12 46.627 12 40Z" opacity=".4"/><path d="M20 36C20 28 24 22 26 18C28 22 32 28 32 36C32 39.314 29.314 42 26 42C22.686 42 20 39.314 20 36Z"/></svg>
+        <h3>腺苷（Adenosine）</h3>
+        <div class="ing-per">特有成分</div>
+        <p>具有擴張血管、促進血液循環、抗血小板凝集等功能，有助於心血管健康的維護與保護。</p>
+      </div>
+      <div class="ing-card reveal d4">
+        <svg class="ing-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="8" y="10" width="36" height="32" rx="4"/><path d="M18 26l4 4 12-12"/><path d="M16 10V6M36 10V6"/></svg>
+        <h3>馬來酸及琥珀酸</h3>
+        <div class="ing-per">保肝成分</div>
+        <p>牛樟芝特有的有機酸成分，具有顯著的保肝護肝功效，有助於解毒、降低肝臟發炎指數，是牛樟芝「護肝之王」美譽的重要依據。</p>
+      </div>
+      <div class="ing-card reveal d5">
+        <svg class="ing-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M26 4C14.954 4 6 12.954 6 24C6 35.046 14.954 44 26 44C37.046 44 46 35.046 46 24C46 12.954 37.046 4 26 4Z" opacity=".3"/><path d="M26 10C18.268 10 12 16.268 12 24C12 31.732 18.268 38 26 38"/><path d="M26 10C33.732 10 40 16.268 40 24C40 31.732 33.732 38 26 38"/></svg>
+        <h3>麥角固醇</h3>
+        <div class="ing-per">稀有固醇</div>
+        <p>植物固醇的一種，具有抗腫瘤活性，並能在人體內轉化為維生素 D2，有助於骨骼健康與免疫功能調節。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 段木 vs 固態培養比較 -->
+<section style="padding:var(--pad) 64px;background:#fff;">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:48px;" class="reveal">
+      <div class="tag-row" style="justify-content:center;"><div class="tag-line"></div><span class="tag-text">Quality Comparison · 品質比較</span><div class="tag-line"></div></div>
+      <h2 class="section-title">段木栽培 vs 固態培養</h2>
+      <p class="section-desc" style="max-width:600px;margin:0 auto;">不是所有牛樟芝都相同。生長方式的差異，決定了成分組成的根本不同。業界將固態培養的廉價產品稱為「牛樟麥片」，這正是耀德堅持段木栽培的理由。</p>
+    </div>
+    <div class="reveal" style="overflow-x:auto;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>比較項目</th>
+            <th style="background:var(--gold);">耀德段木栽培（子實體）</th>
+            <th style="background:rgba(26,58,42,.6);">一般固態培養（菌絲體）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>生長時間</td><td>5年以上</td><td>3個月左右</td></tr>
+          <tr><td>三萜類含量</td><td><span class="check-g">★★★</span> 高達 15%+</td><td><span class="check-r">△</span> 含量極低或不含</td></tr>
+          <tr><td>多醣體含量</td><td><span class="check-g">★★</span> 豐富</td><td><span class="check-g">★★★</span> 豐富</td></tr>
+          <tr><td>保肝成分</td><td><span class="check-g">✓</span> 含馬來酸等特有成分</td><td><span class="check-r">✗</span> 含量極少</td></tr>
+          <tr><td>抗腫瘤活性</td><td><span class="check-g">✓</span> 科學研究有完整佐證</td><td><span class="check-r">△</span> 研究支持有限</td></tr>
+          <tr><td>萃取技術</td><td>超臨界精準萃取（保留活性）</td><td>一般水萃取</td></tr>
+          <tr><td>價格</td><td>高（品質對應）</td><td>低</td></tr>
+          <tr><td>業界俗稱</td><td style="color:var(--gold);font-weight:600;">真正牛樟芝</td><td style="color:var(--muted);">「牛樟麥片」</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="text-align:center;margin-top:36px;" class="reveal">
+      <a href="product-premium.html" class="btn-gold">查看頂級子實體系列 <svg class="arrow-i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- 科學研究 -->
+<section id="research" style="padding:var(--pad) 64px;background:var(--g800);">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:56px;" class="reveal">
+      <div class="tag-row" style="justify-content:center;"><div class="tag-line"></div><span class="tag-text">Science · 科學研究</span><div class="tag-line"></div></div>
+      <h2 class="section-title white">科學研究重點摘要</h2>
+      <p class="section-desc white" style="max-width:600px;margin:0 auto;">累積三十年以上的台灣學術研究，牛樟芝的保健功效已有大量文獻支持。以下為主要研究發現。</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.06);" class="reveal">
+      <div style="background:var(--g800);padding:40px;">
+        <div style="font-family:'Playfair Display',serif;font-size:40px;color:var(--gold);margin-bottom:8px;">01</div>
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;color:#fff;margin-bottom:12px;">保肝護肝</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,.55);line-height:1.8;">多項動物試驗及人體臨床研究均顯示，牛樟芝萃取物能顯著降低因酒精、藥物或病毒引起的肝臟發炎（GOT/GPT值），並促進肝細胞修復。</p>
+      </div>
+      <div style="background:rgba(255,255,255,.03);padding:40px;">
+        <div style="font-family:'Playfair Display',serif;font-size:40px;color:var(--gold);margin-bottom:8px;">02</div>
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;color:#fff;margin-bottom:12px;">免疫調節</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,.55);line-height:1.8;">台灣大學等研究機構證實，牛樟芝多醣體可增強自然殺手細胞（NK Cell）的活性及吞噬細胞功能，有效強化人體免疫防線。</p>
+      </div>
+      <div style="background:var(--g800);padding:40px;">
+        <div style="font-family:'Playfair Display',serif;font-size:40px;color:var(--gold);margin-bottom:8px;">03</div>
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;color:#fff;margin-bottom:12px;">抗腫瘤活性</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,.55);line-height:1.8;">三萜類成分被發現能誘導腫瘤細胞凋亡（Apoptosis），並抑制其增殖。多篇 SCI 期刊論文記錄了體外（In vitro）試驗的抗腫瘤效果。</p>
+      </div>
+      <div style="background:rgba(255,255,255,.03);padding:40px;">
+        <div style="font-family:'Playfair Display',serif;font-size:40px;color:var(--gold);margin-bottom:8px;">04</div>
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;color:#fff;margin-bottom:12px;">抗氧化</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,.55);line-height:1.8;">DPPH自由基清除率可達 92%，超氧化物歧化酶（SOD）活性顯著高於市售同類產品，有效對抗細胞氧化壓力。</p>
+      </div>
+      <div style="background:var(--g800);padding:40px;">
+        <div style="font-family:'Playfair Display',serif;font-size:40px;color:var(--gold);margin-bottom:8px;">05</div>
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;color:#fff;margin-bottom:12px;">抗炎止痛</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,.55);line-height:1.8;">牛樟芝三萜類成分被證實能抑制 COX-2 等發炎相關酵素的活性，發揮類似抗發炎藥物的效果，且無副作用疑慮。</p>
+      </div>
+      <div style="background:rgba(255,255,255,.03);padding:40px;">
+        <div style="font-family:'Playfair Display',serif;font-size:40px;color:var(--gold);margin-bottom:8px;">06</div>
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;color:#fff;margin-bottom:12px;">心血管保護</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,.55);line-height:1.8;">腺苷成分有助於擴張血管、抗血小板凝集，並有研究顯示能調節血脂（降低總膽固醇），有益於心血管健康維護。</p>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:24px;font-size:12px;color:rgba(255,255,255,.3);">※ 以上研究成果為學術文獻摘要，本產品為食品，依法不得宣稱治療或預防任何疾病。</p>
+  </div>
+</section>
+
+<!-- 食用方式 -->
+<section id="usage" style="padding:var(--pad) 64px;background:var(--cream);">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:48px;" class="reveal">
+      <div class="tag-row" style="justify-content:center;"><div class="tag-line"></div><span class="tag-text">How to Use · 食用方式</span><div class="tag-line"></div></div>
+      <h2 class="section-title">正確食用方式</h2>
+    </div>
+    <div class="usage-grid reveal">
+      <div class="usage-card">
+        <svg style="width:48px;height:48px;color:var(--gold);margin:0 auto;" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="24" cy="24" r="18"/><path d="M24 14v10l6 4"/></svg>
+        <h4>食用時間</h4>
+        <p>建議飯後 30 分鐘服用，空腹食用可能引起腸胃不適。搭配溫水（約 40°C）效果最佳。</p>
+      </div>
+      <div class="usage-card">
+        <svg style="width:48px;height:48px;color:var(--gold);margin:0 auto;" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M16 8h16v8H16z"/><path d="M12 16h24v24H12z"/><path d="M20 24h8M20 30h4"/></svg>
+        <h4>建議劑量</h4>
+        <p>一般保健：每日 2 粒。加強補充：每日 4 粒，分早晚各 2 粒。初次使用建議從 1 粒開始觀察反應。</p>
+      </div>
+      <div class="usage-card">
+        <svg style="width:48px;height:48px;color:var(--gold);margin:0 auto;" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 40V20C8 12 14 6 22 6h4c8 0 14 6 14 14v20"/><path d="M8 30h32"/></svg>
+        <h4>搭配飲食</h4>
+        <p>搭配均衡飲食效果更佳。避免同時大量飲用酒精或咖啡，不建議與退燒藥同服。</p>
+      </div>
+      <div class="usage-card">
+        <svg style="width:48px;height:48px;color:var(--gold);margin:0 auto;" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M24 6C14 6 6 14 6 24C6 34 14 42 24 42C34 42 42 34 42 24C42 14 34 6 24 6Z"/><path d="M24 18v14M18 24h12"/></svg>
+        <h4>注意事項</h4>
+        <p>孕婦、哺乳婦女慎用。兒童需在成人監護下服用。正在接受手術前後，建議停止服用並諮詢醫師。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 暝眩反應 -->
+<section id="reaction" style="padding:var(--pad) 64px;background:#fff;">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:48px;" class="reveal">
+      <div class="tag-row" style="justify-content:center;"><div class="tag-line"></div><span class="tag-text">Herxheimer Reaction · 暝眩反應</span><div class="tag-line"></div></div>
+      <h2 class="section-title">好轉反應說明</h2>
+      <p class="section-desc" style="max-width:600px;margin:0 auto;">部分消費者初次服用牛樟芝時，可能出現「好轉反應」（醫學上稱「暝眩反應」或「赫氏反應」），這是正常的生理調整過程，無需過度擔心。</p>
+    </div>
+    <div class="reaction-grid reveal">
+      <div class="react-card normal">
+        <h3>✓ 正常好轉反應（無需停止服用）</h3>
+        <div class="react-list">
+          <div class="react-item"><svg style="width:16px;height:16px;color:var(--g500);flex-shrink:0;margin-top:3px;" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M5.5 8l2 2L11 5.5"/></svg>輕微疲倦感（通常 3–7 天緩解）</div>
+          <div class="react-item"><svg style="width:16px;height:16px;color:var(--g500);flex-shrink:0;margin-top:3px;" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M5.5 8l2 2L11 5.5"/></svg>輕微頭暈或頭痛</div>
+          <div class="react-item"><svg style="width:16px;height:16px;color:var(--g500);flex-shrink:0;margin-top:3px;" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M5.5 8l2 2L11 5.5"/></svg>排便次數改變（增加或減少）</div>
+          <div class="react-item"><svg style="width:16px;height:16px;color:var(--g500);flex-shrink:0;margin-top:3px;" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M5.5 8l2 2L11 5.5"/></svg>輕微皮膚搔癢或出疹（排毒反應）</div>
+          <div class="react-item"><svg style="width:16px;height:16px;color:var(--g500);flex-shrink:0;margin-top:3px;" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M5.5 8l2 2L11 5.5"/></svg>口乾或輕微喉嚨不適</div>
+          <div class="react-item"><svg style="width:16px;height:16px;color:var(--g500);flex-shrink:0;margin-top:3px;" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M5.5 8l2 2L11 5.5"/></svg>尿液顏色加深（排毒現象）</div>
+        </div>
+        <p style="font-size:13px;color:var(--muted);margin-top:16px;line-height:1.7;">以上反應通常在繼續服用 2–4 週後自行緩解，期間可暫時減少至每日 1 粒，並多喝水。</p>
+      </div>
+      <div class="react-card warning">
+        <h3>⚠ 需立即停止服用並就醫的情況</h3>
+        <div class="react-list">
+          <div class="react-item"><svg style="width:16px;height:16px;color:#e67e22;flex-shrink:0;margin-top:3px;" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2L14 14H2L8 2Z"/><path d="M8 7v4M8 12.5v.5"/></svg>嚴重的全身性蕁麻疹或過敏反應</div>
+          <div class="react-item"><svg style="width:16px;height:16px;color:#e67e22;flex-shrink:0;margin-top:3px;" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2L14 14H2L8 2Z"/><path d="M8 7v4M8 12.5v.5"/></svg>呼吸困難或胸悶</div>
+          <div class="react-item"><svg style="width:16px;height:16px;color:#e67e22;flex-shrink:0;margin-top:3px;" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2L14 14H2L8 2Z"/><path d="M8 7v4M8 12.5v.5"/></svg>持續嚴重嘔吐或腹痛</div>
+          <div class="react-item"><svg style="width:16px;height:16px;color:#e67e22;flex-shrink:0;margin-top:3px;" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2L14 14H2L8 2Z"/><path d="M8 7v4M8 12.5v.5"/></svg>肝功能指數（GOT/GPT）急劇上升</div>
+          <div class="react-item"><svg style="width:16px;height:16px;color:#e67e22;flex-shrink:0;margin-top:3px;" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2L14 14H2L8 2Z"/><path d="M8 7v4M8 12.5v.5"/></svg>嚴重皮膚潰瘍或黃疸現象</div>
+        </div>
+        <p style="font-size:13px;color:var(--muted);margin-top:16px;line-height:1.7;">如有任何疑慮，歡迎聯繫耀德客服或健康諮詢師，我們將協助您評估是否適合繼續服用。</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px;" class="reveal">
+      <a href="contact.html" class="btn-dark">諮詢客服</a>
+      <a href="product-premium.html" class="btn-out-d" style="margin-left:16px;">查看頂級產品</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer><div class="wrap"><div class="footer-top"><div class="f-brand"><a href="index.html" class="logo logo-footer"><img src="images/logo/LOGO_6.png" alt="耀德植研生醫 YAODER BIOMEDICAL" class="logo-full-img"></a><p>深耕台灣牛樟芝研究逾二十年，以科學嚴謹、自然純粹的信念，守護每一個珍貴生命的健康與活力。</p><div class="f-socials"><a href="#" class="f-soc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="#" class="f-soc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 11.04C22 6.35 17.302 2.54 11.523 2.54S1.047 6.35 1.047 11.04c0 4.2 3.726 7.72 8.756 8.39.34.073.803.225.92.517.105.265.069.68.034.947l-.15.895c-.045.265-.21 1.04.912.567 1.12-.473 6.06-3.57 8.267-6.11C21.47 14.41 22 12.82 22 11.04z"/></svg></a></div></div><div class="f-nav-col"><h4>關於耀德</h4><ul><li><a href="about.html#philosophy">品牌理念與願景</a></li><li><a href="about.html#rd">核心研發策略</a></li><li><a href="sustainability.html">大地永續</a></li></ul></div><div class="f-nav-col"><h4>產品服務</h4><ul><li><a href="products.html">產品介紹</a></li><li><a href="shop.html">購物商城</a></li><li><a href="antrodia.html">認識牛樟芝</a></li><li><a href="member.html">加入會員</a></li></ul></div><div class="f-nav-col"><h4>快速連結</h4><ul><li><a href="news.html">新聞中心</a></li><li><a href="contact.html">聯絡我們</a></li><li><a href="login.html">會員登入</a></li><li><a href="register.html">會員註冊</a></li></ul></div></div><div class="footer-btm"><p class="f-copy">© 2026 耀德植研生醫股份有限公司 · All Rights Reserved · www.bigbull.com.tw</p><div class="f-btm-links"><a href="#">隱私權政策</a><a href="#">使用條款</a></div></div></div></footer>
+
+<script>
+const _nav=document.getElementById('nav');if(_nav&&!_nav.classList.contains('solid')){window.addEventListener('scroll',()=>{_nav.classList.toggle('scrolled',window.scrollY>60)},{passive:true})}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+const _ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('up')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>_ro.observe(el));
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open')}
+</script>
+
+<!-- Back to Top -->
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到頂部" aria-label="回到頂部" style="position:fixed;bottom:32px;right:88px;width:50px;height:50px;background:#c8973e;border:none;border-radius:50%;cursor:pointer;z-index:901;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(200,151,62,.5);opacity:0;visibility:hidden;transform:translateY(12px);transition:all .35s ease;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 13l6-6 6 6"/></svg></button>
+<script>
+(function(){var b=document.getElementById('backTop');if(!b)return;window.addEventListener('scroll',function(){var s=window.scrollY>300;b.style.opacity=s?'1':'0';b.style.visibility=s?'visible':'hidden';b.style.transform=s?'translateY(0)':'translateY(12px)';},{passive:true});})();
+</script>
+<script src="analytics.js" defer></script>
+</body>
+</html>
+
+

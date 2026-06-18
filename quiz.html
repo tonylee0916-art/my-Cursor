@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3 分鐘 AI 健康分析 — 找到最適合你的保健方案 | 耀德植研生醫</title>
+  <meta name="description" content="回答 7 個問題，耀德 AI 健康分析引擎根據你的睡眠、壓力、運動與飲食習慣，生成個人化健康報告與牛樟芝保健推薦方案。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI 健康分析",
+    "description": "耀德植研生醫 AI 健康分析系統，根據個人生活型態推薦最適合的牛樟芝保健方案。",
+    "provider": { "@type": "Organization", "name": "耀德植研生醫" }
+  }
+  </script>
+  <style>
+    /* ── 全頁底色 ── */
+    body { background: #040E09; }
+
+    /* ── Quiz 容器 ── */
+    #quiz-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: calc(var(--nav-h) + 32px) 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    #quiz-page::before {
+      content: '';
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 30% 20%, rgba(0,201,160,.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 70% 80%, rgba(255,202,40,.05) 0%, transparent 60%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── Progress ── */
+    .quiz-progress-wrap {
+      width: 100%; max-width: 720px;
+      margin-bottom: 36px;
+      position: relative; z-index: 1;
+    }
+    .quiz-progress-label {
+      display: flex; justify-content: space-between;
+      font-size: 12px; color: rgba(255,255,255,.4);
+      letter-spacing: 1px; margin-bottom: 10px;
+    }
+    .quiz-progress-bar {
+      height: 4px; background: rgba(255,255,255,.08);
+      border-radius: 2px; overflow: hidden;
+    }
+    .quiz-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #00897B, #00C9A0, #FFCA28);
+      border-radius: 2px;
+      transition: width .5s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ── Card ── */
+    .quiz-card {
+      width: 100%; max-width: 720px;
+      background: rgba(10,30,20,.85);
+      border: 1px solid rgba(0,201,160,.15);
+      border-radius: 20px;
+      padding: 48px;
+      position: relative; z-index: 1;
+      backdrop-filter: blur(24px);
+      box-shadow: 0 32px 80px rgba(0,0,0,.4);
+    }
+    .quiz-card.hidden { display: none; }
+
+    /* ── Question header ── */
+    .quiz-step-tag {
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: #00C9A0; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .quiz-step-tag::before { content: ''; width: 24px; height: 1.5px; background: #00C9A0; }
+    .quiz-q {
+      font-size: clamp(20px, 3.5vw, 28px);
+      font-weight: 900; color: #fff;
+      line-height: 1.3; margin-bottom: 8px;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .quiz-hint { font-size: 13px; color: rgba(255,255,255,.4); margin-bottom: 32px; }
+
+    /* ── Options ── */
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .quiz-options.single-col { grid-template-columns: 1fr; }
+    .quiz-opt {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,.04);
+      border: 1.5px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all .2s ease;
+      user-select: none;
+    }
+    .quiz-opt:hover { border-color: rgba(0,201,160,.4); background: rgba(0,201,160,.06); }
+    .quiz-opt.selected {
+      border-color: #00C9A0;
+      background: rgba(0,201,160,.12);
+      box-shadow: 0 0 0 1px rgba(0,201,160,.3);
+    }
+    .quiz-opt-check {
+      width: 22px; height: 22px; flex-shrink: 0;
+      border: 2px solid rgba(255,255,255,.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .2s;
+    }
+    .quiz-opt.selected .quiz-opt-check {
+      background: #00C9A0; border-color: #00C9A0;
+    }
+    .quiz-opt-check svg { width: 12px; height: 12px; color: #071C12; opacity: 0; transition: opacity .15s; }
+    .quiz-opt.selected .quiz-opt-check svg { opacity: 1; }
+    .quiz-opt-text { flex: 1; }
+    .quiz-opt-text strong { display: block; font-size: 15px; color: #fff; font-weight: 600; }
+    .quiz-opt-text span { font-size: 12px; color: rgba(255,255,255,.45); margin-top: 2px; display: block; }
+    .quiz-opt-icon { font-size: 22px; flex-shrink: 0; }
+
+    /* ── Multi-select hint ── */
+    .quiz-multi-hint {
+      font-size: 12px; color: rgba(0,201,160,.7);
+      margin-bottom: 16px; letter-spacing: .5px;
+    }
+
+    /* ── Nav buttons ── */
+    .quiz-nav {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .btn-quiz-next {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 36px;
+      background: linear-gradient(135deg, #FFCA28, #FFB300);
+      color: #071C12; font-size: 15px; font-weight: 700;
+      border: none; border-radius: 40px; cursor: pointer;
+      transition: all .2s;
+      min-height: 50px;
+    }
+    .btn-quiz-next:disabled { opacity: .35; cursor: not-allowed; }
+    .btn-quiz-next:not(:disabled):hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,202,40,.35); }
+    .btn-quiz-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 12px 20px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.15);
+      color: rgba(255,255,255,.55); font-size: 13px;
+      border-radius: 40px; cursor: pointer;
+      transition: all .2s;
+    }
+    .btn-quiz-back:hover { border-color: rgba(255,255,255,.4); color: rgba(255,255,255,.8); }
+
+    /* ── Analyzing screen ── */
+    #quiz-analyzing {
+      text-align: center; padding: 16px 0;
+    }
+    .analyze-rings {
+      position: relative;
+      width: 120px; height: 120px;
+      margin: 0 auto 32px;
+    }
+    .analyze-ring {
+      position: absolute; border-radius: 50%;
+      border: 2px solid transparent;
+      animation: ringPulse 2s ease-in-out infinite;
+    }
+    .analyze-ring.r1 { inset: 0; border-color: rgba(0,201,160,.6); animation-delay: 0s; }
+    .analyze-ring.r2 { inset: 16px; border-color: rgba(0,201,160,.4); animation-delay: .4s; }
+    .analyze-ring.r3 { inset: 32px; border-color: rgba(0,201,160,.25); animation-delay: .8s; }
+    .analyze-center {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    @keyframes ringPulse {
+      0%,100% { transform: scale(1); opacity: .8; }
+      50% { transform: scale(1.08); opacity: 1; }
+    }
+    .analyze-title { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .analyze-steps { list-style: none; display: flex; flex-direction: column; gap: 10px; max-width: 320px; margin: 0 auto 28px; }
+    .analyze-steps li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; color: rgba(255,255,255,.6);
+      padding: 10px 14px;
+      background: rgba(255,255,255,.04);
+      border-radius: 8px;
+      transition: all .4s;
+    }
+    .analyze-steps li.done { color: #00C9A0; background: rgba(0,201,160,.08); }
+    .analyze-steps li.done::before { content: '✓'; color: #00C9A0; font-weight: 700; flex-shrink: 0; }
+    .analyze-steps li:not(.done)::before { content: '…'; color: rgba(255,255,255,.3); flex-shrink: 0; }
+    .analyze-bar-wrap { max-width: 320px; margin: 0 auto; }
+    .analyze-bar-bg { height: 6px; background: rgba(255,255,255,.08); border-radius: 3px; overflow: hidden; }
+    .analyze-bar-fill { height: 100%; background: linear-gradient(90deg, #00897B, #00C9A0); border-radius: 3px; width: 0%; transition: width .3s ease; }
+    .analyze-pct { font-size: 12px; color: rgba(255,255,255,.4); margin-top: 8px; text-align: right; }
+
+    /* ── Result card ── */
+    #quiz-result { display: none; }
+    .result-header {
+      background: linear-gradient(135deg, rgba(0,42,30,.9), rgba(7,28,18,.98));
+      border: 1px solid rgba(0,201,160,.2);
+      border-radius: 16px;
+      padding: 32px; margin-bottom: 24px;
+    }
+    .result-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px;
+      background: rgba(0,201,160,.12); border: 1px solid rgba(0,201,160,.3);
+      border-radius: 20px; font-size: 11px; font-weight: 700; color: #00C9A0;
+      letter-spacing: 1.5px; margin-bottom: 16px;
+    }
+    .result-title { font-size: clamp(22px,3vw,30px); font-weight: 900; color: #fff; margin-bottom: 8px; }
+    .result-desc { font-size: 15px; color: rgba(255,255,255,.65); line-height: 1.75; }
+
+    /* Health scores */
+    .result-scores {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 12px;
+      margin: 24px 0;
+    }
+    .score-item { text-align: center; }
+    .score-label { font-size: 11px; color: rgba(255,255,255,.4); letter-spacing: 1px; margin-bottom: 8px; }
+    .score-ring {
+      width: 64px; height: 64px; margin: 0 auto;
+      position: relative;
+    }
+    .score-ring svg { transform: rotate(-90deg); }
+    .score-ring .track { fill: none; stroke: rgba(255,255,255,.08); stroke-width: 5; }
+    .score-ring .fill { fill: none; stroke-width: 5; stroke-linecap: round;
+      transition: stroke-dashoffset 1s ease .3s; }
+    .score-ring .fill.good { stroke: #00C9A0; }
+    .score-ring .fill.mid  { stroke: #FFCA28; }
+    .score-ring .fill.low  { stroke: #f97316; }
+    .score-val { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff; }
+
+    /* Recommended products */
+    .result-products-title {
+      font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+      color: #FFCA28; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .result-products-title::before { content: ''; flex: 1; height: 1px; background: rgba(255,202,40,.2); }
+    .result-stack { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+    .result-prod-item {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px; border-radius: 12px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .result-prod-item.primary { border-color: rgba(255,202,40,.25); background: rgba(255,202,40,.05); }
+    .result-prod-thumb {
+      width: 56px; height: 56px; flex-shrink: 0;
+      border-radius: 8px; object-fit: contain;
+      background: rgba(0,0,0,.4);
+    }
+    .result-prod-info { flex: 1; }
+    .result-prod-role { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #FFCA28; margin-bottom: 3px; }
+    .result-prod-name { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+    .result-prod-why { font-size: 12px; color: rgba(255,255,255,.5); line-height: 1.5; }
+    .result-prod-price { font-size: 16px; font-weight: 700; color: #FFCA28; flex-shrink: 0; }
+
+    /* CTA section */
+    .result-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn-result-primary {
+      flex: 1; min-width: 200px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 16px 28px; min-height: 52px;
+      background: linear-gradient(135deg, #FFCA28, #FFB300);
+      color: #071C12; font-size: 15px; font-weight: 700;
+      border: none; border-radius: 40px; cursor: pointer;
+      text-decoration: none; transition: all .2s;
+    }
+    .btn-result-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,202,40,.35); }
+    .btn-result-secondary {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 15px 28px; min-height: 52px;
+      background: transparent;
+      border: 1.5px solid rgba(0,201,160,.45); color: #fff;
+      font-size: 14px; font-weight: 600;
+      border-radius: 40px; cursor: pointer;
+      text-decoration: none; transition: all .2s;
+    }
+    .btn-result-secondary:hover { border-color: #00E5CC; color: #00E5CC; }
+    .btn-result-subscribe {
+      width: 100%;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 15px 28px; min-height: 52px;
+      background: linear-gradient(135deg, #00897B, #00C9A0);
+      color: #fff; font-size: 14px; font-weight: 700;
+      border: none; border-radius: 40px; cursor: pointer;
+      text-decoration: none; transition: all .2s;
+    }
+    .btn-result-subscribe:hover { filter: brightness(1.08); transform: translateY(-1px); }
+    .result-sub-note {
+      font-size: 12px; color: rgba(255,255,255,.35);
+      text-align: center; margin-top: 12px;
+    }
+    .result-share {
+      text-align: center; margin-top: 20px;
+      padding-top: 20px; border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .result-share p { font-size: 13px; color: rgba(255,255,255,.4); margin-bottom: 12px; }
+    .share-btns { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 18px;
+      border: 1px solid rgba(255,255,255,.12); border-radius: 20px;
+      background: transparent; color: rgba(255,255,255,.6);
+      font-size: 12px; cursor: pointer; transition: all .2s;
+      text-decoration: none;
+    }
+    .share-btn:hover { border-color: rgba(255,255,255,.3); color: #fff; }
+
+    /* ── Retake ── */
+    .quiz-retake-wrap { text-align: center; margin-top: 20px; }
+    .quiz-retake {
+      background: none; border: none; color: rgba(255,255,255,.35);
+      font-size: 13px; cursor: pointer; text-decoration: underline;
+      font-family: inherit;
+    }
+    .quiz-retake:hover { color: rgba(255,255,255,.6); }
+
+    /* ── Email capture ── */
+    .result-email {
+      margin-top: 20px; padding: 20px 24px;
+      background: rgba(255,202,40,.05); border: 1px solid rgba(255,202,40,.15);
+      border-radius: 12px;
+    }
+    .result-email p { font-size: 14px; color: rgba(255,255,255,.7); margin-bottom: 12px; }
+    .result-email p strong { color: #FFCA28; }
+    .result-email-row { display: flex; gap: 8px; }
+    .result-email-input {
+      flex: 1; padding: 12px 16px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12); border-radius: 8px;
+      color: #fff; font-size: 14px; font-family: inherit; outline: none;
+    }
+    .result-email-input::placeholder { color: rgba(255,255,255,.3); }
+    .result-email-input:focus { border-color: rgba(255,202,40,.4); }
+    .btn-email-submit {
+      padding: 12px 20px;
+      background: #FFCA28; color: #071C12;
+      border: none; border-radius: 8px;
+      font-weight: 700; cursor: pointer; transition: all .2s;
+      white-space: nowrap; font-family: inherit;
+    }
+    .btn-email-submit:hover { background: #FFB300; }
+    .result-email-done { display: none; font-size: 14px; color: #00C9A0; font-weight: 600; padding: 8px 0; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .quiz-card { padding: 28px 20px; border-radius: 16px; }
+      .quiz-options { grid-template-columns: 1fr; }
+      .result-scores { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .result-cta { flex-direction: column; }
+      .btn-result-primary { min-width: 0; }
+      .result-email-row { flex-direction: column; }
+    }
+    @media (max-width: 480px) {
+      .quiz-progress-wrap { margin-bottom: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="nav" class="solid">
+  <a href="index.html" class="logo"><img src="images/logo/LOGO_4.png" alt="" class="logo-icon-img"><img src="images/logo/LOGO_5.png" alt="耀德植研生醫 YAODER BIOMEDICAL" class="logo-wordmark-img"></a>
+  <nav class="nav-menu">
+    <div class="nav-item"><a href="index.html" class="nav-link">首頁</a></div>
+    <div class="nav-item"><a href="about.html" class="nav-link">關於耀德 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="about.html#philosophy">品牌理念與願景</a><a href="about.html#rd">核心研發策略</a><a href="about.html#history">公司沿革</a><a href="about.html#certs">認證資質</a></div></div>
+    <div class="nav-item"><a href="antrodia.html" class="nav-link">認識牛樟芝 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="antrodia.html#intro">牛樟芝簡介</a><a href="antrodia.html#ingredients">活性物成分</a><a href="antrodia.html#research">科學研究</a></div></div>
+    <div class="nav-item"><a href="products.html" class="nav-link">產品介紹 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="product-bigbull.html">能量補給</a><a href="product-premium.html">頂級系列</a><a href="product-daily.html">日常保健</a><a href="product-extract.html">萃取精華</a><a href="shop.html">購物商城</a></div></div>
+    <div class="nav-item"><a href="wellness.html" class="nav-link">健康方案</a></div>
+    <div class="nav-item"><a href="news.html" class="nav-link">新聞中心</a></div>
+    <div class="nav-item"><a href="contact.html" class="nav-link">聯絡我們</a></div>
+    <div class="nav-item"><a href="flagship.html" class="nav-link nav-flagship"><span class="flagship-dot"></span>健康生活館</a></div>
+    <div class="nav-divider"></div>
+    <div class="nav-item"><a href="member.html" class="nav-link nav-member">加入會員</a></div>
+    <div class="nav-item"><a href="login.html" class="nav-link nav-login">登入</a></div>
+  </nav>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</header>
+<div class="mobile-menu" id="mobMenu">
+  <span class="close-btn" onclick="toggleMenu()">×</span>
+  <a href="index.html" onclick="toggleMenu()">首頁</a>
+  <a href="products.html" onclick="toggleMenu()">產品介紹</a>
+  <a href="wellness.html" onclick="toggleMenu()">健康方案</a>
+  <a href="flagship.html" onclick="toggleMenu()" style="color:var(--cyber) !important;">健康生活館</a>
+  <div class="mob-btns"><a href="member.html">加入會員</a><a href="login.html" class="gold-btn">登入</a></div>
+</div>
+
+<!-- QUIZ PAGE -->
+<div id="quiz-page">
+
+  <!-- Progress bar -->
+  <div class="quiz-progress-wrap" id="progressWrap">
+    <div class="quiz-progress-label">
+      <span id="progressLabel">問題 1 / 7</span>
+      <span id="progressPct">14%</span>
+    </div>
+    <div class="quiz-progress-bar">
+      <div class="quiz-progress-fill" id="progressFill" style="width:14%"></div>
+    </div>
+  </div>
+
+  <!-- ── Q1：年齡 ── -->
+  <div class="quiz-card" id="q1">
+    <div class="quiz-step-tag">Step 01 · 基本資訊</div>
+    <h1 class="quiz-q">你的年齡範圍是？</h1>
+    <p class="quiz-hint">不同年齡對應不同的保健需求基準線</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" data-q="1" data-val="18-30" data-scores="E:3,I:1,R:1,L:0">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🌱</span>
+        <div class="quiz-opt-text"><strong>18 — 30 歲</strong><span>活力旺盛、壓力起步期</span></div>
+      </div>
+      <div class="quiz-opt" data-q="1" data-val="31-45" data-scores="E:2,I:2,R:2,L:1">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">⚡</span>
+        <div class="quiz-opt-text"><strong>31 — 45 歲</strong><span>職涯高峰、體力開始消耗</span></div>
+      </div>
+      <div class="quiz-opt" data-q="1" data-val="46-60" data-scores="E:1,I:3,R:2,L:3">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🏔</span>
+        <div class="quiz-opt-text"><strong>46 — 60 歲</strong><span>熟齡轉變、保健意識提升</span></div>
+      </div>
+      <div class="quiz-opt" data-q="1" data-val="60+" data-scores="E:0,I:3,R:2,L:3">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🌿</span>
+        <div class="quiz-opt-text"><strong>60 歲以上</strong><span>銀髮活力、全方位守護</span></div>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <span></span>
+      <button class="btn-quiz-next" id="next1" disabled onclick="nextStep(1)">下一題 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></button>
+    </div>
+  </div>
+
+  <!-- ── Q2：工作型態 ── -->
+  <div class="quiz-card hidden" id="q2">
+    <div class="quiz-step-tag">Step 02 · 生活型態</div>
+    <h2 class="quiz-q">你的主要工作型態是？</h2>
+    <p class="quiz-hint">工作型態直接影響能量消耗與保健需求</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" data-q="2" data-val="office" data-scores="E:2,I:1,R:2,L:1">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">💼</span>
+        <div class="quiz-opt-text"><strong>辦公室工作</strong><span>久坐、螢幕時間長</span></div>
+      </div>
+      <div class="quiz-opt" data-q="2" data-val="shift" data-scores="E:3,I:2,R:3,L:2">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🌙</span>
+        <div class="quiz-opt-text"><strong>輪班 / 夜班</strong><span>作息不規律、生理時鐘混亂</span></div>
+      </div>
+      <div class="quiz-opt" data-q="2" data-val="physical" data-scores="E:3,I:2,R:2,L:1">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🏗</span>
+        <div class="quiz-opt-text"><strong>體力勞動</strong><span>體能消耗大、需積極補充</span></div>
+      </div>
+      <div class="quiz-opt" data-q="2" data-val="wfh" data-scores="E:1,I:1,R:1,L:1">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🏠</span>
+        <div class="quiz-opt-text"><strong>居家 / 退休</strong><span>步調輕鬆、注重長期維持</span></div>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-quiz-back" onclick="prevStep(2)"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 8H3M8 3L3 8l5 5"/></svg> 上一題</button>
+      <button class="btn-quiz-next" id="next2" disabled onclick="nextStep(2)">下一題 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></button>
+    </div>
+  </div>
+
+  <!-- ── Q3：睡眠 ── -->
+  <div class="quiz-card hidden" id="q3">
+    <div class="quiz-step-tag">Step 03 · 睡眠品質</div>
+    <h2 class="quiz-q">你每晚的睡眠時間通常是？</h2>
+    <p class="quiz-hint">睡眠是免疫修復與代謝的核心指標</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" data-q="3" data-val="lt6" data-scores="E:3,I:2,R:3,L:2">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">😵</span>
+        <div class="quiz-opt-text"><strong>少於 6 小時</strong><span>嚴重睡眠不足、需積極修復</span></div>
+      </div>
+      <div class="quiz-opt" data-q="3" data-val="6-7" data-scores="E:2,I:2,R:2,L:1">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">😐</span>
+        <div class="quiz-opt-text"><strong>6 — 7 小時</strong><span>略感不足、偶有疲勞感</span></div>
+      </div>
+      <div class="quiz-opt" data-q="3" data-val="7-8" data-scores="E:1,I:1,R:1,L:1">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">😊</span>
+        <div class="quiz-opt-text"><strong>7 — 8 小時</strong><span>達到建議睡眠時長</span></div>
+      </div>
+      <div class="quiz-opt" data-q="3" data-val="gt8" data-scores="E:0,I:1,R:0,L:2">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">😴</span>
+        <div class="quiz-opt-text"><strong>8 小時以上</strong><span>充足睡眠，著重長期維護</span></div>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-quiz-back" onclick="prevStep(3)"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 8H3M8 3L3 8l5 5"/></svg> 上一題</button>
+      <button class="btn-quiz-next" id="next3" disabled onclick="nextStep(3)">下一題 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></button>
+    </div>
+  </div>
+
+  <!-- ── Q4：壓力 ── -->
+  <div class="quiz-card hidden" id="q4">
+    <div class="quiz-step-tag">Step 04 · 壓力評估</div>
+    <h2 class="quiz-q">近期整體壓力狀態如何？</h2>
+    <p class="quiz-hint">慢性壓力會消耗大量免疫資源與能量</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" data-q="4" data-val="high" data-scores="E:3,I:3,R:3,L:2">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🔥</span>
+        <div class="quiz-opt-text"><strong>高壓狀態</strong><span>長期緊繃、難以放鬆</span></div>
+      </div>
+      <div class="quiz-opt" data-q="4" data-val="medium" data-scores="E:2,I:2,R:2,L:1">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">⚡</span>
+        <div class="quiz-opt-text"><strong>中等壓力</strong><span>偶爾緊繃、能自我調節</span></div>
+      </div>
+      <div class="quiz-opt" data-q="4" data-val="low" data-scores="E:1,I:1,R:1,L:1">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🌤</span>
+        <div class="quiz-opt-text"><strong>輕微壓力</strong><span>整體平和、偶有小壓力</span></div>
+      </div>
+      <div class="quiz-opt" data-q="4" data-val="none" data-scores="E:0,I:0,R:0,L:1">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">😌</span>
+        <div class="quiz-opt-text"><strong>幾乎無壓力</strong><span>生活輕鬆、著重預防保健</span></div>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-quiz-back" onclick="prevStep(4)"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 8H3M8 3L3 8l5 5"/></svg> 上一題</button>
+      <button class="btn-quiz-next" id="next4" disabled onclick="nextStep(4)">下一題 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></button>
+    </div>
+  </div>
+
+  <!-- ── Q5：運動 ── -->
+  <div class="quiz-card hidden" id="q5">
+    <div class="quiz-step-tag">Step 05 · 運動習慣</div>
+    <h2 class="quiz-q">你目前的運動頻率是？</h2>
+    <p class="quiz-hint">運動頻率影響肌肉修復與能量需求</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" data-q="5" data-val="none" data-scores="E:2,I:2,R:1,L:2">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🛋</span>
+        <div class="quiz-opt-text"><strong>幾乎不運動</strong><span>久坐為主、代謝偏低</span></div>
+      </div>
+      <div class="quiz-opt" data-q="5" data-val="1-2" data-scores="E:2,I:1,R:1,L:1">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🚶</span>
+        <div class="quiz-opt-text"><strong>每週 1—2 次</strong><span>輕度活動、偶爾健走</span></div>
+      </div>
+      <div class="quiz-opt" data-q="5" data-val="3-4" data-scores="E:3,I:1,R:2,L:1">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🏃</span>
+        <div class="quiz-opt-text"><strong>每週 3—4 次</strong><span>規律運動、需補充消耗</span></div>
+      </div>
+      <div class="quiz-opt" data-q="5" data-val="daily" data-scores="E:3,I:1,R:3,L:1">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🏋</span>
+        <div class="quiz-opt-text"><strong>每天運動</strong><span>高強度訓練、恢復至關重要</span></div>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-quiz-back" onclick="prevStep(5)"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 8H3M8 3L3 8l5 5"/></svg> 上一題</button>
+      <button class="btn-quiz-next" id="next5" disabled onclick="nextStep(5)">下一題 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></button>
+    </div>
+  </div>
+
+  <!-- ── Q6：飲食 ── -->
+  <div class="quiz-card hidden" id="q6">
+    <div class="quiz-step-tag">Step 06 · 飲食習慣</div>
+    <h2 class="quiz-q">你的日常飲食習慣最接近哪一種？</h2>
+    <p class="quiz-hint">飲食品質決定保健品的補充優先順序</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" data-q="6" data-val="irregular" data-scores="E:3,I:3,R:3,L:2">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🍜</span>
+        <div class="quiz-opt-text"><strong>不規律 / 常跳餐</strong><span>飲食時間不固定，代謝負擔大</span></div>
+      </div>
+      <div class="quiz-opt" data-q="6" data-val="takeout" data-scores="E:2,I:2,R:2,L:2">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🥡</span>
+        <div class="quiz-opt-text"><strong>外食為主</strong><span>難以控制成分，需額外補充</span></div>
+      </div>
+      <div class="quiz-opt" data-q="6" data-val="balanced" data-scores="E:1,I:1,R:1,L:1">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🥗</span>
+        <div class="quiz-opt-text"><strong>均衡飲食</strong><span>三餐規律、蔬果攝取足夠</span></div>
+      </div>
+      <div class="quiz-opt" data-q="6" data-val="health" data-scores="E:0,I:0,R:0,L:1">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🌾</span>
+        <div class="quiz-opt-text"><strong>注重養生</strong><span>有意識選擇食材，積極保健</span></div>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-quiz-back" onclick="prevStep(6)"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 8H3M8 3L3 8l5 5"/></svg> 上一題</button>
+      <button class="btn-quiz-next" id="next6" disabled onclick="nextStep(6)">下一題 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></button>
+    </div>
+  </div>
+
+  <!-- ── Q7：保健需求（多選）── -->
+  <div class="quiz-card hidden" id="q7">
+    <div class="quiz-step-tag">Step 07 · 健康目標（最後一題）</div>
+    <h2 class="quiz-q">你最想改善的健康問題是？</h2>
+    <p class="quiz-multi-hint">✦ 可複選，最多選 2 項</p>
+    <div class="quiz-options single-col">
+      <div class="quiz-opt multi" data-q="7" data-val="energy" data-scores="E:4,I:0,R:1,L:0">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">⚡</span>
+        <div class="quiz-opt-text"><strong>精力不足 / 容易疲勞</strong><span>白天提不起勁、做事缺乏動力</span></div>
+      </div>
+      <div class="quiz-opt multi" data-q="7" data-val="sleep" data-scores="E:0,I:1,R:4,L:1">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🌙</span>
+        <div class="quiz-opt-text"><strong>睡眠品質差 / 熬夜修復</strong><span>難入睡、淺眠或熬夜過後不容易恢復</span></div>
+      </div>
+      <div class="quiz-opt multi" data-q="7" data-val="immune" data-scores="E:0,I:4,R:1,L:2">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🛡</span>
+        <div class="quiz-opt-text"><strong>免疫力偏低 / 容易感冒</strong><span>換季必感冒、抵抗力感覺不足</span></div>
+      </div>
+      <div class="quiz-opt multi" data-q="7" data-val="metabolism" data-scores="E:1,I:1,R:0,L:4">
+        <div class="quiz-opt-check"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 6l3 3 5-5"/></svg></div>
+        <span class="quiz-opt-icon">🔄</span>
+        <div class="quiz-opt-text"><strong>代謝保養 / 熟齡維持</strong><span>體重管理、關節保健、抗氧化需求</span></div>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-quiz-back" onclick="prevStep(7)"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 8H3M8 3L3 8l5 5"/></svg> 上一題</button>
+      <button class="btn-quiz-next" id="next7" disabled onclick="runAnalysis()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        開始 AI 分析
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Analyzing ── -->
+  <div class="quiz-card hidden" id="q-analyzing">
+    <div id="quiz-analyzing">
+      <div class="analyze-rings">
+        <div class="analyze-ring r1"></div>
+        <div class="analyze-ring r2"></div>
+        <div class="analyze-ring r3"></div>
+        <div class="analyze-center">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00C9A0" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+      </div>
+      <div class="analyze-title">AI 正在分析你的健康資料…</div>
+      <ul class="analyze-steps" id="analyzeSteps">
+        <li id="as1">分析生活型態模式</li>
+        <li id="as2">評估健康風險指標</li>
+        <li id="as3">比對 20 年科研資料庫</li>
+        <li id="as4">生成個人化推薦方案</li>
+      </ul>
+      <div class="analyze-bar-wrap">
+        <div class="analyze-bar-bg"><div class="analyze-bar-fill" id="analyzeBar"></div></div>
+        <div class="analyze-pct" id="analyzePct">0%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Result ── -->
+  <div class="quiz-card hidden" id="q-result">
+    <div id="quiz-result">
+      <div class="result-header">
+        <div class="result-badge" id="resultBadge">🎯 個人化方案</div>
+        <div class="result-title" id="resultTitle">熬夜修復方案</div>
+        <div class="result-desc" id="resultDesc">根據你的作息與壓力分析，你最需要的是高效能量補充與深層修復。</div>
+        <div class="result-scores" id="resultScores"></div>
+      </div>
+
+      <p class="result-products-title">為你推薦的保健組合</p>
+      <div class="result-stack" id="resultStack"></div>
+
+      <div class="result-email">
+        <p><strong>免費取得完整健康報告 PDF</strong> — 包含個人化成分解說與 3 個月保健計畫</p>
+        <div class="result-email-row">
+          <input type="email" class="result-email-input" id="emailInput" placeholder="輸入你的 Email">
+          <button class="btn-email-submit" onclick="submitEmail()">免費取得</button>
+        </div>
+        <div class="result-email-done" id="emailDone">✓ 已送出！健康報告將在 24 小時內寄到你的信箱</div>
+      </div>
+
+      <div class="result-cta" id="resultCta"></div>
+      <a class="btn-result-subscribe" href="member.html" id="resultSubscribe">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        加入月訂計畫 — 每月自動配送 · 享 9 折優惠
+      </a>
+      <p class="result-sub-note">訂閱隨時可暫停 · 無強制合約 · 首月加購免運</p>
+
+      <div class="result-share">
+        <p>把你的健康分析結果分享給朋友</p>
+        <div class="share-btns">
+          <a class="share-btn" href="#" onclick="shareLine()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 11.04C22 6.35 17.302 2.54 11.523 2.54S1.047 6.35 1.047 11.04c0 4.2 3.726 7.72 8.756 8.39.34.073.803.225.92.517.105.265.069.68.034.947l-.15.895c-.045.265-.21 1.04.912.567 1.12-.473 6.06-3.57 8.267-6.11C21.47 14.41 22 12.82 22 11.04z"/></svg>
+            LINE 分享
+          </a>
+          <a class="share-btn" href="#" onclick="copyLink()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            複製連結
+          </a>
+          <a class="share-btn" href="quiz.html">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+            重新測驗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /quiz-page -->
+
+<footer style="background:#040E09;border-top:1px solid rgba(255,255,255,.06);padding:32px 64px;text-align:center;">
+  <p style="font-size:12px;color:rgba(255,255,255,.3);">
+    © 2026 耀德植研生醫股份有限公司 · <a href="index.html" style="color:rgba(255,255,255,.4);">返回首頁</a> · <a href="products.html" style="color:rgba(255,255,255,.4);">查看產品</a>
+  </p>
+</footer>
+
+<script src="reviews-data.js"></script>
+<script>
+/* ── Quiz Engine ── */
+const SCORES = { E: 0, I: 0, R: 0, L: 0 };
+const ANSWERS = {};
+const TOTAL_STEPS = 7;
+
+/* 方案定義 */
+const SOLUTIONS = {
+  E: {
+    key: 'E',
+    name: '高壓工作能量方案',
+    badge: '⚡ 高壓能量',
+    desc: '你正處於高壓、高耗能的工作狀態。需要即時能量補充，同時用牛樟芝子實體守護免疫系統，讓你在衝刺中不垮台。',
+    scores: { energy: 28, immunity: 62, recovery: 45, longevity: 50 },
+    products: [
+      { role: '主力配方', thumb: 'images/BigBull/BigBull_4.png', name: '耀德大牛能量氣泡飲', why: '馬卡 × 紅參 × 牛磺酸，快速補充工作日消耗的能量', price: 'NT$3,096', url: 'product-bigbull.html', primary: true },
+      { role: '免疫護盾', thumb: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=120&q=60', name: '頂級牛樟芝子實體膠囊', why: '三萜類 15%+ 保護免疫系統，在高壓下不讓免疫力崩潰', price: 'NT$3,800', url: 'product-premium.html', primary: false }
+    ],
+    wellnessUrl: 'wellness.html#stress',
+    ctaText: '查看高壓工作方案詳情'
+  },
+  R: {
+    key: 'R',
+    name: '熬夜修復深層方案',
+    badge: '🌙 深層修復',
+    desc: '你的作息與壓力顯示身體正承受長期修復赤字。段木牛樟芝子實體 + 超臨界萃取精華，幫你在睡眠時間有限的情況下加速深層修復。',
+    scores: { energy: 35, immunity: 55, recovery: 25, longevity: 45 },
+    products: [
+      { role: '深層修復核心', thumb: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=120&q=60', name: '超臨界液態萃取精華', why: '舌下吸收，生物利用率提升 40%，睡前補充強化修復效率', price: 'NT$4,800', url: 'product-extract.html', primary: true },
+      { role: '每日能量支援', thumb: 'images/BigBull/BigBull_4.png', name: '耀德大牛能量氣泡飲', why: '熬夜後的早晨，一罐快速喚醒，補回消耗的活力', price: 'NT$3,096', url: 'product-bigbull.html', primary: false }
+    ],
+    wellnessUrl: 'wellness.html#night',
+    ctaText: '查看熬夜修復方案詳情'
+  },
+  I: {
+    key: 'I',
+    name: '免疫全面守護方案',
+    badge: '🛡 免疫守護',
+    desc: '你的分析顯示免疫系統需要重點加強。段木栽培牛樟芝子實體的三萜類與多醣體雙管齊下，是最完整的免疫系統支援組合。',
+    scores: { energy: 55, immunity: 28, recovery: 48, longevity: 52 },
+    products: [
+      { role: '免疫主力', thumb: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=120&q=60', name: '頂級牛樟芝子實體膠囊', why: '三萜類 ≥15%、SGS 認證，針對免疫調節的最高規格配方', price: 'NT$3,800', url: 'product-premium.html', primary: true },
+      { role: '日常基礎保健', thumb: 'https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=120&q=60', name: '菌絲體日常保健膠囊', why: '多醣體豐富，免疫打底，與頂級膠囊協同發揮更完整效益', price: 'NT$1,800', url: 'product-daily.html', primary: false }
+    ],
+    wellnessUrl: 'wellness.html#immune',
+    ctaText: '查看免疫守護方案詳情'
+  },
+  L: {
+    key: 'L',
+    name: '熟齡全方位保養方案',
+    badge: '🌿 熟齡保養',
+    desc: '你的資料顯示長期維持與抗老化是最重要的需求。超臨界萃取精華的高生物利用率，加上頂級子實體膠囊的完整三萜類，是熟齡族群最完整的保健方案。',
+    scores: { energy: 52, immunity: 48, recovery: 50, longevity: 30 },
+    products: [
+      { role: '抗老化核心', thumb: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=120&q=60', name: '超臨界液態萃取精華', why: '完整保留三萜類 SOD 抗氧化酵素，清除自由基，延緩細胞老化', price: 'NT$4,800', url: 'product-extract.html', primary: true },
+      { role: '免疫長期維護', thumb: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=120&q=60', name: '頂級牛樟芝子實體膠囊', why: '五年段木栽培，最高規格三萜類，長期保養的最佳選擇', price: 'NT$3,800', url: 'product-premium.html', primary: false }
+    ],
+    wellnessUrl: 'wellness.html#longevity',
+    ctaText: '查看熟齡保養方案詳情'
+  }
+};
+
+function parseScores(scoreStr) {
+  const out = {};
+  scoreStr.split(',').forEach(s => { const [k, v] = s.split(':'); out[k] = parseInt(v, 10); });
+  return out;
+}
+
+function updateProgress(step) {
+  const pct = Math.round((step / TOTAL_STEPS) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = `問題 ${Math.min(step, TOTAL_STEPS)} / ${TOTAL_STEPS}`;
+  document.getElementById('progressPct').textContent = pct + '%';
+}
+
+function showCard(id) {
+  document.querySelectorAll('.quiz-card').forEach(c => c.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+  window.scrollTo({ top: 80, behavior: 'smooth' });
+}
+
+function nextStep(current) {
+  updateProgress(current + 1);
+  showCard('q' + (current + 1));
+  trackEvent('quiz_step', { step: current + 1 });
+}
+
+function prevStep(current) {
+  updateProgress(current - 1);
+  showCard('q' + (current - 1));
+}
+
+/* Single-select */
+document.querySelectorAll('.quiz-opt:not(.multi)').forEach(opt => {
+  opt.addEventListener('click', () => {
+    const q = opt.dataset.q;
+    document.querySelectorAll(`.quiz-opt[data-q="${q}"]`).forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    ANSWERS[q] = opt.dataset.val;
+    const sc = parseScores(opt.dataset.scores);
+    Object.keys(sc).forEach(k => SCORES[k] = (SCORES[k] || 0) + sc[k]);
+    document.getElementById('next' + q).disabled = false;
+    trackEvent('quiz_answer', { question: q, answer: opt.dataset.val });
+  });
+});
+
+/* Multi-select (Q7, max 2) */
+document.querySelectorAll('.quiz-opt.multi').forEach(opt => {
+  opt.addEventListener('click', () => {
+    const selected = document.querySelectorAll('.quiz-opt.multi.selected');
+    if (!opt.classList.contains('selected') && selected.length >= 2) return;
+    opt.classList.toggle('selected');
+    const allSelected = document.querySelectorAll('.quiz-opt.multi.selected');
+    ANSWERS['7'] = Array.from(allSelected).map(o => o.dataset.val);
+    // accumulate scores
+    allSelected.forEach(o => {
+      const sc = parseScores(o.dataset.scores);
+      Object.keys(sc).forEach(k => SCORES[k] = (SCORES[k] || 0) + sc[k]);
+    });
+    document.getElementById('next7').disabled = allSelected.length === 0;
+    trackEvent('quiz_answer', { question: '7', answer: ANSWERS['7'] });
+  });
+});
+
+function runAnalysis() {
+  showCard('q-analyzing');
+  document.getElementById('progressWrap').style.display = 'none';
+  trackEvent('quiz_analyzing_start', {});
+
+  const steps = ['as1','as2','as3','as4'];
+  const bar = document.getElementById('analyzeBar');
+  const pct = document.getElementById('analyzePct');
+  let i = 0;
+  const interval = setInterval(() => {
+    if (i < steps.length) {
+      document.getElementById(steps[i]).classList.add('done');
+      const p = Math.round(((i+1)/steps.length)*100);
+      bar.style.width = p + '%';
+      pct.textContent = p + '%';
+      i++;
+    } else {
+      clearInterval(interval);
+      setTimeout(showResult, 600);
+    }
+  }, 700);
+}
+
+function showResult() {
+  // Determine dominant profile
+  const max = Math.max(SCORES.E, SCORES.I, SCORES.R, SCORES.L);
+  let profile = 'E';
+  if (SCORES.R >= max) profile = 'R';
+  else if (SCORES.I >= max) profile = 'I';
+  else if (SCORES.L >= max) profile = 'L';
+
+  const sol = SOLUTIONS[profile];
+  showCard('q-result');
+  document.getElementById('resultBadge').textContent = sol.badge;
+  document.getElementById('resultTitle').textContent = sol.name;
+  document.getElementById('resultDesc').textContent = sol.desc;
+
+  // Scores rings
+  const scoreLabels = { energy:'精力評分', immunity:'免疫評分', recovery:'修復評分', longevity:'長期保養' };
+  const scoreVals = sol.scores;
+  const scoresEl = document.getElementById('resultScores');
+  scoresEl.innerHTML = Object.entries(scoreLabels).map(([k, label]) => {
+    const val = scoreVals[k];
+    const r = 26; const circ = 2 * Math.PI * r;
+    const offset = circ - (val / 100) * circ;
+    const cls = val >= 70 ? 'good' : val >= 45 ? 'mid' : 'low';
+    return `<div class="score-item">
+      <div class="score-label">${label}</div>
+      <div class="score-ring">
+        <svg width="64" height="64" viewBox="0 0 64 64">
+          <circle class="track" cx="32" cy="32" r="${r}"/>
+          <circle class="fill ${cls}" cx="32" cy="32" r="${r}"
+            stroke-dasharray="${circ}" stroke-dashoffset="${circ}"
+            style="animation: none; stroke-dashoffset:${offset};"/>
+        </svg>
+        <div class="score-val">${val}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Products
+  const stackEl = document.getElementById('resultStack');
+  stackEl.innerHTML = sol.products.map(p => `
+    <a class="result-prod-item${p.primary ? ' primary' : ''}" href="${p.url}" data-track-cta="quiz_result_product">
+      <img class="result-prod-thumb" src="${p.thumb}" alt="${p.name}" loading="lazy">
+      <div class="result-prod-info">
+        <div class="result-prod-role">${p.role}</div>
+        <div class="result-prod-name">${p.name}</div>
+        <div class="result-prod-why">${p.why}</div>
+      </div>
+      <div class="result-prod-price">${p.price}</div>
+    </a>`).join('');
+
+  // CTA
+  document.getElementById('resultCta').innerHTML = `
+    <a class="btn-result-primary" href="${sol.products[0].url}" data-track-cta="quiz_result_buy_primary">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h1.5l2 8h7l1.5-5H5"/><circle cx="7" cy="13" r="1"/><circle cx="12" cy="13" r="1"/></svg>
+      立即購買推薦方案
+    </a>
+    <a class="btn-result-secondary" href="${sol.wellnessUrl}" data-track-cta="quiz_result_wellness">
+      ${sol.ctaText} →
+    </a>`;
+
+  trackEvent('quiz_complete', { profile, solution: sol.name });
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: 'quiz_complete', profile, solution: sol.name, scores: SCORES });
+}
+
+function submitEmail() {
+  const email = document.getElementById('emailInput').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('emailInput').style.borderColor = '#f97316';
+    return;
+  }
+  document.querySelector('.result-email-row').style.display = 'none';
+  document.getElementById('emailDone').style.display = 'block';
+  trackEvent('quiz_email_submit', { email_domain: email.split('@')[1] });
+}
+
+function shareLine() {
+  const text = encodeURIComponent('我剛完成了耀德植研生醫的 AI 健康分析，找到了最適合我的牛樟芝保健方案！快來測測你的：');
+  window.open(`https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(location.href)}&text=${text}`);
+  trackEvent('quiz_share', { platform: 'line' });
+}
+
+function copyLink() {
+  navigator.clipboard?.writeText(location.href).then(() => alert('連結已複製！'));
+  trackEvent('quiz_share', { platform: 'copy' });
+}
+
+function trackEvent(name, data) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: name, ...data });
+  if (typeof gtag === 'function') gtag('event', name, data);
+}
+
+function toggleMenu() { document.getElementById('mobMenu').classList.toggle('open'); }
+
+// Restore scroll position on nav
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// Auto-advance on selection (UX: feel snappy)
+document.querySelectorAll('.quiz-opt:not(.multi)').forEach(opt => {
+  opt.addEventListener('dblclick', () => {
+    const q = parseInt(opt.dataset.q, 10);
+    if (q < 7) setTimeout(() => nextStep(q), 150);
+  });
+});
+
+trackEvent('quiz_start', { source: document.referrer || 'direct' });
+</script>
+</body>
+</html>

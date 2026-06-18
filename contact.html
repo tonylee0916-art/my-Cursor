@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>聯絡我們 — 耀德植研生醫客服與業務洽談 | 耀德植研生醫</title>
+  <meta name="description" content="聯絡耀德植研生醫，無論是產品諮詢、健康問題、企業合作或冠名認養，我們的專業團隊都隨時為您服務。電話、LINE、Email 多元聯繫管道。">
+  <meta name="keywords" content="耀德植研生醫聯絡,牛樟芝諮詢,客服,企業合作,健康諮詢">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+    .contact-info-item { display: flex; gap: 20px; align-items: flex-start; padding: 24px 0; border-bottom: 1px solid var(--border); }
+    .contact-info-item:last-child { border-bottom: none; }
+    .ci-icon { width: 44px; height: 44px; background: var(--gold-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--gold); }
+    .ci-icon svg { width: 20px; height: 20px; }
+    .ci-title { font-family: 'Noto Serif TC', serif; font-size: 15px; color: var(--g700); margin-bottom: 4px; }
+    .ci-val { font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .ci-val a { color: var(--gold); }
+    .map-placeholder { width: 100%; height: 260px; background: var(--cream); display: flex; align-items: center; justify-content: center; border: 1px dashed var(--border); flex-direction: column; gap: 12px; margin-top: 24px; }
+    .map-placeholder svg { width: 40px; height: 40px; color: var(--muted); opacity: .5; }
+    .map-placeholder p { font-size: 13px; color: var(--muted); }
+    .contact-form-box { background: var(--cream); padding: 40px; }
+    .contact-form-box h3 { font-family: 'Noto Serif TC', serif; font-size: 20px; color: var(--g700); margin-bottom: 24px; }
+    @media(max-width:1024px){ .contact-grid{grid-template-columns:1fr;gap:48px} }
+    @media(max-width:768px){ .contact-form-box{padding:24px} }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="nav" class="solid">
+  <a href="index.html" class="logo"><img src="images/logo/LOGO_4.png" alt="" class="logo-icon-img"><img src="images/logo/LOGO_5.png" alt="耀德植研生醫 YAODER BIOMEDICAL" class="logo-wordmark-img"></a>
+  <nav class="nav-menu">
+    <div class="nav-item"><a href="index.html" class="nav-link">首頁</a></div>
+    <div class="nav-item"><a href="about.html" class="nav-link">關於耀德 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="about.html#philosophy">品牌理念與願景</a><a href="about.html#rd">核心研發策略</a><a href="about.html#history">公司沿革</a><a href="about.html#certs">認證資質</a></div></div>
+    <div class="nav-item"><a href="antrodia.html" class="nav-link">認識牛樟芝 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="antrodia.html#intro">牛樟芝簡介</a><a href="antrodia.html#ingredients">活性物成分</a><a href="antrodia.html#research">科學研究</a></div></div>
+    <div class="nav-item"><a href="products.html" class="nav-link">產品介紹 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="product-bigbull.html">能量補給</a><a href="product-premium.html">頂級系列</a><a href="product-daily.html">日常保健</a><a href="product-extract.html">萃取精華</a><a href="shop.html">購物商城</a></div></div>
+    <div class="nav-item"><a href="wellness.html" class="nav-link">健康方案</a></div>
+    <div class="nav-item"><a href="sustainability.html" class="nav-link">大地永續</a>
+    </div>
+    <div class="nav-item"><a href="news.html" class="nav-link">新聞中心</a></div>
+    <div class="nav-item"><a href="contact.html" class="nav-link active">聯絡我們</a></div>
+    <div class="nav-item"><a href="flagship.html" class="nav-link nav-flagship"><span class="flagship-dot"></span>健康生活館</a></div>
+    <div class="nav-divider"></div>
+    <div class="nav-item"><a href="member.html" class="nav-link nav-member">加入會員</a></div>
+    <div class="nav-item"><a href="login.html" class="nav-link nav-login">登入</a></div>
+  </nav>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</header>
+<div class="mobile-menu" id="mobMenu">
+  <span class="close-btn" onclick="toggleMenu()">×</span>
+  <a href="index.html" onclick="toggleMenu()">首頁</a><a href="about.html" onclick="toggleMenu()">關於耀德</a><a href="antrodia.html" onclick="toggleMenu()">認識牛樟芝</a><a href="products.html" onclick="toggleMenu()">產品介紹</a><a href="sustainability.html" onclick="toggleMenu()">大地永續</a><a href="news.html" onclick="toggleMenu()">新聞中心</a><a href="contact.html" onclick="toggleMenu()">聯絡我們</a><a href="flagship.html" onclick="toggleMenu()" style="color:var(--cyber) !important;">健康生活館</a>
+  <div class="mob-btns"><a href="member.html">加入會員</a><a href="login.html" class="gold-btn">登入</a></div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="ph-inner">
+    <div class="ph-left">
+      <div class="breadcrumb"><a href="index.html">首頁</a><span class="sep">›</span><span>聯絡我們</span></div>
+      <h1>聯絡耀德<br><em>讓我們為您服務</em></h1>
+      <p>產品諮詢、健康問題、企業合作，或是想了解冠名認養、苗栗園區參訪等事宜，歡迎隨時與我們聯繫。</p>
+    </div>
+    <div class="ph-right">
+      <div class="ph-watermark">CONTACT</div>
+      <div class="ph-line-deco"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section style="padding:var(--pad) 64px;background:#fff;">
+  <div class="wrap">
+    <div class="contact-grid">
+      <!-- 聯絡資訊 -->
+      <div class="reveal">
+        <div class="tag-row"><div class="tag-line"></div><span class="tag-text">Contact Info · 聯絡資訊</span></div>
+        <h2 class="section-title" style="margin-bottom:8px;">多元聯繫管道</h2>
+        <p class="section-desc" style="margin-bottom:32px;">我們的客服團隊於週一至週五 09:00–18:00 提供服務，週末緊急諮詢可透過 LINE 官方帳號留言。</p>
+
+        <div class="contact-info-item">
+          <div class="ci-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 5C2 4 3 3 4 3h3l1.5 4L7 8.5a11 11 0 0 0 4.5 4.5L13 11.5l4 1.5v3c0 1-1 2-2 2C7 18 2 13 2 5z"/></svg></div>
+          <div><div class="ci-title">客服電話</div><div class="ci-val">+886-37-XXX-XXX<br><span style="font-size:12px;">週一至週五 09:00 – 18:00</span></div></div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="ci-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h14M3 10h14M3 15h8"/></svg></div>
+          <div><div class="ci-title">電子信箱</div><div class="ci-val"><a href="mailto:service@bigbull.com.tw">service@bigbull.com.tw</a><br><span style="font-size:12px;">24 小時內回覆</span></div></div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="ci-icon" style="background:rgba(6,199,85,.1);color:#06C755;"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M18 8.5C18 4.36 14.42 1 10 1S2 4.36 2 8.5c0 3.44 2.42 6.36 5.77 7.58L10 19l2.23-2.92C15.58 14.86 18 11.94 18 8.5z"/></svg></div>
+          <div><div class="ci-title">LINE 官方帳號</div><div class="ci-val"><a href="#">@yaode-phytomed</a><br><span style="font-size:12px;">掃描 QR Code 或搜尋帳號</span></div></div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="ci-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2C7 2 4 5 4 9a7 7 0 0 0 1.5 4.5L4 18l4.5-1.5A7 7 0 1 0 10 2z"/></svg></div>
+          <div><div class="ci-title">公司地址</div><div class="ci-val">苗栗縣公館鄉（總部園區）<br>台北市信義區（台北服務處）</div></div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="ci-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="16" height="14" rx="2"/><path d="M2 8h16"/><circle cx="7" cy="13" r="1.5" fill="currentColor" stroke="none" opacity=".5"/><circle cx="10" cy="13" r="1.5" fill="currentColor" stroke="none" opacity=".5"/><circle cx="13" cy="13" r="1.5" fill="currentColor" stroke="none" opacity=".5"/></svg></div>
+          <div><div class="ci-title">園區參訪預約</div><div class="ci-val">苗栗公館體驗園區接受會員預約參訪<br><a href="member.html">加入會員後申請預約 →</a></div></div>
+        </div>
+
+        <div class="map-placeholder">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M20 4C14.477 4 10 8.477 10 14C10 22 20 36 20 36C20 36 30 22 30 14C30 8.477 25.523 4 20 4Z"/><circle cx="20" cy="14" r="4"/></svg>
+          <p>地圖載入中 — 苗栗縣公館鄉耀德植研生醫</p>
+        </div>
+      </div>
+
+      <!-- 聯絡表單 -->
+      <div class="reveal d2">
+        <div class="contact-form-box">
+          <h3>傳送訊息給我們</h3>
+          <form id="contactForm" onsubmit="sendMessage(event)">
+            <div class="f-row2">
+              <div class="f-group"><label class="f-label">姓名 *</label><input type="text" class="f-input" placeholder="您的姓名" required></div>
+              <div class="f-group"><label class="f-label">電話</label><input type="tel" class="f-input" placeholder="09XX-XXX-XXX"></div>
+            </div>
+            <div class="f-group"><label class="f-label">電子信箱 *</label><input type="email" class="f-input" placeholder="your@email.com" required></div>
+            <div class="f-group">
+              <label class="f-label">詢問類別</label>
+              <select class="f-input">
+                <option>產品諮詢</option>
+                <option>健康問題詢問</option>
+                <option>冠名認養方案</option>
+                <option>企業合作洽談</option>
+                <option>園區參訪預約</option>
+                <option>會員相關問題</option>
+                <option>其他</option>
+              </select>
+            </div>
+            <div class="f-group"><label class="f-label">主旨</label><input type="text" class="f-input" placeholder="請簡述詢問主旨"></div>
+            <div class="f-group"><label class="f-label">訊息內容 *</label><textarea class="f-input" style="height:140px;" placeholder="請詳細描述您的問題或需求..." required></textarea></div>
+            <div class="f-group"><div class="chk-group"><input type="checkbox" id="agree" required><label for="agree">我同意耀德植研生醫以此聯絡資訊與我聯繫，並已閱讀<a href="#">隱私權政策</a>。</label></div></div>
+            <button type="submit" class="btn-gold" id="submitBtn" style="width:100%;justify-content:center;">傳送訊息 <svg class="arrow-i" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 三個快速諮詢方式 -->
+<section style="padding:80px 64px;background:var(--g700);">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.06);" class="reveal">
+      <div style="background:var(--g700);padding:40px;text-align:center;">
+        <svg style="width:48px;height:48px;color:var(--gold);margin:0 auto 16px;" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 12h36M6 18l18 12L42 18M6 42h36V8a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2z"/></svg>
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;color:#fff;margin-bottom:8px;">電子信箱諮詢</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,.55);margin-bottom:16px;">複雜問題或需要文字紀錄的諮詢，歡迎 Email 聯繫，24 小時內回覆。</p>
+        <a href="mailto:service@bigbull.com.tw" style="font-size:13px;color:var(--gold);">service@bigbull.com.tw</a>
+      </div>
+      <div style="background:rgba(255,255,255,.03);padding:40px;text-align:center;">
+        <svg style="width:48px;height:48px;color:var(--gold);margin:0 auto 16px;" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 10C4 8 6 6 8 6h8l4 10L15 19a28 28 0 0 0 14 14L32 28l10 4v8c0 2-2 4-4 4C18 44 4 30 4 10z"/></svg>
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;color:#fff;margin-bottom:8px;">電話即時諮詢</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,.55);margin-bottom:16px;">想即時得到解答？撥打客服專線，週一至週五 09:00–18:00 服務。</p>
+        <a href="tel:+886-37-XXX-XXX" style="font-size:13px;color:var(--gold);">+886-37-XXX-XXX</a>
+      </div>
+      <div style="background:var(--g700);padding:40px;text-align:center;">
+        <svg style="width:48px;height:48px;color:var(--gold);margin:0 auto 16px;" viewBox="0 0 48 48" fill="currentColor"><path d="M44 22.08C44 12.72 34.604 5.08 23.046 5.08S2.094 12.72 2.094 22.08c0 8.4 7.452 15.44 17.512 16.78.68.146 1.606.45 1.84 1.034.21.53.138 1.36.068 1.894l-.3 1.79c-.09.53-.42 2.08 1.824 1.134 2.24-.946 12.12-7.14 16.534-12.22C43 29.42 44 25.84 44 22.08z"/></svg>
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;color:#fff;margin-bottom:8px;">LINE 即時諮詢</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,.55);margin-bottom:16px;">加入 LINE 官方帳號，隨時傳訊息，客服小幫手 24 小時值班中。</p>
+        <a href="#" style="font-size:13px;color:var(--gold);">@yaode-phytomed</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer><div class="wrap"><div class="footer-top"><div class="f-brand"><a href="index.html" class="logo logo-footer"><img src="images/logo/LOGO_6.png" alt="耀德植研生醫 YAODER BIOMEDICAL" class="logo-full-img"></a><p>深耕台灣牛樟芝研究逾二十年，守護每一個珍貴生命的健康與活力。</p><div class="f-socials"><a href="#" class="f-soc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="#" class="f-soc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 11.04C22 6.35 17.302 2.54 11.523 2.54S1.047 6.35 1.047 11.04c0 4.2 3.726 7.72 8.756 8.39.34.073.803.225.92.517.105.265.069.68.034.947l-.15.895c-.045.265-.21 1.04.912.567 1.12-.473 6.06-3.57 8.267-6.11C21.47 14.41 22 12.82 22 11.04z"/></svg></a></div></div><div class="f-nav-col"><h4>關於耀德</h4><ul><li><a href="about.html#philosophy">品牌理念與願景</a></li><li><a href="sustainability.html">大地永續</a></li><li><a href="about.html#rd">核心研發策略</a></li><li><a href="about.html#certs">認證資質</a></li></ul></div><div class="f-nav-col"><h4>產品服務</h4><ul><li><a href="products.html">產品介紹</a></li><li><a href="shop.html">購物商城</a></li><li><a href="antrodia.html">認識牛樟芝</a></li><li><a href="member.html">加入會員</a></li></ul></div><div class="f-nav-col"><h4>快速連結</h4><ul><li><a href="news.html">新聞中心</a></li><li><a href="contact.html">聯絡我們</a></li><li><a href="login.html">會員登入</a></li><li><a href="register.html">會員註冊</a></li></ul></div></div><div class="footer-btm"><p class="f-copy">© 2026 耀德植研生醫股份有限公司 · All Rights Reserved · www.bigbull.com.tw</p><div class="f-btm-links"><a href="#">隱私權政策</a><a href="#">使用條款</a></div></div></div></footer>
+
+<script>
+const _nav=document.getElementById('nav');if(_nav&&!_nav.classList.contains('solid')){window.addEventListener('scroll',()=>{_nav.classList.toggle('scrolled',window.scrollY>60)},{passive:true})}
+const _ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('up')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>_ro.observe(el));
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open')}
+function sendMessage(e){
+  e.preventDefault();
+  const btn=document.getElementById('submitBtn');
+  btn.innerHTML='傳送中...';btn.style.opacity='.7';btn.style.pointerEvents='none';
+  setTimeout(()=>{
+    btn.innerHTML='✓ 訊息已成功送出！我們將於24小時內回覆';
+    btn.style.opacity='1';btn.style.background='var(--g500)';
+    btn.style.pointerEvents='auto';
+  },1800);
+}
+</script>
+
+<!-- Back to Top -->
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到頂部" aria-label="回到頂部" style="position:fixed;bottom:32px;right:88px;width:50px;height:50px;background:#c8973e;border:none;border-radius:50%;cursor:pointer;z-index:901;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(200,151,62,.5);opacity:0;visibility:hidden;transform:translateY(12px);transition:all .35s ease;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 13l6-6 6 6"/></svg></button>
+<script>
+(function(){var b=document.getElementById('backTop');if(!b)return;window.addEventListener('scroll',function(){var s=window.scrollY>300;b.style.opacity=s?'1':'0';b.style.visibility=s?'visible':'hidden';b.style.transform=s?'translateY(0)':'translateY(12px)';},{passive:true});})();
+</script>
+<script src="analytics.js" defer></script>
+</body>
+</html>
+
+

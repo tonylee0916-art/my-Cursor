@@ -1,0 +1,179 @@
+/* reviews.css — 評價系統擴充樣式 */
+
+/* ── Toolbar：篩選 + 排序 ── */
+.rv-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.rv-filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.rv-filter-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all var(--tf, .2s ease);
+  min-height: 40px;
+}
+.rv-filter-btn:hover { border-color: var(--g500); color: var(--g700); }
+.rv-filter-btn.act {
+  background: var(--g700);
+  border-color: var(--g700);
+  color: #fff;
+}
+.rv-sort {
+  padding: 8px 32px 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--g700);
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%234A6B65' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 10px center;
+  appearance: none;
+  cursor: pointer;
+  min-height: 40px;
+  font-family: inherit;
+}
+
+/* ── Review card extras ── */
+.rv-card-stars { margin-bottom: 10px; display: flex; gap: 2px; }
+.rv-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.rv-tag {
+  padding: 3px 10px;
+  background: var(--cream);
+  border-radius: 12px;
+  font-size: 11px;
+  color: var(--g700);
+  font-weight: 500;
+}
+.rv-ba-inline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+  padding: 10px 14px;
+  background: var(--cream);
+  border-radius: 8px;
+  font-size: 12px;
+}
+.rv-ba-before { color: #999; }
+.rv-ba-after { color: var(--g700); font-weight: 600; }
+.rv-ba-arrow { color: var(--g500); font-weight: 700; }
+.rv-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.rv-helpful-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: #fff;
+  font-size: 12px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all var(--tf, .2s ease);
+  font-family: inherit;
+  min-height: 36px;
+}
+.rv-helpful-btn:hover { border-color: var(--g500); color: var(--g700); }
+.rv-helpful-btn.voted { border-color: var(--g500); color: var(--g500); background: rgba(0,137,123,.06); }
+.rv-load-wrap { text-align: center; margin-top: 32px; }
+.rv-load-more {
+  padding: 14px 36px;
+  border: 1.5px solid var(--g700);
+  border-radius: 40px;
+  background: #fff;
+  color: var(--g700);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s ease;
+  font-family: inherit;
+  min-height: 48px;
+}
+.rv-load-more:hover { background: var(--g700); color: #fff; }
+.rv-disclaimer {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ── 首頁評價區 ── */
+#reviews-home {
+  padding: var(--pad, 120px) 64px;
+  background: #fff;
+}
+#reviews-home .rv-home-inner { max-width: 1400px; margin: 0 auto; }
+.rv-home-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.rv-home-big {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 8vw, 72px);
+  color: var(--g700);
+  line-height: 1;
+}
+.rv-home-score p { font-size: 14px; color: var(--muted); margin-top: 8px; }
+.rv-home-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.rv-home-stat {
+  padding: 16px 20px;
+  background: var(--cream);
+  border-radius: 12px;
+  text-align: center;
+}
+.rv-home-stat strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--g700);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.rv-home-stat span { font-size: 11px; color: var(--muted); letter-spacing: .3px; }
+.rv-home-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.rv-home-cta { text-align: center; margin-top: 40px; }
+
+@media (max-width: 1100px) {
+  #reviews-home { padding: 80px 40px; }
+  .rv-home-grid { grid-template-columns: 1fr 1fr; }
+  .rv-home-stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  #reviews-home { padding: 64px 24px; }
+  .rv-home-grid { grid-template-columns: 1fr; }
+  .rv-toolbar { flex-direction: column; align-items: stretch; }
+  .rv-sort { width: 100%; }
+  .rv-ba-inline { flex-direction: column; align-items: flex-start; }
+  .rv-filter-btn { min-height: 44px; flex: 1; text-align: center; }
+  .rv-filters { width: 100%; }
+}

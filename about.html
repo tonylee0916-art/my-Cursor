@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>關於耀德 — 品牌理念與核心研發策略 | 耀德植研生醫</title>
+  <meta name="description" content="耀德植研生醫以「高標降維」研發策略，深耕台灣牛樟芝科學研究逾二十年。採用扦插繁育確保基因穩定，超臨界精準萃取保留活性，結合國家級認證實驗室，以數據驅動每一款保健產品。">
+  <meta name="keywords" content="耀德植研生醫,關於耀德,牛樟芝研發,高標降維,扦插繁育,超臨界萃取,牛樟芝認證">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .philosophy-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .phil-card { padding: 36px 28px; border: 1px solid var(--border); transition: all var(--t); }
+    .phil-card:hover { border-color: var(--gold); background: var(--gold-pale); transform: translateY(-4px); }
+    .phil-icon { width: 48px; height: 48px; color: var(--gold); margin-bottom: 16px; }
+    .phil-card h3 { font-family: 'Noto Serif TC', serif; font-size: 17px; color: var(--g700); margin-bottom: 10px; }
+    .phil-card p { font-size: 13px; color: var(--muted); line-height: 1.8; }
+    .rd-item { display: flex; gap: 24px; align-items: flex-start; padding: 28px 0; border-bottom: 1px solid var(--border); }
+    .rd-item:last-child { border-bottom: none; }
+    .rd-num { font-family: 'Playfair Display', serif; font-size: 48px; color: rgba(200,151,62,.2); line-height: 1; flex-shrink: 0; width: 60px; }
+    .rd-item h3 { font-family: 'Noto Serif TC', serif; font-size: 18px; color: var(--g700); margin-bottom: 10px; }
+    .rd-item p { font-size: 14px; color: var(--muted); line-height: 1.85; }
+    .rd-item .highlight { background: rgba(200,151,62,.08); border-left: 3px solid var(--gold); padding: 10px 16px; margin-top: 12px; font-size: 13px; color: var(--g700); line-height: 1.7; }
+    .cert-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+    .cert-card { border: 1px solid var(--border); padding: 28px; text-align: center; transition: all var(--tf); }
+    .cert-card:hover { border-color: var(--gold); background: var(--gold-pale); }
+    .cert-icon { width: 48px; height: 48px; margin: 0 auto 12px; color: var(--gold); }
+    .cert-card h4 { font-family: 'Noto Serif TC', serif; font-size: 15px; color: var(--g700); margin-bottom: 6px; }
+    .cert-card p { font-size: 12px; color: var(--muted); }
+    .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .history-tl { display: flex; flex-direction: column; gap: 0; }
+    .ht-item { display: flex; gap: 28px; }
+    .ht-left { width: 80px; flex-shrink: 0; text-align: right; }
+    .ht-year { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--gold); font-weight: 400; }
+    .ht-center { display: flex; flex-direction: column; align-items: center; margin: 0 4px; }
+    .ht-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--gold); background: #fff; flex-shrink: 0; margin-top: 4px; }
+    .ht-line { flex: 1; width: 1px; background: var(--border); margin: 4px 0; min-height: 40px; }
+    .ht-right { flex: 1; padding-bottom: 36px; }
+    .ht-right h4 { font-family: 'Noto Serif TC', serif; font-size: 16px; color: var(--g700); margin-bottom: 6px; }
+    .ht-right p { font-size: 13px; color: var(--muted); line-height: 1.75; }
+    @media(max-width:1024px){ .about-grid{grid-template-columns:1fr;gap:40px} .philosophy-grid{grid-template-columns:1fr 1fr} .cert-grid{grid-template-columns:1fr 1fr} .tech-grid{grid-template-columns:1fr;gap:40px} }
+    @media(max-width:768px){ .philosophy-grid{grid-template-columns:1fr} .cert-grid{grid-template-columns:1fr 1fr} }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="nav" class="solid">
+  <a href="index.html" class="logo"><img src="images/logo/LOGO_4.png" alt="" class="logo-icon-img"><img src="images/logo/LOGO_5.png" alt="耀德植研生醫 YAODER BIOMEDICAL" class="logo-wordmark-img"></a>
+  <nav class="nav-menu">
+    <div class="nav-item"><a href="index.html" class="nav-link">首頁</a></div>
+    <div class="nav-item"><a href="about.html" class="nav-link active">關於耀德 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="about.html#philosophy">品牌理念與願景</a><a href="about.html#rd">核心研發策略</a><a href="about.html#history">公司沿革</a><a href="about.html#certs">認證資質</a></div></div>
+    <div class="nav-item"><a href="antrodia.html" class="nav-link">認識牛樟芝 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="antrodia.html#intro">牛樟芝簡介</a><a href="antrodia.html#ingredients">活性物成分</a><a href="antrodia.html#research">科學研究</a><a href="antrodia.html#usage">食用方式</a><a href="antrodia.html#reaction">暝眩反應說明</a></div></div>
+    <div class="nav-item"><a href="products.html" class="nav-link">產品介紹 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="product-bigbull.html">能量補給</a><a href="product-premium.html">頂級系列</a><a href="product-daily.html">日常保健</a><a href="product-extract.html">萃取精華</a><a href="shop.html">購物商城</a></div></div>
+    <div class="nav-item"><a href="wellness.html" class="nav-link">健康方案</a></div>
+    <div class="nav-item"><a href="sustainability.html" class="nav-link">大地永續</a>
+    </div>
+    <div class="nav-item"><a href="news.html" class="nav-link">新聞中心</a></div>
+    <div class="nav-item"><a href="contact.html" class="nav-link">聯絡我們</a></div>
+    <div class="nav-item"><a href="flagship.html" class="nav-link nav-flagship"><span class="flagship-dot"></span>健康生活館</a></div>
+    <div class="nav-divider"></div>
+    <div class="nav-item"><a href="member.html" class="nav-link nav-member">加入會員</a></div>
+    <div class="nav-item"><a href="login.html" class="nav-link nav-login">登入</a></div>
+  </nav>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</header>
+<div class="mobile-menu" id="mobMenu">
+  <span class="close-btn" onclick="toggleMenu()">×</span>
+  <a href="index.html" onclick="toggleMenu()">首頁</a><a href="about.html" onclick="toggleMenu()">關於耀德</a><a href="antrodia.html" onclick="toggleMenu()">認識牛樟芝</a><a href="products.html" onclick="toggleMenu()">產品介紹</a><a href="sustainability.html" onclick="toggleMenu()">大地永續</a><a href="news.html" onclick="toggleMenu()">新聞中心</a><a href="contact.html" onclick="toggleMenu()">聯絡我們</a><a href="flagship.html" onclick="toggleMenu()" style="color:var(--cyber) !important;">健康生活館</a>
+  <div class="mob-btns"><a href="member.html">加入會員</a><a href="login.html" class="gold-btn">登入</a></div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="ph-inner">
+    <div class="ph-left">
+      <div class="breadcrumb"><a href="index.html">首頁</a><span class="sep">›</span><span>關於耀德</span></div>
+      <h1>深耕二十年<br><em>以科學重塑牛樟產業</em></h1>
+      <p>耀德植研生醫從不走捷徑。以最嚴格的科學標準為起點，用數據說話，用品質說服市場，用善念守護大地，打造台灣最具科學信仰的牛樟芝品牌。</p>
+    </div>
+    <div class="ph-right">
+      <div class="ph-watermark">ABOUT</div>
+      <div class="ph-line-deco"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 品牌理念 -->
+<section id="philosophy" style="padding:var(--pad) 64px;background:#fff;">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <img src="https://images.unsplash.com/photo-1532635241-17e820acc59f?w=900&q=85" alt="耀德植研生醫團隊" style="width:100%;height:500px;object-fit:cover;">
+      </div>
+      <div class="reveal d2">
+        <div class="tag-row"><div class="tag-line"></div><span class="tag-text">Philosophy · 品牌理念</span></div>
+        <h2 class="section-title">沒有數據，<br>永遠只是農產品</h2>
+        <p class="section-desc" style="margin-bottom:28px;">這是耀德創辦人最核心的信念。在台灣牛樟芝市場充斥著各種無科學依據宣稱的今日，耀德選擇了一條更難走、卻最正確的路：以嚴謹的科學數據重塑整個產業的信任基礎。</p>
+        <p style="font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:28px;">耀德並非從消費品市場的低門檻起步，而是直接從最困難的「藥效」與「生技科研」等級切入。這種「高標降維」的策略，讓每一款進入市場的產品，都已通過最嚴格的科學檢驗。</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+          <div style="text-align:center;padding:24px;background:var(--cream);">
+            <div style="font-family:'Playfair Display',serif;font-size:40px;color:var(--gold);line-height:1;margin-bottom:6px;">20<small style="font-size:20px;">+</small></div>
+            <div style="font-size:12px;color:var(--muted);letter-spacing:2px;">年深耕研究</div>
+          </div>
+          <div style="text-align:center;padding:24px;background:var(--cream);">
+            <div style="font-family:'Playfair Display',serif;font-size:40px;color:var(--gold);line-height:1;margin-bottom:6px;">93</div>
+            <div style="font-size:12px;color:var(--muted);letter-spacing:2px;">國際認證數</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:80px;">
+      <div style="text-align:center;margin-bottom:48px;" class="reveal">
+        <h2 class="section-title">耀德的六大信念</h2>
+      </div>
+      <div class="philosophy-grid">
+        <div class="phil-card reveal">
+          <svg class="phil-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M24 6L28 16L39 17.5L31 25.5L33.5 37L24 31.5L14.5 37L17 25.5L9 17.5L20 16Z"/></svg>
+          <h3>數據即信用</h3>
+          <p>所有產品必須通過認證實驗室的基因鑑定、活性測試及季節性成分分析，無實驗數據，不進市場。</p>
+        </div>
+        <div class="phil-card reveal d1">
+          <svg class="phil-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M24 4C24 4 10 16 10 30C10 38.284 16.716 45 25 45C33.284 45 40 38.284 40 30C40 16 24 4 24 4Z"/><line x1="24" y1="4" x2="24" y2="45" opacity=".3"/></svg>
+          <h3>守護大地初心</h3>
+          <p>收購林地後堅持「一棵都不砍」，守護樹木生命視為最大功德，利益必須回饋土地。</p>
+        </div>
+        <div class="phil-card reveal d2">
+          <svg class="phil-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="6" y="12" width="36" height="28" rx="2"/><path d="M6 20h36M16 12V8M32 12V8"/></svg>
+          <h3>透明化管理</h3>
+          <p>日報式進度管理，技術數據每日公開，讓每一個生產環節都在陽光下運作，建立無可撼動的信任履歷。</p>
+        </div>
+        <div class="phil-card reveal d3">
+          <svg class="phil-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="24" cy="24" r="18"/><path d="M16 24l5.5 5.5L32 18"/></svg>
+          <h3>言出必行</h3>
+          <p>「答應的就不想改」，所有承諾以行動落實，從研發數據到永續保育，每一個字都算數。</p>
+        </div>
+        <div class="phil-card reveal d4">
+          <svg class="phil-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 40V22L24 10L40 22V40"/><rect x="18" y="28" width="12" height="12"/></svg>
+          <h3>跨世代傳承</h3>
+          <p>目光放在 500 年後，為子孫保留純正不變異的台灣原生牛樟種源，這是企業最重大的使命。</p>
+        </div>
+        <div class="phil-card reveal d5">
+          <svg class="phil-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 44L18 14L24 30L30 20L36 30L44 16"/><circle cx="24" cy="30" r="4" fill="currentColor" stroke="none" opacity=".3"/></svg>
+          <h3>善的循環</h3>
+          <p>碳權捐贈慈善、互助體系守護會員、利潤公平分享——商業是手段，善的循環才是目的。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 核心研發策略 -->
+<section id="rd" style="padding:var(--pad) 64px;background:var(--cream);">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:start;" class="reveal">
+      <div>
+        <div class="tag-row"><div class="tag-line"></div><span class="tag-text">R&D Strategy · 研發策略</span></div>
+        <h2 class="section-title">核心研發策略<br>高標降維與<br>數據驅動</h2>
+        <p class="section-desc">耀德生技採取不同於傳統產業從低門檻產品起步的策略，強調以科學數據重塑牛樟產業。這是一條更難走，卻最能建立長遠信任的路。</p>
+        <div style="margin-top:32px;padding:24px;background:var(--g700);color:#fff;">
+          <p style="font-size:22px;font-family:'Noto Serif TC',serif;line-height:1.5;color:#fff;margin-bottom:8px;">「沒有數據認證報告，永遠都是農產品」</p>
+          <p style="font-size:13px;color:rgba(255,255,255,.5);letter-spacing:2px;">— 耀德植研生醫 創辦人</p>
+        </div>
+      </div>
+      <div>
+        <div class="rd-item">
+          <span class="rd-num">01</span>
+          <div>
+            <h3>「高標降維」開發路徑</h3>
+            <p>研發策略從最困難的「藥效」與「生技科研」等級切入（如抗癌、抗發炎的總三萜成分與植物外泌體技術），再將成熟技術轉化為牛樟茶、咖啡、氣泡飲等具備實證功效的民生飲品。</p>
+            <div class="highlight">從最高標準出發 → 技術成熟後降維應用 → 每款民生產品都有科學背書</div>
+          </div>
+        </div>
+        <div class="rd-item">
+          <span class="rd-num">02</span>
+          <div>
+            <h3>數據即信用</h3>
+            <p>所有產品必須經過認證實驗室的基因鑑定、活性測試，以及針對不同季節（春、冬）的成分轉換分析。每一批產品都有完整的科學數據報告支撐。</p>
+          </div>
+        </div>
+        <div class="rd-item">
+          <span class="rd-num">03</span>
+          <div>
+            <h3>專利 R 標授權機制</h3>
+            <p>包裝上的 R 標（註冊商標）代表專利與實驗數據背書。唯有成分劑量達到「確定有效」的規範（如美白成分達 10%）才授權使用，拒絕空談概念，拒絕市場上常見的無效添加。</p>
+          </div>
+        </div>
+        <div class="rd-item">
+          <span class="rd-num">04</span>
+          <div>
+            <h3>認證實驗室體系</h3>
+            <p>結合經濟部科專項目，與國家級單位（如龍科院）深度合作，利用專業團隊進行基因鑑定與原料研發，確保報告能「一次就過關」，不妥協、不應付。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 生產核心技術 -->
+<section style="padding:var(--pad) 64px;background:#fff;">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:60px;" class="reveal">
+      <div class="tag-row" style="justify-content:center;"><div class="tag-line"></div><span class="tag-text">Core Technology · 核心技術</span><div class="tag-line"></div></div>
+      <h2 class="section-title">生產與核心技術<br>基因管理與精準萃取</h2>
+      <p class="section-desc" style="max-width:640px;margin:0 auto;">為了克服牛樟產業品質不穩與基因變異的痛點，耀德在生產端進行了根本性變革，從源頭開始把關每一個環節。</p>
+    </div>
+    <div class="tech-grid">
+      <div class="reveal">
+        <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=900&q=85" alt="牛樟芝培育" style="width:100%;height:450px;object-fit:cover;">
+      </div>
+      <div class="reveal d2">
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <div class="rd-item">
+            <span class="rd-num" style="font-size:36px;">01</span>
+            <div>
+              <h3>「扦插功法」基因穩定技術</h3>
+              <p>傳統種子繁殖極易產生基因變異，導致味道與成分走樣。耀德堅持採用高難度的扦插技術，確保新株與母株基因完全一致。由具 40 年林務局經驗的吳正龍老師親自指導，需精準監控酵素比例與水分，克服極高的失敗率。</p>
+              <div class="highlight">基因穩定 → 成分可預測 → 品質可控制 → 實驗數據可重複</div>
+            </div>
+          </div>
+          <div class="rd-item">
+            <span class="rd-num" style="font-size:36px;">02</span>
+            <div>
+              <h3>超臨界精準萃取技術</h3>
+              <p>採用「超臨界溫度的臨界點」技術抽取，能確保有效成分活性且不具寒性。此技術與一般應付式的萃取工藝產生根本性的市場區隔，是耀德最重要的技術壁壘之一。</p>
+            </div>
+          </div>
+          <div class="rd-item">
+            <span class="rd-num" style="font-size:36px;">03</span>
+            <div>
+              <h3>段木栽培 vs. 牛樟麥片</h3>
+              <p>耀德嚴格拒絕生長期僅三個月、僅含多醣體的固態培養產品（業界戲稱「牛樟麥片」）。堅持使用生長需五年以上的段木，以獲取具醫療價值（抗癌、抗發炎）的「總三萜」成分，這才是真正的牛樟芝。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 公司沿革 -->
+<section id="history" style="padding:var(--pad) 64px;background:var(--g800);">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:60px;" class="reveal">
+      <div class="tag-row" style="justify-content:center;"><div class="tag-line"></div><span class="tag-text">History · 公司沿革</span><div class="tag-line"></div></div>
+      <h2 class="section-title white">耀德二十年<br>精進之路</h2>
+    </div>
+    <div style="max-width:700px;margin:0 auto;" class="reveal">
+      <div class="history-tl">
+        <div class="ht-item"><div class="ht-left"><span class="ht-year">2005</span></div><div class="ht-center"><div class="ht-dot"></div><div class="ht-line"></div></div><div class="ht-right"><h4 style="color:#fff;">創辦於台灣苗栗</h4><p style="color:rgba(255,255,255,.55);">創辦人受「擁抱大地」理念感召，在苗栗山區收購第一批牛樟木林地，展開漫長的守護與研究之旅。</p></div></div>
+        <div class="ht-item"><div class="ht-left"><span class="ht-year">2009</span></div><div class="ht-center"><div class="ht-dot"></div><div class="ht-line"></div></div><div class="ht-right"><h4 style="color:#fff;">扦插繁育技術突破</h4><p style="color:rgba(255,255,255,.55);">與吳正龍老師合作，成功建立可穩定繁殖的牛樟木扦插技術，確保基因一致性，奠定日後產品品質的根基。</p></div></div>
+        <div class="ht-item"><div class="ht-left"><span class="ht-year">2013</span></div><div class="ht-center"><div class="ht-dot"></div><div class="ht-line"></div></div><div class="ht-right"><h4 style="color:#fff;">首款子實體膠囊上市</h4><p style="color:rgba(255,255,255,.55);">經過五年段木栽培期，首批頂級牛樟芝子實體膠囊完成 SGS 國際認證，正式上市，獲得市場廣泛好評。</p></div></div>
+        <div class="ht-item"><div class="ht-left"><span class="ht-year">2018</span></div><div class="ht-center"><div class="ht-dot"></div><div class="ht-line"></div></div><div class="ht-right"><h4 style="color:#fff;">超臨界萃取技術導入</h4><p style="color:rgba(255,255,255,.55);">引進超臨界溫度精準萃取設備，大幅提升有效成分萃取率與活性保留率，技術領先業界同業。</p></div></div>
+        <div class="ht-item"><div class="ht-left"><span class="ht-year">2021</span></div><div class="ht-center"><div class="ht-dot"></div><div class="ht-line"></div></div><div class="ht-right"><h4 style="color:#fff;">外泌體技術研發成功</h4><p style="color:rgba(255,255,255,.55);">台灣首創以活牛樟樹葉萃取植物外泌體技術，開啟生技保養品新領域，獲得多項國際專利。</p></div></div>
+        <div class="ht-item"><div class="ht-left"><span class="ht-year">2024</span></div><div class="ht-center"><div class="ht-dot"></div><div class="ht-line"></div></div><div class="ht-right"><h4 style="color:#fff;">苗栗公館園區正式啟用</h4><p style="color:rgba(255,255,255,.55);">苗栗公館體驗園區正式對會員開放，讓客戶可以度假、看樹、喝牛樟咖啡，讓品牌信仰變得可視化、可感知。</p></div></div>
+        <div class="ht-item"><div class="ht-left"><span class="ht-year">2026</span></div><div class="ht-center"><div class="ht-dot" style="border-color:var(--gold);background:var(--gold);"></div></div><div class="ht-right"><h4 style="color:var(--gold);">下一個二十年</h4><p style="color:rgba(255,255,255,.55);">持續深化科學研究，擴大會員互助體系，朝 30 萬會員目標邁進，並規劃將台灣牛樟品牌推向國際市場。</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 認證資質 -->
+<section id="certs" style="padding:var(--pad) 64px;background:var(--cream);">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:56px;" class="reveal">
+      <div class="tag-row" style="justify-content:center;"><div class="tag-line"></div><span class="tag-text">Certifications · 認證資質</span><div class="tag-line"></div></div>
+      <h2 class="section-title">國際認證 全程把關</h2>
+      <p class="section-desc" style="max-width:560px;margin:0 auto;">每一項耀德產品在上市前，必須通過嚴格的國際認證流程。數據不僅是我們的承諾，更是消費者健康的最後一道防線。</p>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card reveal"><svg class="cert-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M24 6L28 16L39 17.5L31 25.5L33.5 37L24 31.5L14.5 37L17 25.5L9 17.5L20 16Z"/></svg><h4>SGS 國際認證</h4><p>全球最大檢驗機構認證，確保產品品質與安全符合國際標準。</p></div>
+      <div class="cert-card reveal d1"><svg class="cert-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="8" y="8" width="32" height="32" rx="2"/><path d="M16 24l5 5 11-11"/></svg><h4>GMP 優良製造</h4><p>符合 GMP 優良製造規範，生產過程嚴格管控，品質穩定可靠。</p></div>
+      <div class="cert-card reveal d2"><svg class="cert-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="24" cy="24" r="18"/><path d="M16 24l5 5 11-11"/></svg><h4>衛福部核准</h4><p>通過台灣衛生福利部審核，符合食品安全衛生管理法規要求。</p></div>
+      <div class="cert-card reveal d3"><svg class="cert-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 40V22L24 10L40 22V40"/><rect x="18" y="28" width="12" height="12"/></svg><h4>經濟部科專計畫</h4><p>獲得經濟部科技專案計畫補助，與龍科院等國家級單位深度合作。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer><div class="wrap"><div class="footer-top"><div class="f-brand"><a href="index.html" class="logo logo-footer"><img src="images/logo/LOGO_6.png" alt="耀德植研生醫 YAODER BIOMEDICAL" class="logo-full-img"></a><p>深耕台灣牛樟芝研究逾二十年，以科學嚴謹、自然純粹的信念，守護每一個珍貴生命的健康與活力。</p><div class="f-socials"><a href="#" class="f-soc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="#" class="f-soc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 11.04C22 6.35 17.302 2.54 11.523 2.54S1.047 6.35 1.047 11.04c0 4.2 3.726 7.72 8.756 8.39.34.073.803.225.92.517.105.265.069.68.034.947l-.15.895c-.045.265-.21 1.04.912.567 1.12-.473 6.06-3.57 8.267-6.11C21.47 14.41 22 12.82 22 11.04z"/></svg></a></div></div><div class="f-nav-col"><h4>關於耀德</h4><ul><li><a href="about.html#philosophy">品牌理念與願景</a></li><li><a href="about.html#rd">核心研發策略</a></li><li><a href="sustainability.html">大地永續</a></li><li><a href="about.html#certs">認證資質</a></li></ul></div><div class="f-nav-col"><h4>產品服務</h4><ul><li><a href="products.html">產品介紹</a></li><li><a href="shop.html">購物商城</a></li><li><a href="antrodia.html">認識牛樟芝</a></li><li><a href="member.html">加入會員</a></li></ul></div><div class="f-nav-col"><h4>快速連結</h4><ul><li><a href="news.html">新聞中心</a></li><li><a href="contact.html">聯絡我們</a></li><li><a href="login.html">會員登入</a></li><li><a href="register.html">會員註冊</a></li></ul></div></div><div class="footer-btm"><p class="f-copy">© 2026 耀德植研生醫股份有限公司 · All Rights Reserved · www.bigbull.com.tw</p><div class="f-btm-links"><a href="#">隱私權政策</a><a href="#">使用條款</a><a href="#">Cookie 設定</a></div></div></div></footer>
+
+<script>
+const _nav=document.getElementById('nav');if(_nav&&!_nav.classList.contains('solid')){window.addEventListener('scroll',()=>{_nav.classList.toggle('scrolled',window.scrollY>60)},{passive:true})}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+const _ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('up')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>_ro.observe(el));
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open')}
+</script>
+
+<!-- Back to Top -->
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到頂部" aria-label="回到頂部" style="position:fixed;bottom:32px;right:88px;width:50px;height:50px;background:#c8973e;border:none;border-radius:50%;cursor:pointer;z-index:901;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(200,151,62,.5);opacity:0;visibility:hidden;transform:translateY(12px);transition:all .35s ease;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 13l6-6 6 6"/></svg></button>
+<script>
+(function(){var b=document.getElementById('backTop');if(!b)return;window.addEventListener('scroll',function(){var s=window.scrollY>300;b.style.opacity=s?'1':'0';b.style.visibility=s?'visible':'hidden';b.style.transform=s?'translateY(0)':'translateY(12px)';},{passive:true});})();
+</script>
+<script src="analytics.js" defer></script>
+</body>
+</html>
+
+

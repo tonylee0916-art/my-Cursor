@@ -1,0 +1,446 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大地永續 — 從生到死而在生 | 耀德植研生醫</title>
+  <meta name="description" content="耀德植研生醫秉持「擁抱大地」理念，堅守不砍樹承諾，實踐牛樟木「從生到死而在生」的永續循環，並開放冠名認養與碳權捐贈，建構跨世代的生態信仰。">
+  <meta name="keywords" content="大地永續,牛樟木保育,不砍樹,冠名認養,碳權捐贈,耀德植研生醫,社會互助,生態循環">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sus-hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .sus-quote { font-family: 'Noto Serif TC', serif; font-size: clamp(17px, 2vw, 24px); color: rgba(255,255,255,.82); line-height: 1.75; font-weight: 300; border-left: 3px solid #00C9A0; padding-left: 28px; margin-top: 28px; }
+    .sus-quote em { color: #00E5CC; font-style: normal; }
+    section.pad { padding: var(--pad) 64px; }
+    section.pad .wrap > * + * { margin-top: 0; }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .info-img { width: 100%; height: 500px; object-fit: cover; }
+    .info-list { display: flex; flex-direction: column; gap: 0; }
+    .info-item { display: flex; gap: 20px; align-items: flex-start; padding: 24px 0; border-bottom: 1px solid var(--border); }
+    .info-item:last-child { border-bottom: none; }
+    .info-icon { width: 44px; height: 44px; flex-shrink: 0; color: var(--gold); margin-top: 2px; }
+    .info-item h4 { font-family: 'Noto Serif TC', serif; font-size: 17px; color: var(--g700); margin-bottom: 6px; }
+    .info-item p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+    .dark-section { background: var(--g800); padding: var(--pad) 64px; }
+    .commit-banner { background: var(--gold); color: #fff; padding: 60px 64px; text-align: center; }
+    .commit-banner h2 { font-family: 'Noto Serif TC', serif; font-size: clamp(24px, 3vw, 40px); font-weight: 600; margin-bottom: 12px; }
+    .commit-banner p { font-size: 16px; opacity: .9; max-width: 640px; margin: 0 auto 32px; line-height: 1.9; }
+    .timeline { position: relative; padding-left: 60px; }
+    .timeline::before { content: ''; position: absolute; left: 20px; top: 8px; bottom: 8px; width: 1px; background: var(--border); }
+    .tl-item { position: relative; margin-bottom: 40px; }
+    .tl-dot { position: absolute; left: -48px; top: 4px; width: 16px; height: 16px; border: 2px solid var(--gold); border-radius: 50%; background: #fff; }
+    .tl-year { font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+    .tl-item h4 { font-family: 'Noto Serif TC', serif; font-size: 17px; color: var(--g700); margin-bottom: 6px; }
+    .tl-item p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+    .eternity-numbers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,.06); margin-top: 48px; }
+    .eternity-box { background: var(--g800); padding: 48px 32px; text-align: center; }
+    .eternity-num { font-family: 'Playfair Display', serif; font-size: 64px; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+    .eternity-lbl { font-size: 13px; color: rgba(255,255,255,.5); letter-spacing: 2px; }
+    /* Hero 統計方塊 */
+    .sus-hero-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; background: rgba(0,201,160,.06); margin-top:24px; max-width:520px; }
+    .sus-stat-box { padding: 32px; background: rgba(255,255,255,.03); text-align: center; }
+    .sus-stat-num { font-family: 'Playfair Display', serif; font-size: 52px; color: #00C9A0; line-height: 1; margin-bottom: 8px; }
+    .sus-stat-num span { font-size: 28px; }
+    .sus-stat-lbl { font-size: 11px; color: rgba(255,255,255,.45); letter-spacing: 2px; }
+    /* 四大經營原則 格線 */
+    .sus-mgmt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    /* 社會互助體系 統計方塊 */
+    .mutual-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(255,255,255,.06); }
+    .mutual-stat-box { background: var(--g800); padding: 40px; text-align: center; }
+    .mutual-stat-num { font-family: 'Playfair Display', serif; font-size: 60px; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+    .mutual-stat-num span { font-size: 28px; }
+    .mutual-stat-lbl { font-size: 12px; color: rgba(255,255,255,.45); letter-spacing: 2px; }
+    @media(max-width:1024px) {
+      .sus-hero-inner { grid-template-columns: 1fr; gap: 36px; }
+      .info-grid { grid-template-columns: 1fr; gap: 40px; }
+      .eternity-numbers { grid-template-columns: 1fr 1fr; }
+      .adopt-section { padding-left: 40px; padding-right: 40px; }
+      .sus-mgmt-grid { gap: 48px; }
+    }
+    @media(max-width:768px) {
+      section.pad { padding: 64px 24px; }
+      .dark-section { padding: 64px 24px; }
+      .commit-banner { padding: 48px 24px; }
+      .sus-mgmt-grid { grid-template-columns: 1fr; gap: 40px; }
+      .sus-stat-box { padding: 20px 16px; }
+      .sus-stat-num { font-size: 36px; }
+      .sus-stat-num span { font-size: 20px; }
+      .mutual-stat-box { padding: 24px 16px; }
+      .mutual-stat-num { font-size: 40px; }
+      .mutual-stat-num span { font-size: 20px; }
+      .mutual-stat-lbl { letter-spacing: 1px; }
+      .eternity-numbers { grid-template-columns: 1fr; }
+      .eternity-box { padding: 36px 24px; }
+      .eternity-num { font-size: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="nav" class="solid">
+  <a href="index.html" class="logo"><img src="images/logo/LOGO_4.png" alt="" class="logo-icon-img"><img src="images/logo/LOGO_5.png" alt="耀德植研生醫 YAODER BIOMEDICAL" class="logo-wordmark-img"></a>
+  <nav class="nav-menu">
+    <div class="nav-item"><a href="index.html" class="nav-link">首頁</a></div>
+    <div class="nav-item">
+      <a href="about.html" class="nav-link">關於耀德 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a>
+      <div class="dropdown"><a href="about.html#philosophy">品牌理念與願景</a><a href="about.html#rd">核心研發策略</a><a href="about.html#history">公司沿革</a><a href="about.html#certs">認證資質</a></div>
+    </div>
+    <div class="nav-item">
+      <a href="antrodia.html" class="nav-link">認識牛樟芝 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a>
+      <div class="dropdown"><a href="antrodia.html#intro">牛樟芝簡介</a><a href="antrodia.html#ingredients">活性物成分</a><a href="antrodia.html#research">科學研究</a><a href="antrodia.html#usage">食用方式</a><a href="antrodia.html#reaction">暝眩反應說明</a></div>
+    </div>
+    <div class="nav-item">
+      <a href="products.html" class="nav-link">產品介紹 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a>
+      <div class="dropdown"><a href="product-bigbull.html">能量補給</a><a href="product-premium.html">頂級系列</a><a href="product-daily.html">日常保健</a><a href="product-extract.html">萃取精華</a><a href="shop.html">購物商城</a></div>
+    </div>
+    <div class="nav-item"><a href="wellness.html" class="nav-link">健康方案</a></div>
+    <div class="nav-item"><a href="sustainability.html" class="nav-link active">大地永續</a></div>
+    <div class="nav-item"><a href="news.html" class="nav-link">新聞中心</a></div>
+    <div class="nav-item"><a href="contact.html" class="nav-link">聯絡我們</a></div>
+    <div class="nav-item"><a href="flagship.html" class="nav-link nav-flagship"><span class="flagship-dot"></span>健康生活館</a></div>
+    <div class="nav-divider"></div>
+    <div class="nav-item"><a href="member.html" class="nav-link nav-member">加入會員</a></div>
+    <div class="nav-item"><a href="login.html" class="nav-link nav-login">登入</a></div>
+  </nav>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</header>
+<div class="mobile-menu" id="mobMenu">
+  <span class="close-btn" onclick="toggleMenu()">×</span>
+  <a href="index.html" onclick="toggleMenu()">首頁</a>
+  <a href="about.html" onclick="toggleMenu()">關於耀德</a>
+  <a href="antrodia.html" onclick="toggleMenu()">認識牛樟芝</a>
+  <a href="products.html" onclick="toggleMenu()">產品介紹</a>
+  <a href="sustainability.html" onclick="toggleMenu()">大地永續</a>
+  <a href="news.html" onclick="toggleMenu()">新聞中心</a>
+  <a href="contact.html" onclick="toggleMenu()">聯絡我們</a><a href="flagship.html" onclick="toggleMenu()" style="color:var(--cyber) !important;">健康生活館</a>
+  <div class="mob-btns"><a href="member.html">加入會員</a><a href="login.html" class="gold-btn">登入</a></div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="ph-inner" style="padding-bottom:90px;">
+    <div class="ph-left">
+      <div class="breadcrumb">
+        <a href="index.html">首頁</a><span class="sep">›</span><span>大地永續</span>
+      </div>
+      <div class="tag-row" style="padding-left:20px;"><div class="tag-line"></div><span class="tag-text">Earth Sustainability · 大地永續</span></div>
+      <h1>擁抱大地<br><em>守護千年生命</em></h1>
+      <p>耀德植研生醫將企業經營轉化為一種對大地的感恩行動與社會信仰，以「不砍一棵樹」的莊嚴承諾，實踐跨越世代的自然守護責任。</p>
+      <blockquote class="sus-quote">
+        「企業獲利後必須種樹回報，守護樹木生命是<em>極大功德</em>。」
+        <br><small style="font-size:13px;color:rgba(255,255,255,.45);font-family:'Noto Sans TC',sans-serif;letter-spacing:2px;display:block;margin-top:12px;">— 耀德植研生醫 創辦人</small>
+      </blockquote>
+      <div class="sus-hero-stats">
+        <div class="sus-stat-box"><div class="sus-stat-num">500<span>+</span></div><div class="sus-stat-lbl">年永續承諾</div></div>
+        <div class="sus-stat-box"><div class="sus-stat-num">0</div><div class="sus-stat-lbl">棵樹被砍伐</div></div>
+        <div class="sus-stat-box"><div class="sus-stat-num">30<span>萬</span></div><div class="sus-stat-lbl">互助會員願景</div></div>
+        <div class="sus-stat-box"><div class="sus-stat-num">100<span>%</span></div><div class="sus-stat-lbl">透明化管理</div></div>
+      </div>
+    </div>
+    <div class="ph-right">
+      <div class="ph-watermark">EARTH</div>
+      <div class="ph-line-deco"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 從生到死而在生 -->
+<section class="pad" style="background:#fff;">
+  <div class="wrap">
+    <div style="text-align:center;max-width:700px;margin:0 auto 60px;" class="reveal">
+      <div class="tag-row" style="justify-content:center;"><div class="tag-line"></div><span class="tag-text">Life Cycle · 生命循環</span><div class="tag-line"></div></div>
+      <h2 class="section-title">「從生到死而在生」<br>循環共生哲學</h2>
+      <p class="section-desc" style="max-width:100%;text-align:center;">牛樟木的一生不只是一段生命，而是一個生生不息的循環。耀德植研生醫尊重每一個生命階段，讓樹木以最完整的方式回饋大地。</p>
+    </div>
+    <div class="sus-cycle">
+      <div class="sus-phase reveal">
+        <svg class="sus-phase-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.3">
+          <path d="M32 8C32 8 16 20 16 38C16 47.941 23.059 56 33 56C42.941 56 50 47.941 50 38C50 20 32 8 32 8Z"/>
+          <line x1="32" y1="8" x2="32" y2="56" opacity=".3"/>
+          <path d="M16 32C20 28 27 30 32 32C37 34 44 36 48 32" opacity=".3"/>
+        </svg>
+        <h3>活樹生長期</h3>
+        <p>牛樟活樹用於水土保持，採摘葉子研發外泌體保養品、牛樟茶、牛樟咖啡等民生飲品，充分運用自然資源而不傷害樹木本身。</p>
+      </div>
+      <div class="sus-phase reveal d2">
+        <svg class="sus-phase-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.3">
+          <circle cx="32" cy="32" r="22"/>
+          <path d="M22 32l6 6 14-14"/>
+          <path d="M32 10V18M32 46V54M10 32H18M46 32H54" opacity=".3"/>
+        </svg>
+        <h3>自然死亡轉化</h3>
+        <p>堅守「一棵都不砍」的承諾，靜待樹木壽終正寢。耀德相信，守護樹木走完完整的生命旅程，是企業最高的道德實踐。</p>
+      </div>
+      <div class="sus-phase reveal d4">
+        <svg class="sus-phase-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.3">
+          <path d="M12 52L32 12L52 52H12Z"/>
+          <path d="M22 40h20M32 24v16" opacity=".3"/>
+          <circle cx="32" cy="40" r="4" fill="currentColor" stroke="none" opacity=".4"/>
+        </svg>
+        <h3>段木死後重生</h3>
+        <p>待牛樟木自然死亡後，其段木才用來培育牛樟芝真菌體。五年以上的生長期，萃取出具醫療價值的總三萜成分，實現資源永續利用。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 不砍樹承諾 + 圖片 -->
+<section class="pad" style="background:var(--cream);">
+  <div class="wrap">
+    <div class="info-grid">
+      <div class="reveal">
+        <img src="https://images.unsplash.com/photo-1511871893393-82e9c16b81e3?w=900&q=85" alt="牛樟木林地" class="info-img">
+      </div>
+      <div class="reveal d2">
+        <div class="tag-row"><div class="tag-line"></div><span class="tag-text">Our Promise · 承諾</span></div>
+        <h2 class="section-title">擁抱大地<br>不砍一棵樹</h2>
+        <p class="section-desc" style="margin-bottom:32px;">受「擁抱大地」觀念感召，耀德創辦人在收購林地後立下莊嚴誓言：視守護樹木生命為人生與企業的最高使命。</p>
+        <div class="info-list">
+          <div class="info-item">
+            <svg class="info-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.3">
+              <path d="M22 4C22 4 10 14 10 26C10 33.18 15.82 39 23 39C30.18 39 36 33.18 36 26C36 14 22 4 22 4Z"/>
+              <line x1="22" y1="4" x2="22" y2="39" opacity=".35"/>
+            </svg>
+            <div>
+              <h4>收購林地 永久保護</h4>
+              <p>收購牛樟木林地後，嚴格執行永久保護政策，不允許任何形式的商業砍伐，只進行最低限度的農業管理維護。</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <svg class="info-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.3">
+              <circle cx="22" cy="22" r="16"/>
+              <path d="M15 22l5 5 9-9"/>
+            </svg>
+            <div>
+              <h4>扦插繁育 基因穩定</h4>
+              <p>採用高難度的扦插技術繁育新株，確保基因與母株完全一致，避免種子繁殖的基因變異，為下一個世代保存純正的台灣原生牛樟。</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <svg class="info-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.3">
+              <rect x="8" y="10" width="28" height="24" rx="2"/>
+              <path d="M14 10V6M30 10V6"/>
+              <line x1="8" y1="18" x2="36" y2="18"/>
+              <path d="M14 25h6M24 25h6"/>
+            </svg>
+            <div>
+              <h4>日報式透明管理</h4>
+              <p>透過通訊群組，技術人員每天回報施肥、酵素比例等進度，建立完整的透明信任履歷，讓每一棵樹的生長狀態都有跡可循。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 四大經營原則 -->
+<section class="pad" style="background:#fff;">
+  <div class="wrap">
+    <div class="sus-mgmt-grid">
+      <div class="reveal">
+        <div class="tag-row"><div class="tag-line"></div><span class="tag-text">Philosophy · 經營哲學</span></div>
+        <h2 class="section-title">善念為魂<br>透明化管理</h2>
+        <p class="section-desc">耀德植研生醫將善念植入企業基因，以誠信守諾、理解溝通為核心管理文化，打造台灣最具信仰高度的生技品牌。</p>
+        <div style="margin-top:36px;">
+          <img src="https://images.unsplash.com/photo-1504192010706-dd7f569ee2be?w=800&q=85" alt="台灣山林" style="width:100%;height:300px;object-fit:cover;">
+        </div>
+      </div>
+      <div class="reveal d2">
+        <div class="sus-principle">
+          <span class="sus-num">01</span>
+          <div>
+            <h3>善念為魂</h3>
+            <p>企業獲利後必須種樹回報，以善念作為一切商業決策的起點。創辦人相信，當利益與善念共存，企業才能真正長遠。</p>
+          </div>
+        </div>
+        <div class="sus-principle">
+          <span class="sus-num">02</span>
+          <div>
+            <h3>誠信守諾（言出必行）</h3>
+            <p>「答應的就不想改」、「不忘初心」——所有的研發數據必須本於事實，所有的承諾都落實執行，拒絕任何形式的空談概念。</p>
+          </div>
+        </div>
+        <div class="sus-principle">
+          <span class="sus-num">03</span>
+          <div>
+            <h3>透明化溝通</h3>
+            <p>日報式管理建立透明信任關係；教導員工「理解客戶」而非應付，透過理解追求產品完美並保持工作的心境平衡。</p>
+          </div>
+        </div>
+        <div class="sus-principle">
+          <span class="sus-num">04</span>
+          <div>
+            <h3>跨世代傳承</h3>
+            <p>經營目光投向未來 500 年甚至 1,000 年，旨在為子孫留下純正、不變異的台灣原生牛樟資源與完整的生態環境。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 冠名認養 -->
+<div class="adopt-section">
+  <div class="wrap" style="position:relative;z-index:1;">
+    <div class="tag-row" style="justify-content:center;"><div class="tag-line"></div><span class="tag-text">Tree Adoption · 冠名認養</span><div class="tag-line"></div></div>
+    <h2 class="section-title white" style="margin-bottom:12px;">冠名認養一棵樹</h2>
+    <h2 class="section-title gold" style="margin-bottom:20px;">讓信仰有形，讓善意生根</h2>
+    <p class="section-desc white" style="max-width:640px;margin:0 auto 0;">開放客戶小額認養牛樟樹，建立與土地、生命的情感連結。您的名字將與這棵樹永遠連結，碳權收益以您的名義捐贈給慈善團體，落實「善的循環」。</p>
+    <div class="adopt-steps reveal">
+      <div class="adopt-step">
+        <div class="adopt-step-num">01</div>
+        <h3>選擇認養方案</h3>
+        <p>以 NT$5,000 起，選擇認養棵數與冠名方式，可以個人、家族或企業名義命名。</p>
+      </div>
+      <div class="adopt-step">
+        <div class="adopt-step-num">02</div>
+        <h3>取得認養證書</h3>
+        <p>收到精美的牛樟木認養證書及 GPS 定位座標，可親臨苗栗公館園區親眼見到您的樹。</p>
+      </div>
+      <div class="adopt-step">
+        <div class="adopt-step-num">03</div>
+        <h3>享有碳權收益</h3>
+        <p>樹木產生的碳權收益，以您的名義捐贈給合作慈善團體，完成善意的完整循環。</p>
+      </div>
+      <div class="adopt-step">
+        <div class="adopt-step-num">04</div>
+        <h3>永續傳承子孫</h3>
+        <p>認養樹木的權益可傳承給子孫，成為家族與這片土地之間跨越世代的美好羈絆。</p>
+      </div>
+    </div>
+    <div style="margin-top:48px;">
+      <a href="member.html" class="btn-gold btn-lg">立即申請冠名認養</a>
+    </div>
+  </div>
+</div>
+
+<!-- 社會互助體系 -->
+<section class="dark-section">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:60px;" class="reveal">
+      <div class="tag-row" style="justify-content:center;"><div class="tag-line"></div><span class="tag-text">Social Mutual Aid · 互助體系</span><div class="tag-line"></div></div>
+      <h2 class="section-title white">三十萬人互助</h2>
+      <h2 class="section-title gold" style="margin-bottom:16px;">眾人為一人</h2>
+      <p class="section-desc white" style="max-width:640px;margin:0 auto;">耀德的願景是建立 30 萬名會員的互助體系，當會員面臨人生變故時，能即時獲得社群的守護與支援，將品牌轉化為真實的社會信仰力量。</p>
+    </div>
+    <div class="mutual-grid reveal">
+      <div>
+        <div class="mutual-stats-grid">
+          <div class="mutual-stat-box">
+            <div class="mutual-stat-num">30<span>萬</span></div>
+            <div class="mutual-stat-lbl">目標會員人數</div>
+          </div>
+          <div class="mutual-stat-box">
+            <div class="mutual-stat-num">30<span>萬</span></div>
+            <div class="mutual-stat-lbl">緊急救助金額(元)</div>
+          </div>
+          <div class="mutual-stat-box">
+            <div class="mutual-stat-num">20<span>%</span></div>
+            <div class="mutual-stat-lbl">會員利潤分享</div>
+          </div>
+          <div class="mutual-stat-box">
+            <div class="mutual-stat-num">5<span>%</span></div>
+            <div class="mutual-stat-lbl">推薦分潤津貼</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="tag-row"><div class="tag-line"></div><span class="tag-text">互助運作機制</span></div>
+        <h2 class="section-title white" style="font-size:clamp(22px,3vw,36px);">讓品牌成為<br><em style="color:var(--gold);font-style:normal;">守護彼此的力量</em></h2>
+        <p style="color:rgba(255,255,255,.6);font-size:15px;line-height:1.9;margin-bottom:28px;">採透明的單層分潤模式，強調簡單、獲利與共好。每一位會員既是受益者，也是守護者，共同構成一個有溫度的社會安全網。</p>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;gap:14px;align-items:flex-start;padding:20px;border:1px solid rgba(255,255,255,.08);">
+            <svg style="width:32px;height:32px;flex-shrink:0;color:var(--gold);" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="16" r="12"/><path d="M11 16l3.5 3.5L21 10"/></svg>
+            <div><div style="color:#fff;font-size:15px;margin-bottom:4px;font-family:'Noto Serif TC',serif;">緊急醫療援助</div><div style="color:rgba(255,255,255,.5);font-size:13px;line-height:1.7;">當會員面臨重大疾病或意外時，互助基金提供即時的財務支援。</div></div>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start;padding:20px;border:1px solid rgba(255,255,255,.08);">
+            <svg style="width:32px;height:32px;flex-shrink:0;color:var(--gold);" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M16 3L19.5 10.5L28 11.6L22 17.5L23.5 26L16 22L8.5 26L10 17.5L4 11.6L12.5 10.5Z"/></svg>
+            <div><div style="color:#fff;font-size:15px;margin-bottom:4px;font-family:'Noto Serif TC',serif;">碳權善意循環</div><div style="color:rgba(255,255,255,.5);font-size:13px;line-height:1.7;">認養樹木的碳權收益以會員名義捐贈慈善，形成善的連鎖反應。</div></div>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start;padding:20px;border:1px solid rgba(255,255,255,.08);">
+            <svg style="width:32px;height:32px;flex-shrink:0;color:var(--gold);" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="8" width="24" height="18" rx="2"/><path d="M4 14h24M10 8V6M22 8V6"/></svg>
+            <div><div style="color:#fff;font-size:15px;margin-bottom:4px;font-family:'Noto Serif TC',serif;">分潤透明公開</div><div style="color:rgba(255,255,255,.5);font-size:13px;line-height:1.7;">20% 利潤分享 + 5% 推薦津貼，所有數字公開透明，無隱藏費用。</div></div>
+          </div>
+        </div>
+        <div style="margin-top:32px;">
+          <a href="member.html" class="btn-gold">立即加入互助體系</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 永恆承諾 -->
+<section class="pad" style="background:var(--cream);">
+  <div class="wrap" style="text-align:center;">
+    <div class="reveal">
+      <div class="tag-row" style="justify-content:center;"><div class="tag-line"></div><span class="tag-text">Eternal Commitment · 永恆承諾</span><div class="tag-line"></div></div>
+      <h2 class="section-title">為子孫留下<br>500 年的承諾</h2>
+      <p class="section-desc" style="max-width:640px;margin:0 auto 48px;">耀德的目光不只看向今日或明日，而是投向500年，甚至1,000年後的未來。我們正在為尚未出生的子孫，守護這片最純粹的台灣原生牛樟資源。</p>
+    </div>
+    <div class="eternity-numbers reveal">
+      <div class="eternity-box">
+        <div class="eternity-num">500<small style="font-size:28px;color:rgba(255,255,255,.4);">年</small></div>
+        <div class="eternity-lbl">跨世代永續目標</div>
+      </div>
+      <div class="eternity-box" style="background:var(--g700);">
+        <div class="eternity-num">1000<small style="font-size:24px;color:rgba(255,255,255,.4);">年</small></div>
+        <div class="eternity-lbl">牛樟木自然壽命</div>
+      </div>
+      <div class="eternity-box">
+        <div class="eternity-num">∞</div>
+        <div class="eternity-lbl">善念傳承無限</div>
+      </div>
+    </div>
+    <div style="margin-top:52px;" class="reveal">
+      <a href="member.html" class="btn-dark">加入耀德永續行動</a>
+      <a href="contact.html" class="btn-out-d" style="margin-left:16px;">聯繫我們了解更多</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="f-brand">
+        <a href="index.html" class="logo logo-footer"><img src="images/logo/LOGO_6.png" alt="耀德植研生醫 YAODER BIOMEDICAL" class="logo-full-img"></a>
+        <p>深耕台灣牛樟芝研究逾二十年，以科學嚴謹、自然純粹的信念，守護每一個珍貴生命的健康與活力。</p>
+        <div class="f-socials">
+          <a href="#" class="f-soc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" class="f-soc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 11.04C22 6.35 17.302 2.54 11.523 2.54S1.047 6.35 1.047 11.04c0 4.2 3.726 7.72 8.756 8.39.34.073.803.225.92.517.105.265.069.68.034.947l-.15.895c-.045.265-.21 1.04.912.567 1.12-.473 6.06-3.57 8.267-6.11C21.47 14.41 22 12.82 22 11.04z"/></svg></a>
+          <a href="#" class="f-soc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#060e09"/></svg></a>
+        </div>
+      </div>
+      <div class="f-nav-col"><h4>關於耀德</h4><ul><li><a href="about.html#philosophy">品牌理念與願景</a></li><li><a href="about.html#rd">核心研發策略</a></li><li><a href="sustainability.html">大地永續</a></li><li><a href="about.html#certs">認證資質</a></li></ul></div>
+      <div class="f-nav-col"><h4>產品服務</h4><ul><li><a href="products.html">產品介紹</a></li><li><a href="shop.html">購物商城</a></li><li><a href="antrodia.html">認識牛樟芝</a></li><li><a href="member.html">加入會員</a></li></ul></div>
+      <div class="f-nav-col"><h4>快速連結</h4><ul><li><a href="news.html">新聞中心</a></li><li><a href="contact.html">聯絡我們</a></li><li><a href="login.html">會員登入</a></li><li><a href="register.html">會員註冊</a></li></ul></div>
+    </div>
+    <div class="footer-btm">
+      <p class="f-copy">© 2026 耀德植研生醫股份有限公司 · All Rights Reserved · www.bigbull.com.tw</p>
+      <div class="f-btm-links"><a href="#">隱私權政策</a><a href="#">使用條款</a><a href="#">Cookie 設定</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const _nav=document.getElementById('nav');
+if(_nav&&!_nav.classList.contains('solid')){window.addEventListener('scroll',()=>{_nav.classList.toggle('scrolled',window.scrollY>60)},{passive:true})}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+const _ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('up')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>_ro.observe(el));
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open')}
+</script>
+
+<!-- Back to Top -->
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到頂部" aria-label="回到頂部" style="position:fixed;bottom:32px;right:88px;width:50px;height:50px;background:#c8973e;border:none;border-radius:50%;cursor:pointer;z-index:901;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(200,151,62,.5);opacity:0;visibility:hidden;transform:translateY(12px);transition:all .35s ease;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 13l6-6 6 6"/></svg></button>
+<script>
+(function(){var b=document.getElementById('backTop');if(!b)return;window.addEventListener('scroll',function(){var s=window.scrollY>300;b.style.opacity=s?'1':'0';b.style.visibility=s?'visible':'hidden';b.style.transform=s?'translateY(0)':'translateY(12px)';},{passive:true});})();
+</script>
+<script src="analytics.js" defer></script>
+</body>
+</html>
+
+

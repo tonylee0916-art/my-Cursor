@@ -1,0 +1,2523 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>耀德大牛能量氣泡飲 | 牛樟芝日常保健 · SGS認證 · 耀德植研生醫</title>
+  <meta name="description" content="耀德大牛能量氣泡飲，段木栽培牛樟芝子實體結合馬卡與紅參。SGS檢驗、GMP認證、SCI科研背書，100%台灣研發製造。立即體驗旗艦牛樟芝保健。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "耀德植研生醫股份有限公司",
+        "url": "https://www.yaoder.com.tw",
+        "logo": "images/logo/LOGO_4.png",
+        "description": "深耕台灣牛樟芝研究逾二十年，SGS、GMP、ISO認證的 Premium DTC 保健品牌。"
+      },
+      {
+        "@type": "Product",
+        "name": "耀德大牛能量氣泡飲",
+        "description": "段木栽培牛樟芝子實體萃取，結合馬卡、紅參與牛磺酸，日常能量保健飲品。",
+        "image": "images/BigBull/BigBull_4.png",
+        "brand": { "@type": "Brand", "name": "耀德植研生醫" },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "TWD",
+          "price": "3096",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "128"
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mobile-ux.css">
+  <link rel="stylesheet" href="reviews.css">
+  <link rel="stylesheet" href="immersive.css">
+  <style>
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-900: #071C12;
+      --green-800: #0D1A17;
+      --green-700: #00695C;
+      --green-600: #00796B;
+      --green-500: #00897B;
+      --green-300: #80CBC4;
+      --gold:      #FFCA28;
+      --gold-lt:   #FFE082;
+      --gold-pale: #FFFDE7;
+      --cream:     #EAF8F4;
+      --text:      #0D1A17;
+      --muted:     #4A6B65;
+      --border:    rgba(0,137,123,.18);
+      --nav-h:     80px;
+      --pad:       120px;
+      --t:         .4s cubic-bezier(.4,0,.2,1);
+      --t-fast:    .2s ease;
+      --cyber:     #00C9A0;
+      --cyber-dim: rgba(0,201,160,.12);
+      --glow:      rgba(0,201,160,.18);
+      --glow-gold: rgba(255,202,40,.20);
+      --deep:      #071C12;
+      --glass-bg:  rgba(5,22,15,.55);
+      --glass-border: rgba(0,201,160,.18);
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--text);
+      background: #fff;
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; outline: none; background: none; font-family: inherit; }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    /* ── Phase 3 Entry Responsive ── */
+    @media (max-width: 1024px) { #p3-cards { grid-template-columns: 1fr 1fr !important; } }
+    @media (max-width: 768px) {
+      /* 768px 以下（手機）：1 欄＋收緊 padding，避免 64px 大間距壓縮卡片 */
+      #p3-cards { grid-template-columns: 1fr !important; }
+      #phase3-entry { padding: 72px 24px !important; }
+    }
+    @media (max-width: 640px) {
+      #p3-cards { grid-template-columns: 1fr !important; }
+      #phase3-entry { padding: 64px 20px !important; }
+    }
+
+    /* ===== NAVBAR ===== */
+    #nav {
+      position: fixed; inset: 0 0 auto 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      display: flex; align-items: center;
+      padding: 0 64px;
+      transition: background .5s, height .4s, box-shadow .4s;
+    }
+    #nav.scrolled {
+      background: rgba(13,31,22,.95);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 2px 40px rgba(0,0,0,.35);
+    }
+    .logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .logo-icon-img { height: 44px; width: auto; flex-shrink: 0; display: block; }
+    .logo-wordmark-img { height: 34px; width: auto; flex-shrink: 0; display: block; }
+    .logo-full-img { height: auto; width: auto; display: block; }
+    .logo-footer .logo-full-img { max-width: 160px; }
+
+    .nav-menu { margin-left: auto; display: flex; align-items: center; gap: 3px; }
+    .nav-item { position: relative; }
+    .nav-link {
+      display: flex; align-items: center; gap: 4px;
+      padding: 8px 12px;
+      color: rgba(255,255,255,.88);
+      font-size: 13px; letter-spacing: .8px;
+      transition: color var(--t-fast);
+      white-space: nowrap;
+    }
+    .nav-link:hover { color: var(--gold); }
+    .nav-link .chevron {
+      width: 10px; height: 10px; stroke: currentColor; stroke-width: 2;
+      fill: none; transition: transform var(--t-fast);
+    }
+    .nav-item:hover .chevron { transform: rotate(180deg); }
+
+    .dropdown {
+      position: absolute; top: 100%; left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: rgba(13,31,22,.97);
+      border: 1px solid rgba(0,137,123,.18);
+      border-radius: 3px;
+      min-width: 180px; padding: 8px 0;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: all .3s ease;
+    }
+    .nav-item:hover .dropdown {
+      opacity: 1; visibility: visible; pointer-events: auto;
+      transform: translateX(-50%) translateY(2px);
+    }
+    .dropdown a {
+      display: block; padding: 10px 20px;
+      color: rgba(255,255,255,.75); font-size: 13px; letter-spacing: .5px;
+      border-left: 2px solid transparent;
+      transition: all var(--t-fast);
+    }
+    .dropdown a:hover { color: #00897B; background: rgba(0,137,123,.05); border-left-color: #00897B; padding-left: 24px; }
+
+    .nav-cta {
+      margin-left: 12px; padding: 10px 26px;
+      background: linear-gradient(135deg, #00897B, #00C9A0); color: #fff !important;
+      border-radius: 40px; font-weight: 700; letter-spacing: 1px;
+      transition: all var(--t-fast) !important;
+      box-shadow: 0 4px 14px rgba(0,137,123,.30);
+    }
+    .nav-cta:hover { filter: brightness(1.08) !important; transform: translateY(-1px) !important; box-shadow: 0 6px 20px rgba(0,137,123,.50) !important; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; margin-left: auto; padding: 8px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: #fff; transition: all .3s; }
+
+    /* ===== MOBILE MENU ===== */
+    .mobile-menu {
+      display: none;
+      position: fixed; inset: 0; z-index: 999;
+      background: rgba(13,31,22,.98);
+      flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: rgba(255,255,255,.85); font-size: 22px; font-family: 'Noto Serif TC', serif; letter-spacing: 4px; padding: 12px; transition: color var(--t-fast); }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu .close-btn { position: absolute; top: 28px; right: 28px; color: rgba(255,255,255,.6); font-size: 30px; cursor: pointer; }
+
+    /* ===== SECTION UTILS ===== */
+    .tag-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .tag-line { width: 36px; height: 1px; background: var(--gold); flex-shrink: 0; }
+    .tag-text { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+    .section-title { font-family: 'Noto Serif TC', serif; font-size: clamp(28px,4vw,50px); font-weight: 600; color: var(--green-700); line-height: 1.3; margin-bottom: 20px; }
+    .section-title.white { color: #fff; }
+    .section-title.gold { color: var(--gold); }
+    .section-desc { font-size: 16px; color: var(--muted); line-height: 1.95; max-width: 560px; }
+    .section-desc.white { color: rgba(255,255,255,.65); }
+
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 40px;
+      background: var(--gold); color: #fff;
+      font-size: 14px; letter-spacing: 2px; font-weight: 500;
+      border-radius: 2px; transition: all var(--t);
+      position: relative; overflow: hidden;
+    }
+    .btn-gold::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,.12); transform: translateX(-100%); transition: transform .4s ease; }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,151,62,.42); }
+    .btn-gold:hover::after { transform: translateX(0); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 36px;
+      border: 1px solid rgba(255,255,255,.4); color: rgba(255,255,255,.88);
+      font-size: 14px; letter-spacing: 2px;
+      border-radius: 2px; transition: all var(--t-fast);
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .arrow-icon { width: 16px; height: 16px; }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity .85s ease, transform .85s ease; }
+    .reveal.up { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; } .d5 { transition-delay: .5s; }
+
+    /* ===== HERO v3 ─ DTC Conversion ===== */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      background: #071C12;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-lifestyle-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1920&q=60') center 30%/cover no-repeat;
+      opacity: .14;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(105deg, rgba(7,28,18,.96) 0%, rgba(7,28,18,.88) 45%, rgba(7,28,18,.72) 100%);
+      pointer-events: none;
+    }
+    #hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 120px; z-index: 1;
+      background: linear-gradient(to top, #071C12, transparent);
+      pointer-events: none;
+    }
+    .hero-split {
+      position: relative; z-index: 2;
+      flex: 1;
+      width: 100%; display: flex; align-items: center;
+      max-width: 1400px; margin: 0 auto;
+      padding: calc(var(--nav-h) + 24px) 64px 48px;
+      gap: 48px;
+    }
+    .hero-left {
+      flex: 0 0 52%;
+      display: flex; flex-direction: column;
+      justify-content: center;
+    }
+    .hero-product-chip {
+      display: inline-flex; align-items: center; gap: 10px;
+      width: fit-content;
+      padding: 6px 14px 6px 10px;
+      margin-bottom: 20px;
+      background: rgba(0,201,160,.12);
+      border: 1px solid rgba(0,201,160,.28);
+      border-radius: 40px;
+      font-size: 12px; font-weight: 600; color: #00E5CC;
+      letter-spacing: .3px;
+    }
+    .hero-stars { display: flex; gap: 2px; color: #FFCA28; }
+    .hero-stars svg { width: 13px; height: 13px; fill: currentColor; }
+    .hero-chip-div { width: 1px; height: 14px; background: rgba(255,255,255,.2); }
+    .hero-chip-meta { color: rgba(255,255,255,.65); font-weight: 500; }
+    .hero-h1 {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: clamp(36px, 5.2vw, 68px);
+      font-weight: 900; color: #fff;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      letter-spacing: -.5px;
+    }
+    .hero-h1 em { font-style: normal; color: #00E5CC; }
+    .hero-sub {
+      font-size: clamp(15px, 1.4vw, 17px);
+      color: rgba(255,255,255,.72);
+      max-width: 520px;
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+    .hero-sub strong { color: rgba(255,255,255,.92); font-weight: 600; }
+    .hero-btns {
+      display: flex; align-items: center; flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .btn-hero-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, #FFCA28, #FFB300);
+      color: #071C12;
+      font-size: 15px; font-weight: 700;
+      letter-spacing: 1px;
+      border-radius: 40px;
+      transition: all var(--t-fast);
+      box-shadow: 0 8px 28px rgba(255,202,40,.35);
+      min-height: 52px;
+    }
+    .btn-hero-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(255,202,40,.45);
+      filter: brightness(1.05);
+    }
+    .btn-hero-secondary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 15px 28px;
+      background: rgba(255,255,255,.08);
+      border: 1.5px solid rgba(0,201,160,.45);
+      color: #fff;
+      font-size: 14px; font-weight: 600;
+      letter-spacing: .8px;
+      border-radius: 40px;
+      transition: all var(--t-fast);
+      min-height: 52px;
+      backdrop-filter: blur(8px);
+    }
+    .btn-hero-secondary:hover {
+      background: rgba(0,201,160,.15);
+      border-color: #00E5CC;
+      color: #00E5CC;
+    }
+    .hero-tertiary-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-bottom: 28px;
+      font-size: 13px; font-weight: 600;
+      color: rgba(255,255,255,.55);
+      letter-spacing: .5px;
+      transition: color var(--t-fast);
+    }
+    .hero-tertiary-cta:hover { color: #00E5CC; gap: 10px; }
+    .hero-trust-inline {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .hero-trust-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 12px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px;
+      font-size: 11px; font-weight: 600;
+      color: rgba(255,255,255,.78);
+      letter-spacing: .5px;
+    }
+    .hero-trust-pill svg { width: 14px; height: 14px; flex-shrink: 0; color: #00C9A0; }
+    .hero-right {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .hero-product-showcase {
+      position: relative;
+      width: clamp(280px, 36vw, 460px);
+      aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-product-glow {
+      position: absolute; inset: 8%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,201,160,.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-product-img {
+      position: relative; z-index: 2;
+      width: 88%; height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 24px 48px rgba(0,0,0,.45));
+    }
+    .hero-product-label {
+      position: absolute; top: 6%; right: 0; z-index: 3;
+      padding: 8px 16px;
+      background: rgba(7,28,18,.9);
+      border: 1px solid rgba(255,202,40,.4);
+      border-radius: 40px;
+      font-size: 11px; font-weight: 700;
+      color: #FFCA28;
+      letter-spacing: 1.5px;
+      backdrop-filter: blur(10px);
+    }
+    .hero-product-benefit {
+      position: absolute; bottom: 8%; left: -4%; z-index: 3;
+      max-width: 200px;
+      padding: 14px 16px;
+      background: rgba(7,28,18,.92);
+      border: 1px solid rgba(0,201,160,.25);
+      border-radius: 12px;
+      backdrop-filter: blur(12px);
+    }
+    .hero-product-benefit p {
+      font-size: 12px; color: rgba(255,255,255,.85);
+      line-height: 1.5; font-weight: 500;
+    }
+    .hero-product-benefit span {
+      display: block; margin-top: 4px;
+      font-size: 10px; color: #00C9A0;
+      letter-spacing: 1px;
+    }
+    /* ===== TRUST BAR ===== */
+    #trust-bar {
+      position: relative; z-index: 3;
+      background: #0A2318;
+      border-top: 1px solid rgba(0,201,160,.15);
+      border-bottom: 1px solid rgba(0,201,160,.15);
+      padding: 0 64px;
+    }
+    .trust-bar-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+    }
+    .trust-bar-item {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 18px 12px;
+      text-align: center;
+      transition: background var(--t-fast);
+    }
+    .trust-bar-item:hover { background: rgba(0,201,160,.06); }
+    .trust-bar-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,201,160,.12);
+      border-radius: 50%;
+      color: #00C9A0;
+    }
+    .trust-bar-icon svg { width: 18px; height: 18px; }
+    .trust-bar-text strong {
+      display: block;
+      font-size: 13px; font-weight: 700;
+      color: #fff; letter-spacing: .5px;
+    }
+    .trust-bar-text span {
+      display: block;
+      font-size: 11px; color: rgba(255,255,255,.45);
+      letter-spacing: .3px; margin-top: 2px;
+    }
+    .hero-bg, .hero-overlay, .hero-glow, .hero-content, .hero-corner-stats,
+    .hero-scroll-hint, .hero-radar, .hero-badge, .hero-stats-row { display: none !important; }
+
+    /* ===== FEATURE STRIP ===== */
+    #feat {
+      background: var(--green-900);
+      padding: 0 64px;
+    }
+    .feat-grid {
+      max-width: 1400px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4,1fr);
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .feat-item {
+      padding: 48px 32px;
+      display: flex; align-items: flex-start; gap: 20px;
+      border-right: 1px solid rgba(255,255,255,.06);
+      transition: background var(--t);
+    }
+    .feat-item:last-child { border-right: none; }
+    .feat-item:hover { background: rgba(200,151,62,.05); }
+    .feat-icon { width: 46px; height: 46px; flex-shrink: 0; color: var(--gold); }
+    .feat-item h3 { font-family: 'Noto Serif TC', serif; font-size: 16px; color: #fff; margin-bottom: 8px; font-weight: 500; }
+    .feat-item p { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.75; }
+
+    /* ===== ABOUT ===== */
+    #about {
+      padding: var(--pad) 64px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;
+      max-width: 1400px; margin: 0 auto;
+    }
+    .about-media { position: relative; }
+    .about-main-img { width: 100%; height: 580px; object-fit: cover; }
+    .about-badge {
+      position: absolute; top: 48px; left: -32px;
+      background: var(--gold); color: #fff;
+      padding: 22px 26px; text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,.2);
+    }
+    .about-badge-num { font-family: 'Playfair Display', serif; font-size: 44px; line-height: 1; display: block; }
+    .about-badge-lbl { font-size: 10px; letter-spacing: 2px; opacity: .9; }
+    .about-accent-img {
+      position: absolute; bottom: -40px; right: -36px;
+      width: 270px; height: 210px; object-fit: cover;
+      border: 6px solid #fff;
+      box-shadow: 0 24px 64px rgba(0,0,0,.18);
+    }
+    .about-text p { color: var(--muted); line-height: 1.95; margin-bottom: 18px; }
+    .about-vals {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+      margin: 32px 0;
+    }
+    .av {
+      padding: 20px;
+      border: 1px solid var(--border);
+      transition: all var(--t);
+      position: relative; overflow: hidden;
+    }
+    .av::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--gold); transition: width var(--t); }
+    .av:hover { background: var(--cream); }
+    .av:hover::before { width: 100%; }
+    .av-icon { width: 30px; height: 30px; color: var(--gold); margin-bottom: 10px; }
+    .av h4 { font-family: 'Noto Serif TC', serif; font-size: 14px; color: var(--green-700); margin-bottom: 5px; }
+    .av p { font-size: 12px; color: var(--muted); line-height: 1.6; margin: 0; }
+
+    /* ===== ANTRODIA ===== */
+    #antrodia {
+      background: var(--green-700);
+      padding: var(--pad) 64px;
+      position: relative; overflow: hidden;
+    }
+    #antrodia::before {
+      content: '';
+      position: absolute; top: -300px; right: -300px;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,151,62,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .ant-inner { max-width: 1400px; margin: 0 auto; }
+    .ant-top {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end;
+      margin-bottom: 64px;
+    }
+    .ant-tabs { display: flex; flex-direction: column; gap: 2px; }
+    .ant-tab {
+      display: flex; align-items: center; gap: 18px;
+      padding: 18px 22px; cursor: pointer;
+      border-left: 2px solid rgba(255,255,255,.08);
+      transition: all var(--t);
+    }
+    .ant-tab:hover, .ant-tab.active { border-left-color: var(--gold); background: rgba(200,151,62,.06); }
+    .ant-num { font-family: 'Playfair Display', serif; font-size: 26px; color: rgba(255,255,255,.12); transition: color var(--t); line-height: 1; }
+    .ant-tab.active .ant-num { color: var(--gold); }
+    .ant-tab h4 { font-family: 'Noto Serif TC', serif; font-size: 15px; color: rgba(255,255,255,.65); margin-bottom: 3px; transition: color var(--t); }
+    .ant-tab.active h4 { color: #fff; }
+    .ant-tab p { font-size: 12px; color: rgba(255,255,255,.3); letter-spacing: 1px; }
+
+    .ant-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .ant-card { position: relative; height: 400px; overflow: hidden; cursor: pointer; }
+    .ant-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .65s ease; }
+    .ant-card:hover img { transform: scale(1.08); }
+    .ant-card-ov {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,31,22,.94) 0%, transparent 52%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 30px;
+    }
+    .ant-tag { font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+    .ant-card h3 { font-family: 'Noto Serif TC', serif; font-size: 19px; color: #fff; margin-bottom: 10px; }
+    .ant-card-desc { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+    .ant-card:hover .ant-card-desc { max-height: 90px; }
+    .ant-card-btn {
+      width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 14px; transition: all var(--t); color: #fff;
+    }
+    .ant-card:hover .ant-card-btn { background: var(--gold); border-color: var(--gold); }
+    .ant-card-btn svg { width: 14px; height: 14px; }
+
+    /* ===== PRODUCTS ===== */
+    #products {
+      padding: var(--pad) 64px;
+      background: var(--cream);
+    }
+    .prod-inner { max-width: 1400px; margin: 0 auto; }
+    .prod-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
+    .prod-filters { display: flex; gap: 8px; }
+    .f-btn {
+      padding: 8px 22px; border: 1px solid rgba(26,58,42,.2);
+      color: var(--muted); font-size: 13px; letter-spacing: 1px;
+      border-radius: 2px; transition: all var(--t-fast);
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .f-btn:hover, .f-btn.act { background: var(--green-700); color: #fff; border-color: var(--green-700); }
+    .prod-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .prod-card { background: #fff; overflow: hidden; transition: all var(--t); }
+    .prod-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,.14); }
+    .prod-img-wrap { overflow: hidden; position: relative; }
+    .prod-img { width: 100%; height: 300px; object-fit: cover; transition: transform .65s ease; }
+    .prod-card:hover .prod-img { transform: scale(1.06); }
+    .prod-badge { position: absolute; top: 16px; left: 16px; padding: 4px 12px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #fff; }
+    .prod-body { padding: 28px; }
+    .prod-cat { font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+    .prod-name { font-family: 'Noto Serif TC', serif; font-size: 20px; color: var(--green-700); margin-bottom: 10px; }
+    .prod-desc { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 18px; }
+    .prod-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 22px; }
+    .ptag { padding: 3px 12px; border: 1px solid var(--border); font-size: 11px; color: var(--muted); border-radius: 20px; }
+    .prod-link { display: flex; align-items: center; gap: 8px; color: var(--green-700); font-size: 13px; font-weight: 500; letter-spacing: 1px; transition: all var(--t-fast); }
+    .prod-link:hover { gap: 12px; color: var(--gold); }
+    .prod-link svg { width: 16px; height: 16px; }
+
+    /* ===== STATS ===== */
+    #stats {
+      padding: var(--pad) 64px;
+      background: #fff; position: relative; overflow: hidden;
+    }
+    .stats-watermark {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      font-family: 'Playfair Display', serif; font-size: 220px;
+      color: rgba(26,58,42,.025); white-space: nowrap; user-select: none; pointer-events: none;
+    }
+    .stats-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.8fr; gap: 100px; align-items: center;
+      position: relative;
+    }
+    .stat-text .section-desc { margin-bottom: 36px; }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1px; background: rgba(26,58,42,.07);
+    }
+    .stat-box {
+      background: #fff; padding: 48px 32px; text-align: center;
+      transition: background var(--t);
+    }
+    .stat-box:hover { background: var(--cream); }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 56px; color: var(--green-700); line-height: 1; margin-bottom: 6px; }
+    .stat-num .unit { font-size: 28px; color: var(--gold); }
+    .stat-div { width: 28px; height: 1px; background: var(--gold); margin: 10px auto; }
+    .stat-lbl { font-size: 13px; color: var(--muted); letter-spacing: 1px; line-height: 1.6; }
+
+    /* ===== RESEARCH ===== */
+    #research {
+      padding: var(--pad) 64px;
+      background: var(--green-800);
+      position: relative; overflow: hidden;
+    }
+    #research::before {
+      content: '';
+      position: absolute; bottom: -200px; left: -200px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,151,62,.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .res-inner { max-width: 1400px; margin: 0 auto; }
+    .res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 56px; }
+    .res-img-wrap { position: relative; }
+    .res-img { width: 100%; height: 520px; object-fit: cover; display: block; }
+    .res-img-cap { position: absolute; bottom: 0; left: 0; right: 0; padding: 22px; background: linear-gradient(to top, rgba(13,31,22,.9), transparent); }
+    .res-img-cap p { color: rgba(255,255,255,.5); font-size: 11px; letter-spacing: 2px; }
+    .res-items { display: flex; flex-direction: column; gap: 20px; }
+    .res-item {
+      padding: 26px 26px 26px 28px;
+      border: 1px solid rgba(255,255,255,.07);
+      position: relative; transition: all var(--t);
+    }
+    .res-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--gold); transition: width .3s ease; }
+    .res-item:hover { border-color: rgba(200,151,62,.25); background: rgba(200,151,62,.04); }
+    .res-item:hover::before { width: 3px; }
+    .res-head { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+    .res-icon { width: 38px; height: 38px; flex-shrink: 0; color: var(--gold); }
+    .res-item h3 { font-family: 'Noto Serif TC', serif; font-size: 16px; color: #fff; }
+    .res-item p { font-size: 13px; color: rgba(255,255,255,.48); line-height: 1.75; padding-left: 52px; }
+
+    /* ===== CERTS TICKER ===== */
+    #certs { padding: 80px 0; background: var(--cream); overflow: hidden; }
+    .certs-head { text-align: center; margin-bottom: 48px; padding: 0 64px; }
+    .certs-track-wrap { overflow: hidden; }
+    .certs-track {
+      display: flex; gap: 20px;
+      animation: ticker 28s linear infinite;
+      width: max-content;
+    }
+    .cert-chip {
+      flex-shrink: 0;
+      display: flex; align-items: center; gap: 10px;
+      background: #fff; padding: 18px 28px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.07);
+      white-space: nowrap;
+    }
+    .cert-chip svg { width: 24px; height: 24px; color: var(--gold); flex-shrink: 0; }
+    .cert-chip span { font-size: 13px; font-weight: 500; color: var(--green-700); letter-spacing: .5px; }
+
+    /* ===== NEWS ===== */
+    #news { padding: var(--pad) 64px; background: #fff; }
+    .news-inner { max-width: 1400px; margin: 0 auto; }
+    .news-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
+    .view-all { display: flex; align-items: center; gap: 8px; color: var(--gold); font-size: 13px; font-weight: 500; letter-spacing: 1px; transition: gap var(--t-fast); }
+    .view-all:hover { gap: 12px; }
+    .view-all svg { width: 16px; height: 16px; }
+    .news-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 28px; }
+    .n-card { display: block; color: inherit; }
+    .n-img-wrap { overflow: hidden; margin-bottom: 20px; }
+    .n-img { width: 100%; height: 268px; object-fit: cover; transition: transform .65s ease; }
+    .n-card:first-child .n-img { height: 360px; }
+    .n-card:hover .n-img { transform: scale(1.06); }
+    .n-date { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--gold); letter-spacing: 2px; margin-bottom: 10px; }
+    .n-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; }
+    .n-badge { background: var(--gold); color: #fff; font-size: 9px; padding: 2px 8px; letter-spacing: 1px; }
+    .n-title { font-family: 'Noto Serif TC', serif; font-size: 18px; color: var(--green-700); line-height: 1.55; margin-bottom: 10px; transition: color var(--t-fast); }
+    .n-card:hover .n-title { color: var(--gold); }
+    .n-excerpt { font-size: 13px; color: var(--muted); line-height: 1.75; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+    /* ===== CONTACT ===== */
+    #contact { padding: var(--pad) 64px; background: var(--green-900); position: relative; overflow: hidden; }
+    #contact::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1920&q=30') center/cover no-repeat;
+      opacity: .06; pointer-events: none;
+    }
+    .contact-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; position: relative; }
+    .contact-info { padding-top: 10px; }
+    .contact-info .section-desc { margin-bottom: 48px; }
+    .c-det { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 28px; }
+    .c-icon { width: 44px; height: 44px; flex-shrink: 0; border: 1px solid rgba(200,151,62,.3); display: flex; align-items: center; justify-content: center; color: var(--gold); }
+    .c-icon svg { width: 20px; height: 20px; }
+    .c-det h4 { font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,.38); text-transform: uppercase; margin-bottom: 4px; }
+    .c-det p { color: rgba(255,255,255,.78); font-size: 15px; }
+
+    .contact-form-wrap {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 48px;
+    }
+    .form-title { font-family: 'Noto Serif TC', serif; font-size: 22px; color: #fff; font-weight: 500; margin-bottom: 32px; }
+    .f-group { margin-bottom: 22px; }
+    .f-label { display: block; font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,.45); text-transform: uppercase; margin-bottom: 8px; }
+    .f-input {
+      width: 100%; padding: 14px 16px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      color: #fff; font-size: 14px; font-family: inherit;
+      transition: border-color var(--t-fast); outline: none;
+    }
+    .f-input:focus { border-color: var(--gold); background: rgba(255,255,255,.09); }
+    .f-input::placeholder { color: rgba(255,255,255,.22); }
+    .f-input option { background: var(--green-900); }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    textarea.f-input { resize: none; height: 118px; }
+    .f-submit {
+      width: 100%; padding: 16px;
+      background: var(--gold); color: #fff;
+      font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+      font-family: inherit; font-weight: 500;
+      transition: all var(--t-fast); margin-top: 6px;
+    }
+    .f-submit:hover { background: var(--gold-lt); color: var(--green-900); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(200,151,62,.3); }
+    .f-submit.sent { background: var(--green-500) !important; color: #fff !important; transform: none !important; }
+
+    /* ===== FOOTER ===== */
+    footer { background: #060e09; padding: 64px; }
+    .footer-top {
+      max-width: 1400px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 64px;
+      padding-bottom: 52px; border-bottom: 1px solid rgba(255,255,255,.06); margin-bottom: 40px;
+    }
+    .f-brand p { font-size: 14px; color: rgba(255,255,255,.38); line-height: 1.85; margin: 20px 0; }
+    .f-socials { display: flex; gap: 10px; }
+    .f-soc {
+      width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.45); transition: all var(--t-fast);
+    }
+    .f-soc:hover { border-color: var(--gold); color: var(--gold); background: rgba(200,151,62,.08); }
+    .f-soc svg { width: 16px; height: 16px; }
+    .f-nav-col h4 { font-family: 'Noto Serif TC', serif; font-size: 13px; color: #fff; letter-spacing: 2px; margin-bottom: 20px; font-weight: 500; }
+    .f-nav-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .f-nav-col a { color: rgba(255,255,255,.38); font-size: 13px; transition: all var(--t-fast); display: flex; align-items: center; gap: 0; }
+    .f-nav-col a:hover { color: rgba(255,255,255,.82); padding-left: 6px; }
+    .footer-btm {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .f-copy { font-size: 12px; color: rgba(255,255,255,.2); letter-spacing: .5px; }
+    .f-btm-links { display: flex; gap: 24px; }
+    .f-btm-links a { font-size: 12px; color: rgba(255,255,255,.2); transition: color var(--t-fast); }
+    .f-btm-links a:hover { color: var(--gold); }
+
+    /* ======================================================
+       VIVID REDESIGN v2 — 活力健康系 覆蓋樣式
+       主色：活力翠綠 #00897B ／ 電光薄荷 #00C9A0 ／ 陽光金 #FFCA28
+    ====================================================== */
+
+    /* ── 新色票 ── */
+    :root {
+      --gold:        #FFCA28;
+      --gold-lt:     #FFE082;
+      --gold-pale:   #FFFDE7;
+      --cyber:       #00C9A0;
+      --cyber-dim:   rgba(0,201,160,.12);
+      --glow:        rgba(0,201,160,.18);
+      --glow-gold:   rgba(255,202,40,.20);
+      --deep:        #F0FDFB;
+      --green-900:   #EAF8F4;
+      --green-800:   #F0FDFB;
+      --green-700:   #00695C;
+      --green-600:   #00796B;
+      --green-500:   #00897B;
+      --green-300:   #80CBC4;
+      --cream:       #EAF8F4;
+      --text:        #0D1A17;
+      --muted:       #4A6B65;
+      --border:      rgba(0,137,123,.18);
+      --glass-bg:    rgba(5,22,15,.55);
+      --glass-border:rgba(0,201,160,.18);
+    }
+    body { background: #F8FFFE; }
+
+    /* ── Navbar ── */
+    #nav.scrolled {
+      background: rgba(248,255,254,.97) !important;
+      box-shadow: 0 2px 32px rgba(0,137,123,.08) !important;
+    }
+    #nav.scrolled .nav-link { color: #0D1A17 !important; }
+    #nav.scrolled .nav-link:hover { color: #00897B !important; }
+    #nav.scrolled .hamburger span { background: #0D1A17 !important; }
+
+    /* ── Hero v3 DTC ── */
+    #heroRight { transition: transform .08s ease-out; will-change: transform; }
+    #trust-bar { background: #0A2318 !important; }
+
+    /* ── RWD ── */
+    @media (max-width: 1100px) {
+      .hero-split { flex-direction: column; padding: calc(var(--nav-h) + 16px) 40px 32px; gap: 32px; text-align: center; }
+      .hero-left { flex: none; width: 100%; max-width: 640px; align-items: center; }
+      .hero-sub { max-width: 100%; }
+      .hero-btns { justify-content: center; }
+      .hero-trust-inline { justify-content: center; }
+      .hero-product-benefit { left: 0; bottom: 4%; }
+      .trust-bar-inner { grid-template-columns: repeat(3, 1fr); }
+      .trust-bar-item:nth-child(4),
+      .trust-bar-item:nth-child(5) { grid-column: span 1; }
+    }
+    @media (max-width: 768px) {
+      #hero { min-height: auto; }
+      .hero-split { padding: calc(var(--nav-h) + 12px) 24px 28px; gap: 24px; }
+      .hero-h1 { font-size: clamp(28px, 7.5vw, 40px) !important; line-height: 1.2; }
+      .hero-sub { font-size: 15px; line-height: 1.65; margin-bottom: 20px; }
+      .hero-btns { flex-direction: column; width: 100%; }
+      .btn-hero-primary, .btn-hero-secondary { width: 100%; }
+      .hero-tertiary-cta { margin-bottom: 20px; }
+      .hero-product-showcase { width: min(260px, 72vw); }
+      .hero-product-benefit { display: none; }
+      .hero-product-label { top: 0; right: -8px; font-size: 10px; padding: 6px 12px; }
+      #trust-bar { padding: 0; }
+      .trust-bar-inner { grid-template-columns: repeat(2, 1fr); }
+      .trust-bar-item { padding: 14px 10px; flex-direction: column; gap: 6px; }
+      .trust-bar-text strong { font-size: 12px; }
+      .trust-bar-text span { font-size: 10px; }
+      #heroCanvas { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #heroCanvas { display: none; }
+      #heroRight { transition: none !important; }
+    }
+
+    /* ── 按鈕（翠綠活力） ── */
+    .btn-gold {
+      background: linear-gradient(135deg, #00897B, #00C9A0) !important;
+      border-radius: 40px !important;
+      box-shadow: 0 6px 24px rgba(0,137,123,.38) !important;
+      letter-spacing: 1.5px !important;
+    }
+    .btn-gold:hover { box-shadow: 0 10px 32px rgba(0,137,123,.55) !important; filter: brightness(1.06) !important; }
+    .btn-outline { border-radius: 40px !important; }
+    .btn-cyber {
+      background: linear-gradient(135deg, #00897B, #00C9A0) !important;
+      border: none !important;
+      color: #fff !important;
+      border-radius: 40px !important;
+      box-shadow: 0 6px 24px rgba(0,137,123,.38) !important;
+    }
+    .btn-cyber:hover {
+      box-shadow: 0 10px 32px rgba(0,137,123,.55) !important;
+      color: #fff !important;
+      filter: brightness(1.08) !important;
+    }
+
+    /* ── Feature Strip（頂部彩虹線：翠綠→薄荷→金） ── */
+    #feat {
+      background: #fff !important;
+      border-top: 5px solid transparent !important;
+      border-image: linear-gradient(to right, #00695C, #00C9A0, #FFCA28) 1 !important;
+    }
+    .feat-grid { border-top: none !important; }
+    .feat-item { border-right-color: rgba(0,0,0,.07) !important; }
+    .feat-item:hover { background: rgba(0,137,123,.04) !important; }
+    .feat-item h3 { color: #0D1A17 !important; font-weight: 700 !important; }
+    .feat-item p { color: #555 !important; }
+    .feat-icon { color: #00897B !important; }
+
+    /* ── Section 標題通用 ── */
+    .section-title { color: #0D1A17 !important; font-family: 'Noto Sans TC', sans-serif !important; font-weight: 800 !important; }
+    .section-title.white { color: #fff !important; }
+    .tag-row .tag-line { background: #00897B !important; }
+    .tag-row .tag-text { color: #00897B !important; }
+
+    /* ── About ── */
+    .about-badge {
+      background: linear-gradient(135deg, #00695C, #00C9A0) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 12px 36px rgba(0,105,92,.28) !important;
+    }
+    .about-vals .av { border-color: rgba(0,137,123,.15) !important; border-radius: 12px !important; }
+    .about-vals .av:hover { background: rgba(0,137,123,.04) !important; }
+    .about-vals .av::before { background: #00897B !important; }
+    .av-icon { color: #00897B !important; }
+    .av h4 { color: #0D1A17 !important; }
+
+    /* ── Antrodia（深邃森林黑底＋電光薄荷） ── */
+    #antrodia { background: #071C12 !important; }
+    #antrodia::before { background: radial-gradient(circle, rgba(0,201,160,.10) 0%, transparent 70%) !important; }
+    .ant-tab:hover, .ant-tab.active { border-left-color: #00C9A0 !important; background: rgba(0,201,160,.07) !important; }
+    .ant-num { color: rgba(255,255,255,.15) !important; }
+    .ant-tab.active .ant-num { color: #00C9A0 !important; }
+    .ant-tag { color: #00E5CC !important; }
+    .ant-card:hover .ant-card-btn { background: #00897B !important; border-color: #00897B !important; }
+
+    /* ── Products ── */
+    #products { background: #EAF8F4 !important; }
+    .prod-card { border-radius: 16px !important; }
+    .prod-card:hover { box-shadow: 0 24px 60px rgba(0,137,123,.12) !important; }
+    .prod-name { color: #0D1A17 !important; }
+    .f-btn { border-color: rgba(0,105,92,.25) !important; border-radius: 30px !important; font-weight: 600 !important; }
+    .f-btn:hover, .f-btn.act { background: #00695C !important; border-color: #00695C !important; }
+    .ptag { border-radius: 20px !important; }
+    .prod-link { color: #00695C !important; }
+    .prod-link:hover { color: #00C9A0 !important; }
+
+    /* ── Stats ── */
+    #stats { background: #fff !important; }
+    .stats-watermark { color: rgba(0,137,123,.03) !important; }
+    .stats-grid { background: rgba(0,201,160,.08) !important; }
+    .stat-box:hover { background: #EAF8F4 !important; }
+    .stat-num { color: #00695C !important; font-family: 'Noto Sans TC', sans-serif !important; font-weight: 900 !important; }
+    .stat-num .unit { color: #FFCA28 !important; }
+    .stat-div { background: #00C9A0 !important; }
+
+    /* ── Research ── */
+    #research { background: #EAF8F4 !important; }
+    #research::before { background: radial-gradient(circle, rgba(0,201,160,.08) 0%, transparent 70%) !important; }
+    .res-item {
+      border-color: rgba(0,137,123,.12) !important;
+      background: #fff !important;
+      border-radius: 12px !important;
+    }
+    .res-item:hover { border-color: rgba(0,137,123,.30) !important; background: rgba(0,137,123,.02) !important; }
+    .res-item::before { background: #00897B !important; }
+    .res-item h3 { color: #0D1A17 !important; }
+    .res-item p { color: #4A6B65 !important; }
+    .res-img-cap { background: linear-gradient(to top, rgba(5,22,15,.9), transparent) !important; }
+    .res-icon { color: #00897B !important; }
+
+    /* ── Certs ── */
+    #certs { background: #fff !important; }
+    .cert-chip { border-radius: 12px !important; box-shadow: 0 2px 12px rgba(0,0,0,.07) !important; }
+    .cert-chip svg { color: #00897B !important; }
+    .cert-chip span { color: #00695C !important; }
+
+    /* ── News ── */
+    #news { background: #F8FFFE !important; }
+    .n-title { color: #0D1A17 !important; }
+    .n-card:hover .n-title { color: #00897B !important; }
+    .n-badge { background: #00897B !important; border-radius: 20px !important; }
+    .view-all { color: #00897B !important; }
+    .n-date { color: #00897B !important; }
+    .n-dot { background: #00C9A0 !important; }
+
+    /* ── Contact ── */
+    #contact { background: linear-gradient(135deg, #071C12, #00352A 60%, #071C12) !important; }
+    #contact::before { opacity: .05 !important; }
+    .c-icon { border-color: rgba(0,201,160,.4) !important; color: #00C9A0 !important; }
+    .contact-form-wrap {
+      background: rgba(255,255,255,.08) !important;
+      border-color: rgba(255,255,255,.12) !important;
+      border-radius: 20px !important;
+    }
+    .f-submit {
+      background: linear-gradient(135deg, #00897B, #00C9A0) !important;
+      border-radius: 40px !important;
+      letter-spacing: 2px !important;
+    }
+    .f-submit:hover { background: linear-gradient(135deg, #00695C, #00A688) !important; color: #fff !important; }
+
+    /* ── Flagship Entry 入口（深邃森林＋電光薄荷掃描線） ── */
+    #flagship-entry .fe-grad {
+      background: linear-gradient(135deg,
+        rgba(5,22,15,.97) 0%,
+        rgba(0,42,30,.80) 50%,
+        rgba(5,22,15,.97) 100%) !important;
+      background-size: 200% 200% !important;
+    }
+    #flagship-entry .fe-scan {
+      background: linear-gradient(to right, transparent, #00C9A0, transparent) !important;
+    }
+    #flagship-entry .fe-tag { color: #00E5CC !important; }
+    #flagship-entry .fe-tag::before { background: #00E5CC !important; }
+    #flagship-entry h2 { color: #fff !important; }
+    #flagship-entry h2 em { color: #00E5CC !important; }
+    .fe-card-num { color: #00C9A0 !important; }
+    .fe-card .fe-card-bar { background: linear-gradient(to right, #00C9A0, #FFCA28) !important; }
+
+    /* ── Navbar 健康生活館 特殊連結 ── */
+    .nav-flagship {
+      background: linear-gradient(135deg, rgba(0,201,160,.10), rgba(0,137,123,.10)) !important;
+      border-color: rgba(0,201,160,.35) !important;
+      color: #00897B !important;
+    }
+    .nav-flagship:hover {
+      background: rgba(0,137,123,.12) !important;
+      border-color: #00897B !important;
+      color: #00695C !important;
+      box-shadow: 0 0 18px rgba(0,201,160,.22) !important;
+    }
+    .flagship-dot {
+      background: #00C9A0 !important;
+      box-shadow: 0 0 6px rgba(0,201,160,.6) !important;
+    }
+
+    /* ── Mobile Menu（白底清爽） ── */
+    .mobile-menu {
+      background: rgba(248,255,254,.99) !important;
+    }
+    .mobile-menu a { color: #0D1A17 !important; font-family: 'Noto Sans TC', sans-serif !important; font-weight: 700 !important; }
+    .mobile-menu a:hover { color: #00897B !important; }
+    .mobile-menu .close-btn { color: #777 !important; }
+
+    /* ── Footer ── */
+    footer { background: #0D1A13 !important; }
+    .f-soc { border-color: rgba(255,255,255,.12) !important; }
+    .f-soc:hover { border-color: #00C9A0 !important; color: #00C9A0 !important; background: rgba(0,201,160,.10) !important; }
+    .f-btm-links a:hover { color: #00C9A0 !important; }
+
+    /* ── 捲動條 ── */
+    ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #00897B, #00C9A0) !important; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes scrollBounce { 0%,100%{transform:scaleY(1);opacity:1} 50%{transform:scaleY(.6);opacity:.5} }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1280px) {
+      :root { --pad: 90px; }
+      #nav, .hero-content, #feat, #about, #antrodia, #products, #stats, #research, #news, #contact, footer, .footer-top, .footer-btm { padding-left: 40px; padding-right: 40px; }
+    }
+    @media (max-width: 1024px) {
+      #about { grid-template-columns: 1fr; gap: 50px; overflow: hidden; }
+      .about-accent-img { display: none; }
+      /* about-badge 有 left:-32px，在窄螢幕造成水平溢出，1024px 以下隱藏 */
+      .about-badge { display: none; }
+      .ant-top { grid-template-columns: 1fr; gap: 40px; }
+      .ant-cards { grid-template-columns: 1fr 1fr; }
+      .prod-grid { grid-template-columns: 1fr 1fr; }
+      .stats-inner { grid-template-columns: 1fr; gap: 48px; }
+      .res-grid { grid-template-columns: 1fr; }
+      .news-grid { grid-template-columns: 1fr 1fr; }
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .feat-grid { grid-template-columns: 1fr 1fr; }
+      .hero-corner-stats { display: none; }
+    }
+    @media (max-width: 768px) {
+      /* ── 防止 iOS Safari 水平捲動 ── */
+      html { overflow-x: hidden; }
+      :root { --nav-h: 64px; --pad: 64px; }
+      #nav { padding: 0 24px; }
+      .nav-menu { display: none; }
+      .hamburger { display: flex; }
+      .hero-content { padding: 0 24px !important; padding-top: 64px !important; }
+      .hero-btns { flex-direction: column; align-items: flex-start; }
+      .feat-grid { grid-template-columns: 1fr; }
+      /* #feat 未列入 1280px 以下的 24px 覆寫，補上 */
+      #feat { padding-left: 24px !important; padding-right: 24px !important; }
+      #about, #antrodia, #products, #stats, #research, #news, #contact { padding-left: 24px; padding-right: 24px; }
+      footer { padding-left: 24px; padding-right: 24px; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .ant-cards { grid-template-columns: 1fr; }
+      .prod-grid { grid-template-columns: 1fr; }
+      .prod-head { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .news-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .footer-btm { flex-direction: column; gap: 16px; text-align: center; }
+      .f-row { grid-template-columns: 1fr; }
+      .contact-form-wrap { padding: 32px 24px; }
+      /* about 圖片在桌面固定 580px 高，手機需縮減 */
+      .about-main-img { height: 260px; }
+      /* 修復 .about-media 的子元素溢出 */
+      .about-media { overflow: hidden; }
+      #backTop { right: 20px !important; }
+    }
+    /* ── 旗艦館 Navbar 特殊連結 (index 內嵌版) ── */
+    .nav-flagship {
+      position: relative;
+      padding: 7px 16px !important;
+      background: linear-gradient(135deg, rgba(0,201,160,.10), rgba(0,137,123,.10)) !important;
+      border: 1px solid rgba(0,201,160,.35) !important;
+      border-radius: 30px !important;
+      color: #00897B !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1px !important;
+      overflow: hidden;
+      transition: all .3s ease !important;
+    }
+    .nav-flagship:hover { color: #00695C !important; border-color: #00897B !important; box-shadow: 0 0 18px rgba(0,201,160,.22) !important; background: rgba(0,137,123,.12) !important; }
+    .flagship-dot { display: inline-block; width: 6px; height: 6px; background: #00C9A0; border-radius: 50%; margin-right: 5px; animation: pulseGlowDot 2s ease-in-out infinite; box-shadow: 0 0 6px rgba(0,201,160,.6); }
+    @keyframes pulseGlowDot { 0%,100%{opacity:1} 50%{opacity:.4} }
+    @keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+    @keyframes scanLine { 0%{transform:translateY(-100%)} 100%{transform:translateY(100vh)} }
+
+    /* ── 旗艦館入口區塊 ── */
+    #flagship-entry {
+      position: relative; overflow: hidden;
+      padding: 100px 64px;
+      background: var(--deep);
+    }
+    #flagship-entry .fe-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1920&q=40') center/cover no-repeat; opacity: .05; }
+    #flagship-entry .fe-grad { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(5,22,15,.97) 0%, rgba(0,42,30,.80) 50%, rgba(5,22,15,.97) 100%); background-size: 200% 200%; animation: gradientShift 8s ease infinite; }
+    #flagship-entry .fe-scan { position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, #00C9A0, transparent); animation: scanLine 5s linear infinite; opacity: .28; }
+    #flagship-entry .fe-inner { position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    #flagship-entry .fe-tag { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #00E5CC; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    #flagship-entry .fe-tag::before { content: ''; width: 28px; height: 1px; background: #00E5CC; }
+    #flagship-entry h2 { font-family: 'Noto Sans TC', sans-serif; font-size: clamp(32px,4vw,52px); color: #fff; font-weight: 900; line-height: 1.2; margin-bottom: 24px; }
+    #flagship-entry h2 em { color: #00E5CC; font-style: normal; }
+    #flagship-entry p { color: rgba(255,255,255,.58); font-size: 15px; line-height: 1.9; margin-bottom: 36px; max-width: 460px; }
+    .glow-orb { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(80px); }
+    .glow-orb.cyber { background: radial-gradient(circle, rgba(0,201,160,.15) 0%, transparent 70%); }
+    .glow-orb.gold { background: radial-gradient(circle, rgba(255,202,40,.15) 0%, transparent 70%); }
+    .btn-cyber { display: inline-flex; align-items: center; gap: 12px; padding: 14px 36px; background: linear-gradient(135deg, #00897B, #00C9A0); border: none; color: #fff; font-size: 14px; letter-spacing: 1.5px; font-weight: 700; border-radius: 40px; position: relative; overflow: hidden; transition: all .3s ease; box-shadow: 0 6px 24px rgba(0,137,123,.38); }
+    .btn-cyber:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(0,137,123,.55); filter: brightness(1.08); }
+    .fe-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .fe-card { aspect-ratio: 1; position: relative; overflow: hidden; cursor: pointer; }
+    .fe-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .65s ease; filter: brightness(.5) saturate(.8); }
+    .fe-card:hover img { transform: scale(1.08); filter: brightness(.7) saturate(1.1); }
+    .fe-card-ov { position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,22,15,.95) 0%, transparent 55%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; }
+    .fe-card-num { font-family: 'Playfair Display', serif; font-size: 30px; color: #00C9A0; opacity: .45; line-height: 1; margin-bottom: 6px; }
+    .fe-card h3 { font-family: 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .fe-card p { font-size: 11px; color: rgba(255,255,255,.5); letter-spacing: 1px; }
+    .fe-card .fe-card-bar { height: 2px; background: linear-gradient(to right, #00C9A0, #FFCA28); width: 0; transition: width .4s ease; margin-top: 10px; }
+    .fe-card:hover .fe-card-bar { width: 100%; }
+    @media (max-width: 1024px) { #flagship-entry .fe-inner { grid-template-columns: 1fr; gap: 48px; } }
+    @media (max-width: 768px) { #flagship-entry { padding: 60px 24px; } .fe-grid { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header id="nav">
+  <a href="index.html" class="logo"><img src="images/logo/LOGO_4.png" alt="" class="logo-icon-img"><img src="images/logo/LOGO_5.png" alt="耀德植研生醫 YAODER BIOMEDICAL" class="logo-wordmark-img"></a>
+
+  <nav class="nav-menu">
+    <div class="nav-item">
+      <a href="index.html" class="nav-link">首頁</a>
+    </div>
+    <div class="nav-item">
+      <a href="about.html" class="nav-link">關於耀德 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a>
+      <div class="dropdown">
+        <a href="about.html#philosophy">品牌理念與願景</a>
+        <a href="about.html#rd">核心研發策略</a>
+        <a href="about.html#history">公司沿革</a>
+        <a href="about.html#certs">認證資質</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="antrodia.html" class="nav-link">認識牛樟芝 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a>
+      <div class="dropdown">
+        <a href="antrodia.html#intro">牛樟芝簡介</a>
+        <a href="antrodia.html#ingredients">活性物成分</a>
+        <a href="antrodia.html#research">科學研究</a>
+        <a href="antrodia.html#usage">食用方式</a>
+        <a href="antrodia.html#reaction">暝眩反應說明</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="products.html" class="nav-link">產品介紹 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a>
+      <div class="dropdown">
+        <a href="product-bigbull.html">能量補給</a><a href="product-premium.html">頂級系列</a>
+        <a href="product-daily.html">日常保健</a>
+        <a href="product-extract.html">萃取精華</a>
+        <a href="shop.html">購物商城</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="wellness.html" class="nav-link">健康方案</a>
+    </div>
+    <div class="nav-item">
+      <a href="sustainability.html" class="nav-link">大地永續</a>
+    </div>
+    <div class="nav-item">
+      <a href="news.html" class="nav-link">新聞中心</a>
+    </div>
+    <div class="nav-item">
+      <a href="contact.html" class="nav-link">聯絡我們</a>
+    </div>
+    <div class="nav-item">
+      <a href="flagship.html" class="nav-link nav-flagship"><span class="flagship-dot"></span>健康生活館</a>
+    </div>
+    <div class="nav-divider" style="width:1px;height:18px;background:rgba(255,255,255,.18);margin:0 8px;"></div>
+    <div class="nav-item">
+      <a href="member.html" class="nav-link" style="padding:7px 16px;border:1.5px solid rgba(0,201,160,.45);border-radius:30px;font-size:12px;letter-spacing:.8px;color:rgba(255,255,255,.88);">加入會員</a>
+    </div>
+    <div class="nav-item">
+      <a href="login.html" class="nav-link nav-cta" style="padding:7px 20px;background:linear-gradient(135deg,#00897B,#00C9A0);border-radius:30px;font-size:12px;font-weight:700;color:#fff !important;letter-spacing:.8px;box-shadow:0 4px 14px rgba(0,137,123,.38);margin-left:6px;">登入</a>
+    </div>
+  </nav>
+
+  <div class="hamburger" id="hbg" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobMenu">
+  <span class="close-btn" onclick="toggleMenu()">×</span>
+  <a href="index.html" onclick="toggleMenu()">首頁</a>
+  <a href="about.html" onclick="toggleMenu()">關於耀德</a>
+  <a href="antrodia.html" onclick="toggleMenu()">認識牛樟芝</a>
+  <a href="products.html" onclick="toggleMenu()">產品介紹</a>
+  <a href="wellness.html" onclick="toggleMenu()">健康方案</a>
+  <a href="quiz.html" onclick="toggleMenu()" style="color:#FFCA28 !important;">🧬 AI 健康分析</a>
+  <a href="sustainability.html" onclick="toggleMenu()">大地永續</a>
+  <a href="news.html" onclick="toggleMenu()">新聞中心</a>
+  <a href="contact.html" onclick="toggleMenu()">聯絡我們</a>
+  <a href="flagship.html" onclick="toggleMenu()" style="color:#00C9A0 !important;">健康生活館</a>
+  <div style="display:flex;gap:12px;margin-top:16px;">
+    <a href="member.html" style="padding:10px 28px;border:1.5px solid rgba(0,201,160,.5);font-size:14px;letter-spacing:.8px;border-radius:30px;color:#00C9A0 !important;">加入會員</a>
+    <a href="login.html" style="padding:10px 28px;background:linear-gradient(135deg,#00897B,#00C9A0);color:#fff !important;font-size:14px;letter-spacing:.8px;border-radius:30px;font-weight:700;box-shadow:0 4px 14px rgba(0,137,123,.4);">登入</a>
+  </div>
+</div>
+
+<!-- ===== HERO v3 ─ DTC Conversion ===== -->
+<section id="hero" aria-label="主打產品">
+  <div class="hero-lifestyle-bg" aria-hidden="true"></div>
+  <canvas id="heroCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:.25;"></canvas>
+
+  <div class="hero-split">
+    <div class="hero-left">
+      <div class="hero-product-chip">
+        <span class="hero-stars" aria-label="4.9 星評價">
+          <svg viewBox="0 0 16 16"><path d="M8 1.5l1.8 3.7 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4L2.2 5.8l4-.6L8 1.5z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1.5l1.8 3.7 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4L2.2 5.8l4-.6L8 1.5z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1.5l1.8 3.7 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4L2.2 5.8l4-.6L8 1.5z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1.5l1.8 3.7 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4L2.2 5.8l4-.6L8 1.5z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1.5l1.8 3.7 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4L2.2 5.8l4-.6L8 1.5z"/></svg>
+        </span>
+        <span class="hero-chip-div"></span>
+        <span class="hero-chip-meta">4.9 · 128+ 好評 · 旗艦系列</span>
+      </div>
+
+      <h1 class="hero-h1">
+        一瓶喚醒全日活力<br><em>牛樟芝 × 馬卡能量引擎</em>
+      </h1>
+      <p class="hero-sub">
+        <strong>耀德大牛能量氣泡飲</strong> — 段木栽培牛樟芝子實體，結合馬卡與專利紅參。
+        20 年 SCI 科研背書，通過 SGS 檢驗與 GMP 認證，100% 台灣研發製造。
+      </p>
+
+      <div class="hero-btns">
+        <a href="product-bigbull.html" class="btn-hero-primary" data-track-cta="hero_experience">
+          立即體驗
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="flagship.html#ai-recommend" class="btn-hero-secondary" data-track-cta="hero_ai_analysis">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4v1h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h2V6a4 4 0 0 1 4-4z"/><circle cx="9" cy="13" r="1" fill="currentColor"/><circle cx="15" cy="13" r="1" fill="currentColor"/></svg>
+          AI 健康分析
+        </a>
+      </div>
+      <a href="#products" class="hero-tertiary-cta" data-track-cta="hero_explore">
+        探索產品
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+      </a>
+
+      <div class="hero-trust-inline" aria-label="品質認證">
+        <span class="hero-trust-pill">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2L10 6L14 7L11 10L12 14L8 12L4 14L5 10L2 7L6 6Z"/></svg>
+          SGS
+        </span>
+        <span class="hero-trust-pill">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8l4 4L14 4"/></svg>
+          GMP
+        </span>
+        <span class="hero-trust-pill">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1"/></svg>
+          ISO
+        </span>
+        <span class="hero-trust-pill">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h10v10H3z"/><path d="M6 8h4M8 6v4"/></svg>
+          SCI
+        </span>
+        <span class="hero-trust-pill">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2C5 2 3 5 3 8c0 4 5 8 5 8s5-4 5-8c0-3-2-6-5-6z"/><circle cx="8" cy="8" r="2"/></svg>
+          台灣研發
+        </span>
+      </div>
+    </div>
+
+    <div class="hero-right" id="heroRight">
+      <div class="hero-product-showcase">
+        <div class="hero-product-glow" aria-hidden="true"></div>
+        <span class="hero-product-label">旗艦產品</span>
+        <img
+          src="images/BigBull/BigBull_4.png"
+          alt="耀德大牛能量氣泡飲 — 牛樟芝子實體能量保健飲品"
+          class="hero-product-img"
+          width="460"
+          height="460"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        >
+        <div class="hero-product-benefit">
+          <p>段木栽培牛樟芝子實體 · 馬卡 · 紅參</p>
+          <span>ENERGY · FOCUS · VITALITY</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<section id="trust-bar" aria-label="品質認證">
+  <div class="trust-bar-inner">
+    <div class="trust-bar-item">
+      <div class="trust-bar-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+      </div>
+      <div class="trust-bar-text">
+        <strong>SGS 檢驗</strong>
+        <span>國際第三方品質驗證</span>
+      </div>
+    </div>
+    <div class="trust-bar-item">
+      <div class="trust-bar-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <div class="trust-bar-text">
+        <strong>GMP 認證</strong>
+        <span>良好製造規範工廠</span>
+      </div>
+    </div>
+    <div class="trust-bar-item">
+      <div class="trust-bar-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <div class="trust-bar-text">
+        <strong>ISO 22000</strong>
+        <span>食品安全管理系統</span>
+      </div>
+    </div>
+    <div class="trust-bar-item">
+      <div class="trust-bar-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      </div>
+      <div class="trust-bar-text">
+        <strong>SCI 科研</strong>
+        <span>國際學術期刊發表</span>
+      </div>
+    </div>
+    <div class="trust-bar-item">
+      <div class="trust-bar-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      </div>
+      <div class="trust-bar-text">
+        <strong>台灣研發</strong>
+        <span>100% 本土原料與製造</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURE STRIP ===== -->
+<section id="feat">
+  <div class="feat-grid">
+    <div class="feat-item reveal">
+      <svg class="feat-icon" viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="1.3">
+        <path d="M23 4C23 4 11 13 11 25C11 32 16.5 38 23 38C29.5 38 35 32 35 25C35 13 23 4 23 4Z"/>
+        <line x1="23" y1="4" x2="23" y2="38" opacity=".3"/>
+        <circle cx="23" cy="25" r="3.5" fill="currentColor" stroke="none" opacity=".5"/>
+      </svg>
+      <div>
+        <h3>頂級牛樟芝萃取</h3>
+        <p>嚴選台灣野生牛樟木，低溫萃取工藝完整保留三萜類及多醣體活性成分。</p>
+      </div>
+    </div>
+    <div class="feat-item reveal d1">
+      <svg class="feat-icon" viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="1.3">
+        <rect x="7" y="7" width="13" height="13" rx="1.5"/>
+        <rect x="26" y="7" width="13" height="13" rx="1.5"/>
+        <rect x="7" y="26" width="13" height="13" rx="1.5"/>
+        <rect x="26" y="26" width="13" height="13" rx="1.5"/>
+      </svg>
+      <div>
+        <h3>多重國際認證</h3>
+        <p>通過 SGS、ISO 22000、GMP、衛福部等國內外嚴格認證，品質有保障。</p>
+      </div>
+    </div>
+    <div class="feat-item reveal d2">
+      <svg class="feat-icon" viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="1.3">
+        <path d="M5 41L23 5L41 41H5Z"/>
+        <line x1="23" y1="20" x2="23" y2="30"/>
+        <circle cx="23" cy="34" r="1.5" fill="currentColor" stroke="none"/>
+      </svg>
+      <div>
+        <h3>科學實證背書</h3>
+        <p>與頂尖學術機構合作，多項臨床研究成果發表於 SCI 國際學術期刊。</p>
+      </div>
+    </div>
+    <div class="feat-item reveal d3">
+      <svg class="feat-icon" viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="1.3">
+        <circle cx="23" cy="23" r="17"/>
+        <path d="M23 11V23L30 30"/>
+        <circle cx="23" cy="23" r="2" fill="currentColor" stroke="none" opacity=".5"/>
+      </svg>
+      <div>
+        <h3>二十年專業積累</h3>
+        <p>深耕植物研究逾二十年，以不懈的科學創新守護消費者的健康生活。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AI 健康分析入口 ===== -->
+<section id="ai-funnel-entry" style="background:#040E09;padding:100px 64px;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 20% 50%,rgba(0,201,160,.07) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 80% 50%,rgba(255,202,40,.05) 0%,transparent 60%);pointer-events:none;"></div>
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1;">
+    <!-- Left: copy -->
+    <div class="reveal">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:20px;background:rgba(0,201,160,.1);border:1px solid rgba(0,201,160,.2);font-size:11px;letter-spacing:3px;color:#00C9A0;font-weight:700;margin-bottom:20px;">
+        AI WELLNESS ADVISOR · 智能健康顧問
+      </div>
+      <h2 style="font-size:clamp(28px,4vw,48px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:16px;font-family:'Noto Sans TC',sans-serif;">3 分鐘<span style="color:#FFCA28;">AI 健康分析</span><br>找到最適合你的保健方案</h2>
+      <p style="font-size:15px;color:rgba(255,255,255,.6);line-height:1.85;margin-bottom:28px;max-width:480px;">回答 7 個關於你的生活型態問題——睡眠、壓力、飲食、運動——耀德 AI 引擎將生成你的個人化健康報告，並推薦最適合你的保健組合。</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;">
+        <span style="display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-size:12px;color:rgba(255,255,255,.65);">✓ 免費使用</span>
+        <span style="display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-size:12px;color:rgba(255,255,255,.65);">✓ 3 分鐘完成</span>
+        <span style="display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-size:12px;color:rgba(255,255,255,.65);">✓ 個人化報告</span>
+        <span style="display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-size:12px;color:rgba(255,255,255,.65);">✓ 產品推薦</span>
+      </div>
+      <a href="quiz.html" class="btn-gold" style="display:inline-flex;align-items:center;gap:10px;font-size:15px;padding:15px 36px;min-height:52px;" data-track-cta="home_ai_funnel_start">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        開始 AI 分析
+      </a>
+    </div>
+    <!-- Right: 4 方案預覽卡片 -->
+    <div class="reveal d2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <a href="wellness.html#night" style="padding:20px;border-radius:14px;border:1px solid rgba(99,102,241,.25);background:rgba(99,102,241,.06);text-decoration:none;transition:all .25s;display:block;" data-track-cta="home_ai_plan_night" onmouseover="this.style.borderColor='rgba(99,102,241,.5)'" onmouseout="this.style.borderColor='rgba(99,102,241,.25)'">
+        <div style="font-size:24px;margin-bottom:10px;">🌙</div>
+        <div style="font-size:13px;font-weight:700;color:#a5b4fc;margin-bottom:6px;">熬夜修復方案</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.5;">輪班 · 夜貓族<br>深層修復補充</div>
+      </a>
+      <a href="wellness.html#stress" style="padding:20px;border-radius:14px;border:1px solid rgba(239,68,68,.2);background:rgba(239,68,68,.06);text-decoration:none;transition:all .25s;display:block;" data-track-cta="home_ai_plan_stress" onmouseover="this.style.borderColor='rgba(239,68,68,.4)'" onmouseout="this.style.borderColor='rgba(239,68,68,.2)'">
+        <div style="font-size:24px;margin-bottom:10px;">⚡</div>
+        <div style="font-size:13px;font-weight:700;color:#fca5a5;margin-bottom:6px;">高壓工作方案</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.5;">辦公室 · 主管族<br>能量免疫雙效</div>
+      </a>
+      <a href="wellness.html#longevity" style="padding:20px;border-radius:14px;border:1px solid rgba(255,202,40,.2);background:rgba(255,202,40,.05);text-decoration:none;transition:all .25s;display:block;" data-track-cta="home_ai_plan_longevity" onmouseover="this.style.borderColor='rgba(255,202,40,.4)'" onmouseout="this.style.borderColor='rgba(255,202,40,.2)'">
+        <div style="font-size:24px;margin-bottom:10px;">🌿</div>
+        <div style="font-size:13px;font-weight:700;color:#FFCA28;margin-bottom:6px;">熟齡保養方案</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.5;">46 歲以上<br>抗老化全方位</div>
+      </a>
+      <a href="wellness.html#sport" style="padding:20px;border-radius:14px;border:1px solid rgba(34,197,94,.2);background:rgba(34,197,94,.05);text-decoration:none;transition:all .25s;display:block;" data-track-cta="home_ai_plan_sport" onmouseover="this.style.borderColor='rgba(34,197,94,.4)'" onmouseout="this.style.borderColor='rgba(34,197,94,.2)'">
+        <div style="font-size:24px;margin-bottom:10px;">💪</div>
+        <div style="font-size:13px;font-weight:700;color:#86efac;margin-bottom:6px;">運動恢復方案</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.5;">健身 · 運動族<br>肌肉修復補充</div>
+      </a>
+    </div>
+  </div>
+  <style>
+    @media(max-width:1024px){#ai-funnel-entry>div{grid-template-columns:1fr!important;gap:40px!important;}}
+    @media(max-width:768px){#ai-funnel-entry{padding:60px 20px!important;}}
+  </style>
+</section>
+
+<!-- ===== 旗艦館入口 ===== -->
+<section id="flagship-entry">
+  <div class="fe-bg"></div>
+  <div class="fe-grad"></div>
+  <div class="fe-scan"></div>
+
+  <!-- 裝飾光暈 -->
+  <div class="glow-orb cyber" style="width:600px;height:600px;top:-200px;right:-100px;opacity:.6;"></div>
+  <div class="glow-orb gold" style="width:400px;height:400px;bottom:-100px;left:10%;opacity:.5;"></div>
+
+  <div class="fe-inner">
+    <div class="reveal">
+      <div class="fe-tag">Immersive Experience · 沉浸式體驗</div>
+      <h2>進入<em>健康生活館</em><br>探索耀德的世界</h2>
+      <p>穿越品牌3D虛擬旗艦館、與AI互動獲取專屬健康建議、探索原料產地與工廠製程，在這裡，健康不只是一個目標，而是一段沉浸式的旅程。</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <a href="flagship.html" class="btn-cyber">
+          立即進入旗艦館
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+        </a>
+        <a href="flagship.html#ai-recommend" class="btn-out-w" style="font-size:13px;letter-spacing:1.5px;">
+          AI 健康推薦
+        </a>
+      </div>
+
+      <!-- 功能預覽標籤 -->
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:32px;">
+        <span style="padding:5px 14px;border:1px solid rgba(0,201,160,.35);color:rgba(0,201,160,.85);font-size:11px;letter-spacing:1.5px;border-radius:20px;">3D 虛擬導覽</span>
+        <span style="padding:5px 14px;border:1px solid rgba(0,201,160,.35);color:rgba(0,201,160,.85);font-size:11px;letter-spacing:1.5px;border-radius:20px;">AI 健康推薦</span>
+        <span style="padding:5px 14px;border:1px solid rgba(255,202,40,.4);color:rgba(255,202,40,.9);font-size:11px;letter-spacing:1.5px;border-radius:20px;">成分互動展示</span>
+        <span style="padding:5px 14px;border:1px solid rgba(255,202,40,.4);color:rgba(255,202,40,.9);font-size:11px;letter-spacing:1.5px;border-radius:20px;">GMP 工廠導覽</span>
+        <span style="padding:5px 14px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.55);font-size:11px;letter-spacing:1.5px;border-radius:20px;">直播帶貨</span>
+        <span style="padding:5px 14px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.55);font-size:11px;letter-spacing:1.5px;border-radius:20px;">一鍵購買</span>
+      </div>
+    </div>
+
+    <div class="fe-grid reveal d3">
+      <div class="fe-card">
+        <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&q=80" alt="森林採集">
+        <div class="fe-card-ov">
+          <div class="fe-card-num">01</div>
+          <h3>森林採集</h3>
+          <p>原料產地導覽</p>
+          <div class="fe-card-bar"></div>
+        </div>
+      </div>
+      <div class="fe-card">
+        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600&q=80" alt="研究實驗室">
+        <div class="fe-card-ov">
+          <div class="fe-card-num">02</div>
+          <h3>研究實驗室</h3>
+          <p>成分互動展示</p>
+          <div class="fe-card-bar"></div>
+        </div>
+      </div>
+      <div class="fe-card">
+        <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?w=600&q=80" alt="GMP工廠">
+        <div class="fe-card-ov">
+          <div class="fe-card-num">03</div>
+          <h3>GMP 工廠</h3>
+          <p>製程品質導覽</p>
+          <div class="fe-card-bar"></div>
+        </div>
+      </div>
+      <div class="fe-card">
+        <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&q=80" alt="AI健康推薦">
+        <div class="fe-card-ov">
+          <div class="fe-card-num">04</div>
+          <h3>AI 健康推薦</h3>
+          <p>個人化保健方案</p>
+          <div class="fe-card-bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section style="background:#fff; padding:var(--pad) 0;">
+  <div id="about">
+    <div class="about-media reveal">
+      <img src="https://images.unsplash.com/photo-1511871893393-82e9c16b81e3?w=900&q=85" alt="牛樟芝研究" class="about-main-img">
+      <div class="about-badge">
+        <span class="about-badge-num">20<sup style="font-size:.5em">+</sup></span>
+        <span class="about-badge-lbl">年研究積累</span>
+      </div>
+      <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?w=500&q=80" alt="實驗室" class="about-accent-img">
+    </div>
+
+    <div class="about-text reveal d2">
+      <div class="tag-row">
+        <div class="tag-line"></div>
+        <span class="tag-text">About Us · 關於耀德</span>
+      </div>
+      <h2 class="section-title">源於對自然<br>最深的敬意</h2>
+      <p>耀德植研生醫股份有限公司，立基於台灣寶貴的生態資源，以嚴謹的科學精神深耕牛樟芝領域逾二十年。我們相信，大自然蘊藏著最純粹的健康力量。</p>
+      <p>從野生牛樟木的嚴選，到實驗室的精密分析，每一個環節都體現了我們對品質的堅持、對生命的尊重，以及對消費者的承諾。</p>
+
+      <div class="about-vals">
+        <div class="av">
+          <svg class="av-icon" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M15 3C15 3 7 9 7 17C7 21.418 10.582 25 15 25C19.418 25 23 21.418 23 17C23 9 15 3 15 3Z"/>
+            <line x1="15" y1="3" x2="15" y2="25" opacity=".35"/>
+          </svg>
+          <h4>天然純淨</h4>
+          <p>嚴選台灣原生牛樟木，不添加人工成分</p>
+        </div>
+        <div class="av">
+          <svg class="av-icon" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="15" cy="15" r="11"/>
+            <path d="M9.5 15l4 4 7-7"/>
+          </svg>
+          <h4>科學驗證</h4>
+          <p>國內外學術機構合作，多項臨床研究發表</p>
+        </div>
+        <div class="av">
+          <svg class="av-icon" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="5" y="5" width="20" height="20" rx="2"/>
+            <path d="M10 15h10M15 10v10"/>
+          </svg>
+          <h4>嚴格把關</h4>
+          <p>全程品質管控，每批次經嚴格檢驗出廠</p>
+        </div>
+        <div class="av">
+          <svg class="av-icon" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M15 3L18.5 10.5L27 11.6L21 17.5L22.5 26L15 22L7.5 26L9 17.5L3 11.6L11.5 10.5Z"/>
+          </svg>
+          <h4>頂級品質</h4>
+          <p>多項國際認證，以卓越品質回饋消費者</p>
+        </div>
+      </div>
+
+      <a href="#products" class="btn-gold">了解更多</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ANTRODIA ===== -->
+<section id="antrodia">
+  <div class="ant-inner">
+    <div class="ant-top">
+      <div class="reveal">
+        <div class="tag-row">
+          <div class="tag-line"></div>
+          <span class="tag-text">Antrodia Cinnamomea · 牛樟芝</span>
+        </div>
+        <h2 class="section-title white">認識<br>牛樟芝</h2>
+        <p class="section-desc white">
+          牛樟芝（Antrodia cinnamomea）為台灣特有珍稀真菌，僅生長於台灣特有種牛樟木的中空樹幹，含多種珍貴活性成分，被譽為「台灣森林紅寶石」，具有極高的學術研究與保健應用價值。
+        </p>
+      </div>
+
+      <div class="ant-tabs reveal d2">
+        <div class="ant-tab active" onclick="switchTab(this)">
+          <span class="ant-num">01</span>
+          <div><h4>牛樟芝簡介</h4><p>台灣特有珍稀真菌介紹</p></div>
+        </div>
+        <div class="ant-tab" onclick="switchTab(this)">
+          <span class="ant-num">02</span>
+          <div><h4>活性成分分析</h4><p>多醣體、三萜類等核心成分</p></div>
+        </div>
+        <div class="ant-tab" onclick="switchTab(this)">
+          <span class="ant-num">03</span>
+          <div><h4>科學研究成果</h4><p>國際期刊發表成果</p></div>
+        </div>
+        <div class="ant-tab" onclick="switchTab(this)">
+          <span class="ant-num">04</span>
+          <div><h4>正確食用方式</h4><p>劑量與搭配建議</p></div>
+        </div>
+        <div class="ant-tab" onclick="switchTab(this)">
+          <span class="ant-num">05</span>
+          <div><h4>暝眩反應說明</h4><p>好轉反應認識與處理</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ant-cards">
+      <div class="ant-card reveal">
+        <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=700&q=85" alt="牛樟芝多醣體">
+        <div class="ant-card-ov">
+          <span class="ant-tag">核心成分 · Core</span>
+          <h3>多醣體 Polysaccharide</h3>
+          <p class="ant-card-desc">促進免疫系統調節，增強自然殺手細胞活性，為牛樟芝最重要的活性成分之一，具有顯著的免疫調節功能。</p>
+          <div class="ant-card-btn">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="ant-card reveal d2">
+        <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=700&q=85" alt="牛樟芝三萜類">
+        <div class="ant-card-ov">
+          <span class="ant-tag">核心成分 · Core</span>
+          <h3>三萜類 Triterpenoids</h3>
+          <p class="ant-card-desc">牛樟芝獨有的三萜類化合物，具有強效的生物活性，含量多寡是品質好壞的重要指標。</p>
+          <div class="ant-card-btn">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="ant-card reveal d4">
+        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=700&q=85" alt="超氧化物歧化酶">
+        <div class="ant-card-ov">
+          <span class="ant-tag">核心成分 · Core</span>
+          <h3>超氧化物歧化酶 SOD</h3>
+          <p class="ant-card-desc">天然抗氧化酵素，有效清除自由基，延緩細胞老化，保護人體免受氧化壓力傷害。</p>
+          <div class="ant-card-btn">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section id="products">
+  <div class="prod-inner">
+    <div class="prod-head">
+      <div class="reveal">
+        <div class="tag-row">
+          <div class="tag-line"></div>
+          <span class="tag-text">Our Products · 精選系列</span>
+        </div>
+        <h2 class="section-title">精選產品系列</h2>
+      </div>
+      <div class="prod-filters reveal d2">
+        <button class="f-btn act" onclick="filterProd(this,'all')">全部產品</button>
+        <button class="f-btn" onclick="filterProd(this,'energy')">能量補給</button>
+        <button class="f-btn" onclick="filterProd(this,'premium')">頂級系列</button>
+        <button class="f-btn" onclick="filterProd(this,'daily')">日常保健</button>
+        <button class="f-btn" onclick="filterProd(this,'extract')">萃取精華</button>
+        <button class="f-btn" onclick="filterProd(this,'biotech')">生技保養</button>
+        <button class="f-btn" onclick="filterProd(this,'beverage')">飲品系列</button>
+      </div>
+    </div>
+
+    <div class="prod-grid">
+      <!-- 耀德大牛能量氣泡飲 -->
+      <div class="prod-card reveal" data-cat="energy">
+        <div class="prod-img-wrap">
+          <img src="images/BigBull/BigBull_4.png" alt="耀德大牛能量氣泡飲" class="prod-img" style="background:#000;">
+          <span class="prod-badge" style="background:linear-gradient(135deg,#00897B,#00C9A0);">能量補給</span>
+        </div>
+        <div class="prod-body">
+          <p class="prod-cat">Energy Supply · 能量補給</p>
+          <h3 class="prod-name">耀德大牛能量氣泡飲</h3>
+          <p class="prod-desc">段木栽培牛樟芝子實體萃取，結合馬卡、專利紅參與牛磺酸，燃爆能量、突破極限，250ml × 24入。</p>
+          <div class="prod-tags">
+            <span class="ptag">牛樟芝子實體</span>
+            <span class="ptag">馬卡萃取</span>
+            <span class="ptag">台灣製造</span>
+          </div>
+          <a href="product-bigbull.html" class="prod-link">
+            深入了解
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="prod-card reveal d1" data-cat="premium">
+        <div class="prod-img-wrap">
+          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=700&q=85" alt="頂級牛樟芝膠囊" class="prod-img">
+          <span class="prod-badge" style="background:var(--gold);">頂級系列</span>
+        </div>
+        <div class="prod-body">
+          <p class="prod-cat">Premium Series</p>
+          <h3 class="prod-name">頂級牛樟芝子實體膠囊</h3>
+          <p class="prod-desc">採用野生牛樟芝子實體，三萜類含量高達 15%，為耀德旗艦級精品，提供最完整的健康守護力量。</p>
+          <div class="prod-tags">
+            <span class="ptag">三萜類 15%+</span>
+            <span class="ptag">SGS 認證</span>
+            <span class="ptag">野生採收</span>
+          </div>
+          <a href="#contact" class="prod-link">
+            深入了解
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="prod-card reveal d2" data-cat="daily">
+        <div class="prod-img-wrap">
+          <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=700&q=85" alt="日常保健膠囊" class="prod-img">
+          <span class="prod-badge" style="background:var(--green-600);">日常保健</span>
+        </div>
+        <div class="prod-body">
+          <p class="prod-cat">Daily Wellness</p>
+          <h3 class="prod-name">菌絲體日常保健膠囊</h3>
+          <p class="prod-desc">固態培養牛樟芝菌絲體，富含多醣體成分，適合日常長期補充，維持良好的免疫機能與活力。</p>
+          <div class="prod-tags">
+            <span class="ptag">多醣體豐富</span>
+            <span class="ptag">長期適用</span>
+            <span class="ptag">衛福部核准</span>
+          </div>
+          <a href="#contact" class="prod-link">
+            深入了解
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="prod-card reveal d4" data-cat="extract">
+        <div class="prod-img-wrap">
+          <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=700&q=85" alt="液態萃取精華" class="prod-img">
+          <span class="prod-badge" style="background:var(--green-500);">萃取精華</span>
+        </div>
+        <div class="prod-body">
+          <p class="prod-cat">Extract Series</p>
+          <h3 class="prod-name">牛樟芝液態萃取精華</h3>
+          <p class="prod-desc">採水醇雙重萃取技術，高倍濃縮有效成分，吸收迅速高效，適合需要快速補充的族群。</p>
+          <div class="prod-tags">
+            <span class="ptag">雙重萃取</span>
+            <span class="ptag">高倍濃縮</span>
+            <span class="ptag">快速吸收</span>
+          </div>
+          <a href="product-extract.html" class="prod-link">
+            深入了解
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 牛樟葉外泌體標靶精華 -->
+      <div class="prod-card reveal" data-cat="biotech">
+        <div class="prod-img-wrap">
+          <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=700&q=85" alt="牛樟葉外泌體標靶精華" class="prod-img">
+          <span class="prod-badge" style="background:#7b2d8b;">生技保養</span>
+        </div>
+        <div class="prod-body">
+          <p class="prod-cat">Biotech Series · 生技保養</p>
+          <h3 class="prod-name">牛樟葉外泌體標靶精華</h3>
+          <p class="prod-desc">運用外泌體奈米載體技術，精準導入牛樟葉活性成分至細胞層，突破傳統保養品吸收屏障，新世代護膚科技。</p>
+          <div class="prod-tags">
+            <span class="ptag">外泌體技術</span>
+            <span class="ptag">奈米載體</span>
+            <span class="ptag">標靶傳遞</span>
+          </div>
+          <a href="products.html" class="prod-link">
+            深入了解
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 93 國認證苦瓜胜肽 -->
+      <div class="prod-card reveal d1" data-cat="daily">
+        <div class="prod-img-wrap">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=700&q=85" alt="93 國認證苦瓜胜肽" class="prod-img">
+          <span class="prod-badge" style="background:#2d7a3a;">日常保健</span>
+        </div>
+        <div class="prod-body">
+          <p class="prod-cat">Health Management · 日常保健</p>
+          <h3 class="prod-name">93 國認證苦瓜胜肽</h3>
+          <p class="prod-desc">採用專利苦瓜胜肽萃取物，已通過 93 個國家認證，幫助維持正常醣類代謝，現代人控糖保健的科學首選。</p>
+          <div class="prod-tags">
+            <span class="ptag">93 國認證</span>
+            <span class="ptag">苦瓜胜肽</span>
+            <span class="ptag">專利配方</span>
+          </div>
+          <a href="products.html" class="prod-link">
+            深入了解
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 牛樟葉養生茶 -->
+      <div class="prod-card reveal d2" data-cat="beverage">
+        <div class="prod-img-wrap">
+          <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=700&q=85" alt="牛樟葉養生茶" class="prod-img">
+          <span class="prod-badge" style="background:#5c7a4a;">飲品系列</span>
+        </div>
+        <div class="prod-body">
+          <p class="prod-cat">Beverage Series · 飲品系列</p>
+          <h3 class="prod-name">牛樟葉養生茶</h3>
+          <p class="prod-desc">嚴選台灣原生牛樟葉，低溫乾燥保留天然多酚與精油成分，清新芳香、回甘爽口，日常飲用輕鬆攝取牛樟葉精華。</p>
+          <div class="prod-tags">
+            <span class="ptag">台灣原生牛樟葉</span>
+            <span class="ptag">低溫乾燥</span>
+            <span class="ptag">天然多酚</span>
+          </div>
+          <a href="products.html" class="prod-link">
+            深入了解
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS HOME ===== -->
+<section id="reviews-home" aria-labelledby="reviews-home-title">
+  <div class="rv-home-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:8px;">
+      <div class="tag-row" style="justify-content:center;">
+        <div class="tag-line"></div>
+        <span class="tag-text">Reviews · 真實評價</span>
+      </div>
+      <h2 class="section-title" id="reviews-home-title">超過 380 則真實好評</h2>
+      <p class="section-desc" style="margin:0 auto;">來自全台消費者的真實使用心得，98% 為已驗證購買評價。</p>
+    </div>
+    <div id="rvHomeRoot"></div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section id="stats">
+  <div class="stats-watermark">YAODE</div>
+  <div class="stats-inner">
+    <div class="stat-text reveal">
+      <div class="tag-row">
+        <div class="tag-line"></div>
+        <span class="tag-text">Our Achievements</span>
+      </div>
+      <h2 class="section-title">數字背後的<br>品質承諾</h2>
+      <p class="section-desc">每一個數字都是耀德植研生醫對品質、研究與消費者健康的深切承諾與不懈努力的具體呈現。</p>
+      <a href="#about" class="btn-gold" style="margin-top:32px;">關於我們</a>
+    </div>
+
+    <div class="stats-grid reveal d2">
+      <div class="stat-box">
+        <div class="stat-num" data-target="20"><span class="cnt">0</span><span class="unit">+</span></div>
+        <div class="stat-div"></div>
+        <div class="stat-lbl">年研究積累</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" data-target="50"><span class="cnt">0</span><span class="unit">+</span></div>
+        <div class="stat-div"></div>
+        <div class="stat-lbl">學術研究合作</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" data-target="100"><span class="cnt">0</span><span class="unit">%</span></div>
+        <div class="stat-div"></div>
+        <div class="stat-lbl">台灣原料產地</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" data-target="15"><span class="cnt">0</span><span class="unit">%</span></div>
+        <div class="stat-div"></div>
+        <div class="stat-lbl">頂級三萜類含量</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" data-target="30"><span class="cnt">0</span><span class="unit">+</span></div>
+        <div class="stat-div"></div>
+        <div class="stat-lbl">國際認證項目</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" data-target="10000"><span class="cnt">0</span><span class="unit">+</span></div>
+        <div class="stat-div"></div>
+        <div class="stat-lbl">受惠消費者</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESEARCH ===== -->
+<section id="research">
+  <div class="res-inner">
+    <div class="reveal">
+      <div class="tag-row">
+        <div class="tag-line"></div>
+        <span class="tag-text">Research &amp; Development</span>
+      </div>
+      <h2 class="section-title white">科技研發<br>守護健康前線</h2>
+    </div>
+
+    <div class="res-grid">
+      <div class="res-img-wrap reveal">
+        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=900&q=85" alt="耀德研究實驗室" class="res-img">
+        <div class="res-img-cap">
+          <p>YAODE Research Laboratory — Taiwan</p>
+        </div>
+      </div>
+
+      <div class="res-items reveal d2">
+        <div class="res-item">
+          <div class="res-head">
+            <svg class="res-icon" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M7 31L19 4L31 31H7Z"/>
+              <line x1="13" y1="23" x2="25" y2="23"/>
+              <circle cx="19" cy="19" r="2" fill="currentColor" stroke="none" opacity=".45"/>
+            </svg>
+            <h3>低溫萃取技術</h3>
+          </div>
+          <p>採用專利低溫萃取工藝，在不破壞活性成分的條件下，最大限度保留牛樟芝珍貴的三萜類及多醣體成分。</p>
+        </div>
+        <div class="res-item">
+          <div class="res-head">
+            <svg class="res-icon" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.4">
+              <circle cx="19" cy="19" r="13"/>
+              <path d="M19 10V19L25 25"/>
+              <circle cx="19" cy="19" r="2" fill="currentColor" stroke="none" opacity=".45"/>
+            </svg>
+            <h3>固態培養菌絲體</h3>
+          </div>
+          <p>模擬自然生長環境的固態培養技術，培育出成分均一、品質穩定的牛樟芝菌絲體，確保每批次一致性。</p>
+        </div>
+        <div class="res-item">
+          <div class="res-head">
+            <svg class="res-icon" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.4">
+              <rect x="7" y="11" width="24" height="20" rx="2"/>
+              <path d="M13 11V8M25 11V8"/>
+              <line x1="7" y1="19" x2="31" y2="19"/>
+              <path d="M13 25h4M21 25h4"/>
+            </svg>
+            <h3>全程品質追溯</h3>
+          </div>
+          <p>建立完整的原料溯源系統，從牛樟木採集地到成品出廠，每一環節均可追溯，讓消費者安心選購。</p>
+        </div>
+        <div class="res-item">
+          <div class="res-head">
+            <svg class="res-icon" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M19 5L22.5 12L30.5 13.2L25 18.7L26.5 27L19 23L11.5 27L13 18.7L7.5 13.2L15.5 12Z"/>
+            </svg>
+            <h3>國際學術合作</h3>
+          </div>
+          <p>與台大、成大等頂尖學術機構深度合作，多項牛樟芝研究成果發表於 SCI 國際期刊，以科學引領產業。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CERTIFICATIONS TICKER ===== -->
+<section id="certs">
+  <div class="certs-head reveal">
+    <div class="tag-row" style="justify-content:center;">
+      <div class="tag-line"></div>
+      <span class="tag-text">Certifications · 榮譽認證</span>
+      <div class="tag-line"></div>
+    </div>
+    <h2 class="section-title" style="margin-bottom:0;">多重認證，品質保證</h2>
+  </div>
+  <div class="certs-track-wrap">
+    <div class="certs-track">
+      <!-- first set -->
+      <div class="cert-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg><span>SGS 國際認證</span></div>
+      <div class="cert-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg><span>ISO 22000 食品安全</span></div>
+      <div class="cert-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg><span>衛福部健康食品認證</span></div>
+      <div class="cert-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg><span>GMP 優良製造規範</span></div>
+      <div class="cert-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg><span>台灣 SNQ 國家品質標章</span></div>
+      <div class="cert-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg><span>有機農場認證</span></div>
+      <div class="cert-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg><span>HACCP 認證</span></div>
+      <!-- duplicate set for infinite loop -->
+      <div class="cert-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg><span>SGS 國際認證</span></div>
+      <div class="cert-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg><span>ISO 22000 食品安全</span></div>
+      <div class="cert-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg><span>衛福部健康食品認證</span></div>
+      <div class="cert-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg><span>GMP 優良製造規範</span></div>
+      <div class="cert-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg><span>台灣 SNQ 國家品質標章</span></div>
+      <div class="cert-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg><span>有機農場認證</span></div>
+      <div class="cert-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg><span>HACCP 認證</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWS ===== -->
+<section id="news">
+  <div class="news-inner">
+    <div class="news-head">
+      <div class="reveal">
+        <div class="tag-row">
+          <div class="tag-line"></div>
+          <span class="tag-text">Latest News · 最新消息</span>
+        </div>
+        <h2 class="section-title">新聞中心</h2>
+      </div>
+      <a href="#news" class="view-all reveal d2">
+        查看全部
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+      </a>
+    </div>
+
+    <div class="news-grid">
+      <a href="#news" class="n-card reveal">
+        <div class="n-img-wrap">
+          <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=900&q=85" alt="研究新聞" class="n-img" style="height:360px;">
+        </div>
+        <div class="n-date">
+          <span class="n-dot"></span>
+          2026 / 05 / 01
+          <span class="n-badge">最新消息</span>
+        </div>
+        <h3 class="n-title">耀德植研生醫牛樟芝三萜類研究獲 SCI 國際期刊收錄，研究成果受國際生技界高度肯定</h3>
+        <p class="n-excerpt">耀德植研生醫研究團隊針對牛樟芝三萜類成分的免疫調節機制，歷時三年的深入研究，成果已獲頂級 SCI 國際期刊收錄刊登，引發國際生技學界廣泛關注。</p>
+      </a>
+
+      <a href="#news" class="n-card reveal d2">
+        <div class="n-img-wrap">
+          <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&q=85" alt="展覽新聞" class="n-img">
+        </div>
+        <div class="n-date"><span class="n-dot"></span>2026 / 04 / 15</div>
+        <h3 class="n-title">2026 台灣生技月耀德盛大參展，全新產品系列正式發布</h3>
+        <p class="n-excerpt">耀德植研生醫將於 2026 年台灣生技月攜帶全新產品系列盛大參展，現場展示最新研究成果與產品。</p>
+      </a>
+
+      <a href="#news" class="n-card reveal d4">
+        <div class="n-img-wrap">
+          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=85" alt="認證新聞" class="n-img">
+        </div>
+        <div class="n-date"><span class="n-dot"></span>2026 / 03 / 20</div>
+        <h3 class="n-title">耀德通過 ISO 22000 最新版本認證複查，品質管理再獲國際認可</h3>
+        <p class="n-excerpt">繼多項國際認證後，耀德植研生醫順利通過 ISO 22000:2018 最新版本複查認證，展現對食品安全的持續承諾。</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info reveal">
+      <div class="tag-row">
+        <div class="tag-line"></div>
+        <span class="tag-text">Contact Us · 聯絡我們</span>
+      </div>
+      <h2 class="section-title white" style="margin-bottom:4px;">與我們</h2>
+      <h2 class="section-title gold" style="margin-bottom:28px;">聯繫洽詢</h2>
+      <p class="section-desc white">
+        無論您是消費者、醫療機構、或尋求企業合作，我們的專業團隊將以最快速度為您提供最完整的解答與服務。
+      </p>
+
+      <div style="margin-top:44px;">
+        <div class="c-det">
+          <div class="c-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M10 2C7.24 2 5 4.24 5 7C5 11.25 10 18 10 18C10 18 15 11.25 15 7C15 4.24 12.76 2 10 2Z"/>
+              <circle cx="10" cy="7" r="2.5"/>
+            </svg>
+          </div>
+          <div>
+            <h4>公司地址</h4>
+            <p>台灣 · 耀德植研生醫股份有限公司</p>
+          </div>
+        </div>
+        <div class="c-det">
+          <div class="c-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M3 5C3 4.45 3.45 4 4 4H7L8.5 8L6.5 9.5C7.33 11.18 8.82 12.67 10.5 13.5L12 11.5L16 13V16C16 16.55 15.55 17 15 17C8.37 17 3 11.63 3 5Z"/>
+            </svg>
+          </div>
+          <div>
+            <h4>聯絡電話</h4>
+            <p>+886 (0) XXX-XXX-XXXX</p>
+          </div>
+        </div>
+        <div class="c-det">
+          <div class="c-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4">
+              <rect x="2" y="4" width="16" height="13" rx="2"/>
+              <path d="M2 7l8 5 8-5"/>
+            </svg>
+          </div>
+          <div>
+            <h4>電子信箱</h4>
+            <p>info@bigbull.com.tw</p>
+          </div>
+        </div>
+        <div class="c-det">
+          <div class="c-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4">
+              <circle cx="10" cy="10" r="8"/>
+              <path d="M10 6v4l3 3"/>
+            </svg>
+          </div>
+          <div>
+            <h4>服務時間</h4>
+            <p>週一至週五 09:00 – 18:00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap reveal d2">
+      <h3 class="form-title">發送訊息給我們</h3>
+      <form id="contactForm" onsubmit="submitForm(event)">
+        <div class="f-row">
+          <div class="f-group">
+            <label class="f-label">姓名 *</label>
+            <input type="text" class="f-input" placeholder="您的姓名" required>
+          </div>
+          <div class="f-group">
+            <label class="f-label">電話</label>
+            <input type="tel" class="f-input" placeholder="聯絡電話">
+          </div>
+        </div>
+        <div class="f-group">
+          <label class="f-label">電子信箱 *</label>
+          <input type="email" class="f-input" placeholder="your@email.com" required>
+        </div>
+        <div class="f-group">
+          <label class="f-label">詢問類別</label>
+          <select class="f-input">
+            <option value="">請選擇詢問類別</option>
+            <option value="product">產品諮詢</option>
+            <option value="research">研究合作</option>
+            <option value="wholesale">批發 / 經銷</option>
+            <option value="medical">醫療機構合作</option>
+            <option value="other">其他</option>
+          </select>
+        </div>
+        <div class="f-group">
+          <label class="f-label">訊息內容 *</label>
+          <textarea class="f-input" placeholder="請輸入您的問題或需求..." required></textarea>
+        </div>
+        <button type="submit" class="f-submit" id="submitBtn">送出訊息</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHASE 3 IMMERSIVE ENTRY ===== -->
+<section id="phase3-entry" style="background:var(--deep,#071C12);position:relative;overflow:hidden;padding:120px 64px;">
+  <canvas id="p3-particles" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(0,229,204,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,204,.025) 1px,transparent 1px);background-size:60px 60px;z-index:0;pointer-events:none;"></div>
+  <div style="max-width:1400px;margin:0 auto;position:relative;z-index:2;">
+
+    <!-- Header -->
+    <div style="text-align:center;margin-bottom:72px;" class="reveal">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:5px 18px;margin-bottom:20px;background:rgba(0,229,204,.08);border:1px solid rgba(0,229,204,.22);border-radius:40px;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#00E5CC;font-weight:600;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#00E5CC;display:inline-block;animation:pulse-dot 1.6s ease infinite;"></span>
+        Phase 3 · Immersive AI Wellness Platform
+      </div>
+      <h2 style="font-family:'Noto Serif TC',serif;font-size:clamp(32px,4.5vw,60px);color:#fff;line-height:1.2;margin-bottom:16px;font-weight:600;">
+        不只是保健品<br>這是<span style="color:#00E5CC;">沉浸式健康體驗</span>
+      </h2>
+      <p style="font-size:16px;color:rgba(255,255,255,.5);max-width:560px;margin:0 auto;line-height:1.85;">
+        台灣第一個 3D 沉浸式健康品牌平台——Digital Twin Commerce、AI 健康顧問、虛擬工廠導覽，完整串聯體驗到購買。
+      </p>
+    </div>
+
+    <!-- 3 Feature Cards -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px;" class="reveal d1" id="p3-cards">
+
+      <!-- 3D Experience -->
+      <a href="experience.html" style="display:block;text-decoration:none;background:rgba(5,22,15,.72);backdrop-filter:blur(20px);border:1px solid rgba(0,229,204,.15);border-radius:24px;padding:40px 32px;position:relative;overflow:hidden;cursor:pointer;transition:all .5s cubic-bezier(.34,1.56,.64,1);transform-style:preserve-3d;" class="p3-card" onmouseenter="this.style.transform='translateY(-12px)';this.style.borderColor='rgba(0,229,204,.5)';this.style.boxShadow='0 40px 80px rgba(0,0,0,.5),0 0 40px rgba(0,229,204,.15)'" onmouseleave="this.style.transform='';this.style.borderColor='rgba(0,229,204,.15)';this.style.boxShadow=''">
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(0,229,204,.06),transparent 50%);pointer-events:none;"></div>
+        <div style="position:absolute;top:12px;right:12px;width:24px;height:24px;border-top:2px solid rgba(0,229,204,.5);border-right:2px solid rgba(0,229,204,.5);border-radius:0 4px 0 0;"></div>
+        <div style="position:absolute;bottom:12px;left:12px;width:24px;height:24px;border-bottom:2px solid rgba(0,229,204,.5);border-left:2px solid rgba(0,229,204,.5);border-radius:0 0 0 4px;"></div>
+        <div style="font-size:48px;margin-bottom:20px;">🔬</div>
+        <div style="font-size:9px;letter-spacing:4px;color:#00E5CC;font-weight:600;margin-bottom:8px;text-transform:uppercase;">3D Immersive</div>
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:22px;color:#fff;margin-bottom:12px;line-height:1.35;">沉浸式成分<br>互動體驗</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.75;margin-bottom:24px;">點擊成分節點、旋轉 3D 產品、查看科研數據、導覽虛擬工廠。全程視覺化、可互動。</p>
+        <div style="display:flex;align-items:center;gap:8px;color:#00E5CC;font-size:13px;font-weight:600;">進入體驗 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></div>
+      </a>
+
+      <!-- Digital Twin Commerce -->
+      <a href="digital-twin.html" style="display:block;text-decoration:none;background:rgba(5,22,15,.72);backdrop-filter:blur(20px);border:1px solid rgba(255,213,79,.15);border-radius:24px;padding:40px 32px;position:relative;overflow:hidden;cursor:pointer;transition:all .5s cubic-bezier(.34,1.56,.64,1);transform-style:preserve-3d;" class="p3-card" onmouseenter="this.style.transform='translateY(-12px)';this.style.borderColor='rgba(255,213,79,.5)';this.style.boxShadow='0 40px 80px rgba(0,0,0,.5),0 0 40px rgba(255,213,79,.1)'" onmouseleave="this.style.transform='';this.style.borderColor='rgba(255,213,79,.15)';this.style.boxShadow=''">
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(255,213,79,.06),transparent 50%);pointer-events:none;"></div>
+        <div style="position:absolute;top:12px;right:12px;width:24px;height:24px;border-top:2px solid rgba(255,213,79,.4);border-right:2px solid rgba(255,213,79,.4);border-radius:0 4px 0 0;"></div>
+        <div style="position:absolute;bottom:12px;left:12px;width:24px;height:24px;border-bottom:2px solid rgba(255,213,79,.4);border-left:2px solid rgba(255,213,79,.4);border-radius:0 0 0 4px;"></div>
+        <div style="font-size:48px;margin-bottom:20px;">🏛️</div>
+        <div style="font-size:9px;letter-spacing:4px;color:#FFD54F;font-weight:600;margin-bottom:8px;text-transform:uppercase;">Digital Twin Commerce</div>
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:22px;color:#fff;margin-bottom:12px;line-height:1.35;">虛擬品牌館<br>Spatial Shopping</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.75;margin-bottom:24px;">在 3D 虛擬空間瀏覽全系列產品，AI 智能推薦、一鍵加入購物車，沉浸式購物新體驗。</p>
+        <div style="display:flex;align-items:center;gap:8px;color:#FFD54F;font-size:13px;font-weight:600;">進入品牌館 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></div>
+      </a>
+
+      <!-- Health Dashboard -->
+      <a href="health-dashboard.html" style="display:block;text-decoration:none;background:rgba(5,22,15,.72);backdrop-filter:blur(20px);border:1px solid rgba(124,77,255,.15);border-radius:24px;padding:40px 32px;position:relative;overflow:hidden;cursor:pointer;transition:all .5s cubic-bezier(.34,1.56,.64,1);transform-style:preserve-3d;" class="p3-card" onmouseenter="this.style.transform='translateY(-12px)';this.style.borderColor='rgba(124,77,255,.5)';this.style.boxShadow='0 40px 80px rgba(0,0,0,.5),0 0 40px rgba(124,77,255,.12)'" onmouseleave="this.style.transform='';this.style.borderColor='rgba(124,77,255,.15)';this.style.boxShadow=''">
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(124,77,255,.06),transparent 50%);pointer-events:none;"></div>
+        <div style="position:absolute;top:12px;right:12px;width:24px;height:24px;border-top:2px solid rgba(124,77,255,.4);border-right:2px solid rgba(124,77,255,.4);border-radius:0 4px 0 0;"></div>
+        <div style="position:absolute;bottom:12px;left:12px;width:24px;height:24px;border-bottom:2px solid rgba(124,77,255,.4);border-left:2px solid rgba(124,77,255,.4);border-radius:0 0 0 4px;"></div>
+        <div style="font-size:48px;margin-bottom:20px;">📊</div>
+        <div style="font-size:9px;letter-spacing:4px;color:#B39DDB;font-weight:600;margin-bottom:8px;text-transform:uppercase;">Member Digital Twin</div>
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:22px;color:#fff;margin-bottom:12px;line-height:1.35;">AI 健康<br>儀表板</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.75;margin-bottom:24px;">個人健康數據追蹤、AI 每週建議、服用紀錄、回購預測。您的數位健康孿生。</p>
+        <div style="display:flex;align-items:center;gap:8px;color:#B39DDB;font-size:13px;font-weight:600;">查看儀表板 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></div>
+      </a>
+    </div>
+
+    <!-- Tech Stack & Trust -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;" class="reveal d2">
+      <div style="font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.25);text-transform:uppercase;">技術驅動</div>
+      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;">
+        <span style="padding:5px 14px;background:rgba(0,229,204,.06);border:1px solid rgba(0,229,204,.12);border-radius:20px;font-size:11px;color:rgba(255,255,255,.45);letter-spacing:1px;">Three.js</span>
+        <span style="padding:5px 14px;background:rgba(0,229,204,.06);border:1px solid rgba(0,229,204,.12);border-radius:20px;font-size:11px;color:rgba(255,255,255,.45);letter-spacing:1px;">WebGL</span>
+        <span style="padding:5px 14px;background:rgba(0,229,204,.06);border:1px solid rgba(0,229,204,.12);border-radius:20px;font-size:11px;color:rgba(255,255,255,.45);letter-spacing:1px;">GSAP</span>
+        <span style="padding:5px 14px;background:rgba(0,229,204,.06);border:1px solid rgba(0,229,204,.12);border-radius:20px;font-size:11px;color:rgba(255,255,255,.45);letter-spacing:1px;">Spatial UI</span>
+        <span style="padding:5px 14px;background:rgba(0,229,204,.06);border:1px solid rgba(0,229,204,.12);border-radius:20px;font-size:11px;color:rgba(255,255,255,.45);letter-spacing:1px;">AI Chatbot</span>
+        <span style="padding:5px 14px;background:rgba(0,229,204,.06);border:1px solid rgba(0,229,204,.12);border-radius:20px;font-size:11px;color:rgba(255,255,255,.45);letter-spacing:1px;">Digital Twin</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-top">
+    <div class="f-brand">
+      <a href="index.html" class="logo logo-footer" style="margin-bottom:4px;"><img src="images/logo/LOGO_6.png" alt="耀德植研生醫 YAODER BIOMEDICAL" class="logo-full-img"></a>
+      <p>深耕台灣牛樟芝研究逾二十年，以科學嚴謹、自然純粹的信念，守護每一個珍貴生命的健康與活力。</p>
+      <div class="f-socials">
+        <a href="#" class="f-soc" title="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" class="f-soc" title="LINE">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 11.04C22 6.35 17.302 2.54 11.523 2.54S1.047 6.35 1.047 11.04c0 4.2 3.726 7.72 8.756 8.39.34.073.803.225.92.517.105.265.069.68.034.947l-.15.895c-.045.265-.21 1.04.912.567 1.12-.473 6.06-3.57 8.267-6.11C21.47 14.41 22 12.82 22 11.04z"/></svg>
+        </a>
+        <a href="#" class="f-soc" title="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#060e09"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="f-nav-col">
+      <h4>關於耀德</h4>
+      <ul>
+        <li><a href="#about">品牌理念與願景</a></li>
+        <li><a href="#about">公司沿革</a></li>
+        <li><a href="#about">研發團隊</a></li>
+        <li><a href="#certs">認證資質</a></li>
+      </ul>
+    </div>
+
+    <div class="f-nav-col">
+      <h4>認識牛樟芝</h4>
+      <ul>
+        <li><a href="#antrodia">牛樟芝簡介</a></li>
+        <li><a href="#antrodia">活性物成分</a></li>
+        <li><a href="#antrodia">科學研究成果</a></li>
+        <li><a href="#antrodia">食用方式建議</a></li>
+        <li><a href="#antrodia">暝眩反應說明</a></li>
+      </ul>
+    </div>
+
+    <div class="f-nav-col">
+      <h4>快速連結</h4>
+      <ul>
+        <li><a href="#products">產品介紹</a></li>
+        <li><a href="#research">研究發展</a></li>
+        <li><a href="#news">新聞中心</a></li>
+        <li><a href="#contact">聯絡我們</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-btm">
+    <p class="f-copy">© 2026 耀德植研生醫股份有限公司 · All Rights Reserved · www.bigbull.com.tw</p>
+    <div class="f-btm-links">
+      <a href="#">隱私權政策</a>
+      <a href="#">使用條款</a>
+      <a href="#">Cookie 設定</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile Sticky CTA -->
+<div class="mob-sticky-cta" id="mobStickyCta" role="complementary" aria-label="快速操作">
+  <a href="product-bigbull.html" class="mob-sticky-btn primary" data-track-cta="mob_sticky_experience">立即體驗</a>
+  <a href="flagship.html#ai-recommend" class="mob-sticky-btn secondary" data-track-cta="mob_sticky_ai">AI 分析</a>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // Hero Ken Burns
+  document.getElementById('hero').classList.add('loaded');
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+
+  // Scroll reveal
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('up'); });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+  // Counter animation
+  const co = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.target, 10);
+      const cnt = el.querySelector('.cnt');
+      let cur = 0;
+      const step = target / 60;
+      const timer = setInterval(() => {
+        cur = Math.min(cur + step, target);
+        cnt.textContent = target >= 1000 ? Math.floor(cur).toLocaleString() : Math.floor(cur);
+        if (cur >= target) clearInterval(timer);
+      }, 2000 / 60);
+      co.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-num[data-target]').forEach(el => co.observe(el));
+
+  // Antrodia tabs
+  function switchTab(el) {
+    document.querySelectorAll('.ant-tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  // Product filter
+  function filterProd(btn, cat) {
+    document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('act'));
+    btn.classList.add('act');
+    document.querySelectorAll('.prod-card').forEach(card => {
+      const show = cat === 'all' || card.dataset.cat === cat;
+      card.style.opacity = show ? '1' : '0.28';
+      card.style.transform = show ? '' : 'translateY(8px)';
+      card.style.transition = 'opacity .4s, transform .4s';
+    });
+  }
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobMenu').classList.toggle('open');
+  }
+
+  // ── CTA Event Tracking ──
+  (function(){
+    window.dataLayer = window.dataLayer || [];
+    function trackCTA(name, label) {
+      window.dataLayer.push({ event: 'cta_click', cta_name: name, cta_label: label, page: 'homepage' });
+      if (typeof gtag === 'function') gtag('event', 'cta_click', { cta_name: name, cta_label: label });
+    }
+    document.querySelectorAll('[data-track-cta]').forEach(el => {
+      el.addEventListener('click', () => trackCTA(el.dataset.trackCta, el.textContent.trim().replace(/\s+/g, ' ')));
+    });
+  })();
+
+  // ── Hero Particle Canvas (reduced for CWV) ──
+  (function(){
+    const canvas = document.getElementById('heroCanvas');
+    if (!canvas || window.matchMedia('(max-width: 768px)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+
+    function resize() {
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    const COLORS = ['rgba(0,201,160,', 'rgba(255,202,40,'];
+    function rand(a, b) { return a + Math.random() * (b - a); }
+
+    for (let i = 0; i < 28; i++) {
+      particles.push({
+        x: rand(0, 1), y: rand(0, 1),
+        r: rand(1, 2.5),
+        vx: rand(-0.06, 0.06), vy: rand(-0.1, -0.03),
+        alpha: rand(0.1, 0.35),
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        pulse: rand(0, Math.PI * 2),
+        pulseSpeed: rand(0.006, 0.015)
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(p => {
+        p.pulse += p.pulseSpeed;
+        const a = p.alpha * (0.7 + 0.3 * Math.sin(p.pulse));
+        ctx.beginPath();
+        ctx.arc(p.x * W, p.y * H, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.color + a + ')';
+        ctx.fill();
+        p.x += p.vx / W * 60;
+        p.y += p.vy / H * 60;
+        if (p.y < -0.02) p.y = 1.02;
+        if (p.x < -0.02) p.x = 1.02;
+        if (p.x > 1.02) p.x = -0.02;
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  // ── Hero Product Parallax (desktop only) ──
+  (function(){
+    const hero = document.getElementById('hero');
+    const panel = document.getElementById('heroRight');
+    if (!hero || !panel || window.matchMedia('(max-width: 768px)').matches || !window.matchMedia('(hover: hover)').matches) return;
+    let tX = 0, tY = 0, cX = 0, cY = 0;
+    hero.addEventListener('mousemove', e => {
+      const r = hero.getBoundingClientRect();
+      tX = ((e.clientX - r.left) / r.width  - 0.5) * 14;
+      tY = ((e.clientY - r.top)  / r.height - 0.5) * 10;
+    }, { passive: true });
+    hero.addEventListener('mouseleave', () => { tX = 0; tY = 0; });
+    function tick() {
+      cX += (tX - cX) * 0.06;
+      cY += (tY - cY) * 0.06;
+      panel.style.transform = `translate(${cX}px, ${cY}px)`;
+      requestAnimationFrame(tick);
+    }
+    tick();
+  })();
+
+  // Form submit
+  function submitForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = '訊息已成功送出 ✓';
+    btn.classList.add('sent');
+    setTimeout(() => {
+      btn.textContent = '送出訊息';
+      btn.classList.remove('sent');
+      e.target.reset();
+    }, 3500);
+  }
+</script>
+
+<!-- Back to Top -->
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到頂部" aria-label="回到頂部" style="position:fixed;bottom:32px;right:88px;width:50px;height:50px;background:linear-gradient(135deg,#00897B,#00C9A0);border:none;border-radius:50%;cursor:pointer;z-index:901;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,137,123,.45);opacity:0;visibility:hidden;transform:translateY(12px);transition:all .35s ease;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 13l6-6 6 6"/></svg></button>
+<script>
+(function(){var b=document.getElementById('backTop');if(!b)return;window.addEventListener('scroll',function(){var s=window.scrollY>300;b.style.opacity=s?'1':'0';b.style.visibility=s?'visible':'hidden';b.style.transform=s?'translateY(0)':'translateY(12px)';},{passive:true});})();
+</script>
+<script src="reviews-data.js"></script>
+<script src="reviews.js"></script>
+<script src="mobile-ux.js"></script>
+<script src="analytics.js" defer></script>
+<script src="immersive-engine.js"></script>
+<script src="ai-avatar.js"></script>
+<script>
+/* Phase 3 Entry Particle Field */
+document.addEventListener('DOMContentLoaded', function() {
+  var c = document.getElementById('p3-particles');
+  if (c && window.ImmersiveEngine) {
+    new window.ImmersiveEngine.ParticleField(c, { count: 80, color: '#00E5CC', linkDist: 100 });
+  }
+  /* pulse-dot keyframe (needed for phase3 entry) */
+  if (!document.getElementById('p3-style')) {
+    var s = document.createElement('style');
+    s.id = 'p3-style';
+    s.textContent = '@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}';
+    document.head.appendChild(s);
+  }
+});
+</script>
+</body>
+</html>
+
+

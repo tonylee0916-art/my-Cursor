@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>虛擬品牌館 | Digital Twin Commerce · 沉浸式購物 | 耀德植研生醫</title>
+  <meta name="description" content="耀德植研生醫虛擬品牌館：Digital Twin Commerce · 3D 沉浸式產品展示 · Spatial Shopping · AI 導購。在虛擬空間中體驗、選購全系列牛樟芝產品。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="immersive.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --nav-h: 80px;
+      --gold: #FFCA28;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: var(--imm-void);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; outline: none; background: none; font-family: inherit; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--imm-void); }
+    ::-webkit-scrollbar-thumb { background: var(--neon); border-radius: 3px; }
+
+    /* ── NAV ── */
+    #nav {
+      position: fixed; inset: 0 0 auto 0; z-index: 1000;
+      height: var(--nav-h); display: flex; align-items: center;
+      padding: 0 64px;
+      background: rgba(2,13,8,.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--imm-border);
+    }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo-icon-img { height: 40px; }
+    .logo-wordmark-img { height: 28px; }
+    .nav-menu { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+    .nav-link { padding: 8px 14px; color: rgba(255,255,255,.65); font-size: 13px; letter-spacing: .5px; border-radius: 8px; transition: all .2s ease; }
+    .nav-link:hover, .nav-link.active { color: var(--neon); background: var(--neon-dim); }
+    .nav-cta { padding: 9px 22px; background: linear-gradient(135deg,#00897B,#00E5CC); color:#fff; border-radius:40px; font-size:13px; font-weight:700; letter-spacing:.5px; transition:all .2s ease; box-shadow:0 4px 16px rgba(0,201,160,.3); }
+    .nav-cta:hover { filter:brightness(1.1); transform:translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; margin-left: auto; padding: 8px; }
+    .hamburger span { width: 22px; height: 1.5px; background: #fff; display: block; }
+    .btn-neon { display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:linear-gradient(135deg,#00897B,#00E5CC);color:#fff;border-radius:40px;font-size:14px;font-weight:700;letter-spacing:.5px;transition:all .3s ease;box-shadow:0 8px 24px rgba(0,201,160,.35); }
+    .btn-neon:hover { filter:brightness(1.1);transform:translateY(-2px); }
+    .btn-glass-outline { display:inline-flex;align-items:center;gap:8px;padding:13px 32px;background:rgba(0,229,204,.06);border:1px solid rgba(0,229,204,.3);color:var(--neon);border-radius:40px;font-size:14px;letter-spacing:.5px;transition:all .3s ease; }
+    .btn-glass-outline:hover { background:rgba(0,229,204,.12);border-color:var(--neon); }
+
+    /* ── HERO ── */
+    #dt-hero {
+      position: relative; height: 100vh; min-height: 640px;
+      display: flex; align-items: center; overflow: hidden;
+    }
+    .dt-hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 60% 50%, rgba(0,42,30,.4), var(--imm-void) 70%);
+    }
+    .dt-hero-grid { position: absolute; inset: 0; }
+    .dt-hero-content {
+      position: relative; z-index: 2;
+      max-width: 1400px; margin: 0 auto;
+      padding: calc(var(--nav-h) + 40px) 64px 80px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center; width: 100%;
+    }
+    .dt-hero-text .tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 5px 16px; margin-bottom: 24px;
+      background: rgba(0,229,204,.08);
+      border: 1px solid rgba(0,229,204,.25);
+      border-radius: 40px;
+      font-size: 10px; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--neon); font-weight: 600;
+    }
+    .dt-hero-text h1 {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: clamp(36px, 5vw, 68px);
+      font-weight: 900; color: #fff;
+      line-height: 1.15; margin-bottom: 20px; letter-spacing: -1px;
+    }
+    .dt-hero-text h1 em { font-style: normal; color: var(--neon); }
+    .dt-hero-text p {
+      font-size: 16px; color: rgba(255,255,255,.55);
+      line-height: 1.9; margin-bottom: 32px; max-width: 480px;
+    }
+    .dt-hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .dt-hero-visual {
+      display: grid; grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+    .hero-product-card {
+      background: var(--imm-panel);
+      border: 1px solid var(--imm-border);
+      border-radius: 16px; padding: 24px;
+      transition: all .4s var(--ease-expo);
+      cursor: pointer; position: relative; overflow: hidden;
+    }
+    .hero-product-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(0,229,204,.04), transparent);
+    }
+    .hero-product-card:hover {
+      border-color: var(--neon);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(0,0,0,.4), 0 0 30px rgba(0,229,204,.1);
+    }
+    .hero-product-card.featured {
+      grid-column: 1 / -1;
+      display: flex; align-items: center; gap: 20px;
+      background: linear-gradient(135deg, rgba(0,137,123,.15), rgba(0,42,30,.4));
+      border-color: rgba(0,229,204,.3);
+    }
+    .hpc-badge {
+      position: absolute; top: 12px; right: 12px;
+      padding: 3px 10px; border-radius: 20px;
+      font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    }
+    .hpc-badge.bestseller { background: rgba(255,213,79,.15); color: var(--gold-neon); border: 1px solid rgba(255,213,79,.3); }
+    .hpc-badge.new { background: rgba(0,229,204,.15); color: var(--neon); border: 1px solid rgba(0,229,204,.3); }
+    .hpc-emoji { font-size: 36px; margin-bottom: 12px; }
+    .hpc-name { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .hpc-price { font-size: 18px; font-weight: 800; color: var(--gold-neon); }
+    .hpc-price small { font-size: 11px; color: rgba(255,255,255,.3); font-weight: 400; margin-right: 4px; }
+    .hpc-add {
+      display: flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: linear-gradient(135deg, #00897B, #00E5CC);
+      color: #fff; font-size: 16px; margin-top: 12px;
+      transition: all .2s ease; border: none; cursor: pointer;
+    }
+    .hpc-add:hover { filter: brightness(1.1); transform: scale(1.1); }
+
+    /* ── SPACE SELECTOR ── */
+    #space-selector {
+      background: var(--imm-deep); padding: 60px 64px;
+      border-bottom: 1px solid var(--imm-border);
+    }
+    .ss-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .ss-label { font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,.4); text-transform: uppercase; flex-shrink: 0; }
+    .space-tabs { display: flex; gap: 8px; flex-wrap: wrap; flex: 1; }
+    .space-tab {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 20px;
+      background: rgba(0,229,204,.04);
+      border: 1px solid rgba(0,229,204,.12);
+      border-radius: 40px;
+      color: rgba(255,255,255,.5); font-size: 13px;
+      cursor: pointer; transition: all .3s ease; flex-shrink: 0;
+    }
+    .space-tab:hover { border-color: rgba(0,229,204,.3); color: rgba(255,255,255,.75); }
+    .space-tab.active {
+      background: rgba(0,229,204,.12);
+      border-color: var(--neon); color: var(--neon);
+      box-shadow: 0 0 20px rgba(0,229,204,.12);
+    }
+    .space-tab .tab-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; opacity: .7; flex-shrink: 0; }
+
+    /* ── SPATIAL SHOWROOM ── */
+    #spatial-showroom { background: var(--imm-void); padding: 80px 64px; }
+    .showroom-inner { max-width: 1400px; margin: 0 auto; }
+
+    /* ── FEATURED SPACE ── */
+    .featured-space {
+      display: grid; grid-template-columns: 1fr 440px;
+      gap: 40px; align-items: start; margin-bottom: 48px;
+    }
+    .space-canvas-wrap {
+      border-radius: 24px; overflow: hidden;
+      background: var(--imm-deep);
+      border: 1px solid var(--imm-border);
+      aspect-ratio: 16/9; position: relative;
+      min-height: 360px;
+    }
+    .space-canvas-wrap canvas { width: 100%; height: 100%; }
+    .space-canvas-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(2,13,8,.7));
+    }
+    .space-info-overlay {
+      position: absolute; bottom: 24px; left: 24px; right: 24px;
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 16px;
+    }
+    .si-title { font-family: 'Noto Serif TC',serif; font-size: 20px; color: #fff; margin-bottom: 4px; }
+    .si-sub { font-size: 12px; color: var(--neon); letter-spacing: 1px; }
+    .space-sidebar { display: flex; flex-direction: column; gap: 16px; }
+
+    /* ── PRODUCT GRID ── */
+    .dt-products-header {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 32px;
+    }
+    .dtp-title { font-family: 'Noto Serif TC',serif; font-size: 28px; color: #fff; }
+    .dtp-count { padding: 4px 12px; background: var(--neon-dim); border: 1px solid var(--imm-border); border-radius: 20px; font-size: 12px; color: var(--neon); font-weight: 600; }
+    .filter-row { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; }
+    .filter-chip {
+      padding: 6px 16px; border-radius: 20px;
+      background: rgba(0,229,204,.04);
+      border: 1px solid rgba(0,229,204,.12);
+      color: rgba(255,255,255,.5); font-size: 12px;
+      cursor: pointer; transition: all .2s ease; flex-shrink: 0;
+    }
+    .filter-chip:hover { border-color: rgba(0,229,204,.3); color: rgba(255,255,255,.75); }
+    .filter-chip.active { background: rgba(0,229,204,.12); border-color: var(--neon); color: var(--neon); }
+    .dt-products-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 24px;
+    }
+    .dt-products-grid .product-card-3d { animation: cardIn .5s var(--ease-expo) both; }
+    @keyframes cardIn {
+      from { opacity:0; transform:translateY(24px); }
+      to   { opacity:1; transform:none; }
+    }
+
+    /* ── BUNDLE BUILDER ── */
+    #bundle-section { background: var(--imm-deep); padding: 80px 64px; }
+    .bundle-inner { max-width: 1400px; margin: 0 auto; }
+    .bundle-header { text-align: center; margin-bottom: 56px; }
+    .bundle-header .sec-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 4px 14px; margin-bottom: 16px;
+      background: rgba(255,213,79,.08);
+      border: 1px solid rgba(255,213,79,.2);
+      border-radius: 40px;
+      font-size: 10px; letter-spacing: 3px;
+      color: var(--gold-neon); text-transform: uppercase; font-weight: 600;
+    }
+    .bundle-header h2 { font-family: 'Noto Serif TC',serif; font-size: clamp(28px,3.5vw,44px); color: #fff; margin-bottom: 12px; }
+    .bundle-header h2 em { font-style: normal; color: var(--gold-neon); }
+    .bundle-header p { font-size: 15px; color: rgba(255,255,255,.45); max-width: 500px; margin: 0 auto; }
+    .bundle-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-bottom: 48px; }
+    .bundle-card {
+      background: var(--imm-panel); border: 1px solid var(--imm-border);
+      border-radius: 20px; padding: 32px 28px;
+      position: relative; overflow: hidden;
+      transition: all .4s var(--ease-expo); cursor: pointer;
+    }
+    .bundle-card:hover { transform: translateY(-8px); border-color: var(--gold-neon); box-shadow: 0 32px 64px rgba(0,0,0,.4), 0 0 32px rgba(255,213,79,.1); }
+    .bundle-card.recommended { border-color: rgba(255,213,79,.4); background: linear-gradient(135deg, rgba(255,213,79,.06), var(--imm-panel)); }
+    .bundle-badge {
+      position: absolute; top: 0; right: 24px;
+      background: linear-gradient(135deg, #FFD54F, #FF8F00);
+      color: #000; font-size: 10px; font-weight: 800;
+      letter-spacing: 1px; padding: 4px 12px;
+      border-radius: 0 0 8px 8px;
+    }
+    .bundle-icon { font-size: 40px; margin-bottom: 16px; }
+    .bundle-name { font-family: 'Noto Serif TC',serif; font-size: 20px; color: #fff; margin-bottom: 8px; }
+    .bundle-sub { font-size: 13px; color: rgba(255,255,255,.45); margin-bottom: 20px; line-height: 1.6; }
+    .bundle-items { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+    .bi-row { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,.65); }
+    .bi-row .bi-check { color: var(--neon); font-size: 14px; }
+    .bundle-price-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 20px; }
+    .bundle-price { font-size: 28px; font-weight: 800; color: var(--gold-neon); }
+    .bundle-price-orig { font-size: 14px; color: rgba(255,255,255,.3); text-decoration: line-through; }
+    .bundle-save { padding: 3px 10px; background: rgba(255,213,79,.12); border-radius: 20px; font-size: 11px; color: var(--gold-neon); font-weight: 700; }
+    .bundle-cta {
+      width: 100%; padding: 14px;
+      background: linear-gradient(135deg, #00897B, #00E5CC);
+      color: #fff; border-radius: 12px;
+      font-size: 14px; font-weight: 700; letter-spacing: .5px;
+      transition: all .3s ease; border: none; cursor: pointer;
+      font-family: inherit;
+    }
+    .bundle-card.recommended .bundle-cta { background: linear-gradient(135deg, #FF8F00, #FFD54F); color: #000; }
+    .bundle-cta:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+    /* ── SUBSCRIPTION SECTION ── */
+    #subscription-section { background: var(--imm-void); padding: 80px 64px; }
+    .sub-inner { max-width: 1400px; margin: 0 auto; }
+    .sub-hero {
+      background: linear-gradient(135deg, rgba(0,42,30,.5), rgba(0,137,123,.15));
+      border: 1px solid rgba(0,229,204,.2);
+      border-radius: 28px; padding: 64px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center; position: relative; overflow: hidden;
+    }
+    .sub-hero::before {
+      content: ''; position: absolute; top: -40px; right: -40px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(0,229,204,.08), transparent 70%);
+    }
+    .sub-text .sec-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 4px 14px; margin-bottom: 16px;
+      background: rgba(0,229,204,.08);
+      border: 1px solid var(--imm-border);
+      border-radius: 40px;
+      font-size: 10px; letter-spacing: 3px;
+      color: var(--neon); text-transform: uppercase; font-weight: 600;
+    }
+    .sub-text h2 { font-family: 'Noto Serif TC',serif; font-size: clamp(26px,3vw,40px); color: #fff; margin-bottom: 16px; line-height: 1.35; }
+    .sub-text h2 em { font-style: normal; color: var(--neon); }
+    .sub-text p { font-size: 15px; color: rgba(255,255,255,.5); line-height: 1.85; margin-bottom: 28px; }
+    .sub-perks { display: flex; flex-direction: column; gap: 12px; }
+    .sub-perk { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: rgba(0,229,204,.05); border: 1px solid rgba(0,229,204,.1); border-radius: 10px; }
+    .sp-icon { font-size: 18px; flex-shrink: 0; }
+    .sp-text { font-size: 13px; color: rgba(255,255,255,.7); }
+    .sp-text strong { color: var(--neon); display: block; font-size: 12px; font-weight: 600; letter-spacing: .5px; margin-bottom: 2px; }
+    .sub-plan-selector { position: relative; z-index: 1; }
+    .sub-plan-selector h3 { font-size: 16px; color: rgba(255,255,255,.6); margin-bottom: 20px; letter-spacing: 1px; }
+    .plan-cards { display: flex; flex-direction: column; gap: 12px; }
+    .plan-card {
+      background: rgba(5,22,15,.8); border: 2px solid var(--imm-border);
+      border-radius: 14px; padding: 16px 20px;
+      display: flex; align-items: center; gap: 16px;
+      cursor: pointer; transition: all .3s ease;
+    }
+    .plan-card:hover { border-color: rgba(0,229,204,.4); }
+    .plan-card.selected { border-color: var(--neon); background: rgba(0,229,204,.08); }
+    .pc-radio { width: 18px; height: 18px; border-radius: 50%; border: 2px solid rgba(255,255,255,.3); flex-shrink: 0; position: relative; transition: all .2s ease; }
+    .plan-card.selected .pc-radio { border-color: var(--neon); background: var(--neon); }
+    .plan-card.selected .pc-radio::after { content: ''; position: absolute; inset: 3px; border-radius: 50%; background: var(--imm-void); }
+    .pc-period { flex: 1; }
+    .pc-period strong { display: block; font-size: 14px; color: #fff; margin-bottom: 2px; }
+    .pc-period span { font-size: 12px; color: rgba(255,255,255,.4); }
+    .pc-price-tag { text-align: right; }
+    .pc-price-tag .disc { font-size: 16px; font-weight: 800; color: var(--gold-neon); }
+    .pc-price-tag .save-lbl { font-size: 11px; color: rgba(255,255,255,.35); }
+    .sub-cta-row { margin-top: 24px; }
+    .sub-cta {
+      width: 100%; padding: 16px;
+      background: linear-gradient(135deg, #00897B, #00E5CC);
+      color: #fff; border-radius: 14px;
+      font-size: 15px; font-weight: 700; letter-spacing: .5px;
+      transition: all .3s ease; border: none; cursor: pointer;
+      font-family: inherit;
+    }
+    .sub-cta:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 8px 28px rgba(0,201,160,.4); }
+
+    /* ── CTA ── */
+    #dt-cta { padding: 100px 64px; background: var(--imm-deep); text-align: center; }
+    .dt-cta-inner { max-width: 700px; margin: 0 auto; }
+    .dt-cta-inner .sec-tag { display:inline-flex;align-items:center;gap:8px;padding:4px 14px;margin-bottom:16px;background:rgba(0,229,204,.08);border:1px solid var(--imm-border);border-radius:40px;font-size:10px;letter-spacing:3px;color:var(--neon);text-transform:uppercase;font-weight:600; }
+    .dt-cta-inner h2 { font-family:'Noto Serif TC',serif;font-size:clamp(28px,4vw,48px);color:#fff;margin-bottom:16px;line-height:1.35; }
+    .dt-cta-inner h2 em { font-style:normal;color:var(--neon); }
+    .dt-cta-inner p { font-size:15px;color:rgba(255,255,255,.45);line-height:1.85;margin-bottom:36px; }
+    .dt-cta-btns { display:flex;gap:12px;justify-content:center;flex-wrap:wrap; }
+
+    /* ── MINI CART ── */
+    #mini-cart {
+      position: fixed; top: var(--nav-h); right: 0;
+      width: 340px; height: calc(100vh - var(--nav-h));
+      background: rgba(4,20,9,.97);
+      border-left: 1px solid var(--imm-border);
+      z-index: 800; display: flex; flex-direction: column;
+      transform: translateX(100%);
+      transition: transform .4s var(--ease-expo);
+      backdrop-filter: blur(20px);
+    }
+    #mini-cart.open { transform: translateX(0); }
+    .mc-header { padding: 24px; border-bottom: 1px solid var(--imm-border); display: flex; align-items: center; gap: 12px; }
+    .mc-header h3 { flex: 1; font-size: 16px; color: #fff; }
+    .mc-close { color: rgba(255,255,255,.4); font-size: 22px; cursor: pointer; background: none; border: none; }
+    .mc-items { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+    .mc-item { display: flex; align-items: center; gap: 12px; padding: 12px; background: rgba(0,229,204,.05); border: 1px solid rgba(0,229,204,.1); border-radius: 10px; }
+    .mc-item-emoji { font-size: 24px; flex-shrink: 0; }
+    .mc-item-info { flex: 1; }
+    .mc-item-name { font-size: 13px; color: #fff; font-weight: 600; }
+    .mc-item-price { font-size: 12px; color: var(--gold-neon); margin-top: 2px; }
+    .mc-item-qty { display: flex; align-items: center; gap: 8px; }
+    .mc-qty-btn { width: 24px; height: 24px; border-radius: 6px; background: rgba(0,229,204,.1); border: 1px solid var(--imm-border); color: var(--neon); font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .mc-qty-num { font-size: 13px; color: #fff; min-width: 20px; text-align: center; }
+    .mc-footer { padding: 20px 24px; border-top: 1px solid var(--imm-border); }
+    .mc-total { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .mc-total-lbl { color: rgba(255,255,255,.5); font-size: 14px; }
+    .mc-total-val { font-size: 22px; font-weight: 800; color: var(--gold-neon); }
+    .mc-checkout { width: 100%; padding: 14px; background: linear-gradient(135deg,#00897B,#00E5CC); color: #fff; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; border: none; font-family: inherit; transition: all .3s ease; }
+    .mc-checkout:hover { filter: brightness(1.08); }
+    .cart-count-badge {
+      position: fixed; top: 24px; right: 88px; z-index: 1001;
+      background: var(--neon); color: var(--imm-void);
+      width: 22px; height: 22px; border-radius: 50%;
+      font-size: 11px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      animation: badge-pop .3s var(--ease-spring);
+    }
+    @keyframes badge-pop { from { transform: scale(0); } to { transform: scale(1); } }
+    .cart-trigger {
+      position: fixed; top: 50%; right: 0; transform: translateY(-50%);
+      z-index: 799;
+      background: rgba(4,20,9,.95);
+      border: 1px solid var(--imm-border);
+      border-right: none;
+      border-radius: 12px 0 0 12px;
+      padding: 14px 12px;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      cursor: pointer; transition: all .3s ease;
+      backdrop-filter: blur(16px);
+    }
+    .cart-trigger:hover { background: var(--neon-dim); border-color: var(--neon); }
+    .cart-trigger .ct-icon { font-size: 20px; }
+    .cart-trigger .ct-count { font-size: 12px; font-weight: 800; color: var(--neon); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1200px) {
+      .dt-hero-content { grid-template-columns: 1fr; }
+      .featured-space { grid-template-columns: 1fr; }
+      .dt-products-grid { grid-template-columns: repeat(2,1fr); }
+      .bundle-grid { grid-template-columns: repeat(2,1fr); }
+      .sub-hero { grid-template-columns: 1fr; padding: 40px; }
+    }
+    @media (max-width: 768px) {
+      #nav { padding: 0 24px; }
+      .nav-menu { display: none; }
+      .hamburger { display: flex; }
+      #space-selector, #spatial-showroom, #bundle-section, #subscription-section, #dt-cta { padding: 60px 24px; }
+      .dt-hero-content { padding: calc(var(--nav-h) + 20px) 24px 60px; }
+      .dt-products-grid { grid-template-columns: 1fr; }
+      .bundle-grid { grid-template-columns: 1fr; }
+      #mini-cart { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="nav">
+  <a href="index.html" class="logo">
+    <img src="images/logo/LOGO_4.png" alt="" class="logo-icon-img">
+    <img src="images/logo/LOGO_5.png" alt="耀德植研生醫" class="logo-wordmark-img">
+  </a>
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-link">首頁</a>
+    <a href="experience.html" class="nav-link">沉浸體驗</a>
+    <a href="digital-twin.html" class="nav-link active">虛擬品牌館</a>
+    <a href="antrodia.html" class="nav-link">認識牛樟芝</a>
+    <a href="products.html" class="nav-link">產品介紹</a>
+    <a href="health-dashboard.html" class="nav-link">健康儀表板</a>
+    <a href="shop.html" class="nav-cta">立即購買</a>
+  </nav>
+  <button class="hamburger" onclick="toggleMobMenu()" aria-label="選單">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- CART TRIGGER -->
+<div class="cart-trigger" onclick="toggleCart()">
+  <div class="ct-icon">🛒</div>
+  <div class="ct-count" id="cart-trigger-count">0</div>
+</div>
+
+<!-- MINI CART -->
+<div id="mini-cart">
+  <div class="mc-header">
+    <span style="font-size:20px">🛒</span>
+    <h3>購物清單</h3>
+    <button class="mc-close" onclick="toggleCart()">×</button>
+  </div>
+  <div class="mc-items" id="cart-items">
+    <div style="text-align:center;padding:40px 20px;color:rgba(255,255,255,.3);">
+      <div style="font-size:40px;margin-bottom:12px;">🛒</div>
+      <div style="font-size:13px;">購物清單是空的<br>探索我們的沉浸式商品</div>
+    </div>
+  </div>
+  <div class="mc-footer">
+    <div class="mc-total">
+      <div class="mc-total-lbl">小計</div>
+      <div class="mc-total-val" id="cart-total">NT$0</div>
+    </div>
+    <button class="mc-checkout" onclick="location.href='shop.html'">
+      前往結帳 →
+    </button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="dt-hero">
+  <div class="dt-hero-bg"></div>
+  <div class="hud-grid dt-hero-grid"></div>
+  <div class="scan-line"></div>
+  <div class="dt-hero-content">
+    <div class="dt-hero-text">
+      <div class="tag imm-reveal">
+        <span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--neon);display:inline-block;animation:pulse-dot 1.6s ease infinite;"></span>
+        Digital Twin Commerce · Phase 3
+      </div>
+      <h1 class="imm-reveal delay-1">
+        虛擬<em>品牌館</em><br>沉浸式<em>選購</em>體驗
+      </h1>
+      <p class="imm-reveal delay-2">
+        在耀德的數位孿生空間中，以 3D 方式瀏覽全系列產品，
+        點擊了解成分、查看科學根據，
+        並在虛擬空間中直接加入購物車。
+      </p>
+      <div class="dt-hero-btns imm-reveal delay-3">
+        <button class="btn-neon" onclick="document.getElementById('spatial-showroom').scrollIntoView({behavior:'smooth'})">
+          🏛️ 進入品牌館
+        </button>
+        <a href="experience.html" class="btn-glass-outline">
+          🔬 3D 成分體驗
+        </a>
+      </div>
+    </div>
+
+    <div class="dt-hero-visual imm-reveal delay-2 from-right">
+      <div class="hero-product-card featured" onclick="addToCart('大牛能量氣泡飲',259,'🥤')">
+        <div class="hpc-badge bestseller">⭐ 最熱銷</div>
+        <div style="font-size:52px">🥤</div>
+        <div>
+          <div class="hpc-name">耀德大牛能量氣泡飲</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.45);margin:4px 0 8px;">牛樟芝 + 馬卡 + 紅參 + 牛磺酸</div>
+          <div class="hpc-price"><small>NT</small>259/罐</div>
+        </div>
+        <button class="hpc-add" style="margin-left:auto;margin-top:0;" onclick="event.stopPropagation();addToCart('大牛能量氣泡飲',259,'🥤')">+</button>
+      </div>
+      <div class="hero-product-card" onclick="addToCart('旗艦保健膠囊',1800,'💊')">
+        <div class="hpc-badge new">高濃度</div>
+        <div class="hpc-emoji">💊</div>
+        <div class="hpc-name">旗艦保健膠囊</div>
+        <div class="hpc-price"><small>NT</small>1,800</div>
+        <button class="hpc-add" onclick="event.stopPropagation();addToCart('旗艦保健膠囊',1800,'💊')">+</button>
+      </div>
+      <div class="hero-product-card" onclick="addToCart('日常保健錠',980,'🌿')">
+        <div class="hpc-emoji">🌿</div>
+        <div class="hpc-name">日常保健錠</div>
+        <div class="hpc-price"><small>NT</small>980</div>
+        <button class="hpc-add" onclick="event.stopPropagation();addToCart('日常保健錠',980,'🌿')">+</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPACE SELECTOR -->
+<div id="space-selector">
+  <div class="ss-inner">
+    <div class="ss-label">展示空間</div>
+    <div class="space-tabs">
+      <button class="space-tab active" data-space="flagship" onclick="switchSpace('flagship',this)">
+        <span class="tab-dot"></span>旗艦健康生活館
+      </button>
+      <button class="space-tab" data-space="research" onclick="switchSpace('research',this)">
+        <span class="tab-dot"></span>研究實驗室
+      </button>
+      <button class="space-tab" data-space="nature" onclick="switchSpace('nature',this)">
+        <span class="tab-dot"></span>山林原料產地
+      </button>
+      <button class="space-tab" data-space="wellness" onclick="switchSpace('wellness',this)">
+        <span class="tab-dot"></span>健康體驗中心
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- SPATIAL SHOWROOM -->
+<section id="spatial-showroom">
+  <div class="showroom-inner">
+
+    <div class="featured-space imm-reveal">
+      <div class="space-canvas-wrap">
+        <canvas data-particle-field data-count="80" data-color="#00E5CC" data-link-dist="120" style="width:100%;height:100%;"></canvas>
+        <div class="space-canvas-overlay"></div>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;">
+          <div style="text-align:center;">
+            <div style="font-size:64px;margin-bottom:16px" id="space-emoji">🏛️</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:24px;color:#fff;margin-bottom:8px" id="space-title">耀德旗艦健康生活館</div>
+            <div style="font-size:12px;letter-spacing:2px;color:var(--neon);opacity:.7;" id="space-sub">FLAGSHIP WELLNESS HALL · 3D SPACE</div>
+          </div>
+        </div>
+        <div class="space-canvas-overlay" style="background:linear-gradient(180deg,transparent 40%,rgba(2,13,8,.8));"></div>
+        <div class="space-info-overlay">
+          <div>
+            <div class="si-title" id="space-bottom-title">旗艦健康生活館</div>
+            <div class="si-sub">360° 沉浸式體驗空間 · 全系列展示</div>
+          </div>
+          <a href="experience.html" class="btn-neon" style="padding:10px 20px;font-size:12px;">進入 3D 體驗 →</a>
+        </div>
+        <div class="corner-bracket tl"></div>
+        <div class="corner-bracket tr"></div>
+        <div class="corner-bracket bl"></div>
+        <div class="corner-bracket br"></div>
+        <div class="hud-grid fine" style="opacity:.3;"></div>
+      </div>
+
+      <div class="space-sidebar">
+        <div class="glass-panel" style="padding:24px;">
+          <div class="neon-label" style="margin-bottom:12px;">空間資訊</div>
+          <div style="font-size:22px;font-family:'Noto Serif TC',serif;color:#fff;margin-bottom:8px;" id="sidebar-space-name">旗艦健康生活館</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:20px;" id="sidebar-space-desc">
+            耀德最頂級的沉浸式展示空間，完整展示全系列產品，提供 AI 導覽互動與直接購買功能。
+          </div>
+          <div class="stats-row" style="grid-template-columns:1fr 1fr;margin-bottom:20px;">
+            <div class="stat-box">
+              <div class="val" id="sidebar-stat1">6</div>
+              <div class="lbl">展示產品</div>
+            </div>
+            <div class="stat-box">
+              <div class="val">360°</div>
+              <div class="lbl">全景視角</div>
+            </div>
+          </div>
+          <button class="btn-neon" style="width:100%;justify-content:center;" onclick="window._aiAvatar.open();window._aiAvatar._sendQuick('帶我導覽品牌館')">
+            🤖 AI 導覽
+          </button>
+        </div>
+
+        <div class="glass-panel" style="padding:24px;">
+          <div class="neon-label" style="margin-bottom:16px;">空間速覽</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div onclick="switchSpace('flagship',document.querySelector('[data-space=flagship]'))" style="display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;background:rgba(0,229,204,.08);border:1px solid rgba(0,229,204,.15);cursor:pointer;">
+              <span>🏛️</span><span style="font-size:13px;color:#fff;">旗艦生活館</span>
+            </div>
+            <div onclick="switchSpace('research',document.querySelector('[data-space=research]'))" style="display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;background:rgba(124,77,255,.06);border:1px solid rgba(124,77,255,.15);cursor:pointer;">
+              <span>🔬</span><span style="font-size:13px;color:#fff;">研究實驗室</span>
+            </div>
+            <div onclick="switchSpace('nature',document.querySelector('[data-space=nature]'))" style="display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;background:rgba(105,240,174,.06);border:1px solid rgba(105,240,174,.15);cursor:pointer;">
+              <span>🌲</span><span style="font-size:13px;color:#fff;">山林產地</span>
+            </div>
+            <div onclick="switchSpace('wellness',document.querySelector('[data-space=wellness]'))" style="display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;background:rgba(255,213,79,.06);border:1px solid rgba(255,213,79,.15);cursor:pointer;">
+              <span>💚</span><span style="font-size:13px;color:#fff;">健康體驗中心</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCTS GRID -->
+    <div class="dt-products-header imm-reveal">
+      <div class="dtp-title">全系列產品</div>
+      <div class="dtp-count" id="product-count">6 項產品</div>
+    </div>
+    <div class="filter-row imm-reveal delay-1">
+      <button class="filter-chip active" data-filter="all" onclick="filterProducts('all',this)">全部系列</button>
+      <button class="filter-chip" data-filter="energy" onclick="filterProducts('energy',this)">能量補給</button>
+      <button class="filter-chip" data-filter="premium" onclick="filterProducts('premium',this)">頂級系列</button>
+      <button class="filter-chip" data-filter="daily" onclick="filterProducts('daily',this)">日常保健</button>
+      <button class="filter-chip" data-filter="extract" onclick="filterProducts('extract',this)">萃取精華</button>
+    </div>
+    <div class="dt-products-grid" id="dt-products-grid">
+      <!-- products rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- BUNDLE BUILDER -->
+<section id="bundle-section">
+  <div class="bundle-inner">
+    <div class="bundle-header imm-reveal">
+      <div class="sec-tag">🎁 Smart Bundle Builder</div>
+      <h2>AI 智能<em>組合推薦</em></h2>
+      <p>根據健康目標，AI 為您配對最佳產品組合，最高省下 30%。</p>
+    </div>
+    <div class="bundle-grid imm-reveal delay-1">
+      <div class="bundle-card" onclick="addBundleToCart(0)">
+        <div class="bundle-icon">🌟</div>
+        <div class="bundle-name">入門體驗組</div>
+        <div class="bundle-sub">最適合初次嘗試牛樟芝、想確認效果再加量的朋友</div>
+        <div class="bundle-items">
+          <div class="bi-row"><span class="bi-check">✓</span>大牛能量氣泡飲 × 6罐</div>
+          <div class="bi-row"><span class="bi-check">✓</span>日常保健錠 × 1盒</div>
+          <div class="bi-row"><span class="bi-check">✓</span>健康評估諮詢一次</div>
+        </div>
+        <div class="bundle-price-row">
+          <div class="bundle-price">NT$2,399</div>
+          <div class="bundle-price-orig">NT$2,774</div>
+          <div class="bundle-save">省 NT$375</div>
+        </div>
+        <button class="bundle-cta">加入購物車 +</button>
+      </div>
+      <div class="bundle-card recommended" onclick="addBundleToCart(1)">
+        <div class="bundle-badge">🏆 AI 推薦</div>
+        <div class="bundle-icon">⭐</div>
+        <div class="bundle-name">黃金效能組</div>
+        <div class="bundle-sub">最受歡迎的組合，兼顧日常補充與密集提升，適合熬夜族</div>
+        <div class="bundle-items">
+          <div class="bi-row"><span class="bi-check" style="color:var(--gold-neon);">✓</span>大牛能量氣泡飲 × 12罐</div>
+          <div class="bi-row"><span class="bi-check" style="color:var(--gold-neon);">✓</span>旗艦保健膠囊 × 1盒</div>
+          <div class="bi-row"><span class="bi-check" style="color:var(--gold-neon);">✓</span>日常保健錠 × 1盒</div>
+          <div class="bi-row"><span class="bi-check" style="color:var(--gold-neon);">✓</span>AI 健康追蹤 3個月</div>
+        </div>
+        <div class="bundle-price-row">
+          <div class="bundle-price" style="color:var(--gold-neon);">NT$5,388</div>
+          <div class="bundle-price-orig">NT$6,276</div>
+          <div class="bundle-save">省 NT$888</div>
+        </div>
+        <button class="bundle-cta">立即選購</button>
+      </div>
+      <div class="bundle-card" onclick="addBundleToCart(2)">
+        <div class="bundle-icon">🔮</div>
+        <div class="bundle-name">旗艦尊享組</div>
+        <div class="bundle-sub">最高規格補充方案，適合追求卓越健康表現的高端使用者</div>
+        <div class="bundle-items">
+          <div class="bi-row"><span class="bi-check">✓</span>旗艦保健膠囊 × 3盒</div>
+          <div class="bi-row"><span class="bi-check">✓</span>萃取精華液 × 1盒</div>
+          <div class="bi-row"><span class="bi-check">✓</span>大牛氣泡飲 × 24罐</div>
+          <div class="bi-row"><span class="bi-check">✓</span>專屬 AI 健康顧問 6個月</div>
+        </div>
+        <div class="bundle-price-row">
+          <div class="bundle-price">NT$9,800</div>
+          <div class="bundle-price-orig">NT$12,168</div>
+          <div class="bundle-save">省 NT$2,368</div>
+        </div>
+        <button class="bundle-cta">加入購物車 +</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIPTION -->
+<section id="subscription-section">
+  <div class="sub-inner">
+    <div class="sub-hero imm-reveal">
+      <div class="sub-text">
+        <div class="sec-tag">🔄 Smart Subscription</div>
+        <h2>訂閱制<em>自動配送</em><br>最划算的補充方式</h2>
+        <p>設定一次，每月自動配送到家。首月 75折、長期訂閱 8折，AI 智能提醒，補充不中斷。</p>
+        <div class="sub-perks">
+          <div class="sub-perk">
+            <div class="sp-icon">💰</div>
+            <div class="sp-text"><strong>SAVE MORE</strong>首月 75折，長期訂閱每月 8折優惠</div>
+          </div>
+          <div class="sub-perk">
+            <div class="sp-icon">🚚</div>
+            <div class="sp-text"><strong>FREE DELIVERY</strong>每次配送完全免運費，省時省力</div>
+          </div>
+          <div class="sub-perk">
+            <div class="sp-icon">🤖</div>
+            <div class="sp-text"><strong>AI TRACKING</strong>會員儀表板追蹤健康進度，隨時調整</div>
+          </div>
+          <div class="sub-perk">
+            <div class="sp-icon">⏸️</div>
+            <div class="sp-text"><strong>FLEXIBLE PAUSE</strong>隨時暫停、調整或取消，完全無壓力</div>
+          </div>
+        </div>
+      </div>
+      <div class="sub-plan-selector">
+        <h3>選擇訂閱週期</h3>
+        <div class="plan-cards">
+          <div class="plan-card" onclick="selectPlan(this,'每月訂閱','8折')">
+            <div class="pc-radio"></div>
+            <div class="pc-period"><strong>每月配送</strong><span>最靈活，隨時調整</span></div>
+            <div class="pc-price-tag"><div class="disc">8折</div><div class="save-lbl">每月折扣</div></div>
+          </div>
+          <div class="plan-card selected" onclick="selectPlan(this,'每兩月訂閱','75折')">
+            <div class="pc-radio"></div>
+            <div class="pc-period"><strong>每兩月配送 ⭐</strong><span>最多人選擇的週期</span></div>
+            <div class="pc-price-tag"><div class="disc">75折</div><div class="save-lbl">最佳C/P值</div></div>
+          </div>
+          <div class="plan-card" onclick="selectPlan(this,'季度訂閱','7折')">
+            <div class="pc-radio"></div>
+            <div class="pc-period"><strong>每季配送</strong><span>一次大量，最高折扣</span></div>
+            <div class="pc-price-tag"><div class="disc">7折</div><div class="save-lbl">最高折扣</div></div>
+          </div>
+        </div>
+        <div class="sub-cta-row">
+          <button class="sub-cta" onclick="location.href='shop.html'">
+            🔄 立即訂閱，首月 75折
+          </button>
+          <div style="text-align:center;margin-top:12px;font-size:12px;color:rgba(255,255,255,.35);">
+            隨時可暫停或取消 · 無隱藏費用 · 30天滿意保障
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="dt-cta">
+  <div class="dt-cta-inner imm-reveal">
+    <div class="sec-tag">🌐 Immersive Wellness Commerce</div>
+    <h2>不只是購物<br>這是<em>未來的健康體驗</em></h2>
+    <p>耀德率先將 Digital Twin Commerce 引入台灣健康品牌，讓每一次選購都成為一段深度健康之旅。</p>
+    <div class="dt-cta-btns imm-reveal delay-1">
+      <a href="health-dashboard.html" class="btn-neon">📊 建立健康儀表板</a>
+      <a href="experience.html" class="btn-glass-outline">🔬 3D 成分體驗</a>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPTS -->
+<script src="immersive-engine.js"></script>
+<script src="ai-avatar.js"></script>
+<script>
+/* ── Cart State ── */
+let cartItems = [];
+let cartOpen  = false;
+
+function toggleCart() {
+  cartOpen = !cartOpen;
+  document.getElementById('mini-cart').classList.toggle('open', cartOpen);
+}
+
+function addToCart(name, price, emoji) {
+  const existing = cartItems.find(i => i.name === name);
+  if (existing) { existing.qty++; }
+  else { cartItems.push({ name, price, emoji, qty: 1 }); }
+  renderCart();
+  if (!cartOpen) toggleCart();
+  showToast(`${emoji} ${name} 已加入購物車`);
+}
+
+function addBundleToCart(idx) {
+  const bundles = [
+    { name:'入門體驗組', price: 2399, emoji:'🌟' },
+    { name:'黃金效能組', price: 5388, emoji:'⭐' },
+    { name:'旗艦尊享組', price: 9800, emoji:'🔮' },
+  ];
+  const b = bundles[idx];
+  addToCart(b.name, b.price, b.emoji);
+}
+
+function updateQty(name, delta) {
+  const item = cartItems.find(i => i.name === name);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cartItems = cartItems.filter(i => i.name !== name);
+  renderCart();
+}
+
+function renderCart() {
+  const container = document.getElementById('cart-items');
+  const total  = cartItems.reduce((s, i) => s + i.price * i.qty, 0);
+  const count  = cartItems.reduce((s, i) => s + i.qty, 0);
+
+  document.getElementById('cart-trigger-count').textContent = count;
+  document.getElementById('cart-total').textContent = `NT$${total.toLocaleString()}`;
+
+  /* Update existing badge */
+  let badge = document.getElementById('cart-count-badge');
+  if (count > 0) {
+    if (!badge) { badge = document.createElement('div'); badge.id='cart-count-badge'; badge.className='cart-count-badge'; document.body.appendChild(badge); }
+    badge.textContent = count;
+  } else if (badge) badge.remove();
+
+  if (!cartItems.length) {
+    container.innerHTML = '<div style="text-align:center;padding:40px 20px;color:rgba(255,255,255,.3);"><div style="font-size:40px;margin-bottom:12px;">🛒</div><div style="font-size:13px;">購物清單是空的</div></div>';
+    return;
+  }
+  container.innerHTML = cartItems.map(item => `
+    <div class="mc-item">
+      <div class="mc-item-emoji">${item.emoji}</div>
+      <div class="mc-item-info">
+        <div class="mc-item-name">${item.name}</div>
+        <div class="mc-item-price">NT$${(item.price*item.qty).toLocaleString()}</div>
+      </div>
+      <div class="mc-item-qty">
+        <button class="mc-qty-btn" onclick="updateQty('${item.name}',-1)">−</button>
+        <span class="mc-qty-num">${item.qty}</span>
+        <button class="mc-qty-btn" onclick="updateQty('${item.name}',1)">+</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.textContent = msg;
+  t.style.cssText = 'position:fixed;bottom:120px;left:50%;transform:translateX(-50%);background:rgba(0,229,204,.95);color:#000;padding:10px 20px;border-radius:40px;font-size:13px;font-weight:700;z-index:9999;animation:fadeUp .3s ease;white-space:nowrap;';
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2400);
+}
+
+/* ── Space Switcher ── */
+const spaceData = {
+  flagship:  { emoji:'🏛️', title:'耀德旗艦健康生活館', sub:'FLAGSHIP WELLNESS HALL · 3D SPACE', name:'旗艦健康生活館', desc:'耀德最頂級的沉浸式展示空間，完整展示全系列產品，提供 AI 導覽互動與直接購買功能。', stat1:'6' },
+  research:  { emoji:'🔬', title:'牛樟芝研究實驗室', sub:'BIOMEDICAL RESEARCH LAB · SCI DATABASE', name:'研究實驗室', desc:'深入牛樟芝科學世界，互動查閱 47 篇 SCI 論文，了解每個成分的分子機制與功效實證。', stat1:'47' },
+  nature:    { emoji:'🌲', title:'台灣山林原料產地', sub:'TAIWAN MOUNTAIN ORIGIN · GPS TRACE', name:'山林原料產地', desc:'360° 虛擬原料產地之旅，從段木農場到採收，完整溯源每一批牛樟芝的生長歷程。', stat1:'20' },
+  wellness:  { emoji:'💚', title:'耀德健康體驗中心', sub:'HEALTH EXPERIENCE CENTER · AI WELLNESS', name:'健康體驗中心', desc:'沉浸式健康體驗空間，包含 AI 健康評估、個人化推薦、成效追蹤與會員互動服務。', stat1:'∞' },
+};
+
+function switchSpace(key, btn) {
+  document.querySelectorAll('.space-tab').forEach(t => t.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  const d = spaceData[key] || spaceData.flagship;
+  document.getElementById('space-emoji').textContent      = d.emoji;
+  document.getElementById('space-title').textContent      = d.title;
+  document.getElementById('space-sub').textContent        = d.sub;
+  document.getElementById('space-bottom-title').textContent = d.name;
+  document.getElementById('sidebar-space-name').textContent = d.name;
+  document.getElementById('sidebar-space-desc').textContent = d.desc;
+  document.getElementById('sidebar-stat1').textContent    = d.stat1;
+}
+
+/* ── Product data ── */
+const products = [
+  { id:'1', name:'大牛能量氣泡飲', cat:'energy', desc:'牛樟芝 + 馬卡 + 紅參 + 牛磺酸，日常能量最佳選擇', price:259, emoji:'🥤', badge:'最熱銷', badgeType:'bestseller' },
+  { id:'2', name:'旗艦保健膠囊', cat:'premium', desc:'段木栽培子實體高濃縮萃取，三萜類含量最高等級', price:1800, emoji:'💊', badge:'高濃度', badgeType:'new' },
+  { id:'3', name:'日常保健錠', cat:'daily', desc:'基礎劑量日常維持，初次嘗試牛樟芝的最佳入門選擇', price:980, emoji:'🌿', badge:'入門推薦', badgeType:'bestseller' },
+  { id:'4', name:'萃取精華液', cat:'extract', desc:'超臨界 CO₂ 高純度萃取，快速吸收，功效最直接', price:2400, emoji:'🧪', badge:'快速吸收', badgeType:'new' },
+  { id:'5', name:'段木牛樟芝粉', cat:'premium', desc:'原片研磨，三萜類完整保留，DIY 自行調製保健飲', price:1200, emoji:'🍄', badge:'純天然', badgeType:'bestseller' },
+  { id:'6', name:'牛樟芝茶包', cat:'daily', desc:'段木牛樟芝 + 台灣高山茶，日常飲用輕鬆補充', price:680, emoji:'🍵', badge:'日常飲用', badgeType:'new' },
+];
+
+function renderProducts(filter = 'all') {
+  const filtered = filter === 'all' ? products : products.filter(p => p.cat === filter);
+  document.getElementById('product-count').textContent = `${filtered.length} 項產品`;
+  const grid = document.getElementById('dt-products-grid');
+  grid.innerHTML = filtered.map((p, i) => `
+    <div class="product-card-3d" style="animation-delay:${i * .08}s">
+      <div class="holo-shimmer"></div>
+      <div class="pc-image">
+        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:80px;padding:24px;background:radial-gradient(circle at 50% 50%,rgba(0,137,123,.06),transparent);">${p.emoji}</div>
+        <div class="pc-glow"></div>
+        <div style="position:absolute;top:12px;right:12px;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:1px;${p.badgeType==='bestseller'?'background:rgba(255,213,79,.15);color:var(--gold-neon);border:1px solid rgba(255,213,79,.3);':'background:rgba(0,229,204,.15);color:var(--neon);border:1px solid rgba(0,229,204,.3);'}">${p.badge}</div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-category">${{energy:'能量補給',premium:'頂級系列',daily:'日常保健',extract:'萃取精華'}[p.cat]}</div>
+        <div class="pc-name">${p.name}</div>
+        <div class="pc-desc">${p.desc}</div>
+        <div class="pc-price-row">
+          <div class="pc-price"><small>NT$</small>${p.price.toLocaleString()}</div>
+          <button class="pc-buy" onclick="addToCart('${p.name}',${p.price},'${p.emoji}')">加入購物車</button>
+        </div>
+      </div>
+      <div class="corner-bracket tl"></div>
+      <div class="corner-bracket br"></div>
+    </div>
+  `).join('');
+  /* Re-apply tilt */
+  if (window._spatialTilt) window._spatialTilt._bind();
+}
+
+function filterProducts(cat, btn) {
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  renderProducts(cat);
+}
+
+function selectPlan(card) {
+  document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+}
+
+function toggleMobMenu() {
+  const m = document.getElementById('mob-menu');
+  m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+}
+
+/* ── Init ── */
+document.addEventListener('DOMContentLoaded', () => {
+  renderProducts();
+  renderCart();
+});
+</script>
+
+<div id="mob-menu" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(2,13,8,.98);flex-direction:column;align-items:center;justify-content:center;gap:12px;">
+  <button onclick="toggleMobMenu()" style="position:absolute;top:24px;right:24px;color:rgba(255,255,255,.5);font-size:28px;background:none;border:none;cursor:pointer;">×</button>
+  <a href="index.html" style="color:rgba(255,255,255,.8);font-size:20px;font-family:'Noto Serif TC',serif;letter-spacing:3px;padding:10px;">首頁</a>
+  <a href="experience.html" style="color:rgba(255,255,255,.8);font-size:20px;font-family:'Noto Serif TC',serif;letter-spacing:3px;padding:10px;">沉浸體驗</a>
+  <a href="digital-twin.html" style="color:var(--neon);font-size:20px;font-family:'Noto Serif TC',serif;letter-spacing:3px;padding:10px;">虛擬品牌館</a>
+  <a href="products.html" style="color:rgba(255,255,255,.8);font-size:20px;font-family:'Noto Serif TC',serif;letter-spacing:3px;padding:10px;">產品介紹</a>
+  <a href="shop.html" style="color:var(--neon);font-size:20px;padding:12px 32px;border:1px solid var(--neon);border-radius:40px;margin-top:16px;">立即購買</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>免費加入會員 | 耀德植研生醫</title>
+  <meta name="description" content="免費加入耀德植研生醫會員，享有牛樟芝專屬優惠、冠名認養服務、30萬互助體系守護及碳權捐贈公益服務。">
+  <meta name="keywords" content="耀德植研生醫註冊,免費加入會員,牛樟芝會員,健康保健會員">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--cream); }
+    .auth-side { background: var(--g700); }
+    .step-bar { display: flex; gap: 0; margin-bottom: 32px; }
+    .step { flex: 1; text-align: center; padding: 10px; font-size: 12px; letter-spacing: 1px; color: var(--muted); border-bottom: 2px solid rgba(26,58,42,.1); position: relative; transition: all var(--tf); }
+    .step.active { color: var(--gold); border-bottom-color: var(--gold); font-weight: 500; }
+    .step.done { color: var(--g500); border-bottom-color: var(--g500); }
+  </style>
+</head>
+<body>
+<div class="auth-wrap">
+  <!-- LEFT SIDE -->
+  <div class="auth-side">
+    <div class="auth-side-bg" style="background-image:url('https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=900&q=80');"></div>
+    <div class="auth-side-content">
+      <div class="tag-row"><div class="tag-line"></div><span class="tag-text">Join Us · 加入我們</span></div>
+      <h2>加入健康守護<br>大家族</h2>
+      <p>免費成為耀德植研生醫會員，與數萬個守護健康的家庭共同建立台灣最有溫度的生技品牌社群。</p>
+      <div class="auth-side-feat">
+        <div class="auth-side-feat-item">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L13 8H18L14 12L16 17L10 14L4 17L6 12L2 8H7Z"/></svg>
+          免費基本會員資格
+        </div>
+        <div class="auth-side-feat-item">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M6 10l3 3 5-5"/></svg>
+          新會員首購 95 折優惠
+        </div>
+        <div class="auth-side-feat-item">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M6 10l3 3 5-5"/></svg>
+          生日月份雙倍點數
+        </div>
+        <div class="auth-side-feat-item">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M6 10l3 3 5-5"/></svg>
+          專屬健康諮詢服務
+        </div>
+        <div class="auth-side-feat-item">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M6 10l3 3 5-5"/></svg>
+          冠名認養牛樟樹資格
+        </div>
+      </div>
+      <div style="margin-top:32px;padding:20px;background:rgba(200,151,62,.12);border-left:3px solid var(--gold);">
+        <p style="color:rgba(255,255,255,.8);font-size:13px;line-height:1.7;">「每一位加入的會員，都是守護台灣牛樟林地的力量之一。」</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="auth-main">
+    <div class="auth-box" style="max-width:500px;">
+      <a href="index.html" class="auth-logo logo"><img src="images/logo/LOGO_3.png" alt="耀德植研生醫 YAODER BIOMEDICAL" class="logo-full-img"></a>
+
+      <h1 class="auth-title">免費建立帳號</h1>
+      <p class="auth-sub">填寫以下資料，立即成為耀德健康家族的一員。</p>
+
+      <div class="step-bar">
+        <div class="step active">01 基本資料</div>
+        <div class="step">02 帳號設定</div>
+        <div class="step">03 完成</div>
+      </div>
+
+      <form id="regForm" onsubmit="doRegister(event)">
+        <div class="f-row2">
+          <div class="f-group">
+            <label class="f-label">姓名 *</label>
+            <input type="text" class="f-input" placeholder="您的真實姓名" required>
+          </div>
+          <div class="f-group">
+            <label class="f-label">性別</label>
+            <select class="f-input">
+              <option value="">請選擇</option>
+              <option>男性</option>
+              <option>女性</option>
+              <option>不透露</option>
+            </select>
+          </div>
+        </div>
+        <div class="f-group">
+          <label class="f-label">電子信箱 *</label>
+          <input type="email" class="f-input" placeholder="your@email.com" required autocomplete="email">
+        </div>
+        <div class="f-group">
+          <label class="f-label">手機號碼 *</label>
+          <input type="tel" class="f-input" placeholder="09XX-XXX-XXX" required>
+        </div>
+        <div class="f-row2">
+          <div class="f-group">
+            <label class="f-label">生日月份</label>
+            <select class="f-input">
+              <option value="">月份</option>
+              <option>1月</option><option>2月</option><option>3月</option><option>4月</option>
+              <option>5月</option><option>6月</option><option>7月</option><option>8月</option>
+              <option>9月</option><option>10月</option><option>11月</option><option>12月</option>
+            </select>
+          </div>
+          <div class="f-group">
+            <label class="f-label">推薦人代碼</label>
+            <input type="text" class="f-input" placeholder="（選填）">
+          </div>
+        </div>
+        <div class="f-group">
+          <label class="f-label">設定密碼 *</label>
+          <input type="password" class="f-input" id="pw1" placeholder="至少8位，含英文及數字" required oninput="checkPw()" style="margin-bottom:6px;">
+          <div class="pw-strength"><div class="pw-strength-bar" id="pwBar"></div></div>
+          <div id="pwHint" style="font-size:11px;color:var(--muted);margin-top:4px;">請輸入密碼</div>
+        </div>
+        <div class="f-group">
+          <label class="f-label">確認密碼 *</label>
+          <input type="password" class="f-input" id="pw2" placeholder="再次輸入密碼" required oninput="checkMatch()">
+          <div id="matchHint" style="font-size:11px;color:var(--muted);margin-top:4px;"></div>
+        </div>
+        <div class="f-group">
+          <div class="chk-group">
+            <input type="checkbox" id="terms" required>
+            <label for="terms">我已閱讀並同意耀德植研生醫的<a href="#">隱私權政策</a>及<a href="#">會員服務條款</a>，並確認年齡已滿18歲。</label>
+          </div>
+        </div>
+        <div class="f-group" style="margin-bottom:8px;">
+          <div class="chk-group">
+            <input type="checkbox" id="newsletter" checked>
+            <label for="newsletter">訂閱耀德健康電子報，接收最新優惠與牛樟芝保健知識。</label>
+          </div>
+        </div>
+        <button type="submit" class="auth-submit" id="regBtn">立即免費加入</button>
+      </form>
+
+      <div class="auth-link-row">
+        已有帳號？<a href="login.html"> 直接登入</a>
+      </div>
+      <div class="auth-link-row" style="margin-top:8px;">
+        想了解更多會員福利？<a href="member.html"> 查看方案</a>
+      </div>
+      <div style="margin-top:28px;text-align:center;">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);transition:color var(--tf);" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>返回首頁
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function checkPw(){
+  const val=document.getElementById('pw1').value;
+  const bar=document.getElementById('pwBar');
+  const hint=document.getElementById('pwHint');
+  let score=0;
+  if(val.length>=8)score++;
+  if(/[A-Z]/.test(val))score++;
+  if(/[0-9]/.test(val))score++;
+  if(/[^A-Za-z0-9]/.test(val))score++;
+  const pct=['0%','30%','55%','80%','100%'][score];
+  const clr=['','#e74c3c','#e67e22','var(--gold)','var(--g500)'][score];
+  const lbl=['請輸入密碼','密碼太弱','密碼尚可','密碼良好','密碼強度優秀'][score];
+  bar.style.width=pct;bar.style.background=clr;hint.textContent=lbl;
+}
+function checkMatch(){
+  const p1=document.getElementById('pw1').value;
+  const p2=document.getElementById('pw2').value;
+  const hint=document.getElementById('matchHint');
+  if(!p2)return hint.textContent='';
+  hint.textContent=p1===p2?'✓ 密碼相符':'✗ 密碼不一致';
+  hint.style.color=p1===p2?'var(--g500)':'#e74c3c';
+}
+function doRegister(e){
+  e.preventDefault();
+  const p1=document.getElementById('pw1').value;
+  const p2=document.getElementById('pw2').value;
+  if(p1!==p2){alert('兩次輸入的密碼不一致，請重新確認。');return;}
+  const btn=document.getElementById('regBtn');
+  btn.textContent='建立帳號中...';btn.style.opacity='.7';
+  setTimeout(()=>{
+    btn.textContent='註冊成功！歡迎加入 ✓';
+    btn.style.background='var(--g500)';
+    setTimeout(()=>{ window.location.href='member.html'; },1500);
+  },1600);
+}
+</script>
+
+<!-- Back to Top -->
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到頂部" aria-label="回到頂部" style="position:fixed;bottom:32px;right:88px;width:50px;height:50px;background:#c8973e;border:none;border-radius:50%;cursor:pointer;z-index:901;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(200,151,62,.5);opacity:0;visibility:hidden;transform:translateY(12px);transition:all .35s ease;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 13l6-6 6 6"/></svg></button>
+<script>
+(function(){var b=document.getElementById('backTop');if(!b)return;window.addEventListener('scroll',function(){var s=window.scrollY>300;b.style.opacity=s?'1':'0';b.style.visibility=s?'visible':'hidden';b.style.transform=s?'translateY(0)':'translateY(12px)';},{passive:true});})();
+</script>
+<script src="analytics.js" defer></script>
+</body>
+</html>
+
+

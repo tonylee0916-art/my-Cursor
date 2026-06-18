@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>會員登入 | 耀德植研生醫</title>
+  <meta name="description" content="登入耀德植研生醫會員帳號，享有專屬優惠、訂單管理、牛樟樹冠名認養及會員互助體系等專屬服務。">
+  <meta name="keywords" content="耀德植研生醫登入,會員登入,牛樟芝會員,bigbull登入">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--cream); }
+    .auth-side { background: var(--g700); }
+    .pw-toggle { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--muted); transition: color var(--tf); }
+    .pw-toggle:hover { color: var(--gold); }
+    .f-group { position: relative; }
+    .f-group-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+<div class="auth-wrap">
+  <!-- LEFT SIDE -->
+  <div class="auth-side">
+    <div class="auth-side-bg" style="background-image:url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=900&q=80');"></div>
+    <div class="auth-side-content">
+      <div class="tag-row"><div class="tag-line"></div><span class="tag-text">Member Login</span></div>
+      <h2>歡迎回來<br>健康守護家族</h2>
+      <p>登入您的耀德帳號，掌握最新健康資訊、管理訂單，並享有會員專屬優惠與冠名認養服務。</p>
+      <div class="auth-side-feat">
+        <div class="auth-side-feat-item">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M6 10l3 3 5-5"/></svg>
+          會員專屬產品折扣優惠
+        </div>
+        <div class="auth-side-feat-item">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M6 10l3 3 5-5"/></svg>
+          牛樟樹冠名認養管理
+        </div>
+        <div class="auth-side-feat-item">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M6 10l3 3 5-5"/></svg>
+          30萬互助體系守護
+        </div>
+        <div class="auth-side-feat-item">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M6 10l3 3 5-5"/></svg>
+          碳權捐贈紀錄查詢
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="auth-main">
+    <div class="auth-box">
+      <a href="index.html" class="auth-logo logo"><img src="images/logo/LOGO_3.png" alt="耀德植研生醫 YAODER BIOMEDICAL" class="logo-full-img"></a>
+
+      <h1 class="auth-title">會員登入</h1>
+      <p class="auth-sub">歡迎回來！請登入您的帳號繼續。</p>
+
+      <div class="auth-divider"><span>社群帳號快速登入</span></div>
+      <div class="social-login">
+        <button class="soc-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook
+        </button>
+        <button class="soc-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="color:#06C755"><path d="M22 11.04C22 6.35 17.302 2.54 11.523 2.54S1.047 6.35 1.047 11.04c0 4.2 3.726 7.72 8.756 8.39.34.073.803.225.92.517.105.265.069.68.034.947l-.15.895c-.045.265-.21 1.04.912.567 1.12-.473 6.06-3.57 8.267-6.11C21.47 14.41 22 12.82 22 11.04z"/></svg>
+          LINE
+        </button>
+      </div>
+
+      <div class="auth-divider"><span>或使用電子信箱登入</span></div>
+
+      <form id="loginForm" onsubmit="doLogin(event)">
+        <div class="f-group">
+          <label class="f-label">電子信箱</label>
+          <input type="email" class="f-input" placeholder="your@email.com" required autocomplete="email">
+        </div>
+        <div class="f-group">
+          <div class="f-group-row">
+            <label class="f-label" style="margin:0;">密碼</label>
+            <a href="#" class="forgot-link">忘記密碼？</a>
+          </div>
+          <div style="position:relative;">
+            <input type="password" id="pwInput" class="f-input" placeholder="請輸入密碼" required autocomplete="current-password" style="padding-right:44px;">
+            <span class="pw-toggle" onclick="togglePw()">
+              <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="f-group">
+          <div class="chk-group">
+            <input type="checkbox" id="remember">
+            <label for="remember">記住我的登入狀態（30天）</label>
+          </div>
+        </div>
+        <button type="submit" class="auth-submit" id="loginBtn">登入帳號</button>
+      </form>
+
+      <div class="auth-link-row">
+        還沒有帳號？<a href="register.html"> 立即免費註冊</a>
+      </div>
+      <div class="auth-link-row" style="margin-top:10px;">
+        想先了解更多？<a href="member.html"> 查看會員方案</a>
+      </div>
+
+      <div style="margin-top:36px;padding-top:24px;border-top:1px solid rgba(26,58,42,.08);text-align:center;">
+        <p style="font-size:12px;color:var(--muted);line-height:1.7;">登入即代表您同意本網站的<a href="#" style="color:var(--gold);">隱私權政策</a>及<a href="#" style="color:var(--gold);">使用條款</a>。</p>
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:13px;color:var(--muted);transition:color var(--tf);" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>
+          返回首頁
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function togglePw(){
+  const inp=document.getElementById('pwInput');
+  inp.type=inp.type==='password'?'text':'password';
+}
+function doLogin(e){
+  e.preventDefault();
+  const btn=document.getElementById('loginBtn');
+  btn.textContent='登入中...';
+  btn.style.opacity='.7';
+  setTimeout(()=>{
+    btn.textContent='登入成功 ✓';
+    btn.style.background='var(--g500)';
+    setTimeout(()=>{ window.location.href='index.html'; },1200);
+  },1400);
+}
+</script>
+
+<!-- Back to Top -->
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到頂部" aria-label="回到頂部" style="position:fixed;bottom:32px;right:88px;width:50px;height:50px;background:#c8973e;border:none;border-radius:50%;cursor:pointer;z-index:901;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(200,151,62,.5);opacity:0;visibility:hidden;transform:translateY(12px);transition:all .35s ease;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 13l6-6 6 6"/></svg></button>
+<script>
+(function(){var b=document.getElementById('backTop');if(!b)return;window.addEventListener('scroll',function(){var s=window.scrollY>300;b.style.opacity=s?'1':'0';b.style.visibility=s?'visible':'hidden';b.style.transform=s?'translateY(0)':'translateY(12px)';},{passive:true});})();
+</script>
+<script src="analytics.js" defer></script>
+</body>
+</html>
+
+

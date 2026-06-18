@@ -1,0 +1,1691 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>耀德植研生醫 | 健康生活館（活力版）</title>
+  <meta name="description" content="耀德植研生醫沉浸式健康生活館，探索品牌3D虛擬旗艦館、AI健康推薦、原料產地導覽、GMP工廠、成分互動展示、直播帶貨與一鍵購買體驗。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="flagship.css">
+</head>
+<body class="vivid-body">
+
+<!-- ===== NAVBAR ===== -->
+<header id="nav" class="solid">
+  <a href="index.html" class="logo">
+    <img src="images/logo/LOGO_4.png" alt="" class="logo-icon-img">
+    <img src="images/logo/LOGO_5.png" alt="耀德植研生醫 YAODER BIOMEDICAL" class="logo-wordmark-img">
+  </a>
+
+  <nav class="nav-menu">
+    <div class="nav-item"><a href="index.html" class="nav-link">首頁</a></div>
+    <div class="nav-item">
+      <a href="about.html" class="nav-link">關於耀德 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a>
+      <div class="dropdown">
+        <a href="about.html#philosophy">品牌理念與願景</a>
+        <a href="about.html#rd">核心研發策略</a>
+        <a href="about.html#history">公司沿革</a>
+        <a href="about.html#certs">認證資質</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="antrodia.html" class="nav-link">認識牛樟芝 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a>
+      <div class="dropdown">
+        <a href="antrodia.html#intro">牛樟芝簡介</a>
+        <a href="antrodia.html#ingredients">活性物成分</a>
+        <a href="antrodia.html#research">科學研究</a>
+        <a href="antrodia.html#usage">食用方式</a>
+        <a href="antrodia.html#reaction">暝眩反應說明</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="products.html" class="nav-link">產品介紹 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a>
+      <div class="dropdown">
+        <a href="product-bigbull.html">能量補給</a>
+        <a href="product-premium.html">頂級系列</a>
+        <a href="product-daily.html">日常保健</a>
+        <a href="product-extract.html">萃取精華</a>
+        <a href="shop.html">購物商城</a>
+      </div>
+    </div>
+    <div class="nav-item"><a href="wellness.html" class="nav-link">健康方案</a></div>
+    <div class="nav-item"><a href="sustainability.html" class="nav-link">大地永續</a></div>
+    <div class="nav-item"><a href="news.html" class="nav-link">新聞中心</a></div>
+    <div class="nav-item"><a href="contact.html" class="nav-link">聯絡我們</a></div>
+    <div class="nav-item">
+      <a href="flagship.html" class="nav-link nav-flagship active"><span class="flagship-dot"></span>健康生活館</a>
+    </div>
+    <div class="nav-divider"></div>
+    <div class="nav-item"><a href="member.html" class="nav-link nav-member">加入會員</a></div>
+    <div class="nav-item"><a href="login.html" class="nav-link nav-login">登入</a></div>
+  </nav>
+
+  <div class="hamburger" id="hbg" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobMenu">
+  <span class="close-btn" onclick="toggleMenu()">×</span>
+  <a href="index.html" onclick="toggleMenu()">首頁</a>
+  <a href="about.html" onclick="toggleMenu()">關於耀德</a>
+  <a href="antrodia.html" onclick="toggleMenu()">認識牛樟芝</a>
+  <a href="products.html" onclick="toggleMenu()">產品介紹</a>
+  <a href="sustainability.html" onclick="toggleMenu()">大地永續</a>
+  <a href="news.html" onclick="toggleMenu()">新聞中心</a>
+  <a href="contact.html" onclick="toggleMenu()">聯絡我們</a>
+  <a href="flagship.html" onclick="toggleMenu()" style="color:#00C9A0 !important;">健康生活館</a>
+  <div class="mob-btns">
+    <a href="member.html">加入會員</a>
+    <a href="login.html" class="gold-btn">登入</a>
+  </div>
+</div>
+
+<!-- ===== 頁內子導覽（sticky，跟隨主導覽列下方） ===== -->
+<nav id="fs-subnav" aria-label="健康生活館導覽">
+  <div class="fsn-inner">
+    <a href="#fs-istaging" class="fsn-link" data-sec="fs-istaging">
+      <span class="fsn-num">01</span>虛擬展間
+    </a>
+    <a href="#fs-founder" class="fsn-link" data-sec="fs-founder">
+      <span class="fsn-num">02</span>創辦人
+    </a>
+    <a href="#fs-ingredients" class="fsn-link" data-sec="fs-ingredients">
+      <span class="fsn-num">03</span>成分展示
+    </a>
+    <a href="#fs-origin" class="fsn-link" data-sec="fs-origin">
+      <span class="fsn-num">04</span>原料產地
+    </a>
+    <a href="#fs-factory" class="fsn-link" data-sec="fs-factory">
+      <span class="fsn-num">05</span>GMP工廠
+    </a>
+    <a href="#ai-recommend" class="fsn-link" data-sec="ai-recommend">
+      <span class="fsn-num">06</span>AI推薦
+    </a>
+    <a href="#fs-live" class="fsn-link" data-sec="fs-live">
+      <span class="fsn-num">07</span>直播帶貨
+    </a>
+    <a href="#fs-shop" class="fsn-link" data-sec="fs-shop">
+      <span class="fsn-num">08</span>購物商城
+    </a>
+  </div>
+</nav>
+
+<!-- ===== 模組 1：品牌 3D 虛擬旗艦館 Hero ===== -->
+<section id="fs-hero">
+  <canvas id="fsCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;"></canvas>
+  <div class="fh-bg-wrap">
+    <div class="fh-scene" id="fhScene">
+      <div class="fh-panel fh-panel-1">
+        <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80" alt="森林採集">
+      </div>
+      <div class="fh-panel fh-panel-2">
+        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=900&q=80" alt="研究實驗">
+      </div>
+      <div class="fh-panel fh-panel-3">
+        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800&q=80" alt="GMP工廠">
+      </div>
+    </div>
+  </div>
+  <div class="fh-overlay"></div>
+  <div class="fh-grid-lines"></div>
+
+  <div class="fh-content">
+    <div class="fh-eyebrow">
+      <span class="fh-eyebrow-line"></span>
+      <span class="fh-eyebrow-text">Immersive Health Experience · 沉浸式健康生活館</span>
+    </div>
+    <h1 class="fh-h1">
+      探索<em>耀德</em>的<br>
+      <span class="gold">健康世界</span>
+    </h1>
+    <p class="fh-sub">從台灣山林到世界舞台，跟著我們走一趟從原料採集到科學驗證的沉浸式旅程，在這裡，每一滴健康能量都有故事。</p>
+    <div class="fh-btns">
+      <a href="#fs-istaging" class="btn-cyber" onclick="smoothTo('fs-istaging')">
+        開始探索
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3v10M3 8l5 5 5-5"/></svg>
+      </a>
+      <a href="#ai-recommend" class="btn-out-w" onclick="smoothTo('ai-recommend')" style="font-size:13px;letter-spacing:1.5px;">AI 健康推薦</a>
+    </div>
+  </div>
+
+  <div class="fh-nav-dots">
+    <a href="#fs-istaging" class="fh-dot active" onclick="smoothTo('fs-istaging')"></a>
+    <a href="#fs-founder" class="fh-dot" onclick="smoothTo('fs-founder')"></a>
+    <a href="#fs-ingredients" class="fh-dot" onclick="smoothTo('fs-ingredients')"></a>
+    <a href="#fs-origin" class="fh-dot" onclick="smoothTo('fs-origin')"></a>
+    <a href="#fs-factory" class="fh-dot" onclick="smoothTo('fs-factory')"></a>
+    <a href="#ai-recommend" class="fh-dot" onclick="smoothTo('ai-recommend')"></a>
+    <a href="#fs-live" class="fh-dot" onclick="smoothTo('fs-live')"></a>
+    <a href="#fs-shop" class="fh-dot" onclick="smoothTo('fs-shop')"></a>
+  </div>
+</section>
+
+<div class="fs-divider"></div>
+
+<!-- ===== 模組 2：iStaging 虛擬旗艦展間 ===== -->
+<section id="fs-istaging" class="fs-section dark">
+  <div class="glow-orb cyber" style="width:700px;height:700px;top:-200px;right:-150px;opacity:.4;"></div>
+  <div class="glow-orb gold" style="width:500px;height:500px;bottom:-100px;left:-100px;opacity:.35;"></div>
+
+  <div class="fs-wrap">
+    <div class="reveal" style="text-align:center;margin-bottom:52px;">
+      <div class="fs-tag" style="justify-content:center;">iStaging · 沉浸式虛擬展間</div>
+      <h2 class="fs-title" style="text-align:center;">品牌 <em>虛擬</em> 旗艦展間</h2>
+      <p class="fs-desc" style="margin:0 auto;text-align:center;">360° 沉浸式虛擬導覽，無需下載 App，一鍵即可進入——帶您實地走訪耀德品牌空間、GMP 製造工廠與原料產地的完整旅程。</p>
+    </div>
+
+    <!-- iStaging Viewer Shell -->
+    <div class="ist-viewer reveal" id="istViewer">
+
+      <!-- ── 頂部控制列 ── -->
+      <div class="ist-topbar">
+        <div class="ist-title-group">
+          <div class="ist-logo-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="5" fill="#FF6B35"/><path d="M7 12h10M12 7v10" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
+          </div>
+          <span class="ist-title-text">耀德植研生醫 虛擬旗艦館</span>
+          <svg class="ist-chevron" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 4.5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="ist-stats-group">
+          <div class="ist-stat">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span>8,232</span>
+          </div>
+          <div class="ist-stat">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+            <span>69</span>
+          </div>
+          <button class="ist-icon-btn" title="首頁">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </button>
+          <button class="ist-icon-btn" title="場景清單">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ── 展間主視窗 ── -->
+      <div class="ist-frame-area" id="istFrameArea">
+        <iframe
+          id="istFrame"
+          src="https://livetour.istaging.com/ee11d12a-d7cc-448d-9af8-eaff2cb86fdf"
+          frameborder="0"
+          allowfullscreen
+          allow="vr; xr; accelerometer; gyroscope; fullscreen; autoplay"
+          title="耀德植研生醫 虛擬旗艦展間"
+          loading="lazy"
+        ></iframe>
+        <!-- 範例標示 -->
+        <div class="ist-demo-badge">
+          <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#e8aa38"/></svg>
+          範例展示中 · Demo
+        </div>
+      </div>
+
+      <!-- ── 底部工具列 ── -->
+      <div class="ist-bottombar">
+        <div class="ist-social-links">
+          <a href="index.html" class="ist-social-btn" title="品牌官網">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </a>
+          <a href="#fs-istaging" class="ist-social-btn" title="360° 全景">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="10"/><line x1="12" y1="2" x2="12" y2="22"/></svg>
+          </a>
+          <a href="#" class="ist-social-btn" title="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-linecap="round" stroke-width="2.5"/></svg>
+          </a>
+          <a href="#" class="ist-social-btn" title="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+        <a href="https://livetour.istaging.com/ee11d12a-d7cc-448d-9af8-eaff2cb86fdf" target="_blank" rel="noopener" class="ist-expand-btn" title="在新頁面全螢幕開啟">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── 說明文字 ── -->
+    <div class="ist-caption reveal">
+      <div class="ist-caption-inner">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--cyber)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p>以上為 <strong style="color:var(--cyber);">iStaging 愛實境</strong> 虛擬展間示範——耀德植研生醫品牌展間建置中，上線後將呈現 GMP 工廠、原料產地與品牌歷史的完整 360° 沉浸式導覽。</p>
+        <a href="https://www.istaging.com/zh" target="_blank" rel="noopener" class="ist-more-link">了解 iStaging 技術 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fs-divider"></div>
+
+<!-- ===== 模組 3：創辦人介紹 ===== -->
+<section id="fs-founder" class="fs-section green">
+  <div class="glow-orb gold" style="width:600px;height:600px;top:-150px;right:-100px;opacity:.35;"></div>
+
+  <div class="fs-wrap">
+    <div class="founder-grid">
+      <div class="founder-img-wrap reveal">
+        <img src="images/Founder.png" alt="創辦人" class="founder-img" style="object-position:center top;">
+        <div class="founder-img-frame"></div>
+        <div class="founder-cert">
+          <div class="founder-cert-num">20<sup style="font-size:.5em">+</sup></div>
+          <div class="founder-cert-lbl">年研究積累</div>
+        </div>
+      </div>
+
+      <div class="reveal d2" style="padding-top:20px;">
+        <div class="fs-tag">Founder · 創辦人</div>
+        <blockquote class="founder-quote">
+          「台灣的山林孕育了牛樟芝，而牛樟芝守護著台灣人的健康，我們只是大自然與人之間最謙遜的傳遞者。」
+        </blockquote>
+        <div class="founder-name">耀德植研生醫 創辦人</div>
+        <div class="founder-title">FOUNDER & CEO · YAODER BIOMEDICAL</div>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-year">2004</div>
+            <div class="tl-content">
+              <h4>創立耀德植研生醫</h4>
+              <p>以台灣牛樟芝為核心，立下二十年研究宏願</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2008</div>
+            <div class="tl-content">
+              <h4>首項 SGS 國際認證</h4>
+              <p>產品通過嚴格第三方檢測，走向國際市場</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2013</div>
+            <div class="tl-content">
+              <h4>GMP 工廠落成啟用</h4>
+              <p>自建符合國際標準的 GMP 製造設施</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2018</div>
+            <div class="tl-content">
+              <h4>SCI 期刊研究成果發表</h4>
+              <p>牛樟芝三萜類免疫研究獲國際學術界肯定</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2024</div>
+            <div class="tl-content">
+              <h4>外泌體奈米技術突破</h4>
+              <p>跨足新世代生技保養領域，開創產業新頁</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2026</div>
+            <div class="tl-content">
+              <h4>沉浸式健康生活館上線</h4>
+              <p>數位化品牌體驗，讓健康觸手可及</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fs-divider"></div>
+
+<!-- ===== 模組 4：成分互動展示 ===== -->
+<section id="fs-ingredients" class="fs-section darker">
+  <div class="glow-orb cyber" style="width:800px;height:800px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.3;"></div>
+
+  <div class="fs-wrap">
+    <div class="reveal" style="text-align:center;margin-bottom:16px;">
+      <div class="fs-tag" style="justify-content:center;">Active Ingredients · 核心活性成分</div>
+      <h2 class="fs-title" style="text-align:center;">成分<em>互動</em>展示</h2>
+      <p class="fs-desc" style="margin:0 auto;text-align:center;">懸停或點擊卡片，揭開每一種活性成分背後的科學秘密。</p>
+    </div>
+
+    <div class="ing-grid reveal d2">
+
+      <!-- 多醣體 -->
+      <div class="ing-card-wrap" role="button" tabindex="0" aria-pressed="false">
+        <div class="ing-card">
+          <div class="ing-face">
+            <div class="ing-icon">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3">
+                <circle cx="20" cy="20" r="14"/>
+                <circle cx="20" cy="20" r="7"/>
+                <circle cx="20" cy="20" r="2" fill="currentColor" stroke="none"/>
+                <line x1="20" y1="6" x2="20" y2="10" stroke-width="1.5"/>
+                <line x1="20" y1="30" x2="20" y2="34" stroke-width="1.5"/>
+                <line x1="6" y1="20" x2="10" y2="20" stroke-width="1.5"/>
+                <line x1="30" y1="20" x2="34" y2="20" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3>多醣體</h3>
+            <div class="ing-en">Polysaccharide</div>
+            <div class="ing-hint">懸停翻轉 · Hover to Flip</div>
+          </div>
+          <div class="ing-back">
+            <div>
+              <div class="ing-back-tag">Core Component 01</div>
+              <h3>多醣體 Polysaccharide</h3>
+              <p>促進免疫系統調節，增強自然殺手細胞活性，為牛樟芝最重要的活性成分之一。具有顯著的免疫調節功能，能有效提升人體自我保護機制。</p>
+            </div>
+            <div class="ing-back-stat">
+              <div class="ing-back-stat-val">38<sup style="font-size:.5em">%</sup></div>
+              <div class="ing-back-stat-lbl">頂級品佔比<br>Premium Content</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 三萜類 -->
+      <div class="ing-card-wrap" role="button" tabindex="0" aria-pressed="false">
+        <div class="ing-card">
+          <div class="ing-face">
+            <div class="ing-icon">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3">
+                <polygon points="20,4 36,32 4,32"/>
+                <polygon points="20,12 30,28 10,28"/>
+                <circle cx="20" cy="24" r="2" fill="currentColor" stroke="none"/>
+              </svg>
+            </div>
+            <h3>三萜類</h3>
+            <div class="ing-en">Triterpenoids</div>
+            <div class="ing-hint">懸停翻轉 · Hover to Flip</div>
+          </div>
+          <div class="ing-back">
+            <div>
+              <div class="ing-back-tag">Core Component 02</div>
+              <h3>三萜類 Triterpenoids</h3>
+              <p>牛樟芝獨有的三萜類化合物，具有強效的生物活性，含量多寡是品質好壞的最重要指標，也是耀德頂級系列的核心競爭力。</p>
+            </div>
+            <div class="ing-back-stat">
+              <div class="ing-back-stat-val">15<sup style="font-size:.5em">%+</sup></div>
+              <div class="ing-back-stat-lbl">頂級品含量<br>Premium Level</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 超氧化物歧化酶 -->
+      <div class="ing-card-wrap" role="button" tabindex="0" aria-pressed="false">
+        <div class="ing-card">
+          <div class="ing-face">
+            <div class="ing-icon">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3">
+                <path d="M20 4C20 4 10 12 10 22C10 28 14.5 33 20 33C25.5 33 30 28 30 22C30 12 20 4 20 4Z"/>
+                <path d="M14 22C14 22 17 19 20 22C23 25 26 22 26 22" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3>超氧化物歧化酶</h3>
+            <div class="ing-en">SOD Enzyme</div>
+            <div class="ing-hint">懸停翻轉 · Hover to Flip</div>
+          </div>
+          <div class="ing-back">
+            <div>
+              <div class="ing-back-tag">Core Component 03</div>
+              <h3>超氧化物歧化酶 SOD</h3>
+              <p>天然抗氧化酵素，有效清除自由基，延緩細胞老化，保護人體免受氧化壓力傷害，是天然抗老的重要武器。</p>
+            </div>
+            <div class="ing-back-stat">
+              <div class="ing-back-stat-val">5,000<sup style="font-size:.4em">U/g</sup></div>
+              <div class="ing-back-stat-lbl">活性單位<br>Activity Unit</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 腺苷 -->
+      <div class="ing-card-wrap" role="button" tabindex="0" aria-pressed="false">
+        <div class="ing-card">
+          <div class="ing-face">
+            <div class="ing-icon">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3">
+                <rect x="8" y="8" width="10" height="10" rx="2"/>
+                <rect x="22" y="8" width="10" height="10" rx="2"/>
+                <rect x="8" y="22" width="10" height="10" rx="2"/>
+                <rect x="22" y="22" width="10" height="10" rx="2"/>
+                <line x1="18" y1="13" x2="22" y2="13"/>
+                <line x1="13" y1="18" x2="13" y2="22"/>
+                <line x1="27" y1="18" x2="27" y2="22"/>
+                <line x1="18" y1="27" x2="22" y2="27"/>
+              </svg>
+            </div>
+            <h3>腺苷</h3>
+            <div class="ing-en">Adenosine</div>
+            <div class="ing-hint">懸停翻轉 · Hover to Flip</div>
+          </div>
+          <div class="ing-back">
+            <div>
+              <div class="ing-back-tag">Core Component 04</div>
+              <h3>腺苷 Adenosine</h3>
+              <p>具有調節心血管功能的活性核苷，協助維持正常心律，並有助於改善末梢血液循環，維持全身機能的協調運作。</p>
+            </div>
+            <div class="ing-back-stat">
+              <div class="ing-back-stat-val">0.8<sup style="font-size:.5em">%</sup></div>
+              <div class="ing-back-stat-lbl">天然含量<br>Natural Content</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 麥角固醇 -->
+      <div class="ing-card-wrap" role="button" tabindex="0" aria-pressed="false">
+        <div class="ing-card">
+          <div class="ing-face">
+            <div class="ing-icon">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3">
+                <circle cx="20" cy="20" r="13"/>
+                <path d="M20 7V20L28 28"/>
+                <circle cx="20" cy="20" r="3" fill="currentColor" stroke="none" opacity=".5"/>
+              </svg>
+            </div>
+            <h3>麥角固醇</h3>
+            <div class="ing-en">Ergosterol</div>
+            <div class="ing-hint">懸停翻轉 · Hover to Flip</div>
+          </div>
+          <div class="ing-back">
+            <div>
+              <div class="ing-back-tag">Core Component 05</div>
+              <h3>麥角固醇 Ergosterol</h3>
+              <p>維生素 D 的前驅物，有助於鈣質吸收與骨骼健康。牛樟芝中富含此成分，有利於人體能量代謝與細胞膜的正常維護。</p>
+            </div>
+            <div class="ing-back-stat">
+              <div class="ing-back-stat-val">VD</div>
+              <div class="ing-back-stat-lbl">前驅物來源<br>Vitamin D Precursor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 環氧八氫百里香酚 -->
+      <div class="ing-card-wrap" role="button" tabindex="0" aria-pressed="false">
+        <div class="ing-card">
+          <div class="ing-face">
+            <div class="ing-icon">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3">
+                <path d="M20 6L34 14V26L20 34L6 26V14Z"/>
+                <path d="M20 6V34M6 14L34 26M6 26L34 14"/>
+                <circle cx="20" cy="20" r="3" fill="currentColor" stroke="none" opacity=".5"/>
+              </svg>
+            </div>
+            <h3>環氧八氫百里香酚</h3>
+            <div class="ing-en">Antrocin</div>
+            <div class="ing-hint">懸停翻轉 · Hover to Flip</div>
+          </div>
+          <div class="ing-back">
+            <div>
+              <div class="ing-back-tag">Core Component 06</div>
+              <h3>環氧八氫百里香酚 Antrocin</h3>
+              <p>牛樟芝特有的倍半萜類化合物，是耀德高端產品的獨特競爭力，在學術研究中展現出顯著的生物活性，引起國際學界高度關注。</p>
+            </div>
+            <div class="ing-back-stat">
+              <div class="ing-back-stat-val">特有</div>
+              <div class="ing-back-stat-lbl">台灣獨有成分<br>Taiwan Exclusive</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="fs-divider"></div>
+
+<!-- ===== 模組 5：原料產地導覽 ===== -->
+<section id="fs-origin" class="fs-section green">
+  <div class="glow-orb gold" style="width:600px;height:600px;bottom:-200px;right:-150px;opacity:.3;"></div>
+  <div class="glow-orb cyber" style="width:400px;height:400px;top:-100px;left:-80px;opacity:.2;"></div>
+
+  <div class="fs-wrap">
+    <div class="reveal" style="margin-bottom:48px;">
+      <div class="fs-tag">Origin VR Tour · 產地虛擬導覽</div>
+      <h2 class="fs-title">原料<em>產地</em>導覽</h2>
+      <p class="fs-desc">台灣深山孕育了世界上最珍稀的牛樟芝，每一個產地都有其獨特的微氣候與生態環境，共同造就耀德產品無可複製的品質。</p>
+    </div>
+
+    <!-- ── 虛擬展間導覽器 ── -->
+    <div class="ist-viewer origin-vr-viewer reveal" id="originViewer">
+
+      <!-- 頂部控制列 -->
+      <div class="ist-topbar">
+        <div class="ist-title-group">
+          <div class="ist-logo-badge" style="background:var(--g500);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#e8aa38"/></svg>
+          </div>
+          <span class="ist-title-text" id="originVrTitle">原料產地導覽 — 南投仁愛鄉 · 核心產區</span>
+          <svg class="ist-chevron" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 4.5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="ist-stats-group">
+          <div class="origin-vr-zone" id="originVrZone">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            ZONE 01 · 海拔 1,200–2,500m
+          </div>
+          <button class="ist-icon-btn" title="首頁">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </button>
+          <button class="ist-icon-btn" title="場景清單">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- 展間 iframe -->
+      <div class="ist-frame-area">
+        <iframe
+          id="originVrFrame"
+          src="https://livetour.istaging.com/1fb1ad78-fd3c-4329-affc-f2a3ac1f2b99"
+          frameborder="0"
+          allowfullscreen
+          allow="vr; xr; accelerometer; gyroscope; fullscreen; autoplay"
+          title="耀德植研生醫 原料產地虛擬導覽"
+          loading="lazy"
+        ></iframe>
+        <div class="ist-demo-badge">
+          <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#e8aa38"/></svg>
+          範例展示中 · Demo
+        </div>
+        <!-- 產地位置標記（疊加在展間上） -->
+        <div class="origin-map-pin" style="top:22%;left:18%;" data-idx="0">
+          <div class="pin-dot"></div>
+          <div class="pin-label">南投仁愛鄉</div>
+        </div>
+        <div class="origin-map-pin" style="top:38%;left:36%;" data-idx="1">
+          <div class="pin-dot"></div>
+          <div class="pin-label">嘉義阿里山</div>
+        </div>
+        <div class="origin-map-pin" style="top:58%;left:60%;" data-idx="2">
+          <div class="pin-dot"></div>
+          <div class="pin-label">台東太麻里</div>
+        </div>
+      </div>
+
+      <!-- 產地選擇分頁 -->
+      <div class="origin-tabs-bar">
+        <button class="origin-tab active" data-idx="0" onclick="selectOriginVr(0)">
+          <span class="origin-tab-num">01</span>
+          <div class="origin-tab-info">
+            <span class="origin-tab-name">南投仁愛鄉</span>
+            <span class="origin-tab-sub">核心產區 · 1,200–2,500m</span>
+          </div>
+        </button>
+        <button class="origin-tab" data-idx="1" onclick="selectOriginVr(1)">
+          <span class="origin-tab-num">02</span>
+          <div class="origin-tab-info">
+            <span class="origin-tab-name">嘉義阿里山</span>
+            <span class="origin-tab-sub">有機復育區 · 1,000–2,000m</span>
+          </div>
+        </button>
+        <button class="origin-tab" data-idx="2" onclick="selectOriginVr(2)">
+          <span class="origin-tab-num">03</span>
+          <div class="origin-tab-info">
+            <span class="origin-tab-name">台東太麻里</span>
+            <span class="origin-tab-sub">珍稀野生區 · 800–1,800m</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- 底部說明列 -->
+      <div class="ist-bottombar">
+        <p class="origin-vr-desc" id="originVrDesc">台灣牛樟木最密集的分布區域，原始森林覆蓋率高，特殊的溫帶氣候孕育出三萜類含量最高的野生牛樟芝，是耀德頂級系列的核心原料來源。<em style="color:var(--cyber);margin-left:8px;">採集季節：4月 – 10月</em></p>
+        <a href="https://livetour.istaging.com/1fb1ad78-fd3c-4329-affc-f2a3ac1f2b99" target="_blank" rel="noopener" class="ist-expand-btn" title="在新頁面全螢幕開啟">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 說明文字 -->
+    <div class="ist-caption reveal">
+      <div class="ist-caption-inner">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--cyber)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p>以上為 <strong style="color:var(--cyber);">iStaging 愛實境</strong> 虛擬展間示範——耀德植研生醫三大產地（南投仁愛鄉、嘉義阿里山、台東太麻里）的專屬 360° 實地導覽展間建置中，即將上線。</p>
+        <a href="https://www.istaging.com/zh" target="_blank" rel="noopener" class="ist-more-link">了解 iStaging 技術 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fs-divider"></div>
+
+<!-- ===== 模組 6：GMP 工廠導覽 ===== -->
+<section id="fs-factory" class="fs-section dark">
+  <div class="glow-orb cyber" style="width:500px;height:500px;top:-100px;left:50%;transform:translateX(-50%);opacity:.3;"></div>
+  <div class="glow-orb gold" style="width:350px;height:350px;bottom:-80px;right:-60px;opacity:.2;"></div>
+
+  <div class="fs-wrap">
+    <div class="reveal" style="margin-bottom:48px;">
+      <div class="fs-tag">GMP Factory Tour · 工廠虛擬導覽</div>
+      <h2 class="fs-title">GMP <em>工廠</em>導覽</h2>
+      <p class="fs-desc">每一粒膠囊、每一罐飲品，都在嚴格的 GMP 環境中誕生。點擊下方各製程區域，360° 沉浸式走訪耀德的品質把關現場。</p>
+    </div>
+
+    <!-- ── 虛擬展間導覽器 ── -->
+    <div class="ist-viewer factory-vr-viewer reveal" id="factoryViewer">
+
+      <!-- 頂部控制列 -->
+      <div class="ist-topbar">
+        <div class="ist-title-group">
+          <div class="ist-logo-badge" style="background:#2a1e0a;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#e8aa38" stroke-width="1.8"/><path d="M8 21h8M12 17v4" stroke="#e8aa38" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <span class="ist-title-text" id="factoryVrTitle">GMP 工廠導覽 — 01 · 原料進料區</span>
+          <svg class="ist-chevron" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 4.5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="ist-stats-group">
+          <div class="origin-vr-zone" id="factoryVrZone">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            GMP 認證製程 · ZONE 01
+          </div>
+          <button class="ist-icon-btn" title="首頁">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </button>
+          <button class="ist-icon-btn" title="場景清單">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- 展間 iframe -->
+      <div class="ist-frame-area">
+        <iframe
+          id="factoryVrFrame"
+          src="https://livetour.istaging.com/1fb1ad78-fd3c-4329-affc-f2a3ac1f2b99"
+          frameborder="0"
+          allowfullscreen
+          allow="vr; xr; accelerometer; gyroscope; fullscreen; autoplay"
+          title="耀德植研生醫 GMP 工廠虛擬導覽"
+          loading="lazy"
+        ></iframe>
+        <div class="ist-demo-badge">
+          <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#e8aa38"/></svg>
+          範例展示中 · Demo
+        </div>
+        <!-- 製程步驟進度條（疊加在展間右側） -->
+        <div class="factory-progress-bar">
+          <div class="fpb-item active" data-idx="0">1</div>
+          <div class="fpb-item" data-idx="1">2</div>
+          <div class="fpb-item" data-idx="2">3</div>
+          <div class="fpb-item" data-idx="3">4</div>
+          <div class="fpb-item" data-idx="4">5</div>
+          <div class="fpb-item" data-idx="5">6</div>
+          <div class="fpb-item" data-idx="6">7</div>
+        </div>
+      </div>
+
+      <!-- 製程區域分頁（7 區水平捲動） -->
+      <div class="factory-tabs-bar">
+        <button class="factory-tab active" data-idx="0" onclick="selectFactoryVr(0)">
+          <span class="factory-tab-num">01</span>
+          <span class="factory-tab-name">原料進料區</span>
+        </button>
+        <button class="factory-tab" data-idx="1" onclick="selectFactoryVr(1)">
+          <span class="factory-tab-num">02</span>
+          <span class="factory-tab-name">前處理清洗室</span>
+        </button>
+        <button class="factory-tab" data-idx="2" onclick="selectFactoryVr(2)">
+          <span class="factory-tab-num">03</span>
+          <span class="factory-tab-name">低溫萃取室</span>
+        </button>
+        <button class="factory-tab" data-idx="3" onclick="selectFactoryVr(3)">
+          <span class="factory-tab-num">04</span>
+          <span class="factory-tab-name">濃縮精製區</span>
+        </button>
+        <button class="factory-tab" data-idx="4" onclick="selectFactoryVr(4)">
+          <span class="factory-tab-num">05</span>
+          <span class="factory-tab-name">品管檢驗室</span>
+        </button>
+        <button class="factory-tab" data-idx="5" onclick="selectFactoryVr(5)">
+          <span class="factory-tab-num">06</span>
+          <span class="factory-tab-name">無菌充填線</span>
+        </button>
+        <button class="factory-tab" data-idx="6" onclick="selectFactoryVr(6)">
+          <span class="factory-tab-num">07</span>
+          <span class="factory-tab-name">恆溫成品倉儲</span>
+        </button>
+      </div>
+
+      <!-- 底部說明列 -->
+      <div class="ist-bottombar">
+        <p class="origin-vr-desc" id="factoryVrDesc">所有入廠原料必須附具 SGS 檢驗報告，經品管部門逐批檢驗合格後方可入庫使用。</p>
+        <a href="https://livetour.istaging.com/1fb1ad78-fd3c-4329-affc-f2a3ac1f2b99" target="_blank" rel="noopener" class="ist-expand-btn" title="在新頁面全螢幕開啟">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 認證徽章 -->
+    <div class="factory-certs reveal d2" style="margin-top:40px;">
+      <div class="factory-cert-chip">
+        <svg class="cert-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="18" cy="18" r="14"/><path d="M11 18l5 5 9-9"/></svg>
+        <h4>GMP</h4>
+        <p>優良製造規範</p>
+      </div>
+      <div class="factory-cert-chip">
+        <svg class="cert-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="6" y="6" width="24" height="24" rx="3"/><path d="M12 18l4 4 8-8"/></svg>
+        <h4>ISO 22000</h4>
+        <p>食品安全管理</p>
+      </div>
+      <div class="factory-cert-chip">
+        <svg class="cert-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M18 4L22 12 31 13.5 24.5 20 26 29 18 25 10 29 11.5 20 5 13.5 14 12Z"/></svg>
+        <h4>HACCP</h4>
+        <p>危害分析管制</p>
+      </div>
+      <div class="factory-cert-chip">
+        <svg class="cert-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="18" cy="14" r="8"/><path d="M10 30c0-4.4 3.6-8 8-8s8 3.6 8 8"/><path d="M13 11l4 4 6-6"/></svg>
+        <h4>SGS 認證</h4>
+        <p>國際第三方驗證</p>
+      </div>
+    </div>
+
+    <!-- 說明文字 -->
+    <div class="ist-caption reveal" style="margin-top:24px;">
+      <div class="ist-caption-inner">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--cyber)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p>以上為 <strong style="color:var(--cyber);">iStaging 愛實境</strong> 虛擬展間示範——耀德植研生醫 GMP 工廠七大製程區域的 360° 實地導覽展間建置中，即將上線。</p>
+        <a href="https://www.istaging.com/zh" target="_blank" rel="noopener" class="ist-more-link">了解 iStaging 技術 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fs-divider"></div>
+
+<!-- ===== 模組 7：AI 健康推薦 ===== -->
+<section id="ai-recommend" class="fs-section">
+  <div class="glow-orb cyber" style="width:600px;height:600px;top:0;right:-100px;opacity:.15;"></div>
+  <div class="glow-orb gold" style="width:400px;height:400px;bottom:0;left:-80px;opacity:.12;"></div>
+
+  <div class="fs-wrap">
+    <div class="reveal" style="text-align:center;margin-bottom:48px;">
+      <div class="fs-tag" style="justify-content:center;">AI Health Advisor · 智能健康顧問</div>
+      <h2 class="fs-title" style="text-align:center;"><span class="cyber">AI</span> 健康推薦</h2>
+      <p class="fs-desc" style="margin:0 auto;text-align:center;">回答兩個問題，我們的智能系統將為您量身推薦最適合的耀德產品組合。</p>
+    </div>
+
+    <div class="ai-wrap reveal d2">
+      <!-- 步驟指示器 -->
+      <div class="ai-steps">
+        <div class="ai-step-indicator active" id="step-ind-1">步驟 1 · 健康目標</div>
+        <div class="ai-step-indicator" id="step-ind-2">步驟 2 · 年齡族群</div>
+        <div class="ai-step-indicator" id="step-ind-3">推薦結果</div>
+      </div>
+
+      <div class="ai-panels">
+      <!-- 步驟 1：選擇健康目標 -->
+      <div class="ai-panel active" id="ai-panel-1">
+        <p class="ai-question">您最主要的健康目標是什麼？</p>
+        <div class="ai-choices" id="ai-goals">
+          <div class="ai-choice" data-goal="immune" role="button" tabindex="0" aria-pressed="false">
+            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="24" cy="24" r="17"/><path d="M15 24l7 7 11-11"/></svg>
+            <h4>免疫提升</h4>
+            <p>強化免疫系統，提升自然抵抗力</p>
+          </div>
+          <div class="ai-choice" data-goal="liver" role="button" tabindex="0" aria-pressed="false">
+            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M24 8C24 8 10 18 10 30C10 38 16.3 44 24 44C31.7 44 38 38 38 30C38 18 24 8 24 8Z"/><line x1="24" y1="8" x2="24" y2="44" opacity=".3"/></svg>
+            <h4>護肝養身</h4>
+            <p>保護肝臟，調理氣血</p>
+          </div>
+          <div class="ai-choice" data-goal="antiage" role="button" tabindex="0" aria-pressed="false">
+            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M24 8L27.5 16.5L37 17.7L30.5 24L32 33L24 29L16 33L17.5 24L11 17.7L20.5 16.5Z"/></svg>
+            <h4>抗氧化抗老</h4>
+            <p>對抗自由基，延緩老化</p>
+          </div>
+          <div class="ai-choice" data-goal="energy" role="button" tabindex="0" aria-pressed="false">
+            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><polygon points="26,8 14,26 24,26 22,40 34,22 24,22"/></svg>
+            <h4>運動活力</h4>
+            <p>補充能量，增強體能表現</p>
+          </div>
+          <div class="ai-choice" data-goal="sugar" role="button" tabindex="0" aria-pressed="false">
+            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="8" y="8" width="13" height="13" rx="2"/><rect x="27" y="8" width="13" height="13" rx="2"/><rect x="8" y="27" width="13" height="13" rx="2"/><rect x="27" y="27" width="13" height="13" rx="2"/></svg>
+            <h4>控糖代謝</h4>
+            <p>維持正常血糖，促進代謝</p>
+          </div>
+          <div class="ai-choice" data-goal="skin" role="button" tabindex="0" aria-pressed="false">
+            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="24" cy="24" r="14"/><circle cx="24" cy="24" r="7"/><circle cx="24" cy="24" r="2" fill="currentColor" stroke="none"/></svg>
+            <h4>保養護膚</h4>
+            <p>從內而外，滋養肌膚光澤</p>
+          </div>
+        </div>
+        <div class="ai-nav">
+          <button type="button" class="btn-cyber" id="goal-next-btn" onclick="goToStep2(event)" style="display:none;padding:12px 36px;font-size:13px;">
+            下一步
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- 步驟 2：選擇年齡族群 -->
+      <div class="ai-panel" id="ai-panel-2">
+        <p class="ai-question">您的年齡族群是？</p>
+        <div class="ai-choices" id="ai-ages" style="grid-template-columns:repeat(3,1fr);">
+          <div class="ai-choice" data-age="young" role="button" tabindex="0" aria-pressed="false">
+            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M24 10c0 0-8 8-8 16a8 8 0 0 0 16 0c0-8-8-16-8-16z"/><line x1="24" y1="10" x2="24" y2="34" opacity=".3"/></svg>
+            <h4>20 – 35 歲</h4>
+            <p>活力衝刺，預防保健期</p>
+          </div>
+          <div class="ai-choice" data-age="mid" role="button" tabindex="0" aria-pressed="false">
+            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M24 8L27.5 16.5L37 17.7L30.5 24L32 33L24 29L16 33L17.5 24L11 17.7L20.5 16.5Z"/><circle cx="24" cy="40" r="3" fill="currentColor" stroke="none" opacity=".3"/></svg>
+            <h4>36 – 50 歲</h4>
+            <p>精力維持，深度調養期</p>
+          </div>
+          <div class="ai-choice" data-age="senior" role="button" tabindex="0" aria-pressed="false">
+            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="24" cy="18" r="8"/><path d="M12 42c0-6.6 5.4-12 12-12s12 5.4 12 12"/></svg>
+            <h4>50 歲以上</h4>
+            <p>全方位保健，維護活力</p>
+          </div>
+        </div>
+        <div class="ai-nav">
+          <button type="button" class="btn-out-w" onclick="goToStep1(event)" style="font-size:12px;letter-spacing:1px;padding:10px 24px;">上一步</button>
+          <button type="button" class="btn-cyber" id="age-next-btn" onclick="showResults(event)" style="display:none;padding:12px 36px;font-size:13px;">
+            查看推薦
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- 結果面板 -->
+      <div class="ai-panel" id="ai-panel-3">
+        <p class="ai-question" id="ai-result-title">為您推薦的最佳組合</p>
+        <div class="ai-result-grid" id="ai-result-grid"></div>
+        <button class="ai-reset" onclick="resetAI()">重新測試</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fs-divider"></div>
+
+<!-- ===== 模組 8：直播帶貨 ===== -->
+<section id="fs-live" class="fs-section dark">
+  <div class="glow-orb gold" style="width:700px;height:700px;top:-200px;right:-200px;opacity:.3;"></div>
+
+  <div class="fs-wrap">
+    <div class="reveal" style="margin-bottom:48px;">
+      <div class="fs-tag">Live Commerce · 直播帶貨</div>
+      <h2 class="fs-title">直播<em>帶貨</em>中心</h2>
+      <p class="fs-desc">與耀德品牌大使、健康專家一起直播，即時解答健康疑問，享有直播專屬優惠。</p>
+    </div>
+
+    <!-- 倒數計時 -->
+    <div class="live-countdown-wrap reveal d1">
+      <div class="live-label">下一場直播倒數 · Next Live Session</div>
+      <div class="live-countdown-title">耀德健康私塾 × 牛樟芝完全攻略直播</div>
+      <div class="countdown-grid">
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-days">00</span>
+          <div class="cd-lbl">DAYS</div>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-hours">00</span>
+          <div class="cd-lbl">HOURS</div>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-mins">00</span>
+          <div class="cd-lbl">MINS</div>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-secs">00</span>
+          <div class="cd-lbl">SECS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 直播預告 -->
+    <div class="live-grid reveal d2">
+      <div class="live-card">
+        <div class="live-card-img">
+          <img src="https://images.unsplash.com/photo-1607962837359-5e7e89f86776?w=600&q=80" alt="直播預告">
+          <div class="live-badge upcoming"><span class="live-dot"></span>即將直播</div>
+        </div>
+        <div class="live-card-body">
+          <div class="live-host">
+            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=80&q=80" alt="主播" class="live-host-avatar">
+            <div>
+              <div class="live-host-name">林小姐</div>
+              <div class="live-host-role">品牌健康大使</div>
+            </div>
+          </div>
+          <h3>牛樟芝的正確食用法 ── 你踩雷了嗎？</h3>
+          <p>針對常見的食用誤區，逐一解析，現場Q&A不限次數提問。</p>
+          <div class="live-time">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="6.5" cy="6.5" r="5"/><path d="M6.5 4v2.5l2 2"/></svg>
+            2026/06/20 週六 20:00
+          </div>
+        </div>
+      </div>
+
+      <div class="live-card">
+        <div class="live-card-img">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80" alt="直播預告">
+          <div class="live-badge upcoming"><span class="live-dot"></span>即將直播</div>
+        </div>
+        <div class="live-card-body">
+          <div class="live-host">
+            <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=80&q=80" alt="主播" class="live-host-avatar">
+            <div>
+              <div class="live-host-name">陳醫師</div>
+              <div class="live-host-role">中西醫整合顧問</div>
+            </div>
+          </div>
+          <h3>從科學角度看三萜類 — 數據不說謊</h3>
+          <p>帶您解讀SGS報告，教您看懂成分表，明智選購不被坑。</p>
+          <div class="live-time">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="6.5" cy="6.5" r="5"/><path d="M6.5 4v2.5l2 2"/></svg>
+            2026/06/27 週六 19:30
+          </div>
+        </div>
+      </div>
+
+      <div class="live-card">
+        <div class="live-card-img">
+          <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&q=80" alt="回播">
+          <div class="live-badge replay">精選回播</div>
+        </div>
+        <div class="live-card-body">
+          <div class="live-host">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80" alt="主播" class="live-host-avatar">
+            <div>
+              <div class="live-host-name">王小姐</div>
+              <div class="live-host-role">資深保健顧問</div>
+            </div>
+          </div>
+          <h3>耀德大牛能量飲 × 運動族的最強拍檔</h3>
+          <p>親身體驗分享，搭配飲食建議，讓你的訓練效率倍增。</p>
+          <div class="live-time">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="6.5" cy="6.5" r="5"/><path d="M6.5 4v2.5l2 2"/></svg>
+            精選回播 · 5,832 次觀看
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 直播數據 -->
+    <div class="live-stats-row reveal d3">
+      <div class="live-stat">
+        <div class="live-stat-num" data-target="128">0</div>
+        <div class="live-stat-lbl">累積直播場次</div>
+      </div>
+      <div class="live-stat">
+        <div class="live-stat-num" data-target="380000" data-suffix="萬+">380</div>
+        <div class="live-stat-lbl">總觀看人次</div>
+      </div>
+      <div class="live-stat">
+        <div class="live-stat-num" data-target="4.8">4.8</div>
+        <div class="live-stat-lbl">平均評分 / 5分</div>
+      </div>
+      <div class="live-stat">
+        <div class="live-stat-num" data-target="62">0</div>
+        <div class="live-stat-lbl">直播轉換率 %</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fs-divider"></div>
+
+<!-- ===== 模組 9：一鍵購買 ===== -->
+<section id="fs-shop" class="fs-section darker">
+  <div class="glow-orb gold" style="width:800px;height:800px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.25;"></div>
+
+  <div class="fs-wrap">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:16px;flex-wrap:wrap;gap:20px;">
+      <div>
+        <div class="fs-tag">Quick Purchase · 一鍵購買</div>
+        <h2 class="fs-title" style="margin-bottom:0;">精選熱銷<em>產品</em></h2>
+      </div>
+      <a href="shop.html" class="btn-gold" style="padding:12px 32px;font-size:13px;letter-spacing:1.5px;">
+        前往完整商城
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+      </a>
+    </div>
+
+    <div class="shop-grid reveal d2">
+
+      <div class="fs-prod-card">
+        <div style="overflow:hidden;position:relative;">
+          <img src="images/BigBull/BigBull_4.png" alt="耀德大牛能量氣泡飲" class="fs-prod-img" style="background:#000;">
+          <span class="prod-badge" style="background:linear-gradient(135deg,#00897B,#00C9A0);">能量補給</span>
+        </div>
+        <div class="fs-prod-body">
+          <div class="fs-prod-cat">Energy Supply</div>
+          <div class="fs-prod-name">耀德大牛能量氣泡飲</div>
+          <div class="fs-prod-desc">段木栽培牛樟芝子實體萃取，結合馬卡、專利紅參，燃爆能量，250ml × 24入。</div>
+          <div class="fs-prod-footer">
+            <div class="fs-prod-price">NT$ 1,980 <span>/ 箱</span></div>
+            <a href="shop.html" class="btn-buy">立即購買</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="fs-prod-card">
+        <div style="overflow:hidden;position:relative;">
+          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=700&q=85" alt="頂級牛樟芝膠囊" class="fs-prod-img">
+          <span class="prod-badge" style="background:var(--gold);">頂級系列</span>
+        </div>
+        <div class="fs-prod-body">
+          <div class="fs-prod-cat">Premium Series</div>
+          <div class="fs-prod-name">頂級牛樟芝子實體膠囊</div>
+          <div class="fs-prod-desc">野生牛樟芝子實體，三萜類含量高達 15%，旗艦級精品，提供最完整的守護力量。</div>
+          <div class="fs-prod-footer">
+            <div class="fs-prod-price">NT$ 3,800 <span>/ 盒</span></div>
+            <a href="shop.html" class="btn-buy">立即購買</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="fs-prod-card">
+        <div style="overflow:hidden;position:relative;">
+          <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=700&q=85" alt="日常保健膠囊" class="fs-prod-img">
+          <span class="prod-badge" style="background:var(--g600);">日常保健</span>
+        </div>
+        <div class="fs-prod-body">
+          <div class="fs-prod-cat">Daily Wellness</div>
+          <div class="fs-prod-name">菌絲體日常保健膠囊</div>
+          <div class="fs-prod-desc">固態培養牛樟芝菌絲體，富含多醣體，適合日常長期補充，維持良好免疫機能。</div>
+          <div class="fs-prod-footer">
+            <div class="fs-prod-price">NT$ 1,580 <span>/ 盒</span></div>
+            <a href="shop.html" class="btn-buy">立即購買</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="fs-prod-card">
+        <div style="overflow:hidden;position:relative;">
+          <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=700&q=85" alt="液態萃取精華" class="fs-prod-img">
+          <span class="prod-badge" style="background:var(--g500);">萃取精華</span>
+        </div>
+        <div class="fs-prod-body">
+          <div class="fs-prod-cat">Extract Series</div>
+          <div class="fs-prod-name">牛樟芝液態萃取精華</div>
+          <div class="fs-prod-desc">水醇雙重萃取，高倍濃縮有效成分，吸收迅速高效，適合需要快速補充的族群。</div>
+          <div class="fs-prod-footer">
+            <div class="fs-prod-price">NT$ 2,280 <span>/ 組</span></div>
+            <a href="shop.html" class="btn-buy">立即購買</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="fs-prod-card">
+        <div style="overflow:hidden;position:relative;">
+          <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=700&q=85" alt="牛樟葉外泌體精華" class="fs-prod-img">
+          <span class="prod-badge" style="background:#7b2d8b;">生技保養</span>
+        </div>
+        <div class="fs-prod-body">
+          <div class="fs-prod-cat">Biotech Series</div>
+          <div class="fs-prod-name">牛樟葉外泌體標靶精華</div>
+          <div class="fs-prod-desc">外泌體奈米載體技術，精準導入牛樟葉活性成分至細胞層，新世代護膚科技。</div>
+          <div class="fs-prod-footer">
+            <div class="fs-prod-price">NT$ 4,500 <span>/ 瓶</span></div>
+            <a href="shop.html" class="btn-buy">立即購買</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="fs-prod-card">
+        <div style="overflow:hidden;position:relative;">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=700&q=85" alt="93國認證苦瓜胜肽" class="fs-prod-img">
+          <span class="prod-badge" style="background:#2d7a3a;">日常保健</span>
+        </div>
+        <div class="fs-prod-body">
+          <div class="fs-prod-cat">Health Management</div>
+          <div class="fs-prod-name">93 國認證苦瓜胜肽</div>
+          <div class="fs-prod-desc">通過 93 個國家認證，維持正常醣類代謝，現代人控糖保健的科學首選。</div>
+          <div class="fs-prod-footer">
+            <div class="fs-prod-price">NT$ 1,280 <span>/ 盒</span></div>
+            <a href="shop.html" class="btn-buy">立即購買</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer style="max-width:none;">
+  <div class="footer-top" style="max-width:1400px;margin:0 auto;">
+    <div class="f-brand">
+      <a href="index.html" class="logo logo-footer" style="margin-bottom:4px;"><img src="images/logo/LOGO_6.png" alt="耀德植研生醫" class="logo-full-img"></a>
+      <p>深耕台灣牛樟芝研究逾二十年，以科學嚴謹、自然純粹的信念，守護每一個珍貴生命的健康與活力。</p>
+      <div class="f-socials">
+        <a href="#" class="f-soc" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" class="f-soc" title="LINE"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 11.04C22 6.35 17.302 2.54 11.523 2.54S1.047 6.35 1.047 11.04c0 4.2 3.726 7.72 8.756 8.39.34.073.803.225.92.517.105.265.069.68.034.947l-.15.895c-.045.265-.21 1.04.912.567 1.12-.473 6.06-3.57 8.267-6.11C21.47 14.41 22 12.82 22 11.04z"/></svg></a>
+        <a href="#" class="f-soc" title="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#060e09"/></svg></a>
+      </div>
+    </div>
+    <div class="f-nav-col">
+      <h4>健康生活館</h4>
+      <ul>
+        <li><a href="#fs-istaging">虛擬旗艦展間</a></li>
+        <li><a href="#fs-founder">創辦人介紹</a></li>
+        <li><a href="#fs-ingredients">成分互動展示</a></li>
+        <li><a href="#fs-origin">原料產地導覽</a></li>
+        <li><a href="#fs-factory">GMP 工廠導覽</a></li>
+        <li><a href="#ai-recommend">AI 健康推薦</a></li>
+        <li><a href="#fs-live">直播帶貨</a></li>
+        <li><a href="#fs-shop">一鍵購買</a></li>
+      </ul>
+    </div>
+    <div class="f-nav-col">
+      <h4>認識耀德</h4>
+      <ul>
+        <li><a href="index.html">品牌首頁</a></li>
+        <li><a href="about.html">關於我們</a></li>
+        <li><a href="antrodia.html">認識牛樟芝</a></li>
+        <li><a href="products.html">產品系列</a></li>
+        <li><a href="sustainability.html">大地永續</a></li>
+      </ul>
+    </div>
+    <div class="f-nav-col">
+      <h4>快速連結</h4>
+      <ul>
+        <li><a href="shop.html">購物商城</a></li>
+        <li><a href="news.html">新聞中心</a></li>
+        <li><a href="contact.html">聯絡我們</a></li>
+        <li><a href="member.html">會員中心</a></li>
+        <li><a href="login.html">會員登入</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-btm" style="max-width:1400px;margin:0 auto;">
+    <p class="f-copy">© 2026 耀德植研生醫股份有限公司 · All Rights Reserved · www.bigbull.com.tw</p>
+    <div class="f-btm-links">
+      <a href="#">隱私權政策</a>
+      <a href="#">使用條款</a>
+      <a href="#">Cookie 設定</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到頂部" aria-label="回到頂部" style="position:fixed;bottom:32px;right:88px;width:50px;height:50px;background:linear-gradient(135deg,#00897B,#00C9A0);border:none;border-radius:50%;cursor:pointer;z-index:901;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,137,123,.45);opacity:0;visibility:hidden;transform:translateY(12px);transition:all .35s ease;padding:0;overflow:hidden;-webkit-appearance:none;appearance:none;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2.2" style="display:block;"><path d="M4 13l6-6 6 6"/></svg></button>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// ── Navbar scroll ──
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 80);
+}, { passive: true });
+
+// ── Mobile menu ──
+function toggleMenu() {
+  document.getElementById('mobMenu').classList.toggle('open');
+}
+
+// ── 計算滾動偏移量（主導覽 + 子導覽高度）──
+function getScrollOffset() {
+  const mainNav = document.getElementById('nav');
+  const subNav  = document.getElementById('fs-subnav');
+  return (mainNav?.offsetHeight || 80) + (subNav?.offsetHeight || 44) + 8;
+}
+
+// ── Smooth scroll（帶偏移量）──
+function smoothTo(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY - getScrollOffset();
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+
+// 全域錨點攔截（#xxx 連結，子導覽連結除外）
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  if (a.closest('#fs-subnav')) return;
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    const t = document.querySelector(href);
+    if (!t) return;
+    e.preventDefault();
+    const top = t.getBoundingClientRect().top + window.scrollY - getScrollOffset();
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+});
+
+// ── 子導覽：點擊帶偏移平滑跳轉 ──
+document.querySelectorAll('.fsn-link').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const id = link.dataset.sec;
+    const t  = document.getElementById(id);
+    if (!t) return;
+    const top = t.getBoundingClientRect().top + window.scrollY - getScrollOffset();
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+});
+
+// ── 子導覽：滾動時高亮當前區塊 ──
+(function() {
+  const links = Array.from(document.querySelectorAll('.fsn-link'));
+  const secs  = links.map(l => document.getElementById(l.dataset.sec));
+
+  function updateSubnav() {
+    const offset = getScrollOffset() + 60;
+    let activeIdx = -1;
+    secs.forEach((s, i) => {
+      if (s && s.getBoundingClientRect().top - offset + s.offsetHeight * 0.15 <= 0) {
+        activeIdx = i;
+      }
+    });
+    links.forEach((l, i) => l.classList.toggle('active', i === activeIdx));
+  }
+
+  window.addEventListener('scroll', updateSubnav, { passive: true });
+  window.addEventListener('resize', updateSubnav, { passive: true });
+  updateSubnav();
+})();
+
+// ── Scroll reveal ──
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('up'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+// ── 成分卡片：觸控／點擊翻轉（hover 僅限桌面）──
+(function() {
+  function toggleCard(wrap) {
+    const flipped = wrap.classList.toggle('flipped');
+    wrap.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+  }
+  document.querySelectorAll('.ing-card-wrap').forEach(wrap => {
+    wrap.addEventListener('click', () => toggleCard(wrap));
+    wrap.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleCard(wrap);
+      }
+    });
+  });
+})();
+
+// ── Hero 3D 視差 Canvas ──
+(function(){
+  const canvas = document.getElementById('fsCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, pts = [];
+  function resize(){ W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+  for (let i = 0; i < 60; i++) {
+    pts.push({ x: Math.random(), y: Math.random(), r: Math.random() * 2.5 + 0.5, vx: (Math.random() - 0.5) * 0.06, vy: (Math.random() - 0.5) * 0.08, a: Math.random() * 0.4 + 0.08, p: Math.random() * Math.PI * 2, ps: Math.random() * 0.015 + 0.005 });
+  }
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+    pts.forEach(p => {
+      p.p += p.ps;
+      const alpha = p.a * (0.6 + 0.4 * Math.sin(p.p));
+      ctx.beginPath();
+      ctx.arc(p.x * W, p.y * H, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,120,50,${alpha})`;
+      ctx.fill();
+      p.x += p.vx / W * 50;
+      p.y += p.vy / H * 50;
+      if (p.x < -0.02) p.x = 1.02;
+      if (p.x > 1.02) p.x = -0.02;
+      if (p.y < -0.02) p.y = 1.02;
+      if (p.y > 1.02) p.y = -0.02;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── iStaging 展間 iframe 載入提示 ──
+(function(){
+  const frame = document.getElementById('istFrame');
+  if (!frame) return;
+  const area = document.getElementById('istFrameArea');
+  const loadingEl = document.createElement('div');
+  loadingEl.style.cssText = 'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#F0FDFB;z-index:3;';
+  loadingEl.innerHTML = '<div style="text-align:center;"><div style="width:40px;height:40px;border:3px solid rgba(0,137,123,.15);border-top-color:#00897B;border-radius:50%;animation:spinSlow 1s linear infinite;margin:0 auto 14px;"></div><p style="font-size:11px;color:rgba(0,105,92,.5);letter-spacing:2px;">虛擬展間載入中…</p></div>';
+  if (area) area.appendChild(loadingEl);
+  frame.addEventListener('load', () => { loadingEl.style.opacity = '0'; setTimeout(() => loadingEl.remove(), 400); });
+})();
+
+// ── Hero panel 3D 視差 ──
+const fhScene = document.getElementById('fhScene');
+if (fhScene) {
+  document.getElementById('fs-hero').addEventListener('mousemove', e => {
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+    const rx = -(e.clientY - cy) / cy * 6;
+    const ry = (e.clientX - cx) / cx * 8;
+    fhScene.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+  });
+  document.getElementById('fs-hero').addEventListener('mouseleave', () => {
+    fhScene.style.transform = 'rotateX(0) rotateY(0)';
+  });
+}
+
+// ── 原料產地虛擬導覽選擇 ──
+const ORIGIN_DATA = [
+  {
+    title:  '原料產地導覽 — 南投仁愛鄉 · 核心產區',
+    zone:   'ZONE 01 · 海拔 1,200–2,500m',
+    desc:   '台灣牛樟木最密集的分布區域，原始森林覆蓋率高，特殊的溫帶氣候孕育出三萜類含量最高的野生牛樟芝，是耀德頂級系列的核心原料來源。',
+    season: '採集季節：4月 – 10月'
+  },
+  {
+    title:  '原料產地導覽 — 嘉義阿里山 · 有機復育區',
+    zone:   'ZONE 02 · 海拔 1,000–2,000m',
+    desc:   '耀德自建的牛樟木復育基地，採用有機農法嚴格管理，段木栽培技術模擬野生環境，確保每批次原料的成分穩定性與可追溯性。',
+    season: '全年採收（段木栽培，品質穩定）'
+  },
+  {
+    title:  '原料產地導覽 — 台東太麻里 · 珍稀野生區',
+    zone:   'ZONE 03 · 海拔 800–1,800m',
+    desc:   '台灣東部獨特的海洋型氣候，日夜溫差大，造就多醣體含量特別豐富的牛樟芝。耀德與當地原住民部落合作，採用永續採集方式，守護生態平衡。',
+    season: '採集季節：5月 – 9月'
+  }
+];
+function selectOriginVr(idx) {
+  const d = ORIGIN_DATA[idx];
+  const titleEl = document.getElementById('originVrTitle');
+  const zoneEl  = document.getElementById('originVrZone');
+  const descEl  = document.getElementById('originVrDesc');
+  if (titleEl) titleEl.textContent = d.title;
+  if (zoneEl)  zoneEl.innerHTML = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>${d.zone}`;
+  if (descEl)  descEl.innerHTML = `${d.desc}<em style="color:var(--cyber);margin-left:8px;">${d.season}</em>`;
+  document.querySelectorAll('.origin-tab').forEach((t, i) => t.classList.toggle('active', i === idx));
+  document.querySelectorAll('.origin-map-pin').forEach((p, i) => {
+    p.classList.toggle('visible', i === idx);
+  });
+}
+// 初始化：顯示第一個產地標記
+document.addEventListener('DOMContentLoaded', () => {
+  const pins = document.querySelectorAll('.origin-map-pin');
+  if (pins.length) pins[0].classList.add('visible');
+});
+
+// ── GMP 工廠製程選擇 ──
+const FACTORY_DATA = [
+  { title: 'GMP 工廠導覽 — 01 · 原料進料區',    zone: 'GMP 認證製程 · ZONE 01', desc: '所有入廠原料必須附具 SGS 檢驗報告，經品管部門逐批檢驗合格後方可入庫使用。' },
+  { title: 'GMP 工廠導覽 — 02 · 前處理清洗室',  zone: 'GMP 認證製程 · ZONE 02', desc: '正壓無塵環境，多道程序清洗原料，確保無雜質、無重金屬殘留。' },
+  { title: 'GMP 工廠導覽 — 03 · 低溫萃取室',    zone: 'GMP 認證製程 · ZONE 03', desc: '耀德專利低溫萃取工藝，在 40°C 以下進行雙重水醇萃取，完整保留三萜類及多醣體活性。' },
+  { title: 'GMP 工廠導覽 — 04 · 濃縮精製區',    zone: 'GMP 認證製程 · ZONE 04', desc: '真空低溫濃縮技術，將活性成分高倍濃縮，去除水分同時保留全部功效成分。' },
+  { title: 'GMP 工廠導覽 — 05 · 品管檢驗室',    zone: 'GMP 認證製程 · ZONE 05', desc: '配備高效液相色譜儀（HPLC）等先進設備，每批成品進行三萜類、多醣體含量精確定量。' },
+  { title: 'GMP 工廠導覽 — 06 · 無菌充填線',    zone: 'GMP 認證製程 · ZONE 06', desc: 'Class 100,000 潔淨室，全自動充填封裝，杜絕二次污染，確保每顆膠囊的純淨品質。' },
+  { title: 'GMP 工廠導覽 — 07 · 恆溫成品倉儲',  zone: 'GMP 認證製程 · ZONE 07', desc: '恆溫恆濕倉儲環境（18°C / 45% RH），確保成品在出廠前維持最佳品質狀態。' }
+];
+function selectFactoryVr(idx) {
+  const d = FACTORY_DATA[idx];
+  const titleEl = document.getElementById('factoryVrTitle');
+  const zoneEl  = document.getElementById('factoryVrZone');
+  const descEl  = document.getElementById('factoryVrDesc');
+  if (titleEl) titleEl.textContent = d.title;
+  if (zoneEl)  zoneEl.innerHTML = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>${d.zone}`;
+  if (descEl)  descEl.textContent = d.desc;
+  document.querySelectorAll('.factory-tab').forEach((t, i) => t.classList.toggle('active', i === idx));
+  document.querySelectorAll('.fpb-item').forEach((p, i) => p.classList.toggle('active', i === idx));
+}
+
+// ── AI 健康推薦 ──
+let aiGoal = null, aiAge = null;
+const PRODUCTS = {
+  immune: {
+    young: [
+      { name: '菌絲體日常保健膠囊', cat: '日常保健', desc: '豐富多醣體，長期補充免疫基礎。', img: 'https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=400&q=80', match: '98% 符合' },
+      { name: '液態萃取精華', cat: '萃取精華', desc: '雙重萃取，快速啟動免疫反應。', img: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80', match: '95% 符合' },
+    ],
+    mid: [
+      { name: '頂級牛樟芝子實體膠囊', cat: '頂級系列', desc: '三萜類 15%，深層免疫全面提升。', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80', match: '99% 符合' },
+      { name: '菌絲體日常保健膠囊', cat: '日常保健', desc: '搭配頂級膠囊使用，效果加倍。', img: 'https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=400&q=80', match: '94% 符合' },
+    ],
+    senior: [
+      { name: '頂級牛樟芝子實體膠囊', cat: '頂級系列', desc: '最高規格三萜類，熟齡免疫首選。', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80', match: '99% 符合' },
+      { name: '液態萃取精華', cat: '萃取精華', desc: '吸收快速，適合消化機能退化族群。', img: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80', match: '96% 符合' },
+    ]
+  },
+  liver: {
+    young: [
+      { name: '菌絲體日常保健膠囊', cat: '日常保健', desc: '輕柔護肝，適合社交應酬頻繁族群。', img: 'https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=400&q=80', match: '96% 符合' },
+      { name: '液態萃取精華', cat: '萃取精華', desc: '高濃度萃取，護肝效果快速顯現。', img: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80', match: '94% 符合' },
+    ],
+    mid: [
+      { name: '頂級牛樟芝子實體膠囊', cat: '頂級系列', desc: '三萜類護肝，深層修復肝臟機能。', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80', match: '99% 符合' },
+      { name: '菌絲體日常保健膠囊', cat: '日常保健', desc: '多醣體調節，養肝長期計劃必備。', img: 'https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=400&q=80', match: '95% 符合' },
+    ],
+    senior: [
+      { name: '頂級牛樟芝子實體膠囊', cat: '頂級系列', desc: '最全面的護肝保健，熟齡的最佳選擇。', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80', match: '98% 符合' },
+      { name: '液態萃取精華', cat: '萃取精華', desc: '液態吸收，護肝不傷腸胃。', img: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80', match: '95% 符合' },
+    ]
+  },
+  antiage: {
+    young: [
+      { name: '牛樟葉外泌體標靶精華', cat: '生技保養', desc: '外泌體科技，從細胞層抗老。', img: 'https://images.unsplash.com/photo-1576086213369-97a306d36557?w=400&q=80', match: '99% 符合' },
+      { name: '菌絲體日常保健膠囊', cat: '日常保健', desc: 'SOD 酵素，從內在清除自由基。', img: 'https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=400&q=80', match: '93% 符合' },
+    ],
+    mid: [
+      { name: '牛樟葉外泌體標靶精華', cat: '生技保養', desc: '標靶傳遞，逆齡保養新科技。', img: 'https://images.unsplash.com/photo-1576086213369-97a306d36557?w=400&q=80', match: '98% 符合' },
+      { name: '頂級牛樟芝子實體膠囊', cat: '頂級系列', desc: '三萜類 + SOD 全方位抗氧化。', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80', match: '97% 符合' },
+    ],
+    senior: [
+      { name: '頂級牛樟芝子實體膠囊', cat: '頂級系列', desc: '熟齡最完整的抗氧化複合配方。', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80', match: '99% 符合' },
+      { name: '牛樟葉外泌體標靶精華', cat: '生技保養', desc: '外用搭配內服，抗老加倍有感。', img: 'https://images.unsplash.com/photo-1576086213369-97a306d36557?w=400&q=80', match: '96% 符合' },
+    ]
+  },
+  energy: {
+    young: [
+      { name: '耀德大牛能量氣泡飲', cat: '能量補給', desc: '牛樟芝 + 馬卡 + 紅參，即飲即活力。', img: 'images/BigBull/BigBull_4.png', match: '99% 符合' },
+      { name: '液態萃取精華', cat: '萃取精華', desc: '運動前補充，持久爆發力來源。', img: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80', match: '94% 符合' },
+    ],
+    mid: [
+      { name: '耀德大牛能量氣泡飲', cat: '能量補給', desc: '提神抗疲勞，中年體力維持最佳選。', img: 'images/BigBull/BigBull_4.png', match: '97% 符合' },
+      { name: '菌絲體日常保健膠囊', cat: '日常保健', desc: '多醣體調節，讓活力從根本恢復。', img: 'https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=400&q=80', match: '93% 符合' },
+    ],
+    senior: [
+      { name: '液態萃取精華', cat: '萃取精華', desc: '吸收好，體力自然回來。', img: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80', match: '96% 符合' },
+      { name: '頂級牛樟芝子實體膠囊', cat: '頂級系列', desc: '深層調補，找回年輕活力。', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80', match: '95% 符合' },
+    ]
+  },
+  sugar: {
+    young: [
+      { name: '93國認證苦瓜胜肽', cat: '日常保健', desc: '93國認證，控糖科學首選。', img: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=80', match: '99% 符合' },
+      { name: '菌絲體日常保健膠囊', cat: '日常保健', desc: '搭配使用，多醣體協助代謝調節。', img: 'https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=400&q=80', match: '88% 符合' },
+    ],
+    mid: [
+      { name: '93國認證苦瓜胜肽', cat: '日常保健', desc: '專利苦瓜胜肽，維持正常糖代謝。', img: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=80', match: '99% 符合' },
+      { name: '頂級牛樟芝子實體膠囊', cat: '頂級系列', desc: '全面調理，協助維持健康體態。', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80', match: '90% 符合' },
+    ],
+    senior: [
+      { name: '93國認證苦瓜胜肽', cat: '日常保健', desc: '溫和有效，銀髮族安心選用。', img: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=80', match: '98% 符合' },
+      { name: '液態萃取精華', cat: '萃取精華', desc: '液態吸收，配合控糖飲食最佳。', img: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80', match: '89% 符合' },
+    ]
+  },
+  skin: {
+    young: [
+      { name: '牛樟葉外泌體標靶精華', cat: '生技保養', desc: '奈米外泌體，直達肌底的保養革命。', img: 'https://images.unsplash.com/photo-1576086213369-97a306d36557?w=400&q=80', match: '99% 符合' },
+      { name: '菌絲體日常保健膠囊', cat: '日常保健', desc: '由內補充，讓肌膚光澤從裡發亮。', img: 'https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=400&q=80', match: '92% 符合' },
+    ],
+    mid: [
+      { name: '牛樟葉外泌體標靶精華', cat: '生技保養', desc: '標靶技術，熟齡肌膚深層修護。', img: 'https://images.unsplash.com/photo-1576086213369-97a306d36557?w=400&q=80', match: '98% 符合' },
+      { name: '頂級牛樟芝子實體膠囊', cat: '頂級系列', desc: '三萜類護膚抗老，從根源改善。', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80', match: '94% 符合' },
+    ],
+    senior: [
+      { name: '牛樟葉外泌體標靶精華', cat: '生技保養', desc: '最溫和的高科技保養，銀髮族適用。', img: 'https://images.unsplash.com/photo-1576086213369-97a306d36557?w=400&q=80', match: '97% 符合' },
+      { name: '頂級牛樟芝子實體膠囊', cat: '頂級系列', desc: '全面調養，讓肌膚由內而外煥發。', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80', match: '95% 符合' },
+    ]
+  }
+};
+
+function selectGoal(el, goal) {
+  document.querySelectorAll('#ai-goals .ai-choice').forEach(c => {
+    c.classList.remove('selected');
+    c.setAttribute('aria-pressed', 'false');
+  });
+  el.classList.add('selected');
+  el.setAttribute('aria-pressed', 'true');
+  aiGoal = goal;
+  document.getElementById('goal-next-btn').style.display = 'inline-flex';
+}
+
+function selectAge(el, age) {
+  document.querySelectorAll('#ai-ages .ai-choice').forEach(c => {
+    c.classList.remove('selected');
+    c.setAttribute('aria-pressed', 'false');
+  });
+  el.classList.add('selected');
+  el.setAttribute('aria-pressed', 'true');
+  aiAge = age;
+  document.getElementById('age-next-btn').style.display = 'inline-flex';
+}
+
+function goToStep2(e) {
+  e?.preventDefault();
+  e?.stopPropagation();
+  setStep(2);
+}
+function goToStep1(e) {
+  e?.preventDefault();
+  e?.stopPropagation();
+  setStep(1);
+}
+
+function lockAIWrapPosition() {
+  const section = document.getElementById('ai-recommend');
+  if (!section) return;
+  const top = section.getBoundingClientRect().top + window.scrollY - getScrollOffset();
+  window.scrollTo(0, Math.max(0, top));
+}
+
+function setStep(n) {
+  if (document.activeElement instanceof HTMLElement) {
+    document.activeElement.blur();
+  }
+
+  document.querySelectorAll('.ai-panel').forEach((p, i) => {
+    const active = i === n - 1;
+    p.classList.toggle('active', active);
+    p.setAttribute('aria-hidden', active ? 'false' : 'true');
+    p.querySelectorAll('.ai-choice[role="button"]').forEach(choice => {
+      choice.tabIndex = active ? 0 : -1;
+    });
+  });
+  document.querySelectorAll('.ai-step-indicator').forEach((s, i) => {
+    s.classList.remove('active', 'done');
+    if (i < n - 1) s.classList.add('done');
+    if (i === n - 1) s.classList.add('active');
+  });
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(lockAIWrapPosition);
+  });
+}
+
+function showResults(e) {
+  e?.preventDefault();
+  e?.stopPropagation();
+  if (!aiGoal || !aiAge) return;
+  const prods = (PRODUCTS[aiGoal] || {})[aiAge] || [];
+  const grid = document.getElementById('ai-result-grid');
+  grid.innerHTML = prods.map(p => `
+    <div class="ai-prod-card">
+      <img src="${p.img}" alt="${p.name}" class="ai-prod-img">
+      <span class="ai-match">${p.match}</span>
+      <div class="ai-prod-body">
+        <p style="font-size:10px;letter-spacing:3px;color:var(--gold);margin-bottom:4px;">${p.cat}</p>
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <a href="shop.html" class="ai-prod-link">立即購買 <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M8 3l5 5-5 5"/></svg></a>
+      </div>
+    </div>
+  `).join('');
+  setStep(3);
+}
+
+function resetAI() {
+  aiGoal = null; aiAge = null;
+  document.querySelectorAll('.ai-choice').forEach(c => {
+    c.classList.remove('selected');
+    c.setAttribute('aria-pressed', 'false');
+  });
+  document.getElementById('goal-next-btn').style.display = 'none';
+  document.getElementById('age-next-btn').style.display = 'none';
+  setStep(1);
+}
+
+// ── AI 推薦圖卡：觸控／點擊選取 ──
+(function() {
+  function bindChoice(choice, activate) {
+    choice.addEventListener('click', activate);
+    choice.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        activate();
+      }
+    });
+  }
+  document.querySelectorAll('#ai-goals .ai-choice[data-goal]').forEach(choice => {
+    bindChoice(choice, () => selectGoal(choice, choice.dataset.goal));
+  });
+  document.querySelectorAll('#ai-ages .ai-choice[data-age]').forEach(choice => {
+    bindChoice(choice, () => selectAge(choice, choice.dataset.age));
+  });
+  document.querySelectorAll('.ai-panel').forEach((p, i) => {
+    const active = i === 0;
+    p.setAttribute('aria-hidden', active ? 'false' : 'true');
+    p.querySelectorAll('.ai-choice[role="button"]').forEach(choice => {
+      choice.tabIndex = active ? 0 : -1;
+    });
+  });
+})();
+
+// ── 倒數計時器 ──
+function updateCountdown() {
+  const target = new Date('2026-06-20T20:00:00+08:00');
+  const now = new Date();
+  let diff = Math.max(0, target - now);
+  const d = Math.floor(diff / 86400000); diff -= d * 86400000;
+  const h = Math.floor(diff / 3600000); diff -= h * 3600000;
+  const m = Math.floor(diff / 60000); diff -= m * 60000;
+  const s = Math.floor(diff / 1000);
+  document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+  document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+  document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+  document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ── Back to Top ──
+(function(){
+  const b = document.getElementById('backTop');
+  if (!b) return;
+  window.addEventListener('scroll', () => {
+    const s = window.scrollY > 300;
+    b.style.opacity = s ? '1' : '0';
+    b.style.visibility = s ? 'visible' : 'hidden';
+    b.style.transform = s ? 'translateY(0)' : 'translateY(12px)';
+  }, { passive: true });
+})();
+
+
+// ── 導覽點隨捲動高亮 ──
+const sections = ['fs-hero','fs-istaging','fs-founder','fs-ingredients','fs-origin','fs-factory','ai-recommend','fs-live','fs-shop'];
+const dots = document.querySelectorAll('.fh-dot');
+const dotSo = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const idx = sections.indexOf(e.target.id);
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(id => { const el = document.getElementById(id); if (el) dotSo.observe(el); });
+</script>
+
+<script src="analytics.js" defer></script>
+</body>
+</html>
+

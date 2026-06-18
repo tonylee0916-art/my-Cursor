@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>健康方案中心 — 個人化牛樟芝保健組合 | 耀德植研生醫</title>
+  <meta name="description" content="耀德植研生醫四大健康方案：熬夜修復、高壓工作、熟齡保養、運動恢復。結合 AI 推薦的個人化 Bundle 組合，搭配月訂計畫享 9 折優惠。">
+  <meta name="keywords" content="牛樟芝方案,熬夜修復,高壓保健,熟齡保養,運動恢復,Bundle推薦,月訂計畫">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "耀德植研生醫健康方案",
+    "description": "針對不同生活型態設計的牛樟芝保健組合方案",
+    "numberOfItems": 4,
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"熬夜修復方案"},
+      {"@type":"ListItem","position":2,"name":"高壓工作方案"},
+      {"@type":"ListItem","position":3,"name":"熟齡保養方案"},
+      {"@type":"ListItem","position":4,"name":"運動恢復方案"}
+    ]
+  }
+  </script>
+  <style>
+    /* ── Page hero ── */
+    .wl-hero {
+      min-height: 480px;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      background: var(--deep);
+      padding: calc(var(--nav-h) + 60px) 64px 80px;
+    }
+    .wl-hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1800&q=40') center/cover no-repeat;
+      opacity: .06;
+    }
+    .wl-hero-grad {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(5,22,15,.97), rgba(0,42,30,.88) 60%, rgba(5,22,15,.97));
+    }
+    .wl-hero-inner { position: relative; z-index: 2; max-width: 860px; }
+    .wl-hero-tag {
+      font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+      color: #00C9A0; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .wl-hero-tag::before { content: ''; width: 28px; height: 1.5px; background: #00C9A0; }
+    .wl-hero h1 {
+      font-size: clamp(32px,5vw,60px); font-weight: 900; color: #fff; line-height: 1.15;
+      font-family: 'Noto Sans TC', sans-serif;
+      margin-bottom: 20px;
+    }
+    .wl-hero h1 em { color: #FFCA28; font-style: normal; }
+    .wl-hero-desc { font-size: 16px; color: rgba(255,255,255,.6); line-height: 1.85; max-width: 600px; margin-bottom: 36px; }
+    .wl-hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn-wl-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 32px; min-height: 52px;
+      background: linear-gradient(135deg, #FFCA28, #FFB300);
+      color: #071C12; font-weight: 700; font-size: 15px;
+      border-radius: 40px; text-decoration: none; transition: all .2s;
+      border: none; cursor: pointer; font-family: inherit;
+    }
+    .btn-wl-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,202,40,.35); }
+    .btn-wl-outline {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 28px; min-height: 52px;
+      border: 1.5px solid rgba(0,201,160,.4); color: #fff; font-size: 14px;
+      border-radius: 40px; text-decoration: none; transition: all .2s;
+      font-weight: 600;
+    }
+    .btn-wl-outline:hover { border-color: #00E5CC; color: #00E5CC; }
+
+    /* ── Plan tabs ── */
+    .wl-tabs-wrap {
+      position: sticky; top: var(--nav-h);
+      background: rgba(4,14,9,.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      z-index: 50; padding: 0 64px;
+    }
+    .wl-tabs {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; gap: 4px; overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .wl-tabs::-webkit-scrollbar { display: none; }
+    .wl-tab {
+      flex-shrink: 0;
+      display: flex; align-items: center; gap: 8px;
+      padding: 16px 22px;
+      background: none; border: none; border-bottom: 2px solid transparent;
+      color: rgba(255,255,255,.45); font-size: 13px; font-weight: 600;
+      cursor: pointer; transition: all .2s;
+      font-family: inherit; text-decoration: none;
+    }
+    .wl-tab:hover { color: rgba(255,255,255,.8); }
+    .wl-tab.active { color: #00C9A0; border-bottom-color: #00C9A0; }
+    .wl-tab-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ── Plan sections ── */
+    .wl-plan {
+      padding: 100px 64px;
+      scroll-margin-top: calc(var(--nav-h) + 60px);
+    }
+    .wl-plan:nth-child(odd) { background: var(--deep); }
+    .wl-plan:nth-child(even) { background: #021209; }
+
+    .wl-plan-inner { max-width: 1200px; margin: 0 auto; }
+    .wl-plan-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-bottom: 60px; }
+    .wl-plan-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 18px; border-radius: 20px;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      margin-bottom: 18px; border: 1px solid;
+    }
+    .wl-plan-badge.night { background: rgba(99,102,241,.12); border-color: rgba(99,102,241,.3); color: #a5b4fc; }
+    .wl-plan-badge.stress { background: rgba(239,68,68,.1); border-color: rgba(239,68,68,.25); color: #fca5a5; }
+    .wl-plan-badge.longevity { background: rgba(255,202,40,.1); border-color: rgba(255,202,40,.25); color: #FFCA28; }
+    .wl-plan-badge.sport { background: rgba(34,197,94,.1); border-color: rgba(34,197,94,.25); color: #86efac; }
+
+    .wl-plan-title { font-size: clamp(26px,3.5vw,42px); font-weight: 900; color: #fff; margin-bottom: 16px; font-family: 'Noto Sans TC', sans-serif; }
+    .wl-plan-desc { font-size: 15px; color: rgba(255,255,255,.6); line-height: 1.85; margin-bottom: 24px; }
+    .wl-who {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px;
+    }
+    .wl-who-tag {
+      padding: 5px 12px; border-radius: 20px;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+      font-size: 12px; color: rgba(255,255,255,.6);
+    }
+    .wl-benefits { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+    .wl-benefits li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: rgba(255,255,255,.7); }
+    .wl-benefits li::before { content: '✓'; color: #00C9A0; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── Bundle card ── */
+    .wl-bundle {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px; overflow: hidden;
+    }
+    .wl-bundle-head {
+      padding: 20px 24px;
+      background: rgba(255,255,255,.03);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .wl-bundle-head h4 { font-size: 14px; font-weight: 700; color: #fff; }
+    .wl-bundle-head span { font-size: 12px; color: rgba(255,255,255,.4); }
+    .wl-bundle-items { padding: 20px 24px; display: flex; flex-direction: column; gap: 12px; }
+    .wl-bundle-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,.03);
+      border-radius: 10px; border: 1px solid rgba(255,255,255,.06);
+    }
+    .wl-bundle-item.featured { border-color: rgba(255,202,40,.2); background: rgba(255,202,40,.04); }
+    .wl-bundle-thumb { width: 52px; height: 52px; object-fit: contain; border-radius: 6px; background: rgba(0,0,0,.3); flex-shrink: 0; }
+    .wl-bundle-info { flex: 1; }
+    .wl-bundle-role { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 3px; }
+    .wl-bundle-name { font-size: 14px; font-weight: 600; color: #fff; }
+    .wl-bundle-qty { font-size: 12px; color: rgba(255,255,255,.4); }
+    .wl-bundle-price { font-size: 15px; font-weight: 700; color: #FFCA28; flex-shrink: 0; }
+
+    .wl-bundle-footer { padding: 18px 24px; border-top: 1px solid rgba(255,255,255,.06); }
+    .wl-price-row {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 14px;
+    }
+    .wl-total-label { font-size: 13px; color: rgba(255,255,255,.5); }
+    .wl-total-price { font-size: 22px; font-weight: 900; color: #FFCA28; }
+    .wl-save { font-size: 12px; color: #00C9A0; }
+    .wl-bundle-ctas { display: flex; gap: 8px; }
+    .btn-add-all {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 20px; min-height: 48px;
+      background: linear-gradient(135deg, #FFCA28, #FFB300);
+      color: #071C12; font-size: 14px; font-weight: 700;
+      border: none; border-radius: 10px; cursor: pointer; transition: all .2s;
+      font-family: inherit;
+    }
+    .btn-add-all:hover { filter: brightness(1.08); transform: translateY(-1px); }
+    .btn-monthly {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 13px 18px; min-height: 48px;
+      background: transparent;
+      border: 1.5px solid rgba(0,201,160,.4); color: #fff;
+      font-size: 13px; font-weight: 600;
+      border-radius: 10px; cursor: pointer; transition: all .2s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .btn-monthly:hover { border-color: #00E5CC; color: #00E5CC; }
+    .monthly-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: rgba(0,201,160,.12); border: 1px solid rgba(0,201,160,.2);
+      padding: 3px 10px; border-radius: 10px; font-size: 10px; color: #00C9A0;
+      font-weight: 700; letter-spacing: 1px; margin-top: 10px;
+    }
+
+    /* ── Comparison table ── */
+    .wl-compare { max-width: 1200px; margin: 0 auto; padding: 100px 64px 80px; }
+    .wl-compare h2 { font-size: clamp(24px,3vw,36px); font-weight: 900; color: #fff; text-align: center; margin-bottom: 8px; font-family: 'Noto Sans TC', sans-serif; }
+    .wl-compare-sub { text-align: center; color: rgba(255,255,255,.5); font-size: 15px; margin-bottom: 48px; }
+    .compare-table { width: 100%; border-collapse: collapse; }
+    .compare-table th { padding: 16px; text-align: center; background: rgba(255,255,255,.04); color: rgba(255,255,255,.7); font-size: 13px; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .compare-table th:first-child { text-align: left; }
+    .compare-table th.highlight { background: rgba(255,202,40,.08); color: #FFCA28; }
+    .compare-table td { padding: 14px 16px; text-align: center; font-size: 13px; color: rgba(255,255,255,.6); border-bottom: 1px solid rgba(255,255,255,.04); }
+    .compare-table td:first-child { text-align: left; font-weight: 600; color: rgba(255,255,255,.8); }
+    .compare-table td.highlight { background: rgba(255,202,40,.04); }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .check { color: #00C9A0; font-size: 16px; }
+    .dash { color: rgba(255,255,255,.2); }
+
+    /* ── Subscribe section ── */
+    .wl-subscribe {
+      background: linear-gradient(135deg, rgba(0,42,30,.9), rgba(0,137,123,.15));
+      border-top: 1px solid rgba(0,201,160,.1);
+      border-bottom: 1px solid rgba(0,201,160,.1);
+      padding: 80px 64px;
+    }
+    .wl-subscribe-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: center; }
+    .wl-subscribe h2 { font-size: clamp(24px,3vw,36px); font-weight: 900; color: #fff; margin-bottom: 14px; font-family: 'Noto Sans TC', sans-serif; }
+    .wl-subscribe h2 em { color: #00C9A0; font-style: normal; }
+    .wl-subscribe p { font-size: 15px; color: rgba(255,255,255,.6); line-height: 1.8; margin-bottom: 28px; }
+    .wl-sub-perks { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 0; }
+    .wl-sub-perk {
+      display: flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: 20px;
+      background: rgba(0,201,160,.1); border: 1px solid rgba(0,201,160,.2);
+      font-size: 12px; color: rgba(255,255,255,.75);
+    }
+    .wl-sub-perk::before { content: '✓'; color: #00C9A0; font-weight: 700; }
+    .wl-sub-price-card {
+      background: rgba(0,0,0,.4); border: 1px solid rgba(0,201,160,.2);
+      border-radius: 16px; padding: 28px 24px; text-align: center;
+      min-width: 200px;
+    }
+    .wl-sub-price-tag { font-size: 11px; letter-spacing: 2px; color: #00C9A0; margin-bottom: 12px; }
+    .wl-sub-amount { font-size: 36px; font-weight: 900; color: #fff; line-height: 1; }
+    .wl-sub-amount span { font-size: 14px; color: rgba(255,255,255,.5); display: block; margin-top: 4px; font-weight: 400; }
+    .wl-sub-orig { font-size: 13px; color: rgba(255,255,255,.3); text-decoration: line-through; margin: 8px 0; }
+    .wl-sub-discount { font-size: 12px; color: #FFCA28; margin-bottom: 16px; }
+
+    /* ── FAQ ── */
+    .wl-faq-wrap { max-width: 800px; margin: 0 auto; padding: 80px 64px; }
+    .wl-faq-wrap h2 { font-size: clamp(22px,3vw,32px); font-weight: 900; color: #fff; text-align: center; margin-bottom: 40px; font-family: 'Noto Sans TC', sans-serif; }
+    .wl-faq-item { border-bottom: 1px solid rgba(255,255,255,.08); }
+    .wl-faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 0; cursor: pointer;
+      color: #fff; font-size: 15px; font-weight: 600;
+      background: none; border: none; width: 100%; text-align: left;
+      font-family: inherit; gap: 12px;
+    }
+    .wl-faq-q svg { flex-shrink: 0; transition: transform .3s; color: rgba(255,255,255,.4); }
+    .wl-faq-item.open .wl-faq-q svg { transform: rotate(180deg); color: #00C9A0; }
+    .wl-faq-a { overflow: hidden; max-height: 0; transition: max-height .4s ease; }
+    .wl-faq-a p { font-size: 14px; color: rgba(255,255,255,.6); line-height: 1.85; padding-bottom: 20px; }
+
+    /* ── AI quiz CTA ── */
+    .wl-ai-cta {
+      text-align: center; padding: 80px 64px;
+      background: var(--deep);
+    }
+    .wl-ai-cta-inner { max-width: 640px; margin: 0 auto; }
+    .wl-ai-cta-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 20px;
+      background: rgba(0,201,160,.1); border: 1px solid rgba(0,201,160,.2);
+      font-size: 11px; letter-spacing: 2px; color: #00C9A0;
+      font-weight: 700; margin-bottom: 20px;
+    }
+    .wl-ai-cta h2 { font-size: clamp(24px,3.5vw,36px); font-weight: 900; color: #fff; margin-bottom: 12px; font-family: 'Noto Sans TC', sans-serif; }
+    .wl-ai-cta p { color: rgba(255,255,255,.55); font-size: 15px; margin-bottom: 32px; line-height: 1.7; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .wl-plan-header { grid-template-columns: 1fr; gap: 40px; }
+      .wl-subscribe-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .wl-hero, .wl-plan, .wl-compare, .wl-subscribe, .wl-faq-wrap, .wl-ai-cta { padding-left: 20px; padding-right: 20px; }
+      .wl-tabs-wrap { padding: 0 12px; }
+      .wl-bundle-ctas { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="nav" class="solid">
+  <a href="index.html" class="logo"><img src="images/logo/LOGO_4.png" alt="" class="logo-icon-img"><img src="images/logo/LOGO_5.png" alt="耀德植研生醫 YAODER BIOMEDICAL" class="logo-wordmark-img"></a>
+  <nav class="nav-menu">
+    <div class="nav-item"><a href="index.html" class="nav-link">首頁</a></div>
+    <div class="nav-item"><a href="about.html" class="nav-link">關於耀德 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="about.html#philosophy">品牌理念與願景</a><a href="about.html#rd">核心研發策略</a><a href="about.html#history">公司沿革</a><a href="about.html#certs">認證資質</a></div></div>
+    <div class="nav-item"><a href="antrodia.html" class="nav-link">認識牛樟芝 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="antrodia.html#intro">牛樟芝簡介</a><a href="antrodia.html#ingredients">活性物成分</a><a href="antrodia.html#research">科學研究</a></div></div>
+    <div class="nav-item"><a href="products.html" class="nav-link">產品介紹 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="product-bigbull.html">能量補給</a><a href="product-premium.html">頂級系列</a><a href="product-daily.html">日常保健</a><a href="product-extract.html">萃取精華</a><a href="shop.html">購物商城</a></div></div>
+    <div class="nav-item"><a href="wellness.html" class="nav-link active">健康方案</a></div>
+    <div class="nav-item"><a href="news.html" class="nav-link">新聞中心</a></div>
+    <div class="nav-item"><a href="contact.html" class="nav-link">聯絡我們</a></div>
+    <div class="nav-item"><a href="flagship.html" class="nav-link nav-flagship"><span class="flagship-dot"></span>健康生活館</a></div>
+    <div class="nav-divider"></div>
+    <div class="nav-item"><a href="member.html" class="nav-link nav-member">加入會員</a></div>
+    <div class="nav-item"><a href="login.html" class="nav-link nav-login">登入</a></div>
+  </nav>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</header>
+<div class="mobile-menu" id="mobMenu">
+  <span class="close-btn" onclick="toggleMenu()">×</span>
+  <a href="index.html" onclick="toggleMenu()">首頁</a>
+  <a href="products.html" onclick="toggleMenu()">產品介紹</a>
+  <a href="wellness.html" onclick="toggleMenu()">健康方案</a>
+  <a href="quiz.html" onclick="toggleMenu()" style="color:var(--cyber)!important;">AI 健康分析</a>
+  <a href="flagship.html" onclick="toggleMenu()" style="color:var(--cyber)!important;">健康生活館</a>
+  <div class="mob-btns"><a href="member.html">加入會員</a><a href="login.html" class="gold-btn">登入</a></div>
+</div>
+
+<!-- HERO -->
+<section class="wl-hero">
+  <div class="wl-hero-bg"></div>
+  <div class="wl-hero-grad"></div>
+  <div class="wl-hero-inner">
+    <div class="wl-hero-tag">Wellness Solutions · 健康方案中心</div>
+    <h1>為你的<em>生活型態</em><br>量身設計的保健方案</h1>
+    <p class="wl-hero-desc">不同的壓力、作息、年齡需要不同的保健策略。耀德四大健康方案結合 AI 分析，讓你找到最適合自己的牛樟芝組合，並以月訂方式輕鬆持續保健。</p>
+    <div class="wl-hero-ctas">
+      <a href="quiz.html" class="btn-wl-primary" data-track-cta="wellness_hero_quiz">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        3 分鐘 AI 健康分析
+      </a>
+      <a href="#night" class="btn-wl-outline" data-track-cta="wellness_hero_browse">瀏覽所有方案 ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY TABS -->
+<div class="wl-tabs-wrap">
+  <div class="wl-tabs">
+    <a class="wl-tab" href="#night" data-tab="night"><span class="wl-tab-dot" style="background:#a5b4fc;"></span>熬夜修復</a>
+    <a class="wl-tab" href="#stress" data-tab="stress"><span class="wl-tab-dot" style="background:#fca5a5;"></span>高壓工作</a>
+    <a class="wl-tab" href="#longevity" data-tab="longevity"><span class="wl-tab-dot" style="background:#FFCA28;"></span>熟齡保養</a>
+    <a class="wl-tab" href="#sport" data-tab="sport"><span class="wl-tab-dot" style="background:#86efac;"></span>運動恢復</a>
+    <a class="wl-tab" href="#compare" data-tab="compare">方案比較</a>
+    <a class="wl-tab" href="quiz.html" style="color:#00C9A0;margin-left:auto;" data-track-cta="wellness_tab_quiz">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      讓 AI 幫我選
+    </a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ -->
+<!-- 方案一：熬夜修復 -->
+<!-- ══════════════════════════════ -->
+<section class="wl-plan" id="night">
+  <div class="wl-plan-inner">
+    <div class="wl-plan-header">
+      <div>
+        <div class="wl-plan-badge night">🌙 NIGHT RECOVERY · 熬夜修復</div>
+        <h2 class="wl-plan-title">熬夜修復<br>深層方案</h2>
+        <p class="wl-plan-desc">長期熬夜讓身體無法完成應有的修復循環。耀德超臨界萃取精華以舌下直達吸收，搭配大牛能量氣泡飲在白天快速喚醒，讓你在有限的睡眠時間裡提升修復效率。</p>
+        <div class="wl-who">
+          <span class="wl-who-tag">夜間工作者</span><span class="wl-who-tag">輪班族</span>
+          <span class="wl-who-tag">學生備考族</span><span class="wl-who-tag">新手父母</span>
+        </div>
+        <ul class="wl-benefits">
+          <li>牛樟芝三萜類提升深層修復效率</li>
+          <li>SOD 超氧化物歧化酵素清除自由基</li>
+          <li>熬夜後的早晨快速恢復精神</li>
+          <li>降低長期作息不規律對肝臟的負擔</li>
+        </ul>
+      </div>
+      <div class="wl-bundle">
+        <div class="wl-bundle-head">
+          <h4>熬夜修復 Bundle</h4>
+          <span>最受歡迎 · 共 2 項</span>
+        </div>
+        <div class="wl-bundle-items">
+          <div class="wl-bundle-item featured">
+            <img class="wl-bundle-thumb" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=120&q=60" alt="超臨界液態萃取精華" loading="lazy">
+            <div class="wl-bundle-info">
+              <div class="wl-bundle-role">深層修復核心</div>
+              <div class="wl-bundle-name">超臨界液態萃取精華</div>
+              <div class="wl-bundle-qty">30mL × 1 瓶 / 月</div>
+            </div>
+            <div class="wl-bundle-price">NT$4,800</div>
+          </div>
+          <div class="wl-bundle-item">
+            <img class="wl-bundle-thumb" src="images/BigBull/BigBull_4.png" alt="耀德大牛能量氣泡飲" loading="lazy">
+            <div class="wl-bundle-info">
+              <div class="wl-bundle-role">日間能量補充</div>
+              <div class="wl-bundle-name">耀德大牛能量氣泡飲</div>
+              <div class="wl-bundle-qty">30 罐 × 1 箱 / 月</div>
+            </div>
+            <div class="wl-bundle-price">NT$3,096</div>
+          </div>
+        </div>
+        <div class="wl-bundle-footer">
+          <div class="wl-price-row">
+            <div>
+              <div class="wl-total-label">Bundle 定價</div>
+              <div class="wl-total-price">NT$7,896</div>
+            </div>
+            <div class="wl-save">月訂省 NT$790</div>
+          </div>
+          <div class="wl-bundle-ctas">
+            <button class="btn-add-all" onclick="addAll('night')" data-track-cta="bundle_add_all_night">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h1.5l2 8h7l1.5-5H5"/><circle cx="7" cy="13" r="1"/><circle cx="12" cy="13" r="1"/></svg>
+              加入購物車
+            </button>
+            <button class="btn-monthly" onclick="subscribePlan('night')" data-track-cta="bundle_monthly_night">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              月訂 9 折
+            </button>
+          </div>
+          <div class="monthly-badge">月訂可隨時暫停 · 首月免運</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ -->
+<!-- 方案二：高壓工作 -->
+<!-- ══════════════════════════════ -->
+<section class="wl-plan" id="stress">
+  <div class="wl-plan-inner">
+    <div class="wl-plan-header">
+      <div>
+        <div class="wl-plan-badge stress">🔥 HIGH PERFORMANCE · 高壓工作</div>
+        <h2 class="wl-plan-title">高壓工作<br>能量方案</h2>
+        <p class="wl-plan-desc">長期高壓不只耗盡精力，還會悄悄消耗免疫資源。耀德大牛能量氣泡飲提供即時能量，頂級牛樟芝子實體膠囊作為免疫護盾，讓你在高壓衝刺中依然不垮。</p>
+        <div class="wl-who">
+          <span class="wl-who-tag">創業者</span><span class="wl-who-tag">業務主管</span>
+          <span class="wl-who-tag">醫護人員</span><span class="wl-who-tag">專案衝刺期</span>
+        </div>
+        <ul class="wl-benefits">
+          <li>馬卡 × 紅參提供持久能量而非短暫興奮</li>
+          <li>牛樟芝三萜類在高壓環境下守護免疫</li>
+          <li>牛磺酸支援神經系統抗疲勞</li>
+          <li>氣泡形式讓吸收速度比膠囊提升 30%</li>
+        </ul>
+      </div>
+      <div class="wl-bundle">
+        <div class="wl-bundle-head">
+          <h4>高壓工作 Bundle</h4>
+          <span>最高滿意度 · 共 2 項</span>
+        </div>
+        <div class="wl-bundle-items">
+          <div class="wl-bundle-item featured">
+            <img class="wl-bundle-thumb" src="images/BigBull/BigBull_4.png" alt="耀德大牛能量氣泡飲" loading="lazy">
+            <div class="wl-bundle-info">
+              <div class="wl-bundle-role">即時能量補充</div>
+              <div class="wl-bundle-name">耀德大牛能量氣泡飲</div>
+              <div class="wl-bundle-qty">30 罐 × 1 箱 / 月</div>
+            </div>
+            <div class="wl-bundle-price">NT$3,096</div>
+          </div>
+          <div class="wl-bundle-item">
+            <img class="wl-bundle-thumb" src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=120&q=60" alt="頂級牛樟芝子實體膠囊" loading="lazy">
+            <div class="wl-bundle-info">
+              <div class="wl-bundle-role">免疫護盾</div>
+              <div class="wl-bundle-name">頂級牛樟芝子實體膠囊</div>
+              <div class="wl-bundle-qty">60 顆 × 1 瓶 / 月</div>
+            </div>
+            <div class="wl-bundle-price">NT$3,800</div>
+          </div>
+        </div>
+        <div class="wl-bundle-footer">
+          <div class="wl-price-row">
+            <div>
+              <div class="wl-total-label">Bundle 定價</div>
+              <div class="wl-total-price">NT$6,896</div>
+            </div>
+            <div class="wl-save">月訂省 NT$690</div>
+          </div>
+          <div class="wl-bundle-ctas">
+            <button class="btn-add-all" onclick="addAll('stress')" data-track-cta="bundle_add_all_stress">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h1.5l2 8h7l1.5-5H5"/><circle cx="7" cy="13" r="1"/><circle cx="12" cy="13" r="1"/></svg>
+              加入購物車
+            </button>
+            <button class="btn-monthly" onclick="subscribePlan('stress')" data-track-cta="bundle_monthly_stress">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              月訂 9 折
+            </button>
+          </div>
+          <div class="monthly-badge">月訂可隨時暫停 · 首月免運</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ -->
+<!-- 方案三：熟齡保養 -->
+<!-- ══════════════════════════════ -->
+<section class="wl-plan" id="longevity">
+  <div class="wl-plan-inner">
+    <div class="wl-plan-header">
+      <div>
+        <div class="wl-plan-badge longevity">🌿 LONGEVITY · 熟齡保養</div>
+        <h2 class="wl-plan-title">熟齡全方位<br>保養方案</h2>
+        <p class="wl-plan-desc">進入熟齡後，細胞修復速度下降，抗氧化需求上升。超臨界萃取精華完整保留 SOD 抗氧化酵素，配合頂級子實體膠囊高濃度三萜類，是熟齡族群最完整的長期保健組合。</p>
+        <div class="wl-who">
+          <span class="wl-who-tag">46 歲以上</span><span class="wl-who-tag">注重抗老化</span>
+          <span class="wl-who-tag">關節保健需求</span><span class="wl-who-tag">長期保健習慣</span>
+        </div>
+        <ul class="wl-benefits">
+          <li>SOD 抗氧化清除自由基，延緩細胞老化</li>
+          <li>五年段木栽培，三萜類含量業界最高</li>
+          <li>雙管齊下提升生物利用率</li>
+          <li>長期使用免疫調節效益持續累積</li>
+        </ul>
+      </div>
+      <div class="wl-bundle">
+        <div class="wl-bundle-head">
+          <h4>熟齡保養 Bundle</h4>
+          <span>最高回購率 · 共 2 項</span>
+        </div>
+        <div class="wl-bundle-items">
+          <div class="wl-bundle-item featured">
+            <img class="wl-bundle-thumb" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=120&q=60" alt="超臨界液態萃取精華" loading="lazy">
+            <div class="wl-bundle-info">
+              <div class="wl-bundle-role">抗老化核心</div>
+              <div class="wl-bundle-name">超臨界液態萃取精華</div>
+              <div class="wl-bundle-qty">30mL × 1 瓶 / 月</div>
+            </div>
+            <div class="wl-bundle-price">NT$4,800</div>
+          </div>
+          <div class="wl-bundle-item">
+            <img class="wl-bundle-thumb" src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=120&q=60" alt="頂級牛樟芝子實體膠囊" loading="lazy">
+            <div class="wl-bundle-info">
+              <div class="wl-bundle-role">免疫長期維護</div>
+              <div class="wl-bundle-name">頂級牛樟芝子實體膠囊</div>
+              <div class="wl-bundle-qty">60 顆 × 1 瓶 / 月</div>
+            </div>
+            <div class="wl-bundle-price">NT$3,800</div>
+          </div>
+        </div>
+        <div class="wl-bundle-footer">
+          <div class="wl-price-row">
+            <div>
+              <div class="wl-total-label">Bundle 定價</div>
+              <div class="wl-total-price">NT$8,600</div>
+            </div>
+            <div class="wl-save">月訂省 NT$860</div>
+          </div>
+          <div class="wl-bundle-ctas">
+            <button class="btn-add-all" onclick="addAll('longevity')" data-track-cta="bundle_add_all_longevity">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h1.5l2 8h7l1.5-5H5"/><circle cx="7" cy="13" r="1"/><circle cx="12" cy="13" r="1"/></svg>
+              加入購物車
+            </button>
+            <button class="btn-monthly" onclick="subscribePlan('longevity')" data-track-cta="bundle_monthly_longevity">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              月訂 9 折
+            </button>
+          </div>
+          <div class="monthly-badge">月訂可隨時暫停 · 首月免運</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ -->
+<!-- 方案四：運動恢復 -->
+<!-- ══════════════════════════════ -->
+<section class="wl-plan" id="sport">
+  <div class="wl-plan-inner">
+    <div class="wl-plan-header">
+      <div>
+        <div class="wl-plan-badge sport">💪 SPORT RECOVERY · 運動恢復</div>
+        <h2 class="wl-plan-title">運動恢復<br>能量方案</h2>
+        <p class="wl-plan-desc">高強度訓練後，肌肉修復與免疫系統都需要快速補充。大牛能量氣泡飲運動後立即補充，菌絲體日常膠囊作為免疫基底維持，讓你在訓練週期中保持高效狀態。</p>
+        <div class="wl-who">
+          <span class="wl-who-tag">健身愛好者</span><span class="wl-who-tag">馬拉松跑者</span>
+          <span class="wl-who-tag">球類運動者</span><span class="wl-who-tag">體力勞動工作</span>
+        </div>
+        <ul class="wl-benefits">
+          <li>馬卡 × 牛磺酸加速肌肉疲勞清除</li>
+          <li>牛樟芝多醣體調節運動後免疫應激</li>
+          <li>紅參支援氧氣利用效率，提升運動表現</li>
+          <li>日常保健膠囊多醣體豐富，打好免疫基底</li>
+        </ul>
+      </div>
+      <div class="wl-bundle">
+        <div class="wl-bundle-head">
+          <h4>運動恢復 Bundle</h4>
+          <span>年輕族群熱選 · 共 2 項</span>
+        </div>
+        <div class="wl-bundle-items">
+          <div class="wl-bundle-item featured">
+            <img class="wl-bundle-thumb" src="images/BigBull/BigBull_4.png" alt="耀德大牛能量氣泡飲" loading="lazy">
+            <div class="wl-bundle-info">
+              <div class="wl-bundle-role">運動後快速補充</div>
+              <div class="wl-bundle-name">耀德大牛能量氣泡飲</div>
+              <div class="wl-bundle-qty">30 罐 × 1 箱 / 月</div>
+            </div>
+            <div class="wl-bundle-price">NT$3,096</div>
+          </div>
+          <div class="wl-bundle-item">
+            <img class="wl-bundle-thumb" src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=120&q=60" alt="菌絲體日常保健膠囊" loading="lazy">
+            <div class="wl-bundle-info">
+              <div class="wl-bundle-role">免疫基底維護</div>
+              <div class="wl-bundle-name">菌絲體日常保健膠囊</div>
+              <div class="wl-bundle-qty">60 顆 × 1 瓶 / 月</div>
+            </div>
+            <div class="wl-bundle-price">NT$1,800</div>
+          </div>
+        </div>
+        <div class="wl-bundle-footer">
+          <div class="wl-price-row">
+            <div>
+              <div class="wl-total-label">Bundle 定價</div>
+              <div class="wl-total-price">NT$4,896</div>
+            </div>
+            <div class="wl-save">月訂省 NT$490</div>
+          </div>
+          <div class="wl-bundle-ctas">
+            <button class="btn-add-all" onclick="addAll('sport')" data-track-cta="bundle_add_all_sport">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h1.5l2 8h7l1.5-5H5"/><circle cx="7" cy="13" r="1"/><circle cx="12" cy="13" r="1"/></svg>
+              加入購物車
+            </button>
+            <button class="btn-monthly" onclick="subscribePlan('sport')" data-track-cta="bundle_monthly_sport">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              月訂 9 折
+            </button>
+          </div>
+          <div class="monthly-badge">月訂可隨時暫停 · 首月免運</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ -->
+<!-- 方案比較 -->
+<!-- ══════════════════════════════ -->
+<section style="background:#021209;padding:80px 0;" id="compare">
+  <div class="wl-compare" style="padding-top:0;padding-bottom:0;">
+    <h2>四大方案比較</h2>
+    <p class="wl-compare-sub">找不到最適合你的方案？<a href="quiz.html" style="color:#00C9A0;">做 AI 分析</a>讓系統幫你選</p>
+    <div style="overflow-x:auto;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>保健需求</th>
+            <th>熬夜修復</th>
+            <th class="highlight">高壓工作</th>
+            <th>熟齡保養</th>
+            <th>運動恢復</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>深層修復 / 抗氧化</td><td class="check">●●●</td><td class="highlight dash">●●</td><td class="check">●●●</td><td class="dash">●</td></tr>
+          <tr><td>即時能量補充</td><td class="check">●●●</td><td class="highlight check">●●●</td><td class="dash">●</td><td class="check">●●●</td></tr>
+          <tr><td>免疫系統調節</td><td class="check">●●</td><td class="highlight check">●●●</td><td class="check">●●●</td><td class="check">●●</td></tr>
+          <tr><td>長期抗老化</td><td class="dash">●</td><td class="highlight dash">●</td><td class="check">●●●</td><td class="dash">●</td></tr>
+          <tr><td>肌肉修復支援</td><td class="dash">●</td><td class="highlight dash">●</td><td class="dash">●</td><td class="check">●●●</td></tr>
+          <tr><td>每月約估費用</td><td>NT$7,896</td><td class="highlight">NT$6,896</td><td>NT$8,600</td><td>NT$4,896</td></tr>
+          <tr>
+            <td>月訂 9 折優惠</td>
+            <td><a href="member.html" style="color:#00C9A0;text-decoration:none;">加入方案</a></td>
+            <td class="highlight"><a href="member.html" style="color:#FFCA28;text-decoration:none;">加入方案</a></td>
+            <td><a href="member.html" style="color:#00C9A0;text-decoration:none;">加入方案</a></td>
+            <td><a href="member.html" style="color:#00C9A0;text-decoration:none;">加入方案</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ -->
+<!-- 月訂計畫區塊 -->
+<!-- ══════════════════════════════ -->
+<div class="wl-subscribe">
+  <div class="wl-subscribe-inner">
+    <div>
+      <h2>加入<em>月訂計畫</em><br>讓保健不中斷</h2>
+      <p>一次決定，每月自動配送。省去反覆下單的麻煩，還能以 9 折優惠持續你的保健方案。隨時可暫停或調整，完全由你掌控。</p>
+      <div class="wl-sub-perks">
+        <span class="wl-sub-perk">每月自動配送</span>
+        <span class="wl-sub-perk">9 折優惠</span>
+        <span class="wl-sub-perk">隨時暫停</span>
+        <span class="wl-sub-perk">首月免運</span>
+        <span class="wl-sub-perk">專屬會員服務</span>
+        <span class="wl-sub-perk">AI 健康追蹤</span>
+      </div>
+    </div>
+    <div class="wl-sub-price-card">
+      <div class="wl-sub-price-tag">月訂方案</div>
+      <div class="wl-sub-amount">9 折<span>持續配送</span></div>
+      <div class="wl-sub-orig">定價 NT$7,896 起</div>
+      <div class="wl-sub-discount">省下 NT$790 / 月</div>
+      <a href="member.html" class="btn-wl-primary" style="width:100%;justify-content:center;" data-track-cta="wellness_subscribe_cta">
+        立即訂閱
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ -->
+<!-- FAQ -->
+<!-- ══════════════════════════════ -->
+<section style="background:var(--deep);">
+  <div class="wl-faq-wrap">
+    <h2>方案常見問題</h2>
+    <div class="wl-faq-item">
+      <button class="wl-faq-q" onclick="toggleFaq(this)">
+        Bundle 方案一定要整組購買嗎？
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="wl-faq-a"><p>不一定。Bundle 是我們根據使用者回饋設計的最佳搭配組合，整組購買可享有更好的協同效益。當然你也可以單獨購買每款產品，我們的銷售頁面都有獨立購買選項。</p></div>
+    </div>
+    <div class="wl-faq-item">
+      <button class="wl-faq-q" onclick="toggleFaq(this)">
+        月訂計畫如何暫停或取消？
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="wl-faq-a"><p>月訂計畫完全彈性，你可以在會員中心隨時暫停、跳過一個月或取消，不需要任何手續費。我們只需要你在下次配送日的 3 天前告知即可。</p></div>
+    </div>
+    <div class="wl-faq-item">
+      <button class="wl-faq-q" onclick="toggleFaq(this)">
+        不同方案的產品可以混搭嗎？
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="wl-faq-a"><p>可以！做完 AI 健康分析後，系統會根據你的具體答案給出更細緻的推薦，有時候最佳方案可能是從不同 Bundle 取各一件組合。你可以自由搭配，月訂計畫支援自訂組合。</p></div>
+    </div>
+    <div class="wl-faq-item">
+      <button class="wl-faq-q" onclick="toggleFaq(this)">
+        同時服用多款產品安全嗎？
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="wl-faq-a"><p>耀德所有產品均以純天然成分製成，無添加人工合成成分，搭配服用是安全的。若您有特殊病史或正在服用藥物，建議先諮詢您的醫師。</p></div>
+    </div>
+    <div class="wl-faq-item">
+      <button class="wl-faq-q" onclick="toggleFaq(this)">
+        多久才能感受到效果？
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="wl-faq-a"><p>大牛能量氣泡飲通常服用後 30-60 分鐘可感受到能量提升。牛樟芝膠囊與萃取精華屬於調理型保健品，建議連續服用 4-8 週以上才能看到長期免疫調節的效果。月訂計畫正是為了讓保健效益不中斷而設計。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- AI QUIZ CTA -->
+<section style="background:#021209;">
+  <div class="wl-ai-cta">
+    <div class="wl-ai-cta-inner">
+      <div class="wl-ai-cta-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        AI WELLNESS ADVISOR
+      </div>
+      <h2>還不確定選哪個方案？</h2>
+      <p>回答 7 個關於你的生活型態問題，AI 分析引擎將為你生成個人化健康報告，推薦最適合你的保健方案組合。</p>
+      <a href="quiz.html" class="btn-wl-primary" data-track-cta="wellness_footer_quiz">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        開始 3 分鐘 AI 分析
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer style="background:#040E09;border-top:1px solid rgba(255,255,255,.06);padding:32px 64px;text-align:center;">
+  <p style="font-size:12px;color:rgba(255,255,255,.3);">
+    © 2026 耀德植研生醫股份有限公司 · <a href="index.html" style="color:rgba(255,255,255,.4);">返回首頁</a> · <a href="products.html" style="color:rgba(255,255,255,.4);">查看產品</a> · <a href="member.html" style="color:rgba(255,255,255,.4);">加入會員</a>
+  </p>
+</footer>
+
+<script>
+function toggleMenu() { document.getElementById('mobMenu').classList.toggle('open'); }
+
+function toggleFaq(btn) {
+  const item = btn.closest('.wl-faq-item');
+  item.classList.toggle('open');
+  const a = item.querySelector('.wl-faq-a');
+  a.style.maxHeight = item.classList.contains('open') ? a.scrollHeight + 'px' : '0';
+}
+
+function addAll(plan) {
+  trackEvent('add_all_to_cart', { plan, source: 'wellness_page' });
+  const labels = { night:'熬夜修復方案', stress:'高壓工作方案', longevity:'熟齡保養方案', sport:'運動恢復方案' };
+  const btn = event.currentTarget;
+  const orig = btn.innerHTML;
+  btn.innerHTML = '✓ 已加入購物車';
+  btn.style.background = 'linear-gradient(135deg, #00897B, #00C9A0)';
+  btn.style.color = '#fff';
+  setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.style.color = ''; }, 2000);
+}
+
+function subscribePlan(plan) {
+  trackEvent('subscribe_intent', { plan, source: 'wellness_bundle' });
+  window.location.href = 'member.html?plan=' + plan;
+}
+
+function trackEvent(name, data) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: name, ...data });
+  if (typeof gtag === 'function') gtag('event', name, data);
+}
+
+// Tab active state on scroll
+const sections = ['night','stress','longevity','sport'];
+const tabs = document.querySelectorAll('.wl-tab[data-tab]');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === e.target.id));
+    }
+  });
+}, { rootMargin: '-50% 0px -50% 0px' });
+sections.forEach(id => {
+  const el = document.getElementById(id);
+  if (el) observer.observe(el);
+});
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// CTA tracking
+document.querySelectorAll('[data-track-cta]').forEach(el => {
+  el.addEventListener('click', () => trackEvent('cta_click', { id: el.dataset.trackCta, page: 'wellness' }));
+});
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.wl-plan-header, .wl-plan-badge, .wl-bundle');
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; ro.unobserve(e.target); } });
+}, { threshold: 0.08 });
+revealEls.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; el.style.transition = 'opacity .5s ease, transform .5s ease'; ro.observe(el); });
+</script>
+</body>
+</html>

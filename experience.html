@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D 沉浸式體驗 | 虛擬工廠 · 成分互動 · 原料溯源 | 耀德植研生醫</title>
+  <meta name="description" content="耀德植研生醫 Phase 3 沉浸式體驗：3D 產品展示、成分互動節點、虛擬工廠導覽、原料產地溯源。全球級 Immersive Wellness Platform。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="immersive.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --nav-h: 80px;
+      --green-700: #00695C;
+      --gold: #FFCA28;
+      --muted: #4A6B65;
+      --t: .4s cubic-bezier(.4,0,.2,1);
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: var(--imm-void);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; outline: none; background: none; font-family: inherit; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--imm-void); }
+    ::-webkit-scrollbar-thumb { background: var(--neon); border-radius: 3px; }
+
+    /* ── NAV ── */
+    #nav {
+      position: fixed; inset: 0 0 auto 0; z-index: 1000;
+      height: var(--nav-h); display: flex; align-items: center;
+      padding: 0 64px;
+      background: rgba(2,13,8,.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--imm-border);
+    }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo-icon-img { height: 40px; width: auto; }
+    .logo-wordmark-img { height: 28px; width: auto; }
+    .nav-menu { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+    .nav-link {
+      padding: 8px 14px; color: rgba(255,255,255,.65);
+      font-size: 13px; letter-spacing: .5px;
+      border-radius: 8px; transition: all .2s ease;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--neon); background: var(--neon-dim); }
+    .nav-cta {
+      padding: 9px 22px;
+      background: linear-gradient(135deg, #00897B, #00E5CC);
+      color: #fff; border-radius: 40px;
+      font-size: 13px; font-weight: 700; letter-spacing: .5px;
+      transition: all .2s ease;
+      box-shadow: 0 4px 16px rgba(0,201,160,.3);
+    }
+    .nav-cta:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; margin-left: auto; padding: 8px; }
+    .hamburger span { width: 22px; height: 1.5px; background: #fff; display: block; transition: all .3s; }
+
+    /* ── HERO 3D ── */
+    #hero-experience {
+      position: relative; height: 100vh; min-height: 600px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    #hero-3d-canvas {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+    }
+    .hero-hud-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg,
+        rgba(2,13,8,.5) 0%,
+        transparent 30%,
+        transparent 70%,
+        rgba(2,13,8,.9) 100%);
+      pointer-events: none; z-index: 1;
+    }
+    .hero-exp-content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 0 24px;
+    }
+    .hero-exp-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; margin-bottom: 24px;
+      background: rgba(0,229,204,.08);
+      border: 1px solid rgba(0,229,204,.25);
+      border-radius: 40px;
+      font-size: 11px; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--neon);
+      font-weight: 600;
+    }
+    .hero-exp-h1 {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: clamp(40px, 6vw, 80px);
+      font-weight: 900; color: #fff;
+      line-height: 1.1; margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+    .hero-exp-h1 em { font-style: normal; color: var(--neon); }
+    .hero-exp-sub {
+      font-size: clamp(15px, 1.4vw, 18px);
+      color: rgba(255,255,255,.6);
+      max-width: 560px; margin: 0 auto 36px;
+      line-height: 1.8;
+    }
+    .hero-exp-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-neon {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #00897B, #00E5CC);
+      color: #fff; border-radius: 40px;
+      font-size: 14px; font-weight: 700; letter-spacing: .5px;
+      transition: all .3s ease;
+      box-shadow: 0 8px 24px rgba(0,201,160,.35);
+    }
+    .btn-neon:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,201,160,.5); }
+    .btn-glass-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 32px;
+      background: rgba(0,229,204,.06);
+      border: 1px solid rgba(0,229,204,.3);
+      color: var(--neon); border-radius: 40px;
+      font-size: 14px; letter-spacing: .5px;
+      transition: all .3s ease;
+    }
+    .btn-glass-outline:hover { background: rgba(0,229,204,.12); border-color: var(--neon); }
+    .hero-scroll-hint {
+      position: absolute; bottom: 40px; left: 50%;
+      transform: translateX(-50%); z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,.3);
+      text-transform: uppercase;
+      animation: bounce-hint 2s ease infinite;
+    }
+    @keyframes bounce-hint {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(6px); }
+    }
+    .hero-scroll-hint svg { width: 20px; height: 20px; opacity: .4; }
+
+    /* ── SECTION NAV ── */
+    #section-nav {
+      position: sticky; top: var(--nav-h); z-index: 900;
+      background: rgba(2,13,8,.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--imm-border);
+      padding: 0 64px;
+    }
+    .snav-inner {
+      display: flex; align-items: center; gap: 4px;
+      max-width: 1400px; margin: 0 auto;
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .snav-inner::-webkit-scrollbar { display: none; }
+    .snav-btn {
+      padding: 16px 20px; white-space: nowrap;
+      font-size: 13px; letter-spacing: .5px;
+      color: rgba(255,255,255,.45);
+      cursor: pointer; transition: all .2s ease;
+      border-bottom: 2px solid transparent;
+      border: none; background: none; font-family: inherit;
+    }
+    .snav-btn:hover, .snav-btn.active {
+      color: var(--neon);
+      border-bottom-color: var(--neon);
+    }
+    @media (max-width: 768px) {
+      #section-nav { padding: 0 20px; }
+    }
+
+    /* ── 3D PRODUCT SECTION ── */
+    #product-3d-section {
+      background: var(--imm-void);
+      padding: 120px 64px;
+      position: relative; overflow: hidden;
+    }
+    .prod3d-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .prod3d-text .sec-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 4px 14px; margin-bottom: 20px;
+      background: rgba(0,229,204,.08);
+      border: 1px solid var(--imm-border);
+      border-radius: 40px;
+      font-size: 10px; letter-spacing: 3px;
+      color: var(--neon); text-transform: uppercase; font-weight: 600;
+    }
+    .prod3d-text h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 600; color: #fff;
+      line-height: 1.35; margin-bottom: 20px;
+    }
+    .prod3d-text h2 em { font-style: normal; color: var(--neon); }
+    .prod3d-text p {
+      font-size: 16px; color: rgba(255,255,255,.55);
+      line-height: 1.9; margin-bottom: 32px;
+    }
+    .prod3d-features {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px; margin-bottom: 36px;
+    }
+    .pf-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 14px;
+      background: rgba(0,229,204,.05);
+      border: 1px solid rgba(0,229,204,.12);
+      border-radius: 10px;
+    }
+    .pf-icon { font-size: 20px; flex-shrink: 0; }
+    .pf-info { flex: 1; }
+    .pf-info strong { display: block; font-size: 13px; color: #fff; margin-bottom: 2px; }
+    .pf-info span { font-size: 11px; color: rgba(255,255,255,.4); }
+    .prod3d-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    #product-3d-canvas {
+      width: 100%; aspect-ratio: 1/1;
+      background: radial-gradient(circle at 50% 50%, rgba(0,137,123,.08), transparent 70%);
+      border-radius: 24px;
+      border: 1px solid var(--imm-border);
+    }
+    .viewer-wrap { position: relative; }
+    .viewer-hud-badge {
+      position: absolute; top: 20px; left: 20px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .vhb-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 12px;
+      background: rgba(2,13,8,.85);
+      border: 1px solid var(--imm-border);
+      border-radius: 20px;
+      font-size: 11px; color: var(--neon);
+      font-weight: 600; letter-spacing: .5px;
+    }
+    .vhb-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--neon); animation: pulse-dot 1.6s ease infinite; }
+    .rotate-hint {
+      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+      font-size: 11px; letter-spacing: 1px; color: rgba(255,255,255,.3);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .rotate-hint svg { width: 14px; height: 14px; opacity: .4; }
+
+    /* ── INGREDIENT MAP SECTION ── */
+    #ingredient-section {
+      background: var(--imm-deep);
+      padding: 120px 64px;
+      position: relative; overflow: hidden;
+    }
+    .ingr-inner {
+      max-width: 1400px; margin: 0 auto;
+    }
+    .ingr-header { text-align: center; margin-bottom: 80px; }
+    .ingr-header .sec-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 4px 14px; margin-bottom: 16px;
+      background: rgba(124,77,255,.1);
+      border: 1px solid rgba(124,77,255,.25);
+      border-radius: 40px;
+      font-size: 10px; letter-spacing: 3px;
+      color: #B39DDB; text-transform: uppercase; font-weight: 600;
+    }
+    .ingr-header h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 600; color: #fff; margin-bottom: 16px;
+    }
+    .ingr-header h2 em { font-style: normal; color: #B39DDB; }
+    .ingr-header p { font-size: 16px; color: rgba(255,255,255,.5); max-width: 560px; margin: 0 auto; line-height: 1.8; }
+    #ingredient-map {
+      width: 100%; aspect-ratio: 16/7; max-width: 1000px;
+      margin: 0 auto 60px;
+      background: radial-gradient(ellipse at 50% 50%,
+        rgba(0,137,123,.06) 0%, transparent 70%);
+      border: 1px solid rgba(0,229,204,.1);
+      border-radius: 24px; position: relative;
+      min-height: 320px;
+    }
+    .ingr-cards { display: grid; grid-template-columns: repeat(5,1fr); gap: 16px; }
+    .ingr-card {
+      background: rgba(5,22,15,.7);
+      border: 1px solid var(--imm-border);
+      border-radius: 14px; padding: 20px 16px;
+      text-align: center; cursor: pointer;
+      transition: all .3s ease;
+    }
+    .ingr-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--neon);
+      background: var(--neon-dim);
+    }
+    .ingr-card .ic-icon { font-size: 28px; margin-bottom: 8px; }
+    .ingr-card .ic-name { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .ingr-card .ic-role { font-size: 11px; color: rgba(255,255,255,.4); letter-spacing: .5px; }
+    .ingr-card .ic-bar {
+      height: 3px; background: rgba(255,255,255,.08);
+      border-radius: 2px; margin-top: 12px; overflow: hidden;
+    }
+    .ingr-card .ic-fill {
+      height: 100%; border-radius: 2px; width: 0;
+      transition: width 1.4s var(--ease-expo);
+    }
+
+    /* ── JOURNEY / STORYTELLING ── */
+    #journey-section {
+      background: var(--imm-void);
+      position: relative; overflow: hidden;
+    }
+    .journey-wrap {
+      max-width: 1400px; margin: 0 auto;
+      padding: 120px 64px;
+    }
+    .journey-header { text-align: center; margin-bottom: 80px; }
+    .journey-header .sec-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 4px 14px; margin-bottom: 16px;
+      background: rgba(255,202,40,.08);
+      border: 1px solid rgba(255,202,40,.2);
+      border-radius: 40px;
+      font-size: 10px; letter-spacing: 3px;
+      color: #FFD54F; text-transform: uppercase; font-weight: 600;
+    }
+    .journey-header h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 3.5vw, 48px);
+      color: #fff; margin-bottom: 16px;
+    }
+    .journey-header h2 em { font-style: normal; color: #FFD54F; }
+    .journey-header p { font-size: 16px; color: rgba(255,255,255,.5); max-width: 560px; margin: 0 auto; line-height: 1.8; }
+    .journey-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start; margin-bottom: 80px;
+    }
+    .imm-timeline { margin-top: 0; }
+
+    /* Journey media */
+    .journey-visual {
+      position: sticky; top: 120px;
+      border-radius: 20px; overflow: hidden;
+      background: rgba(5,22,15,.5);
+      border: 1px solid var(--imm-border);
+      aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .journey-visual canvas {
+      width: 100%; height: 100%;
+    }
+    .jv-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg,
+        rgba(0,137,123,.08), rgba(2,13,8,.4));
+      pointer-events: none;
+    }
+    .jv-stat-badges {
+      position: absolute; bottom: 20px; left: 20px; right: 20px;
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .jv-badge {
+      padding: 6px 14px;
+      background: rgba(2,13,8,.85);
+      border: 1px solid var(--imm-border);
+      border-radius: 20px;
+      font-size: 11px; color: var(--neon);
+      font-weight: 600;
+    }
+
+    /* ── FACTORY TOUR ── */
+    #factory-section {
+      background: var(--imm-deep);
+      padding: 120px 64px;
+    }
+    .factory-inner {
+      max-width: 1400px; margin: 0 auto;
+    }
+    .factory-header { text-align: center; margin-bottom: 64px; }
+    .factory-header .sec-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 4px 14px; margin-bottom: 16px;
+      background: rgba(105,240,174,.08);
+      border: 1px solid rgba(105,240,174,.2);
+      border-radius: 40px;
+      font-size: 10px; letter-spacing: 3px;
+      color: var(--bio-green); text-transform: uppercase; font-weight: 600;
+    }
+    .factory-header h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 3.5vw, 48px);
+      color: #fff; margin-bottom: 16px;
+    }
+    .factory-header h2 em { font-style: normal; color: var(--bio-green); }
+    .factory-steps {
+      display: grid; grid-template-columns: repeat(5,1fr);
+      gap: 0; position: relative;
+    }
+    .factory-steps::before {
+      content: '';
+      position: absolute; top: 36px; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--neon), transparent);
+      opacity: .3;
+    }
+    .factory-step {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 0 16px;
+      cursor: pointer;
+    }
+    .factory-step .fs-num {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: rgba(5,22,15,.8);
+      border: 2px solid var(--imm-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; margin-bottom: 20px;
+      transition: all .3s ease; position: relative; z-index: 1;
+    }
+    .factory-step:hover .fs-num,
+    .factory-step.active .fs-num {
+      border-color: var(--neon);
+      background: var(--neon-dim);
+      box-shadow: var(--neon-glow);
+    }
+    .factory-step .fs-title {
+      font-size: 14px; font-weight: 600; color: #fff;
+      margin-bottom: 6px;
+    }
+    .factory-step .fs-desc {
+      font-size: 12px; color: rgba(255,255,255,.4); line-height: 1.6;
+    }
+    .factory-step .fs-cert {
+      margin-top: 10px; padding: 3px 10px;
+      background: rgba(105,240,174,.08);
+      border: 1px solid rgba(105,240,174,.2);
+      border-radius: 20px;
+      font-size: 10px; color: var(--bio-green); letter-spacing: 1px;
+    }
+    .factory-detail {
+      margin-top: 56px;
+      background: rgba(5,22,15,.7);
+      border: 1px solid var(--imm-border);
+      border-radius: 20px; padding: 40px;
+      display: none;
+    }
+    .factory-detail.active { display: block; animation: fadeInUp .4s ease; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fd-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .fd-text h3 { font-family: 'Noto Serif TC', serif; font-size: 24px; color: #fff; margin-bottom: 16px; }
+    .fd-text p { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.85; margin-bottom: 20px; }
+    .fd-metrics { display: flex; gap: 24px; }
+    .fd-metric .val { font-size: 28px; font-weight: 800; color: var(--neon); }
+    .fd-metric .lbl { font-size: 11px; color: rgba(255,255,255,.4); letter-spacing: 1px; }
+    .fd-visual {
+      background: rgba(0,137,123,.06);
+      border: 1px solid rgba(0,229,204,.1);
+      border-radius: 14px; padding: 32px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .fd-certbadge {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 14px;
+      background: rgba(5,22,15,.8);
+      border: 1px solid var(--imm-border);
+      border-radius: 10px;
+    }
+    .fd-certbadge .cb-icon { font-size: 18px; flex-shrink: 0; }
+    .fd-certbadge .cb-name { font-size: 12px; font-weight: 600; color: var(--neon); }
+    .fd-certbadge .cb-desc { font-size: 11px; color: rgba(255,255,255,.35); }
+
+    /* ── CTA SECTION ── */
+    #exp-cta {
+      background: linear-gradient(135deg, var(--imm-deep) 0%, rgba(0,42,30,.6) 50%, var(--imm-void) 100%);
+      padding: 120px 64px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .exp-cta-inner { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
+    .exp-cta-inner .sec-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 4px 14px; margin-bottom: 20px;
+      background: rgba(0,229,204,.08);
+      border: 1px solid var(--imm-border);
+      border-radius: 40px;
+      font-size: 10px; letter-spacing: 3px;
+      color: var(--neon); text-transform: uppercase; font-weight: 600;
+    }
+    .exp-cta-inner h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(32px, 4vw, 56px);
+      color: #fff; margin-bottom: 20px; line-height: 1.3;
+    }
+    .exp-cta-inner h2 em { font-style: normal; color: var(--neon); }
+    .exp-cta-inner p {
+      font-size: 17px; color: rgba(255,255,255,.5);
+      line-height: 1.85; margin-bottom: 40px;
+    }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-stats {
+      display: flex; justify-content: center; gap: 48px;
+      margin-top: 56px; padding-top: 40px;
+      border-top: 1px solid rgba(0,229,204,.1);
+    }
+    .cta-stat .val {
+      font-size: 36px; font-weight: 800; color: var(--neon);
+      text-shadow: var(--neon-glow); display: block; margin-bottom: 4px;
+    }
+    .cta-stat .lbl {
+      font-size: 11px; letter-spacing: 2px;
+      color: rgba(255,255,255,.35); text-transform: uppercase;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1200px) {
+      .prod3d-inner { grid-template-columns: 1fr; gap: 48px; }
+      .journey-grid { grid-template-columns: 1fr; gap: 40px; }
+      .journey-visual { position: static; }
+      .ingr-cards { grid-template-columns: repeat(3,1fr); }
+      .factory-steps { grid-template-columns: repeat(3,1fr); gap: 24px; }
+      .factory-steps::before { display: none; }
+      .fd-content { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      #nav { padding: 0 24px; }
+      .nav-menu { display: none; }
+      .hamburger { display: flex; }
+      #product-3d-section, #ingredient-section, #journey-section, #factory-section, #exp-cta { padding: 80px 24px; }
+      .ingr-cards { grid-template-columns: repeat(2,1fr); }
+      .factory-steps { grid-template-columns: repeat(2,1fr); }
+      .cta-stats { flex-wrap: wrap; gap: 24px; }
+      .prod3d-features { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .ingr-cards { grid-template-columns: 1fr; }
+      #ingredient-map { aspect-ratio: 1/1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="nav">
+  <a href="index.html" class="logo">
+    <img src="images/logo/LOGO_4.png" alt="" class="logo-icon-img">
+    <img src="images/logo/LOGO_5.png" alt="耀德植研生醫" class="logo-wordmark-img">
+  </a>
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-link">首頁</a>
+    <a href="experience.html" class="nav-link active">沉浸體驗</a>
+    <a href="digital-twin.html" class="nav-link">虛擬品牌館</a>
+    <a href="antrodia.html" class="nav-link">認識牛樟芝</a>
+    <a href="products.html" class="nav-link">產品介紹</a>
+    <a href="health-dashboard.html" class="nav-link">健康儀表板</a>
+    <a href="shop.html" class="nav-cta">立即購買</a>
+  </nav>
+  <button class="hamburger" onclick="document.getElementById('mob-menu').classList.toggle('open')" aria-label="選單">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mob-menu" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(2,13,8,.98);flex-direction:column;align-items:center;justify-content:center;gap:12px;" class="">
+  <button onclick="document.getElementById('mob-menu').classList.remove('open');document.getElementById('mob-menu').style.display='none'" style="position:absolute;top:24px;right:24px;color:rgba(255,255,255,.5);font-size:28px;background:none;border:none;cursor:pointer;">×</button>
+  <a href="index.html" style="color:rgba(255,255,255,.8);font-size:20px;font-family:'Noto Serif TC',serif;letter-spacing:3px;padding:10px;">首頁</a>
+  <a href="experience.html" style="color:var(--neon);font-size:20px;font-family:'Noto Serif TC',serif;letter-spacing:3px;padding:10px;">沉浸體驗</a>
+  <a href="digital-twin.html" style="color:rgba(255,255,255,.8);font-size:20px;font-family:'Noto Serif TC',serif;letter-spacing:3px;padding:10px;">虛擬品牌館</a>
+  <a href="products.html" style="color:rgba(255,255,255,.8);font-size:20px;font-family:'Noto Serif TC',serif;letter-spacing:3px;padding:10px;">產品介紹</a>
+  <a href="shop.html" style="color:var(--neon);font-size:20px;padding:12px 32px;border:1px solid var(--neon);border-radius:40px;margin-top:16px;">立即購買</a>
+</div>
+
+<!-- HERO 3D -->
+<section id="hero-experience">
+  <canvas id="hero-3d-canvas"></canvas>
+  <div class="hero-hud-overlay"></div>
+  <div class="hud-grid"></div>
+  <div class="scan-line"></div>
+
+  <div class="hero-exp-content">
+    <div class="hero-exp-tag">
+      <span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--neon);animation:pulse-dot 1.6s ease infinite;display:inline-block;"></span>
+      Phase 3 · Immersive Experience
+    </div>
+    <h1 class="hero-exp-h1">
+      進入<em>分子世界</em><br>探索生命的<em>奧秘</em>
+    </h1>
+    <p class="hero-exp-sub">
+      台灣第一個 3D 沉浸式健康品牌體驗——<br>
+      點擊成分、探索來源、見證科學、感受差異。
+    </p>
+    <div class="hero-exp-btns">
+      <a href="#product-3d-section" class="btn-neon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        開始 3D 體驗
+      </a>
+      <a href="#ingredient-section" class="btn-glass-outline">
+        🔬 成分互動展示
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    向下探索
+  </div>
+</section>
+
+<!-- SECTION NAV -->
+<nav id="section-nav">
+  <div class="snav-inner">
+    <button class="snav-btn active" data-target="product-3d-section">🧪 3D 產品體驗</button>
+    <button class="snav-btn" data-target="ingredient-section">⚗️ 成分互動</button>
+    <button class="snav-btn" data-target="journey-section">📜 品牌溯源</button>
+    <button class="snav-btn" data-target="factory-section">🏭 虛擬工廠</button>
+    <button class="snav-btn" data-target="exp-cta">🛒 前往購買</button>
+  </div>
+</nav>
+
+<!-- 3D PRODUCT VIEWER -->
+<section id="product-3d-section" class="imm-section">
+  <div class="hud-grid fine"></div>
+  <div class="prod3d-inner" style="position:relative;z-index:2;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:120px 64px;">
+
+    <div class="prod3d-text">
+      <div class="sec-tag imm-reveal">
+        <span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--neon);display:inline-block;"></span>
+        3D Product Experience
+      </div>
+      <h2 class="imm-reveal delay-1">
+        用雙手感受<br><em>頂級配方</em>的誕生
+      </h2>
+      <p class="imm-reveal delay-2">
+        拖曳旋轉 · 360° 全方位查看耀德大牛能量氣泡飲。
+        段木牛樟芝 + 有機馬卡 + 韓國紅參 + 醫藥級牛磺酸，
+        四大成分精密協同，點擊分子查看每項成分的科學根據。
+      </p>
+      <div class="prod3d-features imm-reveal delay-2">
+        <div class="pf-item">
+          <div class="pf-icon">🍄</div>
+          <div class="pf-info">
+            <strong>段木牛樟芝子實體</strong>
+            <span>三萜類含量 15%+</span>
+          </div>
+        </div>
+        <div class="pf-item">
+          <div class="pf-icon">🌿</div>
+          <div class="pf-info">
+            <strong>秘魯有機馬卡 4:1</strong>
+            <span>KGC 韓國認證</span>
+          </div>
+        </div>
+        <div class="pf-item">
+          <div class="pf-icon">🌱</div>
+          <div class="pf-info">
+            <strong>6年根高麗紅參</strong>
+            <span>人參皂苷黃金比例</span>
+          </div>
+        </div>
+        <div class="pf-item">
+          <div class="pf-icon">⚡</div>
+          <div class="pf-info">
+            <strong>醫藥級牛磺酸</strong>
+            <span>純度 99%+</span>
+          </div>
+        </div>
+      </div>
+      <div class="prod3d-actions imm-reveal delay-3">
+        <a href="shop.html" class="btn-neon">🛒 立即購買 NT$259</a>
+        <a href="product-bigbull.html" class="btn-glass-outline">查看完整規格</a>
+      </div>
+    </div>
+
+    <div class="viewer-wrap imm-reveal delay-2 from-right">
+      <canvas id="product-3d-canvas"></canvas>
+      <div class="viewer-hud-badge">
+        <div class="vhb-item"><span class="vhb-dot"></span>即時 3D 渲染</div>
+        <div class="vhb-item">🔬 WebGL 驅動</div>
+      </div>
+      <div class="rotate-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12A8 8 0 103.93 7M12 4l4 3-4 3"/></svg>
+        拖曳旋轉
+      </div>
+      <div class="corner-bracket tl"></div>
+      <div class="corner-bracket tr"></div>
+      <div class="corner-bracket bl"></div>
+      <div class="corner-bracket br"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INGREDIENT MAP -->
+<section id="ingredient-section" class="imm-section" style="background:var(--imm-deep);">
+  <div class="ingr-inner" style="max-width:1400px;margin:0 auto;padding:120px 64px;">
+    <div class="ingr-header imm-reveal">
+      <div class="sec-tag">⚗️ Interactive Ingredients</div>
+      <h2>點擊成分<em>查看科學</em></h2>
+      <p>五大核心活性成分，每一項都有科研論文支持。點擊成分節點，查看來源、研究數據與功效機制。</p>
+    </div>
+
+    <div id="ingredient-map" class="imm-reveal delay-1" style="min-height:380px;"></div>
+
+    <div class="ingr-cards imm-reveal delay-2" style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:48px;">
+      <div class="ingr-card" onclick="highlightIngredient('antrodia')" style="border-color:rgba(0,229,204,.2);">
+        <div class="ic-icon">🍄</div>
+        <div class="ic-name">牛樟芝子實體</div>
+        <div class="ic-role">核心 · 免疫調節</div>
+        <div class="ic-bar"><div class="ic-fill" data-w="95%" style="background:linear-gradient(90deg,#00E5CC,#00897B);"></div></div>
+      </div>
+      <div class="ingr-card" onclick="highlightIngredient('triterpenoid')" style="border-color:rgba(124,77,255,.2);">
+        <div class="ic-icon">⚗️</div>
+        <div class="ic-name">三萜類化合物</div>
+        <div class="ic-role">47篇SCI · 免疫</div>
+        <div class="ic-bar"><div class="ic-fill" data-w="90%" style="background:linear-gradient(90deg,#7C4DFF,#B39DDB);"></div></div>
+      </div>
+      <div class="ingr-card" onclick="highlightIngredient('maca')" style="border-color:rgba(255,213,79,.2);">
+        <div class="ic-icon">🌿</div>
+        <div class="ic-name">秘魯有機馬卡</div>
+        <div class="ic-role">體能 · 活力激活</div>
+        <div class="ic-bar"><div class="ic-fill" data-w="82%" style="background:linear-gradient(90deg,#FFD54F,#FF8F00);"></div></div>
+      </div>
+      <div class="ingr-card" onclick="highlightIngredient('redshen')" style="border-color:rgba(255,109,0,.2);">
+        <div class="ic-icon">🌱</div>
+        <div class="ic-name">韓國 6 年紅參</div>
+        <div class="ic-role">氣血 · 循環強化</div>
+        <div class="ic-bar"><div class="ic-fill" data-w="88%" style="background:linear-gradient(90deg,#FF6D00,#FFAB40);"></div></div>
+      </div>
+      <div class="ingr-card" onclick="highlightIngredient('taurine')" style="border-color:rgba(105,240,174,.2);">
+        <div class="ic-icon">⚡</div>
+        <div class="ic-name">醫藥級牛磺酸</div>
+        <div class="ic-role">代謝 · 心臟保護</div>
+        <div class="ic-bar"><div class="ic-fill" data-w="85%" style="background:linear-gradient(90deg,#69F0AE,#00897B);"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND JOURNEY -->
+<section id="journey-section" class="imm-section" style="background:var(--imm-void);">
+  <div class="journey-wrap" style="max-width:1400px;margin:0 auto;padding:120px 64px;">
+    <div class="journey-header imm-reveal">
+      <div class="sec-tag">📜 Brand Story</div>
+      <h2>二十年<em>深耕</em>的故事</h2>
+      <p>從一個夢想到台灣最嚴格的牛樟芝品牌——每一步都是對品質的承諾。</p>
+    </div>
+    <div class="journey-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
+      <div class="imm-timeline imm-reveal delay-1">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2004</div>
+          <div class="timeline-title">深山裡的第一株牛樟芝</div>
+          <div class="timeline-body">創辦人發現台灣原始林中野生牛樟芝，被其神奇療癒力深深震撼，決心以科學方式傳承這份自然智慧。開始深入山林進行第一手研究記錄。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2008</div>
+          <div class="timeline-title">建立段木栽培技術基地</div>
+          <div class="timeline-body">成功研發仿野生段木栽培技術，克服牛樟木稀缺問題，使三萜類含量達到野生等級。全台第一個自有段木栽培農場正式運作。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2013</div>
+          <div class="timeline-title">獲得 SGS、GMP 雙認證</div>
+          <div class="timeline-body">通過 SGS 農藥 374 項全檢驗，重金屬、微生物全數合格。衛福部 GMP 優良製造廠認證，建立台灣最嚴格的牛樟芝品質標準。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2019</div>
+          <div class="timeline-title">SCI 國際論文突破 40 篇</div>
+          <div class="timeline-body">與多所大學研究機構合作，累計發表 SCI 收錄國際期刊論文超過 40 篇，成為台灣牛樟芝領域最具科學公信力的品牌。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2024</div>
+          <div class="timeline-title">推出 DTC 旗艦品牌耀德植研生醫</div>
+          <div class="timeline-body">整合二十年研究成果，以「透明、溯源、科學」為核心理念，推出全新 DTC 品牌。從段木到產品，100% 台灣自主研發製造。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2026</div>
+          <div class="timeline-title">Phase 3 · 全球 Immersive Wellness Platform</div>
+          <div class="timeline-body">率先導入 3D 沉浸式體驗、Digital Twin 商務、AI 健康顧問，打造全球級 Immersive Wellness Platform，重新定義健康品牌的未來。</div>
+        </div>
+      </div>
+
+      <div class="journey-visual imm-reveal delay-2">
+        <canvas data-particle-field data-count="60" data-color="#00E5CC" style="width:100%;height:100%;"></canvas>
+        <div class="jv-overlay"></div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;gap:16px;">
+          <div style="font-size:56px">🍄</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;color:#fff;text-align:center;line-height:1.4;">段木栽培<br>牛樟芝子實體</div>
+          <div style="font-size:12px;letter-spacing:2px;color:var(--neon);opacity:.7;">ANTRODIA CINNAMOMEA</div>
+        </div>
+        <div class="jv-stat-badges">
+          <div class="jv-badge">20年深耕</div>
+          <div class="jv-badge">47篇SCI</div>
+          <div class="jv-badge">100% 台灣製</div>
+        </div>
+        <div class="corner-bracket tl"></div>
+        <div class="corner-bracket br"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIRTUAL FACTORY -->
+<section id="factory-section" class="imm-section" style="background:var(--imm-deep);">
+  <div class="factory-inner" style="max-width:1400px;margin:0 auto;padding:120px 64px;">
+    <div class="factory-header imm-reveal">
+      <div class="sec-tag">🏭 Virtual Factory Tour</div>
+      <h2>虛擬<em>工廠透明化</em></h2>
+      <p style="font-size:16px;color:rgba(255,255,255,.5);max-width:560px;margin:0 auto;line-height:1.8;">
+        從原料到產品，完全透明。點擊每個製程步驟，查看實際認證與品質標準。
+      </p>
+    </div>
+
+    <div class="factory-steps imm-reveal delay-1">
+      <div class="factory-step active" onclick="showFactoryDetail(0)" data-detail="0">
+        <div class="fs-num">🌲</div>
+        <div class="fs-title">段木原料</div>
+        <div class="fs-desc">嚴選台灣牛樟木，不破壞原始林地，循環利用農業廢材段木</div>
+        <div class="fs-cert">原料溯源</div>
+      </div>
+      <div class="factory-step" onclick="showFactoryDetail(1)" data-detail="1">
+        <div class="fs-num">🌱</div>
+        <div class="fs-title">仿野生栽培</div>
+        <div class="fs-desc">恆溫恆濕環境控制，3–5年段木栽培，達野生三萜類含量等級</div>
+        <div class="fs-cert">GMP 認證廠</div>
+      </div>
+      <div class="factory-step" onclick="showFactoryDetail(2)" data-detail="2">
+        <div class="fs-num">⚗️</div>
+        <div class="fs-title">低溫萃取</div>
+        <div class="fs-desc">超臨界 CO₂ 低溫萃取，保留最完整活性物質，無有機溶劑殘留</div>
+        <div class="fs-cert">SGS 檢驗</div>
+      </div>
+      <div class="factory-step" onclick="showFactoryDetail(3)" data-detail="3">
+        <div class="fs-num">🔬</div>
+        <div class="fs-title">品質檢驗</div>
+        <div class="fs-desc">374 項農藥、重金屬、微生物、活性物含量全項目 SGS 第三方驗證</div>
+        <div class="fs-cert">374項全檢</div>
+      </div>
+      <div class="factory-step" onclick="showFactoryDetail(4)" data-detail="4">
+        <div class="fs-num">📦</div>
+        <div class="fs-title">GMP 充填包裝</div>
+        <div class="fs-desc">無塵室環境充填，每批次獨立批號，QR Code 完整溯源追蹤</div>
+        <div class="fs-cert">ISO 22000</div>
+      </div>
+    </div>
+
+    <div class="factory-detail active" id="factory-detail" style="margin-top:56px;background:rgba(5,22,15,.7);border:1px solid var(--imm-border);border-radius:20px;padding:40px;">
+      <div class="fd-content" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+        <div class="fd-text">
+          <h3 id="fd-title">段木原料 · 完整溯源</h3>
+          <p id="fd-body">耀德使用台灣合法農業廢材牛樟木，不砍伐原始林地。每批段木均有 GPS 座標記錄，從原料到成品完整可追溯。合作農場通過台灣有機認證，確保零農藥污染的純淨起點。</p>
+          <div class="fd-metrics">
+            <div class="fd-metric"><div class="val" id="fd-val1">20+</div><div class="lbl">合作農場</div></div>
+            <div class="fd-metric"><div class="val" id="fd-val2">100%</div><div class="lbl">溯源透明</div></div>
+            <div class="fd-metric"><div class="val" id="fd-val3">GPS</div><div class="lbl">定位追蹤</div></div>
+          </div>
+        </div>
+        <div class="fd-visual">
+          <div class="fd-certbadge"><div class="cb-icon">✅</div><div><div class="cb-name" id="fd-cert1">台灣農業廢材認證</div><div class="cb-desc">合法採購，不破壞原始林地</div></div></div>
+          <div class="fd-certbadge"><div class="cb-icon">🌿</div><div><div class="cb-name" id="fd-cert2">有機農場合作</div><div class="cb-desc">零農藥污染的原料起點</div></div></div>
+          <div class="fd-certbadge"><div class="cb-icon">📍</div><div><div class="cb-name" id="fd-cert3">GPS 完整溯源系統</div><div class="cb-desc">每批次原料座標記錄追蹤</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="exp-cta">
+  <div class="hud-grid" style="z-index:0;"></div>
+  <div class="exp-cta-inner">
+    <div class="sec-tag imm-reveal">🌐 Global Immersive Wellness</div>
+    <h2 class="imm-reveal delay-1">
+      體驗過後<br>準備好<em>開始</em>了嗎？
+    </h2>
+    <p class="imm-reveal delay-2">
+      從 3D 體驗到您手中的每一罐耀德——科學、透明、真實。
+      現在選購，享有首單優惠與 AI 個人化健康方案。
+    </p>
+    <div class="cta-btns imm-reveal delay-3">
+      <a href="shop.html" class="btn-neon">
+        🛒 立即選購
+      </a>
+      <a href="digital-twin.html" class="btn-glass-outline">
+        🏛️ 進入虛擬品牌館
+      </a>
+      <a href="health-dashboard.html" class="btn-glass-outline">
+        📊 健康儀表板
+      </a>
+    </div>
+    <div class="cta-stats imm-reveal delay-4">
+      <div class="cta-stat">
+        <span class="val" data-countup="20" data-suffix="年">0年</span>
+        <span class="lbl">深耕研究</span>
+      </div>
+      <div class="cta-stat">
+        <span class="val" data-countup="47" data-suffix="篇">0篇</span>
+        <span class="lbl">SCI 論文</span>
+      </div>
+      <div class="cta-stat">
+        <span class="val" data-countup="4.9" data-suffix="★">0★</span>
+        <span class="lbl">客戶評分</span>
+      </div>
+      <div class="cta-stat">
+        <span class="val" data-countup="50000" data-suffix="+">0+</span>
+        <span class="lbl">服用人次</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPTS -->
+<script src="immersive-engine.js"></script>
+<script src="ai-avatar.js"></script>
+<script>
+/* ── Section Nav active state ── */
+const snavBtns = document.querySelectorAll('.snav-btn');
+snavBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = document.getElementById(btn.dataset.target);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+/* ── Scrollspy ── */
+const sections = ['product-3d-section','ingredient-section','journey-section','factory-section','exp-cta'];
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      snavBtns.forEach(b => b.classList.toggle('active', b.dataset.target === e.target.id));
+    }
+  });
+}, { threshold: .3 });
+sections.forEach(id => { const el = document.getElementById(id); if (el) io.observe(el); });
+
+/* ── Factory Detail ── */
+const factoryData = [
+  {
+    title: '段木原料 · 完整溯源',
+    body: '耀德使用台灣合法農業廢材牛樟木，不砍伐原始林地。每批段木均有 GPS 座標記錄，從原料到成品完整可追溯。合作農場通過台灣有機認證，確保零農藥污染的純淨起點。',
+    vals: ['20+', '100%', 'GPS'],
+    lbls: ['合作農場', '溯源透明', '定位追蹤'],
+    certs: ['台灣農業廢材認證', '有機農場合作', 'GPS 完整溯源系統'],
+    certDescs: ['合法採購，不破壞原始林地', '零農藥污染的原料起點', '每批次原料座標記錄追蹤'],
+  },
+  {
+    title: '仿野生段木栽培 · 3–5年精心培育',
+    body: '恆溫 25°C、恆濕 85% 環境嚴格控制，模擬台灣原始山林微氣候。每批次段木栽培 3–5 年，確保菌絲充分蔓延至木質深層，三萜類含量達野生等級 15% 以上。',
+    vals: ['3-5', '25°C', '15%+'],
+    lbls: ['年栽培期', '恆溫管控', '三萜類含量'],
+    certs: ['GMP 認證廠房', '微氣候環境控制', '每批次含量檢驗'],
+    certDescs: ['衛福部優良製造規範認證', '精密溫控系統 24 小時監測', '出廠前三萜類含量驗證'],
+  },
+  {
+    title: '超臨界 CO₂ 低溫萃取',
+    body: '採用食品級超臨界 CO₂ 萃取技術，在低溫低壓環境下萃取，完整保留熱敏感的三萜類與多醣體活性結構。全程無有機溶劑接觸，萃取純度達 98% 以上。',
+    vals: ['CO₂', '98%', '0'],
+    lbls: ['超臨界萃取', '萃取純度', '有機溶劑'],
+    certs: ['SGS 溶劑殘留檢驗', '低溫萃取認證', '活性物定量分析'],
+    certDescs: ['374 項有機溶劑全面檢驗', '溫度控制全程 ≤45°C', 'HPLC 高效液相色譜定量'],
+  },
+  {
+    title: 'SGS 374 項品質全檢驗',
+    body: '每批產品送交 SGS 台灣第三方實驗室，執行 374 項農藥殘留、重金屬、微生物、三萜類含量等全面品質驗證。所有檢驗報告均可掃描 QR Code 線上查閱。',
+    vals: ['374', '100%', 'QR'],
+    lbls: ['檢驗項目', '批次合格率', 'Code 溯源'],
+    certs: ['SGS 農藥 374 項', '重金屬六項檢驗', '微生物安全驗證'],
+    certDescs: ['完全符合食品安全衛生管理法', '鉛、鎘、汞、砷等重金屬', '大腸桿菌、沙門氏桿菌等'],
+  },
+  {
+    title: 'GMP 無塵室充填包裝',
+    body: '在衛福部 GMP 認證無塵室環境中充填，採用氮氣封裝技術防止氧化，每批次獨立批號管理。包裝採用食品級材料，產品保存期 24 個月，完整保存活性物質效能。',
+    vals: ['ISO7', 'N₂', '24M'],
+    lbls: ['無塵室等級', '氮氣封裝', '保存期月'],
+    certs: ['GMP 衛福部認證', 'ISO 22000 食品安全', 'FSC 環保包材認證'],
+    certDescs: ['優良製造規範最高等級認證', '國際食品安全管理系統', '採用可持續森林認證包材'],
+  },
+];
+let activeStep = 0;
+
+function showFactoryDetail(idx) {
+  activeStep = idx;
+  const d = factoryData[idx];
+  document.getElementById('fd-title').textContent = d.title;
+  document.getElementById('fd-body').textContent  = d.body;
+  document.getElementById('fd-val1').textContent  = d.vals[0];
+  document.getElementById('fd-val2').textContent  = d.vals[1];
+  document.getElementById('fd-val3').textContent  = d.vals[2];
+  document.getElementById('fd-cert1').textContent = d.certs[0];
+  document.getElementById('fd-cert2').textContent = d.certs[1];
+  document.getElementById('fd-cert3').textContent = d.certs[2];
+  document.querySelectorAll('.fd-certbadge').forEach((el, i) => {
+    el.querySelector('.cb-desc').textContent = d.certDescs[i];
+  });
+  document.querySelectorAll('.factory-step').forEach((el, i) => {
+    el.classList.toggle('active', i === idx);
+  });
+  document.getElementById('factory-detail').classList.add('active');
+}
+
+/* ── Ingredient bar animation ── */
+document.addEventListener('DOMContentLoaded', () => {
+  const io2 = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.ic-fill').forEach(fill => {
+          setTimeout(() => { fill.style.width = fill.dataset.w; }, 200);
+        });
+      }
+    });
+  }, { threshold: .2 });
+  const ingCards = document.querySelector('.ingr-cards');
+  if (ingCards) io2.observe(ingCards);
+});
+
+function highlightIngredient(id) {
+  /* 觸發 ingredient map 的節點點擊 */
+  const map = window._ingredientMap;
+  if (map) {
+    const ing  = map.data.find(d => d.id === id);
+    const node = document.querySelector(`.ingredient-node:nth-child(${map.data.indexOf(ing) + 2})`);
+    if (node && ing) map._showTooltip(node, ing);
+  }
+}
+</script>
+
+</body>
+</html>
