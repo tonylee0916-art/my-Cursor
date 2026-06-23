@@ -232,15 +232,20 @@
       display: flex;
       flex-direction: column;
     }
-    .hero-lifestyle-bg {
+    .hero-video-bg {
       position: absolute; inset: 0; z-index: 0;
-      background: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1920&q=60') center 30%/cover no-repeat;
-      opacity: .14;
+      overflow: hidden;
+    }
+    .hero-video-bg video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
     #hero::before {
       content: '';
       position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(105deg, rgba(7,28,18,.96) 0%, rgba(7,28,18,.88) 45%, rgba(7,28,18,.72) 100%);
+      background: linear-gradient(90deg, rgba(7,28,18,.9) 0%, rgba(7,28,18,.72) 22%, rgba(7,28,18,.35) 45%, rgba(7,28,18,.08) 68%, rgba(7,28,18,0) 88%);
       pointer-events: none;
     }
     #hero::after {
@@ -822,6 +827,7 @@
 
     /* ── RWD ── */
     @media (max-width: 1100px) {
+      #hero::before { background: linear-gradient(180deg, rgba(7,28,18,.82) 0%, rgba(7,28,18,.62) 45%, rgba(7,28,18,.78) 100%); }
       .hero-split { flex-direction: column; padding: calc(var(--nav-h) + 16px) 40px 32px; gap: 32px; text-align: center; }
       .hero-left { flex: none; width: 100%; max-width: 640px; align-items: center; }
       .hero-sub { max-width: 100%; }
@@ -834,7 +840,10 @@
     }
     @media (max-width: 768px) {
       #hero { min-height: auto; }
-      .hero-split { padding: calc(var(--nav-h) + 12px) 24px 28px; gap: 24px; }
+      #hero::before { display: none; }
+      .hero-video-bg { position: relative; inset: auto; z-index: 0; margin-top: var(--nav-h); }
+      .hero-video-bg video { position: relative; inset: auto; width: 100%; height: auto; object-fit: contain; }
+      .hero-split { padding: 24px 24px 28px; gap: 24px; }
       .hero-h1 { font-size: clamp(28px, 7.5vw, 40px) !important; line-height: 1.2; }
       .hero-sub { font-size: 15px; line-height: 1.65; margin-bottom: 20px; }
       .hero-btns { flex-direction: column; width: 100%; }
@@ -1233,8 +1242,11 @@
 
 <!-- ===== HERO v3 ─ DTC Conversion ===== -->
 <section id="hero" aria-label="主打產品">
-  <div class="hero-lifestyle-bg" aria-hidden="true"></div>
-  <canvas id="heroCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:.25;"></canvas>
+  <div class="hero-video-bg" aria-hidden="true">
+    <video autoplay loop muted playsinline preload="auto">
+      <source src="video/20260622.mp4" type="video/mp4">
+    </video>
+  </div>
 
   <div class="hero-split">
     <div class="hero-left">
@@ -1294,27 +1306,6 @@
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2C5 2 3 5 3 8c0 4 5 8 5 8s5-4 5-8c0-3-2-6-5-6z"/><circle cx="8" cy="8" r="2"/></svg>
           台灣研發
         </span>
-      </div>
-    </div>
-
-    <div class="hero-right" id="heroRight">
-      <div class="hero-product-showcase">
-        <div class="hero-product-glow" aria-hidden="true"></div>
-        <span class="hero-product-label">旗艦產品</span>
-        <img
-          src="images/BigBull/BigBull_4.png"
-          alt="耀德大牛能量氣泡飲 — 牛樟芝子實體能量保健飲品"
-          class="hero-product-img"
-          width="460"
-          height="460"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-        >
-        <div class="hero-product-benefit">
-          <p>段木栽培牛樟芝子實體 · 馬卡 · 紅參</p>
-          <span>ENERGY · FOCUS · VITALITY</span>
-        </div>
       </div>
     </div>
   </div>
