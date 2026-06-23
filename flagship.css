@@ -937,7 +937,7 @@ button.btn-gold {
    AI 健康推薦 基礎結構＋配色
    ============================================================ */
 .vivid-body #ai-recommend {
-  background: linear-gradient(160deg, var(--vivid-bg3) 0%, var(--vivid-bg4) 100%) !important;
+  background: #040E09 !important;
   overflow-anchor: none;
 }
 .ai-wrap {

@@ -43,6 +43,7 @@
   <link rel="stylesheet" href="mobile-ux.css">
   <link rel="stylesheet" href="reviews.css">
   <link rel="stylesheet" href="immersive.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
   <style>
     /* ===== RESET ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -602,6 +603,8 @@
     .ptag { padding: 3px 12px; border: 1px solid var(--border); font-size: 11px; color: var(--muted); border-radius: 20px; }
     .prod-link { display: flex; align-items: center; gap: 8px; color: var(--green-700); font-size: 13px; font-weight: 500; letter-spacing: 1px; transition: all var(--t-fast); }
     .prod-link:hover { gap: 12px; color: var(--gold); }
+    .cta-order-btn { display: inline-flex; align-items: center; padding: 8px 18px; background: linear-gradient(135deg, #00897B, #00C9A0); color: #fff; font-size: 12px; font-weight: 700; border-radius: 30px; letter-spacing: .8px; transition: all .2s; box-shadow: 0 3px 12px rgba(0,137,123,.28); }
+    .cta-order-btn:hover { filter: brightness(1.08); transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,137,123,.4); }
     .prod-link svg { width: 16px; height: 16px; }
 
     /* ===== STATS ===== */
@@ -902,6 +905,7 @@
     /* ── Section 標題通用 ── */
     .section-title { color: #0D1A17 !important; font-family: 'Noto Sans TC', sans-serif !important; font-weight: 800 !important; }
     .section-title.white { color: #fff !important; }
+    .section-title.gold { color: #FFCA28 !important; }
     .tag-row .tag-line { background: #00897B !important; }
     .tag-row .tag-text { color: #00897B !important; }
 
@@ -1152,6 +1156,31 @@
     .fe-card:hover .fe-card-bar { width: 100%; }
     @media (max-width: 1024px) { #flagship-entry .fe-inner { grid-template-columns: 1fr; gap: 48px; } }
     @media (max-width: 768px) { #flagship-entry { padding: 60px 24px; } .fe-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* ── 輪廓白邊按鈕（index 未引入 flagship.css / style.css，故在此補宣告） ── */
+    .btn-out-w {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border: 2px solid rgba(255,255,255,.65);
+      border-radius: 40px;
+      color: rgba(255,255,255,.92);
+      background: rgba(255,255,255,.08);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-decoration: none;
+      backdrop-filter: blur(6px);
+      transition: all .3s ease;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-out-w:hover {
+      background: rgba(255,255,255,.20);
+      border-color: #fff;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -1250,7 +1279,7 @@
 
   <div class="hero-split">
     <div class="hero-left">
-      <div class="hero-product-chip">
+      <div class="hero-product-chip" data-aos="fade-up">
         <span class="hero-stars" aria-label="4.9 星評價">
           <svg viewBox="0 0 16 16"><path d="M8 1.5l1.8 3.7 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4L2.2 5.8l4-.6L8 1.5z"/></svg>
           <svg viewBox="0 0 16 16"><path d="M8 1.5l1.8 3.7 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4L2.2 5.8l4-.6L8 1.5z"/></svg>
@@ -1262,30 +1291,26 @@
         <span class="hero-chip-meta">4.9 · 128+ 好評 · 旗艦系列</span>
       </div>
 
-      <h1 class="hero-h1">
+      <h1 class="hero-h1" data-aos="fade-up" data-aos-delay="100">
         一瓶喚醒全日活力<br><em>牛樟芝 × 馬卡能量引擎</em>
       </h1>
-      <p class="hero-sub">
+      <p class="hero-sub" data-aos="fade-up" data-aos-delay="200">
         <strong>耀德大牛能量氣泡飲</strong> — 段木栽培牛樟芝子實體，結合馬卡與專利紅參。
         20 年 SCI 科研背書，通過 SGS 檢驗與 GMP 認證，100% 台灣研發製造。
       </p>
 
-      <div class="hero-btns">
+      <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
         <a href="product-bigbull.html" class="btn-hero-primary" data-track-cta="hero_experience">
           立即體驗
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </a>
-        <a href="flagship.html#ai-recommend" class="btn-hero-secondary" data-track-cta="hero_ai_analysis">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4v1h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h2V6a4 4 0 0 1 4-4z"/><circle cx="9" cy="13" r="1" fill="currentColor"/><circle cx="15" cy="13" r="1" fill="currentColor"/></svg>
-          AI 健康分析
-        </a>
       </div>
-      <a href="#products" class="hero-tertiary-cta" data-track-cta="hero_explore">
+      <a href="#products" class="hero-tertiary-cta" data-track-cta="hero_explore" data-aos="fade-up" data-aos-delay="350">
         探索產品
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
       </a>
 
-      <div class="hero-trust-inline" aria-label="品質認證">
+      <div class="hero-trust-inline" aria-label="品質認證" data-aos="fade-up" data-aos-delay="450">
         <span class="hero-trust-pill">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2L10 6L14 7L11 10L12 14L8 12L4 14L5 10L2 7L6 6Z"/></svg>
           SGS
@@ -1312,9 +1337,9 @@
 </section>
 
 <!-- ===== TRUST BAR ===== -->
-<section id="trust-bar" aria-label="品質認證">
+<section id="trust-bar" aria-label="品質認證" data-aos="fade-up">
   <div class="trust-bar-inner">
-    <div class="trust-bar-item">
+    <div class="trust-bar-item" data-aos="fade-up" data-aos-delay="100">
       <div class="trust-bar-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
       </div>
@@ -1323,7 +1348,7 @@
         <span>國際第三方品質驗證</span>
       </div>
     </div>
-    <div class="trust-bar-item">
+    <div class="trust-bar-item" data-aos="fade-up" data-aos-delay="200">
       <div class="trust-bar-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
       </div>
@@ -1332,7 +1357,7 @@
         <span>良好製造規範工廠</span>
       </div>
     </div>
-    <div class="trust-bar-item">
+    <div class="trust-bar-item" data-aos="fade-up" data-aos-delay="300">
       <div class="trust-bar-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
       </div>
@@ -1341,7 +1366,7 @@
         <span>食品安全管理系統</span>
       </div>
     </div>
-    <div class="trust-bar-item">
+    <div class="trust-bar-item" data-aos="fade-up" data-aos-delay="400">
       <div class="trust-bar-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       </div>
@@ -1350,7 +1375,7 @@
         <span>國際學術期刊發表</span>
       </div>
     </div>
-    <div class="trust-bar-item">
+    <div class="trust-bar-item" data-aos="fade-up" data-aos-delay="500">
       <div class="trust-bar-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
       </div>
@@ -1365,7 +1390,7 @@
 <!-- ===== FEATURE STRIP ===== -->
 <section id="feat">
   <div class="feat-grid">
-    <div class="feat-item reveal">
+    <div class="feat-item reveal" data-aos="fade-up" data-aos-delay="100">
       <svg class="feat-icon" viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="1.3">
         <path d="M23 4C23 4 11 13 11 25C11 32 16.5 38 23 38C29.5 38 35 32 35 25C35 13 23 4 23 4Z"/>
         <line x1="23" y1="4" x2="23" y2="38" opacity=".3"/>
@@ -1376,7 +1401,7 @@
         <p>嚴選台灣野生牛樟木，低溫萃取工藝完整保留三萜類及多醣體活性成分。</p>
       </div>
     </div>
-    <div class="feat-item reveal d1">
+    <div class="feat-item reveal d1" data-aos="fade-up" data-aos-delay="200">
       <svg class="feat-icon" viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="1.3">
         <rect x="7" y="7" width="13" height="13" rx="1.5"/>
         <rect x="26" y="7" width="13" height="13" rx="1.5"/>
@@ -1388,7 +1413,7 @@
         <p>通過 SGS、ISO 22000、GMP、衛福部等國內外嚴格認證，品質有保障。</p>
       </div>
     </div>
-    <div class="feat-item reveal d2">
+    <div class="feat-item reveal d2" data-aos="fade-up" data-aos-delay="300">
       <svg class="feat-icon" viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="1.3">
         <path d="M5 41L23 5L41 41H5Z"/>
         <line x1="23" y1="20" x2="23" y2="30"/>
@@ -1399,7 +1424,7 @@
         <p>與頂尖學術機構合作，多項臨床研究成果發表於 SCI 國際學術期刊。</p>
       </div>
     </div>
-    <div class="feat-item reveal d3">
+    <div class="feat-item reveal d3" data-aos="fade-up" data-aos-delay="400">
       <svg class="feat-icon" viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="1.3">
         <circle cx="23" cy="23" r="17"/>
         <path d="M23 11V23L30 30"/>
@@ -1418,7 +1443,7 @@
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 20% 50%,rgba(0,201,160,.07) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 80% 50%,rgba(255,202,40,.05) 0%,transparent 60%);pointer-events:none;"></div>
   <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1;">
     <!-- Left: copy -->
-    <div class="reveal">
+    <div class="reveal" data-aos="fade-up">
       <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:20px;background:rgba(0,201,160,.1);border:1px solid rgba(0,201,160,.2);font-size:11px;letter-spacing:3px;color:#00C9A0;font-weight:700;margin-bottom:20px;">
         AI WELLNESS ADVISOR · 智能健康顧問
       </div>
@@ -1436,7 +1461,7 @@
       </a>
     </div>
     <!-- Right: 4 方案預覽卡片 -->
-    <div class="reveal d2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <div class="reveal d2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" data-aos="fade-up" data-aos-delay="200">
       <a href="wellness.html#night" style="padding:20px;border-radius:14px;border:1px solid rgba(99,102,241,.25);background:rgba(99,102,241,.06);text-decoration:none;transition:all .25s;display:block;" data-track-cta="home_ai_plan_night" onmouseover="this.style.borderColor='rgba(99,102,241,.5)'" onmouseout="this.style.borderColor='rgba(99,102,241,.25)'">
         <div style="font-size:24px;margin-bottom:10px;">🌙</div>
         <div style="font-size:13px;font-weight:700;color:#a5b4fc;margin-bottom:6px;">熬夜修復方案</div>
@@ -1476,7 +1501,7 @@
   <div class="glow-orb gold" style="width:400px;height:400px;bottom:-100px;left:10%;opacity:.5;"></div>
 
   <div class="fe-inner">
-    <div class="reveal">
+    <div class="reveal" data-aos="fade-up">
       <div class="fe-tag">Immersive Experience · 沉浸式體驗</div>
       <h2>進入<em>健康生活館</em><br>探索耀德的世界</h2>
       <p>穿越品牌3D虛擬旗艦館、與AI互動獲取專屬健康建議、探索原料產地與工廠製程，在這裡，健康不只是一個目標，而是一段沉浸式的旅程。</p>
@@ -1501,7 +1526,7 @@
       </div>
     </div>
 
-    <div class="fe-grid reveal d3">
+    <div class="fe-grid reveal d3" data-aos="fade-up" data-aos-delay="300">
       <div class="fe-card">
         <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&q=80" alt="森林採集">
         <div class="fe-card-ov">
@@ -1545,7 +1570,7 @@
 <!-- ===== ABOUT ===== -->
 <section style="background:#fff; padding:var(--pad) 0;">
   <div id="about">
-    <div class="about-media reveal">
+    <div class="about-media reveal" data-aos="fade-right">
       <img src="https://images.unsplash.com/photo-1511871893393-82e9c16b81e3?w=900&q=85" alt="牛樟芝研究" class="about-main-img">
       <div class="about-badge">
         <span class="about-badge-num">20<sup style="font-size:.5em">+</sup></span>
@@ -1554,7 +1579,7 @@
       <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?w=500&q=80" alt="實驗室" class="about-accent-img">
     </div>
 
-    <div class="about-text reveal d2">
+    <div class="about-text reveal d2" data-aos="fade-left" data-aos-delay="200">
       <div class="tag-row">
         <div class="tag-line"></div>
         <span class="tag-text">About Us · 關於耀德</span>
@@ -1606,7 +1631,7 @@
 <section id="antrodia">
   <div class="ant-inner">
     <div class="ant-top">
-      <div class="reveal">
+      <div class="reveal" data-aos="fade-up">
         <div class="tag-row">
           <div class="tag-line"></div>
           <span class="tag-text">Antrodia Cinnamomea · 牛樟芝</span>
@@ -1617,7 +1642,7 @@
         </p>
       </div>
 
-      <div class="ant-tabs reveal d2">
+      <div class="ant-tabs reveal d2" data-aos="fade-up" data-aos-delay="200">
         <div class="ant-tab active" onclick="switchTab(this)">
           <span class="ant-num">01</span>
           <div><h4>牛樟芝簡介</h4><p>台灣特有珍稀真菌介紹</p></div>
@@ -1642,7 +1667,7 @@
     </div>
 
     <div class="ant-cards">
-      <div class="ant-card reveal">
+      <div class="ant-card reveal" data-aos="fade-up" data-aos-delay="100">
         <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=700&q=85" alt="牛樟芝多醣體">
         <div class="ant-card-ov">
           <span class="ant-tag">核心成分 · Core</span>
@@ -1653,7 +1678,7 @@
           </div>
         </div>
       </div>
-      <div class="ant-card reveal d2">
+      <div class="ant-card reveal d2" data-aos="fade-up" data-aos-delay="200">
         <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=700&q=85" alt="牛樟芝三萜類">
         <div class="ant-card-ov">
           <span class="ant-tag">核心成分 · Core</span>
@@ -1664,7 +1689,7 @@
           </div>
         </div>
       </div>
-      <div class="ant-card reveal d4">
+      <div class="ant-card reveal d4" data-aos="fade-up" data-aos-delay="300">
         <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=700&q=85" alt="超氧化物歧化酶">
         <div class="ant-card-ov">
           <span class="ant-tag">核心成分 · Core</span>
@@ -1683,14 +1708,14 @@
 <section id="products">
   <div class="prod-inner">
     <div class="prod-head">
-      <div class="reveal">
+      <div class="reveal" data-aos="fade-up">
         <div class="tag-row">
           <div class="tag-line"></div>
           <span class="tag-text">Our Products · 精選系列</span>
         </div>
         <h2 class="section-title">精選產品系列</h2>
       </div>
-      <div class="prod-filters reveal d2">
+      <div class="prod-filters reveal d2" data-aos="fade-up" data-aos-delay="200">
         <button class="f-btn act" onclick="filterProd(this,'all')">全部產品</button>
         <button class="f-btn" onclick="filterProd(this,'energy')">能量補給</button>
         <button class="f-btn" onclick="filterProd(this,'premium')">頂級系列</button>
@@ -1703,7 +1728,7 @@
 
     <div class="prod-grid">
       <!-- 耀德大牛能量氣泡飲 -->
-      <div class="prod-card reveal" data-cat="energy">
+      <div class="prod-card reveal" data-cat="energy" data-aos="fade-up" data-aos-delay="100">
         <div class="prod-img-wrap">
           <img src="images/BigBull/BigBull_4.png" alt="耀德大牛能量氣泡飲" class="prod-img" style="background:#000;">
           <span class="prod-badge" style="background:linear-gradient(135deg,#00897B,#00C9A0);">能量補給</span>
@@ -1717,14 +1742,17 @@
             <span class="ptag">馬卡萃取</span>
             <span class="ptag">台灣製造</span>
           </div>
-          <a href="product-bigbull.html" class="prod-link">
-            深入了解
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-          </a>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;">
+            <a href="product-bigbull.html" class="prod-link">
+              深入了解
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+            </a>
+            <a href="https://demo005.cyberbiz.co/zh-TW/products/%E8%80%80%E5%BE%B7%E5%A4%A7%E7%89%9B%E8%83%BD%E9%87%8F%E6%B0%A3%E6%B3%A1%E9%A3%B2-antrodia-cinnamomea-maca-drink" target="_blank" rel="noopener" class="cta-order-btn">立即體驗</a>
+          </div>
         </div>
       </div>
 
-      <div class="prod-card reveal d1" data-cat="premium">
+      <div class="prod-card reveal d1" data-cat="premium" data-aos="fade-up" data-aos-delay="200">
         <div class="prod-img-wrap">
           <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=700&q=85" alt="頂級牛樟芝膠囊" class="prod-img">
           <span class="prod-badge" style="background:var(--gold);">頂級系列</span>
@@ -1738,14 +1766,17 @@
             <span class="ptag">SGS 認證</span>
             <span class="ptag">野生採收</span>
           </div>
-          <a href="#contact" class="prod-link">
-            深入了解
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-          </a>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;">
+            <a href="product-premium.html" class="prod-link">
+              深入了解
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+            </a>
+            <a href="shop.html" class="cta-order-btn">立即訂購</a>
+          </div>
         </div>
       </div>
 
-      <div class="prod-card reveal d2" data-cat="daily">
+      <div class="prod-card reveal d2" data-cat="daily" data-aos="fade-up" data-aos-delay="300">
         <div class="prod-img-wrap">
           <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=700&q=85" alt="日常保健膠囊" class="prod-img">
           <span class="prod-badge" style="background:var(--green-600);">日常保健</span>
@@ -1759,14 +1790,17 @@
             <span class="ptag">長期適用</span>
             <span class="ptag">衛福部核准</span>
           </div>
-          <a href="#contact" class="prod-link">
-            深入了解
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-          </a>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;">
+            <a href="product-daily.html" class="prod-link">
+              深入了解
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+            </a>
+            <a href="shop.html" class="cta-order-btn">立即補充</a>
+          </div>
         </div>
       </div>
 
-      <div class="prod-card reveal d4" data-cat="extract">
+      <div class="prod-card reveal d4" data-cat="extract" data-aos="fade-up" data-aos-delay="100">
         <div class="prod-img-wrap">
           <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=700&q=85" alt="液態萃取精華" class="prod-img">
           <span class="prod-badge" style="background:var(--green-500);">萃取精華</span>
@@ -1780,15 +1814,18 @@
             <span class="ptag">高倍濃縮</span>
             <span class="ptag">快速吸收</span>
           </div>
-          <a href="product-extract.html" class="prod-link">
-            深入了解
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-          </a>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;">
+            <a href="product-extract.html" class="prod-link">
+              深入了解
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+            </a>
+            <a href="shop.html" class="cta-order-btn">立即訂購</a>
+          </div>
         </div>
       </div>
 
       <!-- 牛樟葉外泌體標靶精華 -->
-      <div class="prod-card reveal" data-cat="biotech">
+      <div class="prod-card reveal" data-cat="biotech" data-aos="fade-up" data-aos-delay="200">
         <div class="prod-img-wrap">
           <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=700&q=85" alt="牛樟葉外泌體標靶精華" class="prod-img">
           <span class="prod-badge" style="background:#7b2d8b;">生技保養</span>
@@ -1802,15 +1839,18 @@
             <span class="ptag">奈米載體</span>
             <span class="ptag">標靶傳遞</span>
           </div>
-          <a href="products.html" class="prod-link">
-            深入了解
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-          </a>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;">
+            <a href="products.html" class="prod-link">
+              深入了解
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+            </a>
+            <a href="shop.html" class="cta-order-btn">開始保養</a>
+          </div>
         </div>
       </div>
 
       <!-- 93 國認證苦瓜胜肽 -->
-      <div class="prod-card reveal d1" data-cat="daily">
+      <div class="prod-card reveal d1" data-cat="daily" data-aos="fade-up" data-aos-delay="300">
         <div class="prod-img-wrap">
           <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=700&q=85" alt="93 國認證苦瓜胜肽" class="prod-img">
           <span class="prod-badge" style="background:#2d7a3a;">日常保健</span>
@@ -1824,15 +1864,18 @@
             <span class="ptag">苦瓜胜肽</span>
             <span class="ptag">專利配方</span>
           </div>
-          <a href="products.html" class="prod-link">
-            深入了解
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-          </a>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;">
+            <a href="products.html" class="prod-link">
+              深入了解
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+            </a>
+            <a href="shop.html" class="cta-order-btn">立即補充</a>
+          </div>
         </div>
       </div>
 
       <!-- 牛樟葉養生茶 -->
-      <div class="prod-card reveal d2" data-cat="beverage">
+      <div class="prod-card reveal d2" data-cat="beverage" data-aos="fade-up" data-aos-delay="400">
         <div class="prod-img-wrap">
           <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=700&q=85" alt="牛樟葉養生茶" class="prod-img">
           <span class="prod-badge" style="background:#5c7a4a;">飲品系列</span>
@@ -1846,10 +1889,13 @@
             <span class="ptag">低溫乾燥</span>
             <span class="ptag">天然多酚</span>
           </div>
-          <a href="products.html" class="prod-link">
-            深入了解
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-          </a>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;">
+            <a href="products.html" class="prod-link">
+              深入了解
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+            </a>
+            <a href="shop.html" class="cta-order-btn">立即體驗</a>
+          </div>
         </div>
       </div>
 
@@ -1860,7 +1906,7 @@
 <!-- ===== REVIEWS HOME ===== -->
 <section id="reviews-home" aria-labelledby="reviews-home-title">
   <div class="rv-home-inner">
-    <div class="reveal" style="text-align:center;margin-bottom:8px;">
+    <div class="reveal" style="text-align:center;margin-bottom:8px;" data-aos="fade-up">
       <div class="tag-row" style="justify-content:center;">
         <div class="tag-line"></div>
         <span class="tag-text">Reviews · 真實評價</span>
@@ -1876,7 +1922,7 @@
 <section id="stats">
   <div class="stats-watermark">YAODE</div>
   <div class="stats-inner">
-    <div class="stat-text reveal">
+    <div class="stat-text reveal" data-aos="fade-right">
       <div class="tag-row">
         <div class="tag-line"></div>
         <span class="tag-text">Our Achievements</span>
@@ -1886,7 +1932,7 @@
       <a href="#about" class="btn-gold" style="margin-top:32px;">關於我們</a>
     </div>
 
-    <div class="stats-grid reveal d2">
+    <div class="stats-grid reveal d2" data-aos="fade-left" data-aos-delay="200">
       <div class="stat-box">
         <div class="stat-num" data-target="20"><span class="cnt">0</span><span class="unit">+</span></div>
         <div class="stat-div"></div>
@@ -1924,23 +1970,23 @@
 <!-- ===== RESEARCH ===== -->
 <section id="research">
   <div class="res-inner">
-    <div class="reveal">
+    <div class="reveal" data-aos="fade-up">
       <div class="tag-row">
         <div class="tag-line"></div>
         <span class="tag-text">Research &amp; Development</span>
       </div>
-      <h2 class="section-title white">科技研發<br>守護健康前線</h2>
+      <h2 class="section-title">科技研發<br>守護健康前線</h2>
     </div>
 
     <div class="res-grid">
-      <div class="res-img-wrap reveal">
+      <div class="res-img-wrap reveal" data-aos="fade-right">
         <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=900&q=85" alt="耀德研究實驗室" class="res-img">
         <div class="res-img-cap">
           <p>YAODE Research Laboratory — Taiwan</p>
         </div>
       </div>
 
-      <div class="res-items reveal d2">
+      <div class="res-items reveal d2" data-aos="fade-left" data-aos-delay="200">
         <div class="res-item">
           <div class="res-head">
             <svg class="res-icon" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.4">
@@ -1991,7 +2037,7 @@
 
 <!-- ===== CERTIFICATIONS TICKER ===== -->
 <section id="certs">
-  <div class="certs-head reveal">
+  <div class="certs-head reveal" data-aos="fade-up">
     <div class="tag-row" style="justify-content:center;">
       <div class="tag-line"></div>
       <span class="tag-text">Certifications · 榮譽認證</span>
@@ -2025,21 +2071,21 @@
 <section id="news">
   <div class="news-inner">
     <div class="news-head">
-      <div class="reveal">
+      <div class="reveal" data-aos="fade-up">
         <div class="tag-row">
           <div class="tag-line"></div>
           <span class="tag-text">Latest News · 最新消息</span>
         </div>
         <h2 class="section-title">新聞中心</h2>
       </div>
-      <a href="#news" class="view-all reveal d2">
+      <a href="#news" class="view-all reveal d2" data-aos="fade-up" data-aos-delay="200">
         查看全部
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
       </a>
     </div>
 
     <div class="news-grid">
-      <a href="#news" class="n-card reveal">
+      <a href="#news" class="n-card reveal" data-aos="fade-up" data-aos-delay="100">
         <div class="n-img-wrap">
           <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=900&q=85" alt="研究新聞" class="n-img" style="height:360px;">
         </div>
@@ -2052,7 +2098,7 @@
         <p class="n-excerpt">耀德植研生醫研究團隊針對牛樟芝三萜類成分的免疫調節機制，歷時三年的深入研究，成果已獲頂級 SCI 國際期刊收錄刊登，引發國際生技學界廣泛關注。</p>
       </a>
 
-      <a href="#news" class="n-card reveal d2">
+      <a href="#news" class="n-card reveal d2" data-aos="fade-up" data-aos-delay="200">
         <div class="n-img-wrap">
           <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&q=85" alt="展覽新聞" class="n-img">
         </div>
@@ -2061,7 +2107,7 @@
         <p class="n-excerpt">耀德植研生醫將於 2026 年台灣生技月攜帶全新產品系列盛大參展，現場展示最新研究成果與產品。</p>
       </a>
 
-      <a href="#news" class="n-card reveal d4">
+      <a href="#news" class="n-card reveal d4" data-aos="fade-up" data-aos-delay="300">
         <div class="n-img-wrap">
           <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=85" alt="認證新聞" class="n-img">
         </div>
@@ -2076,13 +2122,13 @@
 <!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="contact-inner">
-    <div class="contact-info reveal">
+    <div class="contact-info reveal" data-aos="fade-right">
       <div class="tag-row">
         <div class="tag-line"></div>
         <span class="tag-text">Contact Us · 聯絡我們</span>
       </div>
       <h2 class="section-title white" style="margin-bottom:4px;">與我們</h2>
-      <h2 class="section-title gold" style="margin-bottom:28px;">聯繫洽詢</h2>
+      <h2 class="section-title gold" style="margin-bottom:28px;color:#FFCA28 !important;">聯繫洽詢</h2>
       <p class="section-desc white">
         無論您是消費者、醫療機構、或尋求企業合作，我們的專業團隊將以最快速度為您提供最完整的解答與服務。
       </p>
@@ -2138,7 +2184,7 @@
       </div>
     </div>
 
-    <div class="contact-form-wrap reveal d2">
+    <div class="contact-form-wrap reveal d2" data-aos="fade-left" data-aos-delay="200">
       <h3 class="form-title">發送訊息給我們</h3>
       <form id="contactForm" onsubmit="submitForm(event)">
         <div class="f-row">
@@ -2177,13 +2223,13 @@
 </section>
 
 <!-- ===== PHASE 3 IMMERSIVE ENTRY ===== -->
-<section id="phase3-entry" style="background:var(--deep,#071C12);position:relative;overflow:hidden;padding:120px 64px;">
+<section id="phase3-entry" style="background:#071C12;position:relative;overflow:hidden;padding:120px 64px;">
   <canvas id="p3-particles" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
   <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(0,229,204,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,204,.025) 1px,transparent 1px);background-size:60px 60px;z-index:0;pointer-events:none;"></div>
   <div style="max-width:1400px;margin:0 auto;position:relative;z-index:2;">
 
     <!-- Header -->
-    <div style="text-align:center;margin-bottom:72px;" class="reveal">
+    <div style="text-align:center;margin-bottom:72px;" class="reveal" data-aos="fade-up">
       <div style="display:inline-flex;align-items:center;gap:8px;padding:5px 18px;margin-bottom:20px;background:rgba(0,229,204,.08);border:1px solid rgba(0,229,204,.22);border-radius:40px;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#00E5CC;font-weight:600;">
         <span style="width:6px;height:6px;border-radius:50%;background:#00E5CC;display:inline-block;animation:pulse-dot 1.6s ease infinite;"></span>
         Phase 3 · Immersive AI Wellness Platform
@@ -2197,7 +2243,7 @@
     </div>
 
     <!-- 3 Feature Cards -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px;" class="reveal d1" id="p3-cards">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px;" class="reveal d1" id="p3-cards" data-aos="fade-up" data-aos-delay="100">
 
       <!-- 3D Experience -->
       <a href="experience.html" style="display:block;text-decoration:none;background:rgba(5,22,15,.72);backdrop-filter:blur(20px);border:1px solid rgba(0,229,204,.15);border-radius:24px;padding:40px 32px;position:relative;overflow:hidden;cursor:pointer;transition:all .5s cubic-bezier(.34,1.56,.64,1);transform-style:preserve-3d;" class="p3-card" onmouseenter="this.style.transform='translateY(-12px)';this.style.borderColor='rgba(0,229,204,.5)';this.style.boxShadow='0 40px 80px rgba(0,0,0,.5),0 0 40px rgba(0,229,204,.15)'" onmouseleave="this.style.transform='';this.style.borderColor='rgba(0,229,204,.15)';this.style.boxShadow=''">
@@ -2237,7 +2283,7 @@
     </div>
 
     <!-- Tech Stack & Trust -->
-    <div style="display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;" class="reveal d2">
+    <div style="display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;" class="reveal d2" data-aos="fade-up" data-aos-delay="200">
       <div style="font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.25);text-transform:uppercase;">技術驅動</div>
       <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;">
         <span style="padding:5px 14px;background:rgba(0,229,204,.06);border:1px solid rgba(0,229,204,.12);border-radius:20px;font-size:11px;color:rgba(255,255,255,.45);letter-spacing:1px;">Three.js</span>
@@ -2337,11 +2383,7 @@
     });
   });
 
-  // Scroll reveal
-  const ro = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('up'); });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  // Scroll reveal handled by AOS (see AOS init script near </body>)
 
   // Counter animation
   const co = new IntersectionObserver(entries => {
@@ -2492,6 +2534,15 @@
 <script src="analytics.js" defer></script>
 <script src="immersive-engine.js"></script>
 <script src="ai-avatar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    offset: 60
+  });
+</script>
 <script>
 /* Phase 3 Entry Particle Field */
 document.addEventListener('DOMContentLoaded', function() {

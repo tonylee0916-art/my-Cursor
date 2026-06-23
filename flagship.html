@@ -17,8 +17,8 @@
 <!-- ===== NAVBAR ===== -->
 <header id="nav" class="solid">
   <a href="index.html" class="logo">
-    <img src="images/logo/LOGO_4.png" alt="" class="logo-icon-img">
-    <img src="images/logo/LOGO_5.png" alt="耀德植研生醫 YAODER BIOMEDICAL" class="logo-wordmark-img">
+    <img src="images/logo/LOGO_1.png" alt="" class="logo-icon-img">
+    <img src="images/logo/LOGO_2.png" alt="耀德植研生醫 YAODER BIOMEDICAL" class="logo-wordmark-img">
   </a>
 
   <nav class="nav-menu">
@@ -801,103 +801,53 @@
   <div class="glow-orb cyber" style="width:600px;height:600px;top:0;right:-100px;opacity:.15;"></div>
   <div class="glow-orb gold" style="width:400px;height:400px;bottom:0;left:-80px;opacity:.12;"></div>
 
-  <div class="fs-wrap">
-    <div class="reveal" style="text-align:center;margin-bottom:48px;">
-      <div class="fs-tag" style="justify-content:center;">AI Health Advisor · 智能健康顧問</div>
-      <h2 class="fs-title" style="text-align:center;"><span class="cyber">AI</span> 健康推薦</h2>
-      <p class="fs-desc" style="margin:0 auto;text-align:center;">回答兩個問題，我們的智能系統將為您量身推薦最適合的耀德產品組合。</p>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 20% 50%,rgba(0,201,160,.07) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 80% 50%,rgba(255,202,40,.05) 0%,transparent 60%);pointer-events:none;"></div>
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1;">
+    <!-- Left: copy -->
+    <div class="reveal" data-aos="fade-up">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:20px;background:rgba(0,201,160,.1);border:1px solid rgba(0,201,160,.2);font-size:11px;letter-spacing:3px;color:#00C9A0;font-weight:700;margin-bottom:20px;">
+        AI WELLNESS ADVISOR · 智能健康顧問
+      </div>
+      <h2 style="font-size:clamp(28px,4vw,48px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:16px;font-family:'Noto Sans TC',sans-serif;">3 分鐘<span style="color:#FFCA28;">AI 健康分析</span><br>找到最適合你的保健方案</h2>
+      <p style="font-size:15px;color:rgba(255,255,255,.6);line-height:1.85;margin-bottom:28px;max-width:480px;">回答 7 個關於你的生活型態問題——睡眠、壓力、飲食、運動——耀德 AI 引擎將生成你的個人化健康報告，並推薦最適合你的保健組合。</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;">
+        <span style="display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-size:12px;color:rgba(255,255,255,.65);">✓ 免費使用</span>
+        <span style="display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-size:12px;color:rgba(255,255,255,.65);">✓ 3 分鐘完成</span>
+        <span style="display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-size:12px;color:rgba(255,255,255,.65);">✓ 個人化報告</span>
+        <span style="display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-size:12px;color:rgba(255,255,255,.65);">✓ 產品推薦</span>
+      </div>
+      <a href="quiz.html" class="btn-gold" style="display:inline-flex;align-items:center;gap:10px;font-size:15px;padding:15px 36px;min-height:52px;" data-track-cta="flagship_ai_funnel_start">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        開始 AI 分析
+      </a>
     </div>
-
-    <div class="ai-wrap reveal d2">
-      <!-- 步驟指示器 -->
-      <div class="ai-steps">
-        <div class="ai-step-indicator active" id="step-ind-1">步驟 1 · 健康目標</div>
-        <div class="ai-step-indicator" id="step-ind-2">步驟 2 · 年齡族群</div>
-        <div class="ai-step-indicator" id="step-ind-3">推薦結果</div>
-      </div>
-
-      <div class="ai-panels">
-      <!-- 步驟 1：選擇健康目標 -->
-      <div class="ai-panel active" id="ai-panel-1">
-        <p class="ai-question">您最主要的健康目標是什麼？</p>
-        <div class="ai-choices" id="ai-goals">
-          <div class="ai-choice" data-goal="immune" role="button" tabindex="0" aria-pressed="false">
-            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="24" cy="24" r="17"/><path d="M15 24l7 7 11-11"/></svg>
-            <h4>免疫提升</h4>
-            <p>強化免疫系統，提升自然抵抗力</p>
-          </div>
-          <div class="ai-choice" data-goal="liver" role="button" tabindex="0" aria-pressed="false">
-            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M24 8C24 8 10 18 10 30C10 38 16.3 44 24 44C31.7 44 38 38 38 30C38 18 24 8 24 8Z"/><line x1="24" y1="8" x2="24" y2="44" opacity=".3"/></svg>
-            <h4>護肝養身</h4>
-            <p>保護肝臟，調理氣血</p>
-          </div>
-          <div class="ai-choice" data-goal="antiage" role="button" tabindex="0" aria-pressed="false">
-            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M24 8L27.5 16.5L37 17.7L30.5 24L32 33L24 29L16 33L17.5 24L11 17.7L20.5 16.5Z"/></svg>
-            <h4>抗氧化抗老</h4>
-            <p>對抗自由基，延緩老化</p>
-          </div>
-          <div class="ai-choice" data-goal="energy" role="button" tabindex="0" aria-pressed="false">
-            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><polygon points="26,8 14,26 24,26 22,40 34,22 24,22"/></svg>
-            <h4>運動活力</h4>
-            <p>補充能量，增強體能表現</p>
-          </div>
-          <div class="ai-choice" data-goal="sugar" role="button" tabindex="0" aria-pressed="false">
-            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="8" y="8" width="13" height="13" rx="2"/><rect x="27" y="8" width="13" height="13" rx="2"/><rect x="8" y="27" width="13" height="13" rx="2"/><rect x="27" y="27" width="13" height="13" rx="2"/></svg>
-            <h4>控糖代謝</h4>
-            <p>維持正常血糖，促進代謝</p>
-          </div>
-          <div class="ai-choice" data-goal="skin" role="button" tabindex="0" aria-pressed="false">
-            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="24" cy="24" r="14"/><circle cx="24" cy="24" r="7"/><circle cx="24" cy="24" r="2" fill="currentColor" stroke="none"/></svg>
-            <h4>保養護膚</h4>
-            <p>從內而外，滋養肌膚光澤</p>
-          </div>
-        </div>
-        <div class="ai-nav">
-          <button type="button" class="btn-cyber" id="goal-next-btn" onclick="goToStep2(event)" style="display:none;padding:12px 36px;font-size:13px;">
-            下一步
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- 步驟 2：選擇年齡族群 -->
-      <div class="ai-panel" id="ai-panel-2">
-        <p class="ai-question">您的年齡族群是？</p>
-        <div class="ai-choices" id="ai-ages" style="grid-template-columns:repeat(3,1fr);">
-          <div class="ai-choice" data-age="young" role="button" tabindex="0" aria-pressed="false">
-            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M24 10c0 0-8 8-8 16a8 8 0 0 0 16 0c0-8-8-16-8-16z"/><line x1="24" y1="10" x2="24" y2="34" opacity=".3"/></svg>
-            <h4>20 – 35 歲</h4>
-            <p>活力衝刺，預防保健期</p>
-          </div>
-          <div class="ai-choice" data-age="mid" role="button" tabindex="0" aria-pressed="false">
-            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M24 8L27.5 16.5L37 17.7L30.5 24L32 33L24 29L16 33L17.5 24L11 17.7L20.5 16.5Z"/><circle cx="24" cy="40" r="3" fill="currentColor" stroke="none" opacity=".3"/></svg>
-            <h4>36 – 50 歲</h4>
-            <p>精力維持，深度調養期</p>
-          </div>
-          <div class="ai-choice" data-age="senior" role="button" tabindex="0" aria-pressed="false">
-            <svg class="ai-choice-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="24" cy="18" r="8"/><path d="M12 42c0-6.6 5.4-12 12-12s12 5.4 12 12"/></svg>
-            <h4>50 歲以上</h4>
-            <p>全方位保健，維護活力</p>
-          </div>
-        </div>
-        <div class="ai-nav">
-          <button type="button" class="btn-out-w" onclick="goToStep1(event)" style="font-size:12px;letter-spacing:1px;padding:10px 24px;">上一步</button>
-          <button type="button" class="btn-cyber" id="age-next-btn" onclick="showResults(event)" style="display:none;padding:12px 36px;font-size:13px;">
-            查看推薦
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- 結果面板 -->
-      <div class="ai-panel" id="ai-panel-3">
-        <p class="ai-question" id="ai-result-title">為您推薦的最佳組合</p>
-        <div class="ai-result-grid" id="ai-result-grid"></div>
-        <button class="ai-reset" onclick="resetAI()">重新測試</button>
-      </div>
-      </div>
+    <!-- Right: 4 方案預覽卡片 -->
+    <div class="reveal d2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" data-aos="fade-up" data-aos-delay="200">
+      <a href="wellness.html#night" style="padding:20px;border-radius:14px;border:1px solid rgba(99,102,241,.25);background:rgba(99,102,241,.06);text-decoration:none;transition:all .25s;display:block;" data-track-cta="flagship_ai_plan_night" onmouseover="this.style.borderColor='rgba(99,102,241,.5)'" onmouseout="this.style.borderColor='rgba(99,102,241,.25)'">
+        <div style="font-size:24px;margin-bottom:10px;">🌙</div>
+        <div style="font-size:13px;font-weight:700;color:#a5b4fc;margin-bottom:6px;">熬夜修復方案</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.5;">輪班 · 夜貓族<br>深層修復補充</div>
+      </a>
+      <a href="wellness.html#stress" style="padding:20px;border-radius:14px;border:1px solid rgba(239,68,68,.2);background:rgba(239,68,68,.06);text-decoration:none;transition:all .25s;display:block;" data-track-cta="flagship_ai_plan_stress" onmouseover="this.style.borderColor='rgba(239,68,68,.4)'" onmouseout="this.style.borderColor='rgba(239,68,68,.2)'">
+        <div style="font-size:24px;margin-bottom:10px;">⚡</div>
+        <div style="font-size:13px;font-weight:700;color:#fca5a5;margin-bottom:6px;">高壓工作方案</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.5;">辦公室 · 主管族<br>能量免疫雙效</div>
+      </a>
+      <a href="wellness.html#longevity" style="padding:20px;border-radius:14px;border:1px solid rgba(255,202,40,.2);background:rgba(255,202,40,.05);text-decoration:none;transition:all .25s;display:block;" data-track-cta="flagship_ai_plan_longevity" onmouseover="this.style.borderColor='rgba(255,202,40,.4)'" onmouseout="this.style.borderColor='rgba(255,202,40,.2)'">
+        <div style="font-size:24px;margin-bottom:10px;">🌿</div>
+        <div style="font-size:13px;font-weight:700;color:#FFCA28;margin-bottom:6px;">熟齡保養方案</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.5;">46 歲以上<br>抗老化全方位</div>
+      </a>
+      <a href="wellness.html#sport" style="padding:20px;border-radius:14px;border:1px solid rgba(34,197,94,.2);background:rgba(34,197,94,.05);text-decoration:none;transition:all .25s;display:block;" data-track-cta="flagship_ai_plan_sport" onmouseover="this.style.borderColor='rgba(34,197,94,.4)'" onmouseout="this.style.borderColor='rgba(34,197,94,.2)'">
+        <div style="font-size:24px;margin-bottom:10px;">💪</div>
+        <div style="font-size:13px;font-weight:700;color:#86efac;margin-bottom:6px;">運動恢復方案</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.5;">健身 · 運動族<br>肌肉修復補充</div>
+      </a>
     </div>
   </div>
+  <style>
+    @media(max-width:1024px){#ai-recommend>div:last-of-type{grid-template-columns:1fr!important;gap:40px!important;}}
+  </style>
 </section>
 
 <div class="fs-divider"></div>

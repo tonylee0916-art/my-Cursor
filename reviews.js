@@ -39,7 +39,8 @@
     const helpfulKey = `rv-helpful-${r.id}`;
     const voted = localStorage.getItem(helpfulKey);
 
-    return `<article class="pdp-review-card reveal" data-rating="${r.rating}" data-date="${r.date}" data-id="${r.id}">
+    const delay = (opts.index != null) ? opts.index * 100 : 0;
+    return `<article class="pdp-review-card" data-rating="${r.rating}" data-date="${r.date}" data-id="${r.id}" data-aos="fade-up" data-aos-delay="${delay}">
       <div class="pdp-review-header">
         <div class="pdp-review-avatar">${esc(r.name.charAt(0))}</div>
         <div class="pdp-review-meta">
@@ -101,10 +102,12 @@
             <option value="highest"${sort === 'highest' ? ' selected' : ''}>評分最高</option>
           </select>
         </div>
-        <div class="pdp-reviews-list rv-list">${shown.map(r => renderReviewCard(r, { product: data })).join('')}</div>
+        <div class="pdp-reviews-list rv-list">${shown.map((r, i) => renderReviewCard(r, { product: data, index: i })).join('')}</div>
         ${visible < list.length ? `<div class="rv-load-wrap"><button type="button" class="rv-load-more">載入更多評價（${list.length - visible} 則）</button></div>` : ''}
         <p class="rv-disclaimer">※ 以上為消費者個人使用心得，效果因人而異，不代表產品功效之保證。</p>
       `;
+
+      setTimeout(() => { if (window.AOS) AOS.refresh(); }, 50);
 
       root.querySelectorAll('.rv-filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -150,29 +153,18 @@
     const featured = window.YAODER_REVIEWS.featured;
 
     root.innerHTML = `
-      <div class="rv-home-summary reveal">
-        <div class="rv-home-score">
-          <div class="rv-home-big">${brand.rating}</div>
-          ${stars(Math.round(brand.rating), 5)}
-          <p>${brand.count}+ 則真實評價 · ${brand.verifiedRate}% 已驗證購買</p>
-        </div>
-        <div class="rv-home-stats">
-          <div class="rv-home-stat"><strong>4.9</strong><span>大牛氣泡飲</span></div>
-          <div class="rv-home-stat"><strong>4.9</strong><span>頂級膠囊</span></div>
-          <div class="rv-home-stat"><strong>5.0</strong><span>萃取精華</span></div>
-          <div class="rv-home-stat"><strong>4.7</strong><span>日常膠囊</span></div>
-        </div>
-      </div>
       <div class="rv-home-grid">
-        ${featured.map(r => {
+        ${featured.map((r, i) => {
           const p = window.YAODER_REVIEWS[r.productId];
-          return renderReviewCard(r, { product: p, showProduct: true });
+          return renderReviewCard(r, { product: p, showProduct: true, index: i });
         }).join('')}
       </div>
-      <div class="rv-home-cta">
+      <div class="rv-home-cta" data-aos="fade-up" data-aos-delay="400">
         <a href="product-bigbull.html#pdp-reviews" class="btn-gold btn-sm" data-track-cta="home_reviews_cta">查看所有評價</a>
       </div>
     `;
+
+    setTimeout(() => { if (window.AOS) AOS.refresh(); }, 50);
 
     root.querySelectorAll('.rv-helpful-btn').forEach(btn => {
       btn.addEventListener('click', () => {

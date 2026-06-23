@@ -66,9 +66,7 @@ window.YAODER_REVIEWS.featured = [
   { productId: 'bigbull', ...window.YAODER_REVIEWS.bigbull.reviews[0] },
   { productId: 'premium', ...window.YAODER_REVIEWS.premium.reviews[0] },
   { productId: 'extract', ...window.YAODER_REVIEWS.extract.reviews[0] },
-  { productId: 'daily', ...window.YAODER_REVIEWS.daily.reviews[0] },
-  { productId: 'premium', ...window.YAODER_REVIEWS.premium.reviews[1] },
-  { productId: 'bigbull', ...window.YAODER_REVIEWS.bigbull.reviews[1] }
+  { productId: 'daily',   ...window.YAODER_REVIEWS.daily.reviews[0]   }
 ];
 
 window.YAODER_REVIEWS.brand = {

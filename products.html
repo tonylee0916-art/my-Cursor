@@ -15,9 +15,8 @@
     .prod-head-row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; flex-wrap: wrap; gap: 24px; }
     .intro-banner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: var(--pad) 64px; background: var(--g700); }
     .intro-banner img { width: 100%; height: 420px; object-fit: cover; }
-    .breadcrumb-bar { background: var(--g800); border-top: 1px solid rgba(255,255,255,0.07); padding: calc(var(--nav-h) + 6px) 64px 6px; }
-    @media(max-width:1024px){ .prod-grid-3{grid-template-columns:1fr 1fr} .intro-banner{grid-template-columns:1fr;padding:64px 40px} .breadcrumb-bar{padding-left:40px;padding-right:40px} }
-    @media(max-width:768px){ .prod-grid-3{grid-template-columns:1fr} .prod-head-row{flex-direction:column;align-items:flex-start} .intro-banner{padding:64px 24px} .breadcrumb-bar{padding-left:24px;padding-right:24px} }
+    @media(max-width:1024px){ .prod-grid-3{grid-template-columns:1fr 1fr} .intro-banner{grid-template-columns:1fr;padding:64px 40px} }
+    @media(max-width:768px){ .prod-grid-3{grid-template-columns:1fr} .prod-head-row{flex-direction:column;align-items:flex-start} .intro-banner{padding:64px 24px} }
   </style>
 </head>
 <body>
@@ -30,6 +29,7 @@
     <div class="nav-item"><a href="about.html" class="nav-link">關於耀德 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="about.html#philosophy">品牌理念與願景</a><a href="about.html#rd">核心研發策略</a><a href="about.html#history">公司沿革</a><a href="about.html#certs">認證資質</a></div></div>
     <div class="nav-item"><a href="antrodia.html" class="nav-link">認識牛樟芝 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="antrodia.html#intro">牛樟芝簡介</a><a href="antrodia.html#ingredients">活性物成分</a><a href="antrodia.html#research">科學研究</a><a href="antrodia.html#usage">食用方式</a><a href="antrodia.html#reaction">暝眩反應說明</a></div></div>
     <div class="nav-item"><a href="products.html" class="nav-link active">產品介紹 <svg class="chevron" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3"/></svg></a><div class="dropdown"><a href="product-bigbull.html">能量補給</a><a href="product-premium.html">頂級系列</a><a href="product-daily.html">日常保健</a><a href="product-extract.html">萃取精華</a><a href="shop.html">購物商城</a></div></div>
+    <div class="nav-item"><a href="wellness.html" class="nav-link">健康方案</a></div>
     <div class="nav-item"><a href="sustainability.html" class="nav-link">大地永續</a>
     </div>
     <div class="nav-item"><a href="news.html" class="nav-link">新聞中心</a></div>
@@ -43,13 +43,8 @@
 </header>
 <div class="mobile-menu" id="mobMenu">
   <span class="close-btn" onclick="toggleMenu()">×</span>
-  <a href="index.html" onclick="toggleMenu()">首頁</a><a href="about.html" onclick="toggleMenu()">關於耀德</a><a href="antrodia.html" onclick="toggleMenu()">認識牛樟芝</a><a href="products.html" onclick="toggleMenu()">產品介紹</a><a href="sustainability.html" onclick="toggleMenu()">大地永續</a><a href="news.html" onclick="toggleMenu()">新聞中心</a><a href="contact.html" onclick="toggleMenu()">聯絡我們</a><a href="flagship.html" onclick="toggleMenu()" style="color:var(--cyber) !important;">健康生活館</a>
+  <a href="index.html" onclick="toggleMenu()">首頁</a><a href="about.html" onclick="toggleMenu()">關於耀德</a><a href="antrodia.html" onclick="toggleMenu()">認識牛樟芝</a><a href="products.html" onclick="toggleMenu()">產品介紹</a><a href="wellness.html" onclick="toggleMenu()">健康方案</a><a href="sustainability.html" onclick="toggleMenu()">大地永續</a><a href="news.html" onclick="toggleMenu()">新聞中心</a><a href="contact.html" onclick="toggleMenu()">聯絡我們</a><a href="flagship.html" onclick="toggleMenu()" style="color:var(--cyber) !important;">健康生活館</a>
   <div class="mob-btns"><a href="member.html">加入會員</a><a href="login.html" class="gold-btn">登入</a></div>
-</div>
-
-<!-- BREADCRUMB -->
-<div class="breadcrumb-bar">
-  <div class="wrap"><div class="breadcrumb"><a href="index.html">首頁</a><span class="sep">›</span><span>產品介紹</span></div></div>
 </div>
 
 <!-- HERO -->
@@ -102,7 +97,7 @@
             <div class="prod-price">NT$3,096<small style="font-size:12px;color:var(--muted);font-family:'Noto Sans TC',sans-serif;">/箱(24入)</small></div>
             <div class="prod-actions">
               <a href="product-bigbull.html" class="prod-link">詳情 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></a>
-              <a href="https://demo005.cyberbiz.co/zh-TW/products/%E8%80%80%E5%BE%B7%E5%A4%A7%E7%89%9B%E8%83%BD%E9%87%8F%E6%B0%A3%E6%B3%A1%E9%A3%B2-antrodia-cinnamomea-maca-drink" target="_blank" rel="noopener" class="add-cart">前往購買</a>
+              <a href="https://demo005.cyberbiz.co/zh-TW/products/%E8%80%80%E5%BE%B7%E5%A4%A7%E7%89%9B%E8%83%BD%E9%87%8F%E6%B0%A3%E6%B3%A1%E9%A3%B2-antrodia-cinnamomea-maca-drink" target="_blank" rel="noopener" class="add-cart">立即訂購</a>
             </div>
           </div>
         </div>
@@ -123,7 +118,7 @@
             <div class="prod-price">NT$5,800<small style="font-size:12px;color:var(--muted);font-family:'Noto Sans TC',sans-serif;">/瓶(60粒)</small></div>
             <div class="prod-actions">
               <a href="product-premium.html" class="prod-link">詳情 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></a>
-              <a href="shop.html" class="add-cart">前往購買</a>
+              <a href="shop.html" class="add-cart">立即訂購</a>
             </div>
           </div>
         </div>
@@ -144,7 +139,7 @@
             <div class="prod-price">NT$1,800<small style="font-size:12px;color:var(--muted);font-family:'Noto Sans TC',sans-serif;">/瓶(90粒)</small></div>
             <div class="prod-actions">
               <a href="product-daily.html" class="prod-link">詳情 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></a>
-              <a href="shop.html" class="add-cart">前往購買</a>
+              <a href="shop.html" class="add-cart">立即訂購</a>
             </div>
           </div>
         </div>
@@ -165,7 +160,7 @@
             <div class="prod-price">NT$4,800<small style="font-size:12px;color:var(--muted);font-family:'Noto Sans TC',sans-serif;">/瓶(30ml)</small></div>
             <div class="prod-actions">
               <a href="product-extract.html" class="prod-link">詳情 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></a>
-              <a href="shop.html" class="add-cart">前往購買</a>
+              <a href="shop.html" class="add-cart">立即訂購</a>
             </div>
           </div>
         </div>
@@ -186,7 +181,7 @@
             <div class="prod-price">NT$3,200<small style="font-size:12px;color:var(--muted);font-family:'Noto Sans TC',sans-serif;">/瓶(30ml)</small></div>
             <div class="prod-actions">
               <a href="shop.html" class="prod-link">詳情 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></a>
-              <a href="shop.html" class="add-cart">前往購買</a>
+              <a href="shop.html" class="add-cart">開始保養</a>
             </div>
           </div>
         </div>
@@ -207,7 +202,7 @@
             <div class="prod-price">NT$2,400<small style="font-size:12px;color:var(--muted);font-family:'Noto Sans TC',sans-serif;">/盒(60粒)</small></div>
             <div class="prod-actions">
               <a href="shop.html" class="prod-link">詳情 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></a>
-              <a href="shop.html" class="add-cart">前往購買</a>
+              <a href="shop.html" class="add-cart">立即補充</a>
             </div>
           </div>
         </div>
@@ -228,7 +223,7 @@
             <div class="prod-price">NT$980<small style="font-size:12px;color:var(--muted);font-family:'Noto Sans TC',sans-serif;">/盒(30包)</small></div>
             <div class="prod-actions">
               <a href="shop.html" class="prod-link">詳情 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M8 3l5 5-5 5"/></svg></a>
-              <a href="shop.html" class="add-cart">前往購買</a>
+              <a href="shop.html" class="add-cart">立即體驗</a>
             </div>
           </div>
         </div>
